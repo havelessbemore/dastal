@@ -1,0 +1,7 @@
+{
+    "entryPoints": ["src/index.ts"],
+    "includeVersion": true,
+    "out": "docs",
+    "readme": "none",
+    "plugin": "typedoc-plugin-markdown"
+}
