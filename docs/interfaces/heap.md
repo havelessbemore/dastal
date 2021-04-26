@@ -29,7 +29,6 @@
 - [clear](heap.md#clear)
 - [comparator](heap.md#comparator)
 - [heapify](heap.md#heapify)
-- [meld](heap.md#meld)
 - [merge](heap.md#merge)
 - [peek](heap.md#peek)
 - [pop](heap.md#pop)
@@ -44,7 +43,7 @@
 
 • `Readonly` **size**: *number*
 
-Defined in: structures/heap/heap.ts:14
+Defined in: [structures/heap/heap.ts:13](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L13)
 
 ## Methods
 
@@ -54,7 +53,7 @@ Defined in: structures/heap/heap.ts:14
 
 **Returns:** *void*
 
-Defined in: structures/heap/heap.ts:4
+Defined in: [structures/heap/heap.ts:4](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L4)
 
 ___
 
@@ -66,39 +65,23 @@ ___
 
 Overrides: Sorted.comparator
 
-Defined in: structures/heap/heap.ts:5
+Defined in: [structures/heap/heap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L5)
 
 ___
 
 ### heapify
 
-▸ **heapify**(`iterable`: *Iterable*<T\>): [*Heap*](heap.md)<T\>
+▸ **heapify**(...`iterables`: *Iterable*<T\>[]): [*Heap*](heap.md)<T\>
 
 #### Parameters:
 
 | Name | Type |
 | :------ | :------ |
-| `iterable` | *Iterable*<T\> |
+| `...iterables` | *Iterable*<T\>[] |
 
 **Returns:** [*Heap*](heap.md)<T\>
 
-Defined in: structures/heap/heap.ts:6
-
-___
-
-### meld
-
-▸ **meld**(`heap`: [*Heap*](heap.md)<T\>): [*Heap*](heap.md)<T\>
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `heap` | [*Heap*](heap.md)<T\> |
-
-**Returns:** [*Heap*](heap.md)<T\>
-
-Defined in: structures/heap/heap.ts:7
+Defined in: [structures/heap/heap.ts:6](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L6)
 
 ___
 
@@ -114,7 +97,7 @@ ___
 
 **Returns:** [*Heap*](heap.md)<T\>
 
-Defined in: structures/heap/heap.ts:8
+Defined in: [structures/heap/heap.ts:7](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L7)
 
 ___
 
@@ -124,7 +107,7 @@ ___
 
 **Returns:** *undefined* \| T
 
-Defined in: structures/heap/heap.ts:9
+Defined in: [structures/heap/heap.ts:8](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L8)
 
 ___
 
@@ -134,55 +117,55 @@ ___
 
 **Returns:** *undefined* \| T
 
-Defined in: structures/heap/heap.ts:10
+Defined in: [structures/heap/heap.ts:9](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L9)
 
 ___
 
 ### push
 
-▸ **push**(`value`: T): *void*
+▸ **push**(`element`: T): *void*
 
 #### Parameters:
 
 | Name | Type |
 | :------ | :------ |
-| `value` | T |
+| `element` | T |
 
 **Returns:** *void*
 
-Defined in: structures/heap/heap.ts:12
+Defined in: [structures/heap/heap.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L11)
 
 ___
 
 ### pushPop
 
-▸ **pushPop**(`value`: T): T
+▸ **pushPop**(`element`: T): T
 
 #### Parameters:
 
 | Name | Type |
 | :------ | :------ |
-| `value` | T |
+| `element` | T |
 
 **Returns:** T
 
-Defined in: structures/heap/heap.ts:13
+Defined in: [structures/heap/heap.ts:12](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L12)
 
 ___
 
 ### replace
 
-▸ **replace**(`value`: T): T
+▸ **replace**(`element`: T): T
 
 #### Parameters:
 
 | Name | Type |
 | :------ | :------ |
-| `value` | T |
+| `element` | T |
 
 **Returns:** T
 
-Defined in: structures/heap/heap.ts:11
+Defined in: [structures/heap/heap.ts:10](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L10)
 
 ___
 
@@ -192,4 +175,4 @@ ___
 
 **Returns:** T[]
 
-Defined in: structures/heap/heap.ts:15
+Defined in: [structures/heap/heap.ts:14](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L14)

@@ -19,9 +19,9 @@
 
 ### next
 
-• `Optional` **next**: [*LinkedNode*](linkednode.md)<T\>
+• **next**: [*LinkedNode*](linkednode.md)<T\>
 
-Defined in: structures/queue/linkedQueue.ts:4
+Defined in: [structures/list/linkedList.ts:4](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L4)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **value**: T
 
-Defined in: structures/queue/linkedQueue.ts:5
+Defined in: [structures/list/linkedList.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L5)

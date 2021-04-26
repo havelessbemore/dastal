@@ -36,7 +36,7 @@
 
 The number of elements in this queue
 
-Defined in: structures/queue/queue.ts:29
+Defined in: [structures/queue/queue.ts:29](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L29)
 
 ## Methods
 
@@ -48,21 +48,21 @@ Removes all elements from this queue
 
 **Returns:** *void*
 
-Defined in: structures/queue/queue.ts:5
+Defined in: [structures/queue/queue.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L5)
 
 ___
 
 ### dequeue
 
-▸ **dequeue**(): ``null`` \| T
+▸ **dequeue**(): *undefined* \| T
 
 Retrieves and removes the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
-The value at the head of the queue or `null` if this queue is empty.
+The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: structures/queue/queue.ts:11
+Defined in: [structures/queue/queue.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L11)
 
 ___
 
@@ -82,21 +82,21 @@ Inserts the specified value into this queue
 
 `true` upon success, otherwise `false`
 
-Defined in: structures/queue/queue.ts:19
+Defined in: [structures/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L19)
 
 ___
 
 ### peek
 
-▸ **peek**(): ``null`` \| T
+▸ **peek**(): *undefined* \| T
 
 Retrieves, but does not remove, the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
-The value at the head of the queue or `null` if this queue is empty.
+The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: structures/queue/queue.ts:25
+Defined in: [structures/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L25)
 
 ___
 
@@ -108,4 +108,4 @@ Convert the queue into an array
 
 **Returns:** T[]
 
-Defined in: structures/queue/queue.ts:33
+Defined in: [structures/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L33)

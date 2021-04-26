@@ -20,8 +20,7 @@
 
 ### Properties
 
-- [length](linkedqueue.md#length)
-- [tail](linkedqueue.md#tail)
+- [list](linkedqueue.md#list)
 
 ### Accessors
 
@@ -39,7 +38,7 @@
 
 ### constructor
 
-\+ **new LinkedQueue**<T\>(): [*LinkedQueue*](linkedqueue.md)<T\>
+\+ **new LinkedQueue**<T\>(`list?`: [*List*](../interfaces/list.md)<T\>): [*LinkedQueue*](linkedqueue.md)<T\>
 
 #### Type parameters:
 
@@ -47,25 +46,23 @@
 | :------ |
 | `T` |
 
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `list` | [*List*](../interfaces/list.md)<T\> |
+
 **Returns:** [*LinkedQueue*](linkedqueue.md)<T\>
 
-Defined in: structures/queue/linkedQueue.ts:10
+Defined in: [structures/queue/linkedQueue.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L5)
 
 ## Properties
 
-### length
+### list
 
-• `Protected` **length**: *number*
+• `Protected` **list**: [*List*](../interfaces/list.md)<T\>
 
-Defined in: structures/queue/linkedQueue.ts:9
-
-___
-
-### tail
-
-• `Protected` `Optional` **tail**: [*LinkedNode*](../interfaces/linkednode.md)<T\>
-
-Defined in: structures/queue/linkedQueue.ts:10
+Defined in: [structures/queue/linkedQueue.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L5)
 
 ## Accessors
 
@@ -79,7 +76,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: structures/queue/linkedQueue.ts:54
+Defined in: [structures/queue/linkedQueue.ts:27](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L27)
 
 ## Methods
 
@@ -93,21 +90,21 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/linkedQueue.ts:16
+Defined in: [structures/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L11)
 
 ___
 
 ### dequeue
 
-▸ **dequeue**(): ``null`` \| T
+▸ **dequeue**(): *undefined* \| T
 
 Retrieves and removes the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/linkedQueue.ts:21
+Defined in: [structures/queue/linkedQueue.ts:15](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L15)
 
 ___
 
@@ -127,21 +124,21 @@ Inserts the specified value into this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/linkedQueue.ts:35
+Defined in: [structures/queue/linkedQueue.ts:19](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L19)
 
 ___
 
 ### peek
 
-▸ **peek**(): ``null`` \| T
+▸ **peek**(): *undefined* \| T
 
 Retrieves, but does not remove, the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/linkedQueue.ts:50
+Defined in: [structures/queue/linkedQueue.ts:23](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L23)
 
 ___
 
@@ -155,4 +152,4 @@ Convert the queue into an array
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/linkedQueue.ts:58
+Defined in: [structures/queue/linkedQueue.ts:31](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/linkedQueue.ts#L31)

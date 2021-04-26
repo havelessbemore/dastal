@@ -6,9 +6,9 @@ export interface Queue<T> {
     /**
      * Retrieves and removes the head of this queue
      *
-     * @returns The value at the head of the queue or `null` if this queue is empty.
+     * @returns The value at the head of the queue or `undefined` if this queue is empty.
      */
-    dequeue(): T | null;
+    dequeue(): T | undefined;
     /**
      * Inserts the specified value into this queue
      *
@@ -20,9 +20,9 @@ export interface Queue<T> {
     /**
      * Retrieves, but does not remove, the head of this queue
      *
-     * @returns The value at the head of the queue or `null` if this queue is empty.
+     * @returns The value at the head of the queue or `undefined` if this queue is empty.
      */
-    peek(): T | null;
+    peek(): T | undefined;
     /**
      * The number of elements in this queue
      */

@@ -56,7 +56,7 @@
 
 **Returns:** [*PriorityQueue*](priorityqueue.md)<T\>
 
-Defined in: structures/queue/priorityQueue.ts:5
+Defined in: [structures/queue/priorityQueue.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L5)
 
 ## Properties
 
@@ -76,7 +76,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: structures/queue/priorityQueue.ts:29
+Defined in: [structures/queue/priorityQueue.ts:29](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L29)
 
 ## Methods
 
@@ -90,7 +90,7 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/priorityQueue.ts:8
+Defined in: [structures/queue/priorityQueue.ts:8](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L8)
 
 ___
 
@@ -102,21 +102,21 @@ ___
 
 Implementation of: Sorted.comparator
 
-Defined in: structures/queue/priorityQueue.ts:12
+Defined in: [structures/queue/priorityQueue.ts:12](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L12)
 
 ___
 
 ### dequeue
 
-▸ **dequeue**(): ``null`` \| T
+▸ **dequeue**(): *undefined* \| T
 
 Retrieves and removes the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/priorityQueue.ts:21
+Defined in: [structures/queue/priorityQueue.ts:21](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L21)
 
 ___
 
@@ -136,21 +136,21 @@ Inserts the specified value into this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/priorityQueue.ts:16
+Defined in: [structures/queue/priorityQueue.ts:16](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L16)
 
 ___
 
 ### peek
 
-▸ **peek**(): ``null`` \| T
+▸ **peek**(): *undefined* \| T
 
 Retrieves, but does not remove, the head of this queue
 
-**Returns:** ``null`` \| T
+**Returns:** *undefined* \| T
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/priorityQueue.ts:25
+Defined in: [structures/queue/priorityQueue.ts:25](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L25)
 
 ___
 
@@ -164,4 +164,4 @@ Convert the queue into an array
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: structures/queue/priorityQueue.ts:33
+Defined in: [structures/queue/priorityQueue.ts:33](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/priorityQueue.ts#L33)

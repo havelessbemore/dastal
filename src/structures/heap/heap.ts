@@ -3,14 +3,16 @@ import { Comparator, Sorted } from '../../comparable';
 export interface Heap<T> extends Sorted<T> {
     clear(): void;
     comparator(): Comparator<T>;
-    heapify(iterable: Iterable<T>): Heap<T>;
-    meld(heap: Heap<T>): Heap<T>;
+    heapify(...iterables: Iterable<T>[]): Heap<T>;
     merge(heap: Heap<T>): Heap<T>;
     peek(): T | undefined;
     pop(): T | undefined; // Aka extract, delete
-    replace(value: T): T; // Aka popPush
-    push(value: T): void; // Aka insert, add
-    pushPop(value: T): T;
+    replace(element: T): T; // Aka popPush
+    push(element: T): void; // Aka insert, add
+    pushPop(element: T): T;
     readonly size: number;
     toArray(): T[];
+    // contains(element: T): boolean;
+    // delete(element: T): boolean;
+    // update(element: T): boolean;
 }

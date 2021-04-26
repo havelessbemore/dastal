@@ -10,6 +10,7 @@ dastal - v1.0.0
 - [BinaryHeap](classes/binaryheap.md)
 - [BinaryMaxHeap](classes/binarymaxheap.md)
 - [BinaryMinHeap](classes/binaryminheap.md)
+- [LinkedList](classes/linkedlist.md)
 - [LinkedQueue](classes/linkedqueue.md)
 - [PriorityQueue](classes/priorityqueue.md)
 
@@ -17,4 +18,5 @@ dastal - v1.0.0
 
 - [Heap](interfaces/heap.md)
 - [LinkedNode](interfaces/linkednode.md)
+- [List](interfaces/list.md)
 - [Queue](interfaces/queue.md)

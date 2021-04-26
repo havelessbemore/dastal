@@ -31,14 +31,16 @@
 
 ### Methods
 
+- [\_ate](binaryminheap.md#_ate)
 - [\_bubbleUp](binaryminheap.md#_bubbleup)
+- [\_find](binaryminheap.md#_find)
 - [\_heapify](binaryminheap.md#_heapify)
 - [\_sinkDown](binaryminheap.md#_sinkdown)
-- [ate](binaryminheap.md#ate)
 - [clear](binaryminheap.md#clear)
 - [comparator](binaryminheap.md#comparator)
+- [contains](binaryminheap.md#contains)
+- [delete](binaryminheap.md#delete)
 - [heapify](binaryminheap.md#heapify)
-- [meld](binaryminheap.md#meld)
 - [merge](binaryminheap.md#merge)
 - [peek](binaryminheap.md#peek)
 - [pop](binaryminheap.md#pop)
@@ -46,6 +48,7 @@
 - [pushPop](binaryminheap.md#pushpop)
 - [replace](binaryminheap.md#replace)
 - [toArray](binaryminheap.md#toarray)
+- [update](binaryminheap.md#update)
 
 ## Constructors
 
@@ -70,7 +73,7 @@
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:5
+Defined in: [structures/heap/binaryHeap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L5)
 
 ## Properties
 
@@ -80,7 +83,7 @@ Defined in: structures/heap/binaryHeap.ts:5
 
 Inherited from: [BinaryHeap](binaryheap.md).[_comparator](binaryheap.md#_comparator)
 
-Defined in: structures/heap/binaryHeap.ts:5
+Defined in: [structures/heap/binaryHeap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L5)
 
 ___
 
@@ -98,9 +101,28 @@ Inherited from: [BinaryHeap](binaryheap.md).[array](binaryheap.md#array)
 
 **Returns:** *number*
 
-Defined in: structures/heap/binaryHeap.ts:101
+Defined in: [structures/heap/binaryHeap.ts:132](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L132)
 
 ## Methods
+
+### \_ate
+
+▸ `Protected`**_ate**(`a`: T, `b`: T): *boolean*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `a` | T |
+| `b` | T |
+
+**Returns:** *boolean*
+
+Overrides: [BinaryHeap](binaryheap.md)
+
+Defined in: [structures/heap/binaryMinHeap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryMinHeap.ts#L5)
+
+___
 
 ### \_bubbleUp
 
@@ -117,7 +139,25 @@ Defined in: structures/heap/binaryHeap.ts:101
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:105
+Defined in: [structures/heap/binaryHeap.ts:146](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L146)
+
+___
+
+### \_find
+
+▸ `Protected`**_find**(`element`: T): *number*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
+
+**Returns:** *number*
+
+Inherited from: [BinaryHeap](binaryheap.md)
+
+Defined in: [structures/heap/binaryHeap.ts:14](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L14)
 
 ___
 
@@ -135,7 +175,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:15
+Defined in: [structures/heap/binaryHeap.ts:24](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L24)
 
 ___
 
@@ -154,26 +194,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:126
-
-___
-
-### ate
-
-▸ `Protected`**ate**(`a`: T, `b`: T): *boolean*
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `a` | T |
-| `b` | T |
-
-**Returns:** *boolean*
-
-Overrides: [BinaryHeap](binaryheap.md)
-
-Defined in: structures/heap/binaryMinHeap.ts:5
+Defined in: [structures/heap/binaryHeap.ts:167](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L167)
 
 ___
 
@@ -185,7 +206,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:22
+Defined in: [structures/heap/binaryHeap.ts:31](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L31)
 
 ___
 
@@ -197,43 +218,61 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:26
+Defined in: [structures/heap/binaryHeap.ts:35](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L35)
+
+___
+
+### contains
+
+▸ **contains**(`element`: T): *boolean*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
+
+**Returns:** *boolean*
+
+Inherited from: [BinaryHeap](binaryheap.md)
+
+Defined in: [structures/heap/binaryHeap.ts:39](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L39)
+
+___
+
+### delete
+
+▸ **delete**(`element`: T): *boolean*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
+
+**Returns:** *boolean*
+
+Inherited from: [BinaryHeap](binaryheap.md)
+
+Defined in: [structures/heap/binaryHeap.ts:43](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L43)
 
 ___
 
 ### heapify
 
-▸ **heapify**(`iterable`: *Iterable*<T\>): [*BinaryMinHeap*](binaryminheap.md)<T\>
+▸ **heapify**(...`iterables`: *Iterable*<T\>[]): [*BinaryMinHeap*](binaryminheap.md)<T\>
 
 #### Parameters:
 
 | Name | Type |
 | :------ | :------ |
-| `iterable` | *Iterable*<T\> |
+| `...iterables` | *Iterable*<T\>[] |
 
 **Returns:** [*BinaryMinHeap*](binaryminheap.md)<T\>
 
 Overrides: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryMinHeap.ts:9
-
-___
-
-### meld
-
-▸ **meld**(`heap`: [*Heap*](../interfaces/heap.md)<T\>): [*BinaryMinHeap*](binaryminheap.md)<T\>
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `heap` | [*Heap*](../interfaces/heap.md)<T\> |
-
-**Returns:** [*BinaryMinHeap*](binaryminheap.md)<T\>
-
-Overrides: [BinaryHeap](binaryheap.md)
-
-Defined in: structures/heap/binaryMinHeap.ts:15
+Defined in: [structures/heap/binaryMinHeap.ts:9](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryMinHeap.ts#L9)
 
 ___
 
@@ -251,7 +290,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:30
+Defined in: [structures/heap/binaryHeap.ts:62](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L62)
 
 ___
 
@@ -263,7 +302,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:39
+Defined in: [structures/heap/binaryHeap.ts:70](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L70)
 
 ___
 
@@ -275,7 +314,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:43
+Defined in: [structures/heap/binaryHeap.ts:74](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L74)
 
 ___
 
@@ -293,7 +332,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:63
+Defined in: [structures/heap/binaryHeap.ts:94](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L94)
 
 ___
 
@@ -311,7 +350,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:72
+Defined in: [structures/heap/binaryHeap.ts:103](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L103)
 
 ___
 
@@ -329,7 +368,7 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:86
+Defined in: [structures/heap/binaryHeap.ts:117](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L117)
 
 ___
 
@@ -341,4 +380,22 @@ ___
 
 Inherited from: [BinaryHeap](binaryheap.md)
 
-Defined in: structures/heap/binaryHeap.ts:157
+Defined in: [structures/heap/binaryHeap.ts:198](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L198)
+
+___
+
+### update
+
+▸ **update**(`element`: T): *boolean*
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
+
+**Returns:** *boolean*
+
+Inherited from: [BinaryHeap](binaryheap.md)
+
+Defined in: [structures/heap/binaryHeap.ts:136](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L136)

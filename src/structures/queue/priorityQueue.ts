@@ -18,12 +18,12 @@ export class PriorityQueue<T> implements Queue<T>, Sorted<T> {
         return true;
     }
 
-    dequeue(): T | null {
-        return this.heap.pop() || null;
+    dequeue(): T | undefined {
+        return this.heap.pop();
     }
 
-    peek(): T | null {
-        return this.heap.peek() || null;
+    peek(): T | undefined {
+        return this.heap.peek();
     }
 
     get size(): number {

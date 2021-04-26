@@ -12,12 +12,12 @@ export class ArrayQueue<T> implements Queue<T> {
         return true;
     }
 
-    dequeue(): T | null {
-        return this.size < 1 ? null : this.array.shift()!;
+    dequeue(): T | undefined {
+        return this.size < 1 ? undefined : this.array.shift()!;
     }
 
-    peek(): T | null {
-        return this.size < 1 ? null : this.array[0];
+    peek(): T | undefined {
+        return this.size < 1 ? undefined : this.array[0];
     }
 
     get size(): number {

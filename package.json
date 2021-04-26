@@ -29,7 +29,7 @@
     "web": "npm run build && webpack",
     "wiki": "rm -rf ./wiki/* && typedoc --options typedoc.wiki.json"
   },
-  "keywords": [],
+  "keywords": ["algorithm", "collections", "data structures", "heap", "queue", "structures", "typescript"],
   "author": "dev.michael.rojas@gmail.com",
   "license": "ISC",
   "devDependencies": {
