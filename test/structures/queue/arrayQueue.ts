@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-describe('Options tests', () => {
+describe('ArrayQueue tests', () => {
     it('checking default options', () => { // the single test
         expect(1).to.equal(1);
     });
