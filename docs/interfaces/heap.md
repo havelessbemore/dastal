@@ -10,7 +10,7 @@
 
 ## Hierarchy
 
-* *Sorted*<T\>
+* [*Sorted*](sorted.md)<T\>
 
   ↳ **Heap**
 
@@ -43,7 +43,7 @@
 
 • `Readonly` **size**: *number*
 
-Defined in: [structures/heap/heap.ts:13](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L13)
+Defined in: [structures/heap/heap.ts:14](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L14)
 
 ## Methods
 
@@ -53,19 +53,19 @@ Defined in: [structures/heap/heap.ts:13](https://github.com/havelessbemore/dasta
 
 **Returns:** *void*
 
-Defined in: [structures/heap/heap.ts:4](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L4)
+Defined in: [structures/heap/heap.ts:5](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L5)
 
 ___
 
 ### comparator
 
-▸ **comparator**(): *Comparator*<T\>
+▸ **comparator**(): [*Comparator*](comparator.md)<T\>
 
-**Returns:** *Comparator*<T\>
+**Returns:** [*Comparator*](comparator.md)<T\>
 
-Overrides: Sorted.comparator
+Overrides: [Sorted](sorted.md)
 
-Defined in: [structures/heap/heap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L5)
+Defined in: [structures/heap/heap.ts:6](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L6)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 **Returns:** [*Heap*](heap.md)<T\>
 
-Defined in: [structures/heap/heap.ts:6](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L6)
+Defined in: [structures/heap/heap.ts:7](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L7)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 **Returns:** [*Heap*](heap.md)<T\>
 
-Defined in: [structures/heap/heap.ts:7](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L7)
+Defined in: [structures/heap/heap.ts:8](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L8)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 **Returns:** *undefined* \| T
 
-Defined in: [structures/heap/heap.ts:8](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L8)
+Defined in: [structures/heap/heap.ts:9](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L9)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 **Returns:** *undefined* \| T
 
-Defined in: [structures/heap/heap.ts:9](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L9)
+Defined in: [structures/heap/heap.ts:10](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L10)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [structures/heap/heap.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L11)
+Defined in: [structures/heap/heap.ts:12](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L12)
 
 ___
 
@@ -149,7 +149,7 @@ ___
 
 **Returns:** T
 
-Defined in: [structures/heap/heap.ts:12](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L12)
+Defined in: [structures/heap/heap.ts:13](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L13)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 **Returns:** T
 
-Defined in: [structures/heap/heap.ts:10](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L10)
+Defined in: [structures/heap/heap.ts:11](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L11)
 
 ___
 
@@ -175,4 +175,4 @@ ___
 
 **Returns:** T[]
 
-Defined in: [structures/heap/heap.ts:14](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/heap.ts#L14)
+Defined in: [structures/heap/heap.ts:15](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/heap.ts#L15)

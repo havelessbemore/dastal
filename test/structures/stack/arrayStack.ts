@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-describe('BinaryMaxHeap tests', () => {
+describe('ArrayStack tests', () => {
     it('checking default options', () => { // the single test
         expect(1).to.equal(1);
     });

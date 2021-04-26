@@ -54,7 +54,7 @@
 
 **Returns:** [*ArrayQueue*](arrayqueue.md)<T\>
 
-Defined in: [structures/queue/arrayQueue.ts:3](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L3)
+Defined in: [structures/queue/arrayQueue.ts:3](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L3)
 
 ## Properties
 
@@ -74,7 +74,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: [structures/queue/arrayQueue.ts:23](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L23)
+Defined in: [structures/queue/arrayQueue.ts:23](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L23)
 
 ## Methods
 
@@ -88,7 +88,7 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [structures/queue/arrayQueue.ts:6](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L6)
+Defined in: [structures/queue/arrayQueue.ts:6](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L6)
 
 ___
 
@@ -102,7 +102,7 @@ Retrieves and removes the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [structures/queue/arrayQueue.ts:15](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L15)
+Defined in: [structures/queue/arrayQueue.ts:15](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L15)
 
 ___
 
@@ -122,7 +122,7 @@ Inserts the specified value into this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [structures/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L10)
+Defined in: [structures/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L10)
 
 ___
 
@@ -136,7 +136,7 @@ Retrieves, but does not remove, the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [structures/queue/arrayQueue.ts:19](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L19)
+Defined in: [structures/queue/arrayQueue.ts:19](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L19)
 
 ___
 
@@ -150,4 +150,4 @@ Convert the queue into an array
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [structures/queue/arrayQueue.ts:27](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/arrayQueue.ts#L27)
+Defined in: [structures/queue/arrayQueue.ts:27](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/arrayQueue.ts#L27)

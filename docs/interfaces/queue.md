@@ -11,8 +11,8 @@
 ## Implemented by
 
 * [*ArrayQueue*](../classes/arrayqueue.md)
-* [*LinkedQueue*](../classes/linkedqueue.md)
-* [*PriorityQueue*](../classes/priorityqueue.md)
+* [*HeapQueue*](../classes/heapqueue.md)
+* [*ListQueue*](../classes/listqueue.md)
 
 ## Table of contents
 
@@ -36,7 +36,7 @@
 
 The number of elements in this queue
 
-Defined in: [structures/queue/queue.ts:29](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L29)
+Defined in: [structures/queue/queue.ts:29](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L29)
 
 ## Methods
 
@@ -48,7 +48,7 @@ Removes all elements from this queue
 
 **Returns:** *void*
 
-Defined in: [structures/queue/queue.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L5)
+Defined in: [structures/queue/queue.ts:5](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L5)
 
 ___
 
@@ -62,7 +62,7 @@ Retrieves and removes the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [structures/queue/queue.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L11)
+Defined in: [structures/queue/queue.ts:11](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L11)
 
 ___
 
@@ -82,7 +82,7 @@ Inserts the specified value into this queue
 
 `true` upon success, otherwise `false`
 
-Defined in: [structures/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L19)
+Defined in: [structures/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L19)
 
 ___
 
@@ -96,7 +96,7 @@ Retrieves, but does not remove, the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [structures/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L25)
+Defined in: [structures/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L25)
 
 ___
 
@@ -108,4 +108,4 @@ Convert the queue into an array
 
 **Returns:** T[]
 
-Defined in: [structures/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/queue/queue.ts#L33)
+Defined in: [structures/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/queue/queue.ts#L33)

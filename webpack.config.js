@@ -1,5 +1,7 @@
 const path = require('path');
 
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
     mode: 'production',
     entry: './src/index.ts',
@@ -23,6 +25,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
+        plugins: [
+            new TsconfigPathsPlugin({/* options */})
+        ],
     },
     output: {
         library: {
@@ -32,5 +37,5 @@ module.exports = {
         },
         filename: 'dastal.min.js',
         path: path.resolve(__dirname, 'dist'),
-    }
+    },
 };

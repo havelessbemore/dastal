@@ -10,6 +10,7 @@
 
 ## Implemented by
 
+* [*ArrayList*](../classes/arraylist.md)
 * [*LinkedList*](../classes/linkedlist.md)
 
 ## Table of contents
@@ -23,6 +24,7 @@
 - [add](list.md#add)
 - [clear](list.md#clear)
 - [get](list.md#get)
+- [pop](list.md#pop)
 - [push](list.md#push)
 - [remove](list.md#remove)
 - [set](list.md#set)
@@ -38,7 +40,7 @@
 
 The number of elements in this list
 
-Defined in: [structures/list/list.ts:53](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L53)
+Defined in: [structures/list/list.ts:59](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L59)
 
 ## Methods
 
@@ -57,7 +59,7 @@ Add the element at the specified index
 
 **Returns:** *boolean*
 
-Defined in: [structures/list/list.ts:8](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L8)
+Defined in: [structures/list/list.ts:8](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L8)
 
 ___
 
@@ -69,7 +71,7 @@ Removes all elements
 
 **Returns:** *void*
 
-Defined in: [structures/list/list.ts:12](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L12)
+Defined in: [structures/list/list.ts:12](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L12)
 
 ___
 
@@ -87,7 +89,21 @@ Return the element at the specified index
 
 **Returns:** *undefined* \| T
 
-Defined in: [structures/list/list.ts:18](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L18)
+Defined in: [structures/list/list.ts:18](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L18)
+
+___
+
+### pop
+
+▸ **pop**(): *undefined* \| T
+
+Retrieves and removes the end of the list
+
+**Returns:** *undefined* \| T
+
+The value at the end of the list or `undefined` if empty.
+
+Defined in: [structures/list/list.ts:24](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L24)
 
 ___
 
@@ -107,7 +123,7 @@ Inserts the specified value into the end of the list
 
 `true` upon success, otherwise `false`
 
-Defined in: [structures/list/list.ts:26](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L26)
+Defined in: [structures/list/list.ts:32](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L32)
 
 ___
 
@@ -127,7 +143,7 @@ Retrieves and removes the element at the given index
 
 The value at the index or `undefined` if the index does not exist
 
-Defined in: [structures/list/list.ts:34](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L34)
+Defined in: [structures/list/list.ts:40](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L40)
 
 ___
 
@@ -148,7 +164,7 @@ Update the element at the specified index
 
 The previous element in the index, or undefined if the index does not exist
 
-Defined in: [structures/list/list.ts:43](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L43)
+Defined in: [structures/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L49)
 
 ___
 
@@ -162,7 +178,7 @@ Retrieves and removes the first element in the list
 
 The value at the front of the list or `undefined` if this list is empty.
 
-Defined in: [structures/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L49)
+Defined in: [structures/list/list.ts:55](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L55)
 
 ___
 
@@ -174,7 +190,7 @@ Converts the list into an array
 
 **Returns:** T[]
 
-Defined in: [structures/list/list.ts:57](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L57)
+Defined in: [structures/list/list.ts:63](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L63)
 
 ___
 
@@ -194,4 +210,4 @@ Inserts the specified value into the front of the list
 
 `true` upon success, otherwise `false`
 
-Defined in: [structures/list/list.ts:65](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/list.ts#L65)
+Defined in: [structures/list/list.ts:71](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/list.ts#L71)

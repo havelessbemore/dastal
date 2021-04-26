@@ -1,7 +1,7 @@
 import { LinkedList, List } from '../list';
 import { Queue } from './queue';
 
-export class LinkedQueue<T> implements Queue<T> {
+export class ListQueue<T> implements Queue<T> {
     protected list: List<T>;
 
     constructor(list: List<T> = new LinkedList()) {

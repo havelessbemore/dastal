@@ -17,6 +17,12 @@ export interface List<T> {
      */
     get(index: number): T | undefined;
     /**
+     * Retrieves and removes the end of the list
+     *
+     * @returns The value at the end of the list or `undefined` if empty.
+     */
+    pop(): T | undefined;
+    /**
      * Inserts the specified value into the end of the list
      *
      * @param element - The element to be inserted

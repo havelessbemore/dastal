@@ -44,6 +44,10 @@ export class LinkedList<T> implements List<T> {
         return true;
     }
 
+    pop(): T | undefined {
+        return this.remove(this.length - 1);
+    }
+
     remove(index: number): T | undefined {
         if (index < 0 || index >= this.length) {
             return undefined;

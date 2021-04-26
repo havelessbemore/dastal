@@ -29,7 +29,15 @@
     "web": "npm run build && webpack",
     "wiki": "rm -rf ./wiki/* && typedoc --options typedoc.wiki.json"
   },
-  "keywords": ["algorithm", "collections", "data structures", "heap", "queue", "structures", "typescript"],
+  "keywords": [
+    "algorithm",
+    "collections",
+    "data structures",
+    "heap",
+    "queue",
+    "structures",
+    "typescript"
+  ],
   "author": "dev.michael.rojas@gmail.com",
   "license": "ISC",
   "devDependencies": {
@@ -55,6 +63,7 @@
     "source-map-support": "^0.5.19",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typedoc": "^0.20.35",
     "typedoc-github-wiki-theme": "^0.2.0",
     "typedoc-plugin-markdown": "^3.7.1",

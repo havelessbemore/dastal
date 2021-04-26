@@ -1,8 +1,9 @@
-import { Comparator, Sorted } from '../../comparable';
+import { Comparator } from 'src/comparable';
+import { Sorted } from 'src/sortable';
 import { Heap } from '../heap';
 import { Queue } from './queue';
 
-export class PriorityQueue<T> implements Queue<T>, Sorted<T> {
+export class HeapQueue<T> implements Queue<T>, Sorted<T> {
     constructor(protected heap: Heap<T>) {}
 
     clear(): void {

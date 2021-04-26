@@ -1,4 +1,4 @@
 export * from './arrayQueue';
-export * from './linkedQueue';
-export * from './priorityQueue';
+export * from './listQueue';
+export * from './heapQueue';
 export * from './queue';

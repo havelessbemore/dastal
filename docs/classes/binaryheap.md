@@ -37,11 +37,7 @@
 
 ### Methods
 
-- [\_ate](binaryheap.md#_ate)
-- [\_bubbleUp](binaryheap.md#_bubbleup)
-- [\_find](binaryheap.md#_find)
-- [\_heapify](binaryheap.md#_heapify)
-- [\_sinkDown](binaryheap.md#_sinkdown)
+- [ate](binaryheap.md#ate)
 - [clear](binaryheap.md#clear)
 - [comparator](binaryheap.md#comparator)
 - [contains](binaryheap.md#contains)
@@ -60,7 +56,7 @@
 
 ### constructor
 
-\+ **new BinaryHeap**<T\>(`comparator`: *Comparator*<T\>, `array?`: T[]): [*BinaryHeap*](binaryheap.md)<T\>
+\+ **new BinaryHeap**<T\>(`comparator`: [*Comparator*](../interfaces/comparator.md)<T\>, `array?`: T[]): [*BinaryHeap*](binaryheap.md)<T\>
 
 #### Type parameters:
 
@@ -72,20 +68,20 @@
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `comparator` | *Comparator*<T\> | - |
+| `comparator` | [*Comparator*](../interfaces/comparator.md)<T\> | - |
 | `array` | T[] | [] |
 
 **Returns:** [*BinaryHeap*](binaryheap.md)<T\>
 
-Defined in: [structures/heap/binaryHeap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L5)
+Defined in: [structures/heap/binaryHeap.ts:6](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L6)
 
 ## Properties
 
 ### \_comparator
 
-• `Protected` **\_comparator**: *Comparator*<T\>
+• `Protected` **\_comparator**: [*Comparator*](../interfaces/comparator.md)<T\>
 
-Defined in: [structures/heap/binaryHeap.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L5)
+Defined in: [structures/heap/binaryHeap.ts:6](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L6)
 
 ___
 
@@ -103,13 +99,13 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md).[size](../interfaces/heap.md#size)
 
-Defined in: [structures/heap/binaryHeap.ts:132](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L132)
+Defined in: [structures/heap/binaryHeap.ts:116](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L116)
 
 ## Methods
 
-### \_ate
+### ate
 
-▸ `Protected` `Abstract`**_ate**(`a`: T, `b`: T): *boolean*
+▸ `Protected` `Abstract`**ate**(`a`: T, `b`: T): *boolean*
 
 #### Parameters:
 
@@ -120,73 +116,7 @@ Defined in: [structures/heap/binaryHeap.ts:132](https://github.com/havelessbemor
 
 **Returns:** *boolean*
 
-Defined in: [structures/heap/binaryHeap.ts:11](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L11)
-
-___
-
-### \_bubbleUp
-
-▸ `Protected`**_bubbleUp**(`index`: *number*, `array`: T[]): *void*
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `index` | *number* |
-| `array` | T[] |
-
-**Returns:** *void*
-
-Defined in: [structures/heap/binaryHeap.ts:146](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L146)
-
-___
-
-### \_find
-
-▸ `Protected`**_find**(`element`: T): *number*
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `element` | T |
-
-**Returns:** *number*
-
-Defined in: [structures/heap/binaryHeap.ts:14](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L14)
-
-___
-
-### \_heapify
-
-▸ `Protected`**_heapify**(`array`: T[]): *void*
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `array` | T[] |
-
-**Returns:** *void*
-
-Defined in: [structures/heap/binaryHeap.ts:24](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L24)
-
-___
-
-### \_sinkDown
-
-▸ `Protected`**_sinkDown**(`index`: *number*, `array`: T[]): *void*
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `index` | *number* |
-| `array` | T[] |
-
-**Returns:** *void*
-
-Defined in: [structures/heap/binaryHeap.ts:167](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L167)
+Defined in: [structures/heap/binaryHeap.ts:12](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L12)
 
 ___
 
@@ -198,19 +128,19 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:31](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L31)
+Defined in: [structures/heap/binaryHeap.ts:15](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L15)
 
 ___
 
 ### comparator
 
-▸ **comparator**(): *Comparator*<T\>
+▸ **comparator**(): [*Comparator*](../interfaces/comparator.md)<T\>
 
-**Returns:** *Comparator*<T\>
+**Returns:** [*Comparator*](../interfaces/comparator.md)<T\>
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:35](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L35)
+Defined in: [structures/heap/binaryHeap.ts:19](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L19)
 
 ___
 
@@ -226,7 +156,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [structures/heap/binaryHeap.ts:39](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L39)
+Defined in: [structures/heap/binaryHeap.ts:23](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L23)
 
 ___
 
@@ -242,7 +172,7 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [structures/heap/binaryHeap.ts:43](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L43)
+Defined in: [structures/heap/binaryHeap.ts:27](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L27)
 
 ___
 
@@ -260,7 +190,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:12](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L12)
+Defined in: [structures/heap/binaryHeap.ts:13](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L13)
 
 ___
 
@@ -278,7 +208,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:62](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L62)
+Defined in: [structures/heap/binaryHeap.ts:46](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L46)
 
 ___
 
@@ -290,7 +220,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:70](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L70)
+Defined in: [structures/heap/binaryHeap.ts:54](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L54)
 
 ___
 
@@ -302,7 +232,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:74](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L74)
+Defined in: [structures/heap/binaryHeap.ts:58](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L58)
 
 ___
 
@@ -320,7 +250,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:94](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L94)
+Defined in: [structures/heap/binaryHeap.ts:78](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L78)
 
 ___
 
@@ -338,7 +268,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:103](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L103)
+Defined in: [structures/heap/binaryHeap.ts:87](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L87)
 
 ___
 
@@ -356,7 +286,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:117](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L117)
+Defined in: [structures/heap/binaryHeap.ts:101](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L101)
 
 ___
 
@@ -368,7 +298,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [structures/heap/binaryHeap.ts:198](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L198)
+Defined in: [structures/heap/binaryHeap.ts:131](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L131)
 
 ___
 
@@ -384,4 +314,4 @@ ___
 
 **Returns:** *boolean*
 
-Defined in: [structures/heap/binaryHeap.ts:136](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/heap/binaryHeap.ts#L136)
+Defined in: [structures/heap/binaryHeap.ts:120](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/heap/binaryHeap.ts#L120)

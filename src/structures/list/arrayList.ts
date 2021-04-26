@@ -20,6 +20,10 @@ export class ArrayList<T> implements List<T> {
         return this.array[index];
     }
 
+    pop(): T | undefined {
+        return this.array.pop();
+    }
+
     push(value: T): boolean {
         this.array.push(value);
         return true;

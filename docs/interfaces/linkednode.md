@@ -21,7 +21,7 @@
 
 • **next**: [*LinkedNode*](linkednode.md)<T\>
 
-Defined in: [structures/list/linkedList.ts:4](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L4)
+Defined in: [structures/list/linkedList.ts:4](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L4)
 
 ___
 
@@ -29,4 +29,4 @@ ___
 
 • **value**: T
 
-Defined in: [structures/list/linkedList.ts:5](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L5)
+Defined in: [structures/list/linkedList.ts:5](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L5)

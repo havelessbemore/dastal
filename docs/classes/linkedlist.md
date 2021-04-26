@@ -33,6 +33,7 @@
 - [add](linkedlist.md#add)
 - [clear](linkedlist.md#clear)
 - [get](linkedlist.md#get)
+- [pop](linkedlist.md#pop)
 - [push](linkedlist.md#push)
 - [remove](linkedlist.md#remove)
 - [set](linkedlist.md#set)
@@ -54,7 +55,7 @@
 
 **Returns:** [*LinkedList*](linkedlist.md)<T\>
 
-Defined in: [structures/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L10)
+Defined in: [structures/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L10)
 
 ## Properties
 
@@ -62,7 +63,7 @@ Defined in: [structures/list/linkedList.ts:10](https://github.com/havelessbemore
 
 • `Protected` **length**: *number*
 
-Defined in: [structures/list/linkedList.ts:9](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L9)
+Defined in: [structures/list/linkedList.ts:9](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L9)
 
 ___
 
@@ -70,7 +71,7 @@ ___
 
 • `Protected` `Optional` **tail**: [*LinkedNode*](../interfaces/linkednode.md)<T\>
 
-Defined in: [structures/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L10)
+Defined in: [structures/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L10)
 
 ## Accessors
 
@@ -84,7 +85,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [structures/list/linkedList.ts:85](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L85)
+Defined in: [structures/list/linkedList.ts:89](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L89)
 
 ## Methods
 
@@ -100,7 +101,7 @@ Defined in: [structures/list/linkedList.ts:85](https://github.com/havelessbemore
 
 **Returns:** [*LinkedNode*](../interfaces/linkednode.md)<T\>
 
-Defined in: [structures/list/linkedList.ts:117](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L117)
+Defined in: [structures/list/linkedList.ts:121](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L121)
 
 ___
 
@@ -121,7 +122,7 @@ Add the element at the specified index
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:16](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L16)
+Defined in: [structures/list/linkedList.ts:16](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L16)
 
 ___
 
@@ -135,7 +136,7 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:29](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L29)
+Defined in: [structures/list/linkedList.ts:29](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L29)
 
 ___
 
@@ -155,7 +156,21 @@ Return the element at the specified index
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L34)
+Defined in: [structures/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L34)
+
+___
+
+### pop
+
+▸ **pop**(): *undefined* \| T
+
+Retrieves and removes the end of the list
+
+**Returns:** *undefined* \| T
+
+Implementation of: [List](../interfaces/list.md)
+
+Defined in: [structures/list/linkedList.ts:47](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L47)
 
 ___
 
@@ -175,7 +190,7 @@ Inserts the specified value into the end of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:41](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L41)
+Defined in: [structures/list/linkedList.ts:41](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L41)
 
 ___
 
@@ -195,7 +210,7 @@ Retrieves and removes the element at the given index
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:47](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L47)
+Defined in: [structures/list/linkedList.ts:51](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L51)
 
 ___
 
@@ -216,7 +231,7 @@ Update the element at the specified index
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:61](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L61)
+Defined in: [structures/list/linkedList.ts:65](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L65)
 
 ___
 
@@ -230,7 +245,7 @@ Retrieves and removes the first element in the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:71](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L71)
+Defined in: [structures/list/linkedList.ts:75](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L75)
 
 ___
 
@@ -244,7 +259,7 @@ Converts the list into an array
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:89](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L89)
+Defined in: [structures/list/linkedList.ts:93](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L93)
 
 ___
 
@@ -264,4 +279,4 @@ Inserts the specified value into the front of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [structures/list/linkedList.ts:102](https://github.com/havelessbemore/dastal/blob/563c214/src/structures/list/linkedList.ts#L102)
+Defined in: [structures/list/linkedList.ts:106](https://github.com/havelessbemore/dastal/blob/5fab342/src/structures/list/linkedList.ts#L106)
