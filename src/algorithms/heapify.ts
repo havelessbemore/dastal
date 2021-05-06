@@ -1,4 +1,4 @@
-import { Comparator, ComparatorFn } from 'src/comparable';
+import { Comparator } from 'src/types/comparable';
 
 export function maxHeapify<T>(comparator: Comparator<T>, array: Array<T>): void {
     heapify((a, b) => comparator.compare(a, b) >= 0, array);
@@ -8,14 +8,18 @@ export function minHeapify<T>(comparator: Comparator<T>, array: Array<T>): void 
     heapify((a, b) => comparator.compare(a, b) <= 0, array);
 }
 
-export function heapify<T>(ate: (a: T, b: T) => boolean, array: Array<T>): void {
+export function heapify<T>(isAboveOrEqual: (a: T, b: T) => boolean, array: Array<T>): void {
     let i = Math.floor((array.length + 1) / 2) - 1;
     while (i >= 0) {
-        sinkDown(--i, ate, array);
+        sinkDown(--i, isAboveOrEqual, array);
     }
 }
 
-export function bubbleUp<T>(index: number, ate: (a: T, b: T) => boolean, array: Array<T>): void {
+export function bubbleUp<T>(
+    index: number,
+    isAboveOrEqual: (a: T, b: T) => boolean,
+    array: Array<T>,
+): void {
     const value = array[index];
 
     // Until we reach the top of the heap
@@ -25,7 +29,7 @@ export function bubbleUp<T>(index: number, ate: (a: T, b: T) => boolean, array: 
         const parent = array[parentIndex]!;
 
         // If the parent is above or equal to value, the heap is in order
-        if (ate(parent, value)) {
+        if (isAboveOrEqual(parent, value)) {
             break;
         }
 
@@ -36,7 +40,11 @@ export function bubbleUp<T>(index: number, ate: (a: T, b: T) => boolean, array: 
     }
 }
 
-export function sinkDown<T>(index: number, ate: (a: T, b: T) => boolean, array: Array<T>): void {
+export function sinkDown<T>(
+    index: number,
+    isAboveOrEqual: (a: T, b: T) => boolean,
+    array: Array<T>,
+): void {
     const n = array.length;
     const value = array[index];
 
@@ -51,12 +59,12 @@ export function sinkDown<T>(index: number, ate: (a: T, b: T) => boolean, array: 
 
         // Decide which child to compare with
         let child = array[childIndex];
-        if (childIndex + 1 < n && ate(array[childIndex + 1]!, child)) {
+        if (childIndex + 1 < n && isAboveOrEqual(array[childIndex + 1]!, child)) {
             child = array[++childIndex]!;
         }
 
         // If value <= child
-        if (ate(value, child)) {
+        if (isAboveOrEqual(value, child)) {
             break;
         }
 

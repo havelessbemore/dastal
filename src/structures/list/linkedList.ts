@@ -14,15 +14,12 @@ export class LinkedList<T> implements List<T> {
     }
 
     add(index: number, value: T): boolean {
-        if (index < 0 || index > this.length) {
-            return false;
+        if (index < 0 || index >= this.length) {
+            return index == this.length ? this.push(value) : false;
         }
-        if (index === this.length) {
-            return this.push(value);
-        }
+        const prev = this._get(index - 1);
+        prev.next = { value, next: prev.next };
         ++this.length;
-        const parent = this._get(index - 1);
-        parent.next = { value, next: parent.next };
         return true;
     }
 
@@ -32,10 +29,7 @@ export class LinkedList<T> implements List<T> {
     }
 
     get(index: number): T | undefined {
-        if (index < 0 || index >= this.length) {
-            return undefined;
-        }
-        return this._get(index).value;
+        return index < 0 || index >= this.length ? undefined : this._get(index).value;
     }
 
     push(value: T): boolean {
@@ -53,13 +47,13 @@ export class LinkedList<T> implements List<T> {
             return undefined;
         }
 
-        const parent = this._get(index - 1);
-        const value = parent.next.value;
-        parent.next = parent.next.next;
+        const prev = this._get(index - 1);
+        prev.next = prev.next.next;
         if (--this.length < 1) {
             this.tail = undefined;
         }
-        return value;
+
+        return prev.value;
     }
 
     set(index: number, element: T): T | undefined {
@@ -94,18 +88,17 @@ export class LinkedList<T> implements List<T> {
         const n = this.length;
         const out = new Array(n);
 
-        let par = this.tail;
+        let node = this.tail;
         for (let i = 0; i < n; ++i) {
-            par = par!.next;
-            out[i] = par.value;
+            node = node!.next;
+            out[i] = node.value;
         }
 
         return out;
     }
 
     unshift(value: T): boolean {
-        const head: LinkedNode<T> = { value } as any;
-        ++this.length;
+        const head: LinkedNode<T> = { value } as LinkedNode<T>;
 
         if (this.tail == null) {
             head.next = head;
@@ -115,6 +108,7 @@ export class LinkedList<T> implements List<T> {
             this.tail.next = head;
         }
 
+        ++this.length;
         return true;
     }
 

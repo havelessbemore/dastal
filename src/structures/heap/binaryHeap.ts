@@ -1,5 +1,5 @@
-import { bubbleUp, heapify, sinkDown } from 'src/algorithms';
-import { Comparator } from 'src/comparable';
+import { bubbleUp, heapify, sinkDown } from 'src/algorithms/heapify';
+import { Comparator } from 'src/types/comparable';
 import { Heap } from './heap';
 
 export abstract class BinaryHeap<T> implements Heap<T> {
@@ -9,7 +9,7 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         this._comparator = comparator;
     }
 
-    protected abstract ate(a: T, b: T): boolean;
+    protected abstract isAboveOrEqual(a: T, b: T): boolean;
     abstract heapify(...iterables: Iterable<T>[]): BinaryHeap<T>;
 
     clear(): void {
@@ -20,6 +20,7 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         return this._comparator;
     }
 
+    /*
     contains(element: T): boolean {
         return this.array.indexOf(element) >= 0;
     }
@@ -39,15 +40,16 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         // Add the last value to the
         // deleted index and update the heap
         this.array[index] = last;
-        sinkDown(index, (a, b) => this.ate(a, b), this.array);
+        sinkDown(index, (a, b) => this.isAboveOrEqual(a, b), this.array);
         return true;
     }
+    */
 
     merge(heap: Heap<T>): this {
         for (const element of heap.toArray()) {
             this.array.push(element);
         }
-        heapify((a, b) => this.ate(a, b), this.array);
+        heapify((a, b) => this.isAboveOrEqual(a, b), this.array);
         return this;
     }
 
@@ -69,7 +71,7 @@ export abstract class BinaryHeap<T> implements Heap<T> {
             // Add the last value to
             // the root and update the heap
             this.array[0] = last!;
-            sinkDown(0, (a, b) => this.ate(a, b), this.array);
+            sinkDown(0, (a, b) => this.isAboveOrEqual(a, b), this.array);
         }
 
         return value;
@@ -80,20 +82,20 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         this.array.push(value);
 
         // Update the heap
-        bubbleUp(this.array.length - 1, (a, b) => this.ate(a, b), this.array);
+        bubbleUp(this.array.length - 1, (a, b) => this.isAboveOrEqual(a, b), this.array);
     }
 
     // Push a new value to the heap and then pop the root
     pushPop(value: T): T {
         // If empty or value is above or equal to root
-        if (this.array.length < 1 || this.ate(value, this.array[0])) {
+        if (this.array.length < 1 || this.isAboveOrEqual(value, this.array[0])) {
             return value;
         }
 
         // Swap the root and value
         const root = this.array[0];
         this.array[0] = value;
-        sinkDown(0, (a, b) => this.ate(a, b), this.array);
+        sinkDown(0, (a, b) => this.isAboveOrEqual(a, b), this.array);
         return root;
     }
 
@@ -107,7 +109,7 @@ export abstract class BinaryHeap<T> implements Heap<T> {
             value = root;
 
             // Update the heap
-            sinkDown(0, (a, b) => this.ate(a, b), this.array);
+            sinkDown(0, (a, b) => this.isAboveOrEqual(a, b), this.array);
         }
 
         return value;
@@ -117,16 +119,18 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         return this.array.length;
     }
 
+    /*
     update(element: T): boolean {
         const index = this.array.indexOf(element);
         if (index < 0) {
             return false;
         }
-        const fn = (a: T, b: T) => this.ate(a, b);
+        const fn = (a: T, b: T) => this.isAboveOrEqual(a, b);
         sinkDown(index, fn, this.array);
         bubbleUp(index, fn, this.array);
         return true;
     }
+    */
 
     toArray(): T[] {
         return Array.from(this.array);

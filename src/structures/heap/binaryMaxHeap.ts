@@ -1,15 +1,13 @@
 import { BinaryHeap } from './binaryHeap';
-import { maxHeapify } from 'src/algorithms/heapify';
-import { arrayFrom } from 'src/utils';
+import { heapify } from 'src/algorithms/heapify';
 
 export class BinaryMaxHeap<T> extends BinaryHeap<T> {
-    protected ate(a: T, b: T): boolean {
+    protected isAboveOrEqual(a: T, b: T): boolean {
         return this._comparator.compare(a, b) >= 0;
     }
 
-    heapify(...iterables: Iterable<T>[]): BinaryMaxHeap<T> {
-        const array = arrayFrom(...iterables);
-        maxHeapify(this._comparator, array);
+    heapify(array: T[]): BinaryMaxHeap<T> {
+        heapify((a, b) => this.isAboveOrEqual(a, b), array);
         return new BinaryMaxHeap(this._comparator, array);
     }
 }
