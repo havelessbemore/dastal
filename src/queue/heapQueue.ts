@@ -1,5 +1,4 @@
-import { Comparator } from 'src/types/comparable';
-import { Sorted } from 'src/types/sortable';
+import { Comparator, Sorted } from '..';
 import { Heap } from '../heap';
 import { Queue } from './queue';
 

@@ -1,10 +1,10 @@
-import { LinkedList, List } from '../list';
+import { List } from '../list';
 import { Queue } from './queue';
 
 export class ListQueue<T> implements Queue<T> {
     protected list: List<T>;
 
-    constructor(list: List<T> = new LinkedList()) {
+    constructor(list: List<T>) {
         this.list = list;
     }
 

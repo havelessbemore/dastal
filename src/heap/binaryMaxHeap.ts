@@ -1,5 +1,5 @@
 import { BinaryHeap } from './binaryHeap';
-import { heapify } from 'src/algorithms/heapify';
+import { heapify } from './heapify';
 
 export class BinaryMaxHeap<T> extends BinaryHeap<T> {
     protected isAboveOrEqual(a: T, b: T): boolean {

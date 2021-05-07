@@ -7,13 +7,13 @@ export class ArrayQueue<T> implements Queue<T> {
         this.array.length = 0;
     }
 
+    dequeue(): T | undefined {
+        return this.size < 1 ? undefined : this.array.shift()!;
+    }
+
     enqueue(value: T): boolean {
         this.array.push(value);
         return true;
-    }
-
-    dequeue(): T | undefined {
-        return this.size < 1 ? undefined : this.array.shift()!;
     }
 
     peek(): T | undefined {

@@ -1,12 +1,14 @@
-import { bubbleUp, heapify, sinkDown } from 'src/algorithms/heapify';
-import { Comparator } from 'src/types/comparable';
+import { bubbleUp, heapify, sinkDown } from './heapify';
+import { Comparator } from '..';
 import { Heap } from './heap';
 
 export abstract class BinaryHeap<T> implements Heap<T> {
     protected _comparator: Comparator<T>;
+    protected array: Array<T>;
 
-    constructor(comparator: Comparator<T>, protected array: Array<T> = []) {
+    constructor(comparator: Comparator<T>, array: Array<T> = []) {
         this._comparator = comparator;
+        this.array = array;
     }
 
     protected abstract isAboveOrEqual(a: T, b: T): boolean;
@@ -133,6 +135,6 @@ export abstract class BinaryHeap<T> implements Heap<T> {
     */
 
     toArray(): T[] {
-        return Array.from(this.array);
+        return Array.from(this.array).sort((a, b) => this._comparator.compare(a, b));
     }
 }

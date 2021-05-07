@@ -1,4 +1,4 @@
-import { Comparator } from 'src/types/comparable';
+import { Comparator } from '..';
 
 export function maxHeapify<T>(comparator: Comparator<T>, array: Array<T>): void {
     heapify((a, b) => comparator.compare(a, b) >= 0, array);
