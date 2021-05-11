@@ -11,10 +11,10 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      * The maximum number of elements that can be added.
      *
      * According to [ECMA-262](https://tc39.es/ecma262/#array-index):
-     *    0 <= array.length <= 2^32 - 1
+     *     0 <= array.length <= 2^32 - 1
      *
      * So since n elements require 2^⌊log2(2n)⌋ - 1 memory:
-     *    0 <= size <= 2^31
+     *     0 <= size <= 2^31
      */
     static readonly MAX_SIZE = 2147483648;
 
@@ -42,25 +42,42 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      * Construct a new {@link SegmentTree}
      *
      * @param combinFn - The function used to aggregate elements
-     * @param values - Initial elements to build into the tree
+     * @param elements - Initial elements to build into the tree
      */
-    constructor(combine: CombineFn<T>, values: Iterable<T> = []) {
+    constructor(combine: CombineFn<T>, elements: Iterable<T> = []) {
         this.array = [];
         this.combine = combine;
         this.length = 0;
         this.level = 0;
-        this.build(values);
+        this.build(elements);
     }
 
-    protected build(values: Array<T> | Iterable<T>): void {
-        if (!('length' in values) || typeof values['length'] !== 'number') {
-            for (const value of values) {
-                this.push(value);
+    /**
+     * A helper method used to build the tree
+     *
+     * @param elements The initial set of elements to add into the tree
+     */
+    protected build(elements: Iterable<T>): void {
+        let key = '';
+
+        // Check if the iterable's size can be known.
+        // For example: array.length or map.size
+        if ('length' in elements && typeof elements['length'] !== 'number') {
+            key = 'length';
+        } else if ('size' in elements && typeof elements['size'] !== 'number') {
+            key = 'size';
+        }
+
+        // Iterate normally if size is not given
+        if (key.length < 1) {
+            for (const element of elements) {
+                this.push(element);
             }
             return;
         }
 
-        const n = values['length'];
+        // Get the iterable's size
+        const n = (elements as any)[key];
 
         // Check for base case
         if (n < 1) {
@@ -81,7 +98,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         this.array = new Array(2 * this.level + 1);
 
         // Build the tree
-        const it = values[Symbol.iterator]();
+        const it = elements[Symbol.iterator]();
         this.update(0, n, (_) => it.next().value);
     }
 
@@ -143,9 +160,9 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     /**
-     * Remove the last added value
+     * Remove the last added element
      *
-     * @returns The last added value or `undefined` if empty.
+     * @returns The last added element or `undefined` if empty.
      */
     pop(): T | undefined {
         // Sanitize range
@@ -153,10 +170,10 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
             return undefined;
         }
 
-        // Remove value
+        // Remove element
         const out = this.array[--this.length];
 
-        // If level is >= 3/4 empty
+        // If level is <= 1/4 full
         if (this.length < 0.625 * (this.array.length + 1)) {
             this.shrink();
         }
@@ -165,33 +182,33 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     /**
-     * Insert the given value into the end of the tree
+     * Insert the given element into the end of the tree
      *
-     * @param value - The value to be inserted
+     * @param element - The element to be inserted
      */
-    push(value: T): void {
+    push(element: T): void {
         // If array is full
         if (this.length >= this.array.length) {
             this.grow();
         }
 
-        // Add the new value
-        this.array[this.length++] = value;
+        // Add the new element
+        this.array[this.length++] = element;
 
         // Update aggregation nodes
-        for (let i = this.length; i & 1; this.array[i - 1] = value) {
-            value = this.combine(this.array[i - 2], value);
+        for (let i = this.length; i & 1; this.array[i - 1] = element) {
+            element = this.combine(this.array[i - 2], element);
             i >>>= 1;
         }
     }
 
     /**
-     * Get the aggregated information for values in a given range
+     * Get the aggregated information for elements in a given range
      *
      * @param min - The start of the range, inclusive
      * @param max - The end of the range, exclusive
      *
-     * @returns The aggregated information for values in range [min, max)
+     * @returns The aggregated information for elements in range [min, max)
      */
     query(min: number, max: number): T {
         // Sanitize range
@@ -222,15 +239,15 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     /**
-     * The number of values in the tree
-     *    0 <= size <= {@link MAX_SIZE}
+     * The number of elements in the tree:
+     *     0 <= size <= {@link MAX_SIZE}
      */
     get size(): number {
         return this.length - this.level;
     }
 
     /**
-     * Return an iterator that iterates through the values
+     * Return an iterator through the elements
      */
     *[Symbol.iterator](): Iterator<T> {
         for (let i = 0; i < this.size; ++i) {
@@ -239,13 +256,13 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     /**
-     * Update values in a given range
+     * Update elements in a given range
      *
      * @param min - The start of the range, inclusive
      * @param max - The end of the range, exclusive
      * @param transform - The callback function doing the updating
      */
-    update(min: number, max: number, transform: (value: T, index: number) => T): void {
+    update(min: number, max: number, transform: (element: T, index: number) => T): void {
         // Sanitize range
         if (min >= max) {
             return;

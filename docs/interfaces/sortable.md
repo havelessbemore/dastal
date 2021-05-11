@@ -20,4 +20,4 @@
 
 • **sort**: [*SortFn*](sortfn.md)<T\>
 
-Defined in: [src/index.ts:42](https://github.com/havelessbemore/dastal/blob/3cce60b/src/index.ts#L42)
+Defined in: [src/index.ts:42](https://github.com/havelessbemore/dastal/blob/7cfb505/src/index.ts#L42)

@@ -40,7 +40,7 @@
 
 • `Readonly` **size**: *number*
 
-Defined in: [src/segmentTree/segmentTree.ts:6](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L6)
+Defined in: [src/segmentTree/segmentTree.ts:6](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L6)
 
 ## Methods
 
@@ -62,7 +62,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/segmentTree/segmentTree.ts:2](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L2)
+Defined in: [src/segmentTree/segmentTree.ts:2](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L2)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/segmentTree/segmentTree.ts:3](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L3)
+Defined in: [src/segmentTree/segmentTree.ts:3](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L3)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/segmentTree/segmentTree.ts:4](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L4)
+Defined in: [src/segmentTree/segmentTree.ts:4](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L4)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 **Returns:** T
 
-Defined in: [src/segmentTree/segmentTree.ts:5](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L5)
+Defined in: [src/segmentTree/segmentTree.ts:5](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L5)
 
 ___
 
@@ -123,4 +123,4 @@ ___
 
 **Returns:** *void*
 
-Defined in: [src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/3cce60b/src/segmentTree/segmentTree.ts#L7)
+Defined in: [src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/segmentTree.ts#L7)

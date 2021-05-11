@@ -49,7 +49,7 @@ Memory usage: n elements require between 2n-1 to 4(n-1)-1 entries
 
 ### constructor
 
-\+ **new LevelOrderSegmentTree**<T\>(`combine`: [*CombineFn*](../interfaces/combinefn.md)<T\>, `values?`: *Iterable*<T\>): [*LevelOrderSegmentTree*](levelordersegmenttree.md)<T\>
+\+ **new LevelOrderSegmentTree**<T\>(`combine`: [*CombineFn*](../interfaces/combinefn.md)<T\>, `elements?`: *Iterable*<T\>): [*LevelOrderSegmentTree*](levelordersegmenttree.md)<T\>
 
 Construct a new [SegmentTree](../interfaces/segmenttree.md)
 
@@ -64,11 +64,11 @@ Construct a new [SegmentTree](../interfaces/segmenttree.md)
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `combine` | [*CombineFn*](../interfaces/combinefn.md)<T\> | - | - |
-| `values` | *Iterable*<T\> | [] | Initial elements to build into the tree |
+| `elements` | *Iterable*<T\> | [] | Initial elements to build into the tree |
 
 **Returns:** [*LevelOrderSegmentTree*](levelordersegmenttree.md)<T\>
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:39
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:39](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L39)
 
 ## Properties
 
@@ -78,7 +78,7 @@ Defined in: src/segmentTree/levelOrderSegmentTree.ts:39
 
 The internal array used to store elements and aggregation nodes
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:24
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:24](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L24)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 The function used to aggregate elements
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:29
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:29](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L29)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 The used length (size) of our internal array
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:34
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:34](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L34)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 The start index for the lowest level
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:39
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:39](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L39)
 
 ___
 
@@ -119,12 +119,12 @@ ___
 The maximum number of elements that can be added.
 
 According to [ECMA-262](https://tc39.es/ecma262/#array-index):
-   0 <= array.length <= 2^32 - 1
+    0 <= array.length <= 2^32 - 1
 
 So since n elements require 2^⌊log2(2n)⌋ - 1 memory:
-   0 <= size <= 2^31
+    0 <= size <= 2^31
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:19
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:19](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L19)
 
 ## Accessors
 
@@ -132,14 +132,14 @@ Defined in: src/segmentTree/levelOrderSegmentTree.ts:19
 
 • get **size**(): *number*
 
-The number of values in the tree
-   0 <= size <= [MAX_SIZE](levelordersegmenttree.md#max_size)
+The number of elements in the tree:
+    0 <= size <= [MAX_SIZE](levelordersegmenttree.md#max_size)
 
 **Returns:** *number*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md).[size](../interfaces/segmenttree.md#size)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:228
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:245](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L245)
 
 ## Methods
 
@@ -147,29 +147,31 @@ Defined in: src/segmentTree/levelOrderSegmentTree.ts:228
 
 ▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
 
-Return an iterator that iterates through the values
+Return an iterator through the elements
 
 **Returns:** *Iterator*<T, any, undefined\>
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:235
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:252](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L252)
 
 ___
 
 ### build
 
-▸ `Protected`**build**(`values`: *Iterable*<T\> \| T[]): *void*
+▸ `Protected`**build**(`elements`: *Iterable*<T\>): *void*
+
+A helper method used to build the tree
 
 #### Parameters:
 
-| Name | Type |
-| :------ | :------ |
-| `values` | *Iterable*<T\> \| T[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elements` | *Iterable*<T\> | The initial set of elements to add into the tree |
 
 **Returns:** *void*
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:55
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:60](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L60)
 
 ___
 
@@ -183,7 +185,7 @@ Remove all elements
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:139
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:156](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L156)
 
 ___
 
@@ -195,7 +197,7 @@ Shift the tree down a level
 
 **Returns:** *void*
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:91
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:108](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L108)
 
 ___
 
@@ -203,35 +205,35 @@ ___
 
 ▸ **pop**(): *undefined* \| T
 
-Remove the last added value
+Remove the last added element
 
 **Returns:** *undefined* \| T
 
-The last added value or `undefined` if empty.
+The last added element or `undefined` if empty.
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:150
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:167](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L167)
 
 ___
 
 ### push
 
-▸ **push**(`value`: T): *void*
+▸ **push**(`element`: T): *void*
 
-Insert the given value into the end of the tree
+Insert the given element into the end of the tree
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | T | The value to be inserted |
+| `element` | T | The element to be inserted |
 
 **Returns:** *void*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:172
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:189](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L189)
 
 ___
 
@@ -239,7 +241,7 @@ ___
 
 ▸ **query**(`min`: *number*, `max`: *number*): T
 
-Get the aggregated information for values in a given range
+Get the aggregated information for elements in a given range
 
 #### Parameters:
 
@@ -250,11 +252,11 @@ Get the aggregated information for values in a given range
 
 **Returns:** T
 
-The aggregated information for values in range [min, max)
+The aggregated information for elements in range [min, max)
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:196
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:213](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L213)
 
 ___
 
@@ -266,15 +268,15 @@ Shift the tree up a level
 
 **Returns:** *void*
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:115
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:132](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L132)
 
 ___
 
 ### update
 
-▸ **update**(`min`: *number*, `max`: *number*, `transform`: (`value`: T, `index`: *number*) => T): *void*
+▸ **update**(`min`: *number*, `max`: *number*, `transform`: (`element`: T, `index`: *number*) => T): *void*
 
-Update values in a given range
+Update elements in a given range
 
 #### Parameters:
 
@@ -282,10 +284,10 @@ Update values in a given range
 | :------ | :------ | :------ |
 | `min` | *number* | The start of the range, inclusive |
 | `max` | *number* | The end of the range, exclusive |
-| `transform` | (`value`: T, `index`: *number*) => T | The callback function doing the updating |
+| `transform` | (`element`: T, `index`: *number*) => T | The callback function doing the updating |
 
 **Returns:** *void*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/levelOrderSegmentTree.ts:248
+Defined in: [src/segmentTree/levelOrderSegmentTree.ts:265](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/levelOrderSegmentTree.ts#L265)

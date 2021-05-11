@@ -21,4 +21,4 @@
 
 **Returns:** *number*
 
-Defined in: [src/index.ts:34](https://github.com/havelessbemore/dastal/blob/3cce60b/src/index.ts#L34)
+Defined in: [src/index.ts:34](https://github.com/havelessbemore/dastal/blob/7cfb505/src/index.ts#L34)

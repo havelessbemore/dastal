@@ -3,7 +3,7 @@
 # Class: InOrderSegmentTree<T\>
 
 A [SegmentTree](../interfaces/segmenttree.md) with entries stored in in-order traversal.
-Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests)([github](https://github.com/trishume/gigatrace))
+Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests) ([github](https://github.com/trishume/gigatrace))
 
 ## Type parameters
 
@@ -45,7 +45,7 @@ Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests)(
 
 ### constructor
 
-\+ **new InOrderSegmentTree**<T\>(`combine`: [*CombineFn*](../interfaces/combinefn.md)<T\>, `values?`: *Iterable*<T\>): [*InOrderSegmentTree*](inordersegmenttree.md)<T\>
+\+ **new InOrderSegmentTree**<T\>(`combine`: [*CombineFn*](../interfaces/combinefn.md)<T\>, `elements?`: *Iterable*<T\>): [*InOrderSegmentTree*](inordersegmenttree.md)<T\>
 
 Construct a new [InOrderSegmentTree](inordersegmenttree.md)
 
@@ -60,11 +60,11 @@ Construct a new [InOrderSegmentTree](inordersegmenttree.md)
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `combine` | [*CombineFn*](../interfaces/combinefn.md)<T\> | - | The function used to aggregate segment information |
-| `values` | *Iterable*<T\> | [] | Initial values to [push](inordersegmenttree.md#push) into the tree |
+| `elements` | *Iterable*<T\> | [] | A set of elements to add into the initial tree |
 
 **Returns:** [*InOrderSegmentTree*](inordersegmenttree.md)<T\>
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:29
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:29](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L29)
 
 ## Properties
 
@@ -72,9 +72,9 @@ Defined in: src/segmentTree/inOrderSegmentTree.ts:29
 
 • `Protected` **array**: T[]
 
-The internal array used to store values and aggregation nodes
+The internal array used to store elements and aggregation nodes
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:24
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:24](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L24)
 
 ___
 
@@ -82,25 +82,25 @@ ___
 
 • `Protected` **combine**: [*CombineFn*](../interfaces/combinefn.md)<T\>
 
-The function used to aggregate values
+The function used to aggregate elements
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:29
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:29](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L29)
 
 ___
 
 ### MAX\_SIZE
 
-▪ `Static` `Readonly` **MAX\_SIZE**: ``2147483647``= 2147483647
+▪ `Static` `Readonly` **MAX\_SIZE**: *number*= 2147483647
 
-The maximum amount of values that can be added.
+The maximum amount of elements that can be added.
 
 According to [ECMA-262](https://tc39.es/ecma262/#array-index):
-   0 <= array.length <= 2^32 - 1
+    0 <= array.length <= 2^32 - 1
 
-So since n elements require 2n memory:
-   0 <= size <= 2^31 - 1/2
+Because n elements require 2n memory:
+    0 <= size <= 2^31 - 1/2
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:19
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:19](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L19)
 
 ## Accessors
 
@@ -108,14 +108,14 @@ Defined in: src/segmentTree/inOrderSegmentTree.ts:19
 
 • get **size**(): *number*
 
-The number of values in the tree
-   0 <= size <= [MAX_SIZE](inordersegmenttree.md#max_size)
+The number of elements in the tree:
+    0 <= size <= [MAX_SIZE](inordersegmenttree.md#max_size)
 
 **Returns:** *number*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md).[size](../interfaces/segmenttree.md#size)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:145
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:150](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L150)
 
 ## Methods
 
@@ -123,29 +123,31 @@ Defined in: src/segmentTree/inOrderSegmentTree.ts:145
 
 ▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
 
-Return an iterator that iterates through the values
+Return an iterator through the tree's elements
 
 **Returns:** *Iterator*<T, any, undefined\>
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:152
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:157](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L157)
 
 ___
 
 ### build
 
-▸ `Protected`**build**(`values`: *Iterable*<T\>): *void*
+▸ `Protected`**build**(`elements`: *Iterable*<T\>): *void*
+
+A helper method used to build the tree
 
 #### Parameters:
 
-| Name | Type |
-| :------ | :------ |
-| `values` | *Iterable*<T\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elements` | *Iterable*<T\> | The initial set of elements to add into the tree |
 
 **Returns:** *void*
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:43
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:48](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L48)
 
 ___
 
@@ -153,13 +155,13 @@ ___
 
 ▸ **clear**(): *void*
 
-Remove all values
+Remove all elements
 
 **Returns:** *void*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:52
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:57](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L57)
 
 ___
 
@@ -167,35 +169,35 @@ ___
 
 ▸ **pop**(): *undefined* \| T
 
-Remove the last added value
+Remove the last added element
 
 **Returns:** *undefined* \| T
 
-The last added value or `undefined` if empty.
+The last added element or `undefined` if empty.
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:61
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:66](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L66)
 
 ___
 
 ### push
 
-▸ **push**(`value`: T): *void*
+▸ **push**(`element`: T): *void*
 
-Insert the given value into the end of the tree
+Insert the given element into the end of the tree
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | T | The value to be inserted |
+| `element` | T | The element to be inserted |
 
 **Returns:** *void*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:85
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:90](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L90)
 
 ___
 
@@ -203,7 +205,7 @@ ___
 
 ▸ **query**(`min`: *number*, `max`: *number*): T
 
-Get the aggregated information for values in a given range
+Get the aggregated information for elements in a given range
 
 #### Parameters:
 
@@ -214,19 +216,19 @@ Get the aggregated information for values in a given range
 
 **Returns:** T
 
-The aggregated information for values in range [min, max)
+The aggregated information for elements in range [min, max)
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:113
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:118](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L118)
 
 ___
 
 ### update
 
-▸ **update**(`min`: *number*, `max`: *number*, `transform`: (`value`: T, `index`: *number*) => T): *void*
+▸ **update**(`min`: *number*, `max`: *number*, `transform`: (`element`: T, `index`: *number*) => T): *void*
 
-Update values in a given range
+Update elements in a given range
 
 #### Parameters:
 
@@ -234,10 +236,10 @@ Update values in a given range
 | :------ | :------ | :------ |
 | `min` | *number* | The start of the range, inclusive |
 | `max` | *number* | The end of the range, exclusive |
-| `transform` | (`value`: T, `index`: *number*) => T | The callback function doing the updating |
+| `transform` | (`element`: T, `index`: *number*) => T | The callback function doing the updating |
 
 **Returns:** *void*
 
 Implementation of: [SegmentTree](../interfaces/segmenttree.md)
 
-Defined in: src/segmentTree/inOrderSegmentTree.ts:165
+Defined in: [src/segmentTree/inOrderSegmentTree.ts:170](https://github.com/havelessbemore/dastal/blob/7cfb505/src/segmentTree/inOrderSegmentTree.ts#L170)
