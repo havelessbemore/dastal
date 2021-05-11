@@ -1,4 +1,4 @@
-import { Comparator, Sorted } from 'src';
+import { Comparator, Sorted } from '..';
 
 export interface Heap<T> extends Sorted<T> {
     clear(): void;

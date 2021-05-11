@@ -13,8 +13,6 @@ npm install dastal
 
 ## API
 
-Coming soon!
-
 See [docs/](./docs/README.md) for details. The latest documentation can also be found in the [wiki](https://github.com/havelessbemore/dastal/wiki).
 
 ## Contribute
