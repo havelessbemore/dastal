@@ -1,37 +1,45 @@
 import { expect } from 'chai';
-import { SegmentForest } from 'src/segmentTree/segmentForest';
+import { randomFill } from 'crypto';
+import { LevelOrderSegmentTree } from 'src/segmentTree/levelOrderSegmentTree';
 
-describe('SegmentForest unit tests', function() {
+describe('LevelOrderSegmentTree unit tests', function() {
 
-  let empty: SegmentForest<number>;
-  let filled: SegmentForest<number>;
-  const values = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  const updatedValues = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+  let empty: LevelOrderSegmentTree<number>;
+  let filled: LevelOrderSegmentTree<number>;
+  
+  const values = new Uint32Array(36);
+  const updatedValues = new Uint32Array(36);
+  randomFill(values, _ => {});
+  randomFill(updatedValues, _ => {});
 
-  function permutate(forest: SegmentForest<number>, vals: number[]) {
-    for (let size = 1; size <= forest.size; ++size) {
+  function permutate(tree: LevelOrderSegmentTree<number>, vals: ArrayLike<number>) {
+    for (let size = 1; size <= tree.size; ++size) {
       let max = 0;
       let min = 0;
       let sum = 0;
       
-      do {
-        sum += vals[max++];
-      } while (max < size);
-      // console.log(`[${min}, ${max}) = ${sum}`);
-      expect(forest.query(min, max)).to.equal(sum);
+      try {
+        do {
+          sum += vals[max++];
+        } while (max < size);
+        expect(tree.query(min, max)).to.equal(sum);
 
-      while (max < forest.size) {
-        sum -= vals[min++];
-        sum += vals[max++];
-        // console.log(`[${min}, ${max}) = ${sum}`);
-        expect(forest.query(min, max)).to.equal(sum);
+        while (max < tree.size) {
+          sum -= vals[min++];
+          sum += vals[max++];
+          expect(tree.query(min, max)).to.equal(sum);
+        }
+      } catch (error) {
+        // console.error(`...`);
+        throw error;
       }
+      
     }
   }
 
   beforeEach(function() {
-    empty = new SegmentForest((a, b) => a + b);
-    filled = new SegmentForest((a, b) => a + b, values);
+    empty = new LevelOrderSegmentTree((a, b) => a + b);
+    filled = new LevelOrderSegmentTree((a, b) => a + b, values);
   });
 
   describe('#clear()', function() {
@@ -82,9 +90,19 @@ describe('SegmentForest unit tests', function() {
       expect(empty.pop()).to.equal(undefined);
     });
 
-    it ('Should not break aggregation', function () {
-      while (filled.size > 1) {
+    it ('Should not break aggregation when removing', async function () {
+      while (filled.size > 0) {
         filled.pop();
+        permutate(filled, values);
+      }
+    });
+
+    it ('Should not break aggregation when re-adding', async function () {
+      while (filled.size > 0) {
+        filled.pop();
+      }
+      for (const value of values) {
+        filled.push(value);
         permutate(filled, values);
       }
     });
@@ -92,7 +110,7 @@ describe('SegmentForest unit tests', function() {
 
   describe('#push()', function() {
 
-    it ('Should not break aggregation', function () {
+    it ('Should not break aggregation', async function () {
       for (const value of values) {
         empty.push(value);
         permutate(empty, values);
@@ -102,7 +120,7 @@ describe('SegmentForest unit tests', function() {
 
   describe('#query()', function() {
 
-    it ('Should throw error when querying an empty forest', function() {
+    it ('Should throw error when querying an empty tree', function() {
       expect(() => empty.query(0, 0)).to.throw(RangeError);
     });
 
@@ -136,7 +154,7 @@ describe('SegmentForest unit tests', function() {
       }
     });
 
-    it ('Should return aggregated values when querying for ranges of size > 1', function() {
+    it ('Should return aggregated values when querying for ranges of size > 1', async function() {
       permutate(filled, values);
     });
   });
@@ -185,6 +203,15 @@ describe('SegmentForest unit tests', function() {
     });
   });
 
+  describe('#[Symbol.iterator]()', function() {
+    it('Should return the tree values', function() {
+      let i = 0;
+      for (const v of filled) {
+        expect(v).to.equal(values[i++]);
+      }
+    });
+  });
+
   describe('#update()', function() {
 
     it ('Should work when empty', function() {
@@ -210,19 +237,18 @@ describe('SegmentForest unit tests', function() {
       expect(() => empty.update(-5, 5, v => v)).to.throw(RangeError);
     });
     
-    it('Should correctly update a forest', function() {
+    it('Should correctly update a tree', async function() {
+      this.timeout(0);
       for (let size = 1; size <= values.length; ++size) {
         let max = size;
         for (let min = 0; max <= values.length; ++min, ++max) {
-          const forest = new SegmentForest((a, b) => a + b, values);
+          const tree = new LevelOrderSegmentTree((a, b) => a + b, values);
           const vals = Array.from(values);
           for (let i = min; i < max; ++i) {
             vals[i] = updatedValues[i];
           }
-          // console.log('BEFORE     :', values.join(', '));
-          // console.log(`AFTER[${min}, ${max}):`, vals.join(', '));
-          forest.update(min, max, (_, i) => vals[i]);
-          permutate(forest, vals);
+          tree.update(min, max, (_, i) => vals[i]);
+          permutate(tree, vals);
         }
       }
     });

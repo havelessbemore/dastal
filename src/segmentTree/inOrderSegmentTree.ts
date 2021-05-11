@@ -1,22 +1,20 @@
 import { lsb, lsp, msb, msp } from 'src/math/bits';
-import { CombineFn } from '..';
 import { SegmentTree } from './segmentTree';
+import { CombineFn } from '..';
 
 /**
  * A {@link SegmentTree} with entries stored in in-order traversal.
- * Allows for a memory efficient implementation; n elements require only 2n entries.
- *
  * Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests)([github](https://github.com/trishume/gigatrace))
  */
-export class SegmentForest<T> implements SegmentTree<T> {
+export class InOrderSegmentTree<T> implements SegmentTree<T> {
     /**
      * The maximum amount of values that can be added.
      *
      * According to [ECMA-262](https://tc39.es/ecma262/#array-index):
-     *    0 <= array.length <= 2^32 - 2
+     *    0 <= array.length <= 2^32 - 1
      *
-     * So since every push adds 2 elements to our internal array:
-     *    0 <= size <= (2^32 - 2) / 2
+     * So since n elements require 2n memory:
+     *    0 <= size <= 2^31 - 1/2
      */
     static readonly MAX_SIZE = 2147483647;
 
@@ -31,14 +29,18 @@ export class SegmentForest<T> implements SegmentTree<T> {
     protected combine: CombineFn<T>;
 
     /**
-     * Construct a new {@link SegmentForest}
+     * Construct a new {@link InOrderSegmentTree}
      *
-     * @param combinFn - The function used to aggregate segment information
-     * @param values - Initial values to {@link push} into the forest
+     * @param combine - The function used to aggregate segment information
+     * @param values - Initial values to {@link push} into the tree
      */
-    constructor(combineFn: CombineFn<T>, values: Iterable<T> = []) {
+    constructor(combine: CombineFn<T>, values: Iterable<T> = []) {
         this.array = [];
-        this.combine = combineFn;
+        this.combine = combine;
+        this.build(values);
+    }
+
+    protected build(values: Iterable<T>) {
         for (const value of values) {
             this.push(value);
         }
@@ -75,15 +77,15 @@ export class SegmentForest<T> implements SegmentTree<T> {
     }
 
     /**
-     * Insert the given value into the end of the forest
+     * Insert the given value into the end of the tree
      *
      * @param value - The value to be inserted
      *
      */
     push(value: T): void {
         // Sanitize range
-        if (this.size >= SegmentForest.MAX_SIZE) {
-            throw new RangeError(`Invalid array length`);
+        if (this.size >= InOrderSegmentTree.MAX_SIZE) {
+            throw new RangeError(`Invalid SegmentTree length`);
         }
 
         // Add the new value
@@ -110,20 +112,23 @@ export class SegmentForest<T> implements SegmentTree<T> {
      */
     query(min: number, max: number): T {
         // Sanitize range
-        if (min >= max || min < 0 || max > this.size) {
-            throw new RangeError(`Range [${min}..${max}) is empty or not in [0..${this.size})`);
+        if (min >= max) {
+            throw new RangeError(`Range [${min}..${max}) is empty`);
+        }
+        if (min < 0 || max > this.size) {
+            throw new RangeError(`Range [${min}..${max}) not in [0..${this.size})`);
         }
 
         // Translate range to interior indices
         min *= 2;
         max *= 2;
 
-        // Get first value
+        // Take the longest possible jump from min
         let offset = lsp(min | msp(max - min));
         let value = this.array[min - 1 + (offset >>> 1)];
         min += offset;
 
-        // Combine with longest reaching aggregation nodes
+        // Continue jumping until max
         while (min < max) {
             offset = lsp(min | msp(max - min));
             value = this.combine(value, this.array[min - 1 + (offset >>> 1)]);
@@ -134,11 +139,20 @@ export class SegmentForest<T> implements SegmentTree<T> {
     }
 
     /**
-     * The number of values in the forest
-     *    0 <= size <= {@link SegmentForest.MAX_SIZE}
+     * The number of values in the tree
+     *    0 <= size <= {@link MAX_SIZE}
      */
     get size(): number {
         return this.array.length >>> 1;
+    }
+
+    /**
+     * Return an iterator that iterates through the values
+     */
+    *[Symbol.iterator](): Iterator<T> {
+        for (let i = 0; i < this.array.length; i += 2) {
+            yield this.array[i];
+        }
     }
 
     /**
@@ -161,10 +175,10 @@ export class SegmentForest<T> implements SegmentTree<T> {
         min *= 2;
         max *= 2;
 
-        // For each new value...
+        // For each new value in range
         let value: T;
         do {
-            // Update the index
+            // Update the value
             value = transform(this.array[min], min >>> 1);
             this.array[min++] = value;
 
@@ -191,18 +205,3 @@ export class SegmentForest<T> implements SegmentTree<T> {
         this.array[min] = value;
     }
 }
-
-/*
-function left(index: number): number {
-    return index - (lsp(index + 1) >>> 1);
-}
-
-function parent(index: number): number {
-    const offset = lsp(index + 1);
-    return index + offset - ((index & 2*offset) >>> 0) ;
-}
-
-function right(index: number): number {
-    return index + (lsp(index + 1) >>> 1);
-}
-*/

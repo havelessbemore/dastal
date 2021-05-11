@@ -1,4 +1,4 @@
-import { TokenizerFn } from 'src/types/tokenizer';
+import { TokenizeFn } from '..';
 import { Trie } from './trie';
 
 export interface GenericTrieNode<Token, Value> {
@@ -11,7 +11,7 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
     protected length!: number;
     protected root!: GenericTrieNode<Token, Value>;
 
-    constructor(protected tokenize: TokenizerFn<Key, Token>) {
+    constructor(protected tokenize: TokenizeFn<Key, Token>) {
         this.clear();
     }
 

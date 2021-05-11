@@ -18,6 +18,6 @@
 
 ### sort
 
-• **sort**: [*SortableFn*](sortablefn.md)<T\>
+• **sort**: [*SortFn*](sortfn.md)<T\>
 
-Defined in: [sortable.ts:7](https://github.com/havelessbemore/dastal/blob/5fab342/src/sortable.ts#L7)
+Defined in: [src/index.ts:42](https://github.com/havelessbemore/dastal/blob/3cce60b/src/index.ts#L42)

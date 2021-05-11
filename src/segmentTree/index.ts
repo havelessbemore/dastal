@@ -1,2 +1,3 @@
-export * from './segmentForest';
+export * from './inOrderSegmentTree';
+export * from './levelOrderSegmentTree';
 export * from './segmentTree';

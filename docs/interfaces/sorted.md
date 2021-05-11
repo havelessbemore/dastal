@@ -8,16 +8,6 @@
 | :------ |
 | `T` |
 
-## Hierarchy
-
-* **Sorted**
-
-  ↳ [*Heap*](heap.md)
-
-## Implemented by
-
-* [*HeapQueue*](../classes/heapqueue.md)
-
 ## Table of contents
 
 ### Methods
@@ -32,4 +22,4 @@
 
 **Returns:** [*Comparator*](comparator.md)<T\>
 
-Defined in: [sortable.ts:21](https://github.com/havelessbemore/dastal/blob/5fab342/src/sortable.ts#L21)
+Defined in: [src/index.ts:49](https://github.com/havelessbemore/dastal/blob/3cce60b/src/index.ts#L49)

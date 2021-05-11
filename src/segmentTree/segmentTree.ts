@@ -1,4 +1,5 @@
-export interface SegmentTree<T> {
+export interface SegmentTree<T> extends Iterable<T> {
+    clear(): void;
     pop(): T | undefined;
     push(value: T): void;
     query(min: number, max: number): T;

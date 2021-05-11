@@ -18,6 +18,6 @@
 
 ### compare
 
-• **compare**: [*ComparatorFn*](comparatorfn.md)<T\>
+• **compare**: [*CompareFn*](comparefn.md)<T\>
 
-Defined in: [comparable.ts:5](https://github.com/havelessbemore/dastal/blob/5fab342/src/comparable.ts#L5)
+Defined in: [src/index.ts:28](https://github.com/havelessbemore/dastal/blob/3cce60b/src/index.ts#L28)
