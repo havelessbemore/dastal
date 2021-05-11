@@ -16,7 +16,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      * So since n elements require 2^⌊log2(2n)⌋ - 1 memory:
      *     0 <= size <= 2^31
      */
-    static readonly MAX_SIZE = 2147483648;
+    static readonly MAX_SIZE: number = 2147483648;
 
     /**
      * The internal array used to store elements and aggregation nodes
@@ -81,7 +81,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
 
         // Check for base case
         if (n < 1) {
-            this.array = [];
+            this.array.length = 0;
             this.length = 0;
             this.level = 0;
             return;
@@ -95,7 +95,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         // Allocate the array
         this.level = 2 * msp(n - 1) - 1;
         this.length = this.level + n;
-        this.array = new Array(2 * this.level + 1);
+        this.array.length = 2 * this.level + 1;
 
         // Build the tree
         const it = elements[Symbol.iterator]();

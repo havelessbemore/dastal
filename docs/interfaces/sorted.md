@@ -22,4 +22,4 @@
 
 **Returns:** [*Comparator*](comparator.md)<T\>
 
-Defined in: [src/index.ts:49](https://github.com/havelessbemore/dastal/blob/7cfb505/src/index.ts#L49)
+Defined in: [src/index.ts:49](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L49)

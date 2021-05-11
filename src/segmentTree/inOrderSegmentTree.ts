@@ -14,7 +14,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      *     0 <= array.length <= 2^32 - 1
      *
      * Because n elements require 2n memory:
-     *     0 <= size <= 2^31 - 1/2
+     *     0 <= size <= 2^31 - 1
      */
     static readonly MAX_SIZE: number = 2147483647;
 

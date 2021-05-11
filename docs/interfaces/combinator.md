@@ -20,4 +20,4 @@
 
 • **combine**: [*CombineFn*](combinefn.md)<T\>
 
-Defined in: [src/index.ts:14](https://github.com/havelessbemore/dastal/blob/7cfb505/src/index.ts#L14)
+Defined in: [src/index.ts:14](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L14)

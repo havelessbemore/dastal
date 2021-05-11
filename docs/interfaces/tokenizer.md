@@ -21,4 +21,4 @@
 
 • **tokenize**: [*TokenizeFn*](tokenizefn.md)<Key, Token\>
 
-Defined in: [src/index.ts:70](https://github.com/havelessbemore/dastal/blob/7cfb505/src/index.ts#L70)
+Defined in: [src/index.ts:70](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L70)
