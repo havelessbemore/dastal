@@ -21,4 +21,4 @@
 
 **Returns:** T
 
-Defined in: [src/index.ts:20](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L20)
+Defined in: [src/index.ts:20](https://github.com/havelessbemore/dastal/blob/7516240/src/index.ts#L20)

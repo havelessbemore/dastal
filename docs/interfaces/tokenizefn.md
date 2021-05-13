@@ -21,4 +21,4 @@
 
 **Returns:** *Iterable*<Token\>
 
-Defined in: [src/index.ts:62](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L62)
+Defined in: [src/index.ts:62](https://github.com/havelessbemore/dastal/blob/7516240/src/index.ts#L62)

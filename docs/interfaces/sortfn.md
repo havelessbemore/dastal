@@ -20,4 +20,4 @@
 
 **Returns:** *void*
 
-Defined in: [src/index.ts:55](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L55)
+Defined in: [src/index.ts:55](https://github.com/havelessbemore/dastal/blob/7516240/src/index.ts#L55)

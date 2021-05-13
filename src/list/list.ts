@@ -17,6 +17,13 @@ export interface List<T> extends Iterable<T> {
      */
     get(index: number): T | undefined;
     /**
+     * Update the element at the specified index
+     *
+     * @param index - The index to retrieve
+     * @param callback - A function that receives the previous element and returns the new element
+     */
+    getSet(index: number, callback: (element: T) => T): void;
+    /**
      * Retrieves and removes the end of the list
      *
      * @returns The value at the end of the list or `undefined` if empty.

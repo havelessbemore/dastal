@@ -20,4 +20,4 @@
 
 • **compare**: [*CompareFn*](comparefn.md)<T\>
 
-Defined in: [src/index.ts:28](https://github.com/havelessbemore/dastal/blob/27768c3/src/index.ts#L28)
+Defined in: [src/index.ts:28](https://github.com/havelessbemore/dastal/blob/7516240/src/index.ts#L28)
