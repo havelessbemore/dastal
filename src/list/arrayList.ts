@@ -54,6 +54,10 @@ export class ArrayList<T> implements List<T> {
         return Array.from(this.array);
     }
 
+    [Symbol.iterator](): Iterator<T> {
+        return this.array[Symbol.iterator]();
+    }
+
     unshift(value: T): boolean {
         this.array.unshift(value);
         return true;

@@ -41,10 +41,8 @@ export class ArrayStack<T> implements Stack<T> {
     get size(): number {
         return this.array.length;
     }
-    /**
-     * Convert the stack into an array
-     */
-    toArray(): T[] {
-        return Array.from(this.array);
+
+    [Symbol.iterator](): Iterator<T> {
+        return this.array[Symbol.iterator]();
     }
 }

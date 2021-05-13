@@ -24,7 +24,7 @@ export class ArrayQueue<T> implements Queue<T> {
         return this.array.length;
     }
 
-    toArray(): T[] {
-        return Array.from(this.array);
+    [Symbol.iterator](): Iterator<T> {
+        return this.array[Symbol.iterator]();
     }
 }

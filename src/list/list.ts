@@ -1,4 +1,4 @@
-export interface List<T> {
+export interface List<T> extends Iterable<T> {
     /**
      * Add the element at the specified index
      *
@@ -57,10 +57,6 @@ export interface List<T> {
      * The number of elements in this list
      */
     readonly size: number;
-    /**
-     * Converts the list into an array
-     */
-    toArray(): T[];
     /**
      * Inserts the specified value into the front of the list
      *

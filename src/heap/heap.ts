@@ -1,6 +1,6 @@
 import { Comparator, Sorted } from '..';
 
-export interface Heap<T> extends Sorted<T> {
+export interface Heap<T> extends Iterable<T>, Sorted<T> {
     clear(): void;
     comparator(): Comparator<T>;
     heapify(...iterables: Iterable<T>[]): Heap<T>;
@@ -11,5 +11,4 @@ export interface Heap<T> extends Sorted<T> {
     pushPop(element: T): T;
     replace(element: T): T; // Aka popPush
     readonly size: number;
-    toArray(): T[];
 }

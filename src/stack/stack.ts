@@ -1,4 +1,4 @@
-export interface Stack<T> {
+export interface Stack<T> extends Iterable<T> {
     /**
      * Removes all elements from the stack
      */
@@ -27,8 +27,4 @@ export interface Stack<T> {
      * The number of elements in the stack
      */
     readonly size: number;
-    /**
-     * Convert the stack into an array
-     */
-    toArray(): T[];
 }

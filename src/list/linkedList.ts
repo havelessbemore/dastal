@@ -84,17 +84,12 @@ export class LinkedList<T> implements List<T> {
         return this.length;
     }
 
-    toArray(): T[] {
-        const n = this.length;
-        const out = new Array(n);
-
+    *[Symbol.iterator](): Iterator<T> {
         let node = this.tail;
-        for (let i = 0; i < n; ++i) {
+        for (let i = 0; i < this.length; ++i) {
             node = node!.next;
-            out[i] = node.value;
+            yield node.value;
         }
-
-        return out;
     }
 
     unshift(value: T): boolean {

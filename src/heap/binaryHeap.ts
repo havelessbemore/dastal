@@ -48,7 +48,7 @@ export abstract class BinaryHeap<T> implements Heap<T> {
     */
 
     merge(heap: Heap<T>): this {
-        for (const element of heap.toArray()) {
+        for (const element of heap) {
             this.array.push(element);
         }
         heapify((a, b) => this.isAboveOrEqual(a, b), this.array);
@@ -134,7 +134,9 @@ export abstract class BinaryHeap<T> implements Heap<T> {
     }
     */
 
-    toArray(): T[] {
-        return Array.from(this.array).sort((a, b) => this._comparator.compare(a, b));
+    [Symbol.iterator](): Iterator<T> {
+        return Array.from(this.array)
+            .sort((a, b) => this._comparator.compare(a, b))
+            [Symbol.iterator]();
     }
 }

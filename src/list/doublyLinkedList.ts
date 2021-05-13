@@ -94,17 +94,12 @@ export class DoublyLinkedList<T> implements List<T> {
         return this.length;
     }
 
-    toArray(): T[] {
-        const n = this.length;
-        const out = new Array(n);
-
+    *[Symbol.iterator](): Iterator<T> {
         let node = this.root;
-        for (let i = 0; i < n; ++i) {
-            node = node.next;
-            out[i] = node.value;
+        for (let i = 0; i < this.length; ++i) {
+            node = node!.next;
+            yield node.value;
         }
-
-        return out;
     }
 
     unshift(value: T): boolean {

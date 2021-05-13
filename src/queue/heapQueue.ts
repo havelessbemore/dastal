@@ -30,7 +30,7 @@ export class HeapQueue<T> implements Queue<T>, Sorted<T> {
         return this.heap.size;
     }
 
-    toArray(): T[] {
-        return this.heap.toArray();
+    [Symbol.iterator](): Iterator<T> {
+        return this.heap[Symbol.iterator]();
     }
 }

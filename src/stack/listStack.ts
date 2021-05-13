@@ -41,10 +41,8 @@ export class ListStack<T> implements Stack<T> {
     get size(): number {
         return this.list.size;
     }
-    /**
-     * Convert the stack into an array
-     */
-    toArray(): T[] {
-        return this.list.toArray();
+
+    [Symbol.iterator](): Iterator<T> {
+        return this.list[Symbol.iterator]();
     }
 }

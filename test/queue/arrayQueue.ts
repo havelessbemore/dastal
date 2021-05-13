@@ -157,15 +157,15 @@ describe('ArrayQueue unit tests', function() {
     });
   });
 
-  describe('#toArray()', function() {
+  describe('#[Symbol.iterator]()', function() {
 
     it('Should return an array copy of the values', function() {
       const vals: number[] = [];
-      expect(empty.toArray()).to.eql(vals);
+      expect(Array.from(empty)).to.eql(vals);
 
       for (let i = 0; i < values.length; ++i) {
         empty.enqueue(vals[i] = values[i]);
-        expect(empty.toArray()).to.eql(vals);
+        expect(Array.from(empty)).to.eql(vals);
       }
     });
   });

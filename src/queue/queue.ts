@@ -1,4 +1,4 @@
-export interface Queue<T> {
+export interface Queue<T> extends Iterable<T> {
     /**
      * Removes all elements from this queue
      */
@@ -27,8 +27,4 @@ export interface Queue<T> {
      * The number of elements in this queue
      */
     readonly size: number;
-    /**
-     * Convert the queue into an array
-     */
-    toArray(): T[];
 }

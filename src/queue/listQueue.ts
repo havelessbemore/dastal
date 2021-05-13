@@ -28,7 +28,7 @@ export class ListQueue<T> implements Queue<T> {
         return this.list.size;
     }
 
-    toArray(): T[] {
-        return this.list.toArray();
+    [Symbol.iterator](): Iterator<T> {
+        return this.list[Symbol.iterator]();
     }
 }
