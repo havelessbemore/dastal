@@ -2,6 +2,10 @@
 
 # Interface: List<T\>
 
+An ordered collection (also known as a sequence). A list allows exactly stating where an element is inserted.
+
+Elements can be accessed by their integer index (position in the list)
+
 ## Type parameters
 
 | Name |
@@ -48,7 +52,7 @@
 
 The number of elements in this list
 
-Defined in: [src/list/list.ts:66](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L66)
+Defined in: [src/list/list.ts:78](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L78)
 
 ## Methods
 
@@ -66,7 +70,7 @@ ___
 
 ### add
 
-▸ **add**(`index`: *number*, `element`: T): *boolean*
+▸ **add**(`index`: *number*, `element`: T): *number*
 
 Add the element at the specified index
 
@@ -77,9 +81,11 @@ Add the element at the specified index
 | `index` | *number* | The index to add into |
 | `element` | T | The element to add |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
-Defined in: [src/list/list.ts:8](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L8)
+The new size of the list
+
+Defined in: [src/list/list.ts:15](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L15)
 
 ___
 
@@ -91,7 +97,7 @@ Removes all elements
 
 **Returns:** *void*
 
-Defined in: [src/list/list.ts:12](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L12)
+Defined in: [src/list/list.ts:19](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L19)
 
 ___
 
@@ -109,13 +115,15 @@ Return the element at the specified index
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/list/list.ts:18](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L18)
+The element at the index, or `undefined` if index is invalid
+
+Defined in: [src/list/list.ts:27](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L27)
 
 ___
 
 ### getSet
 
-▸ **getSet**(`index`: *number*, `callback`: (`element`: T) => T): *void*
+▸ **getSet**(`index`: *number*, `callback`: (`element`: T) => T): *undefined* \| T
 
 Update the element at the specified index
 
@@ -124,11 +132,13 @@ Update the element at the specified index
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `index` | *number* | The index to retrieve |
-| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element |
+| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element. Note: The function is only called if the index is valid |
 
-**Returns:** *void*
+**Returns:** *undefined* \| T
 
-Defined in: [src/list/list.ts:25](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L25)
+The previous element at the index, or `undefined` if index is invalid
+
+Defined in: [src/list/list.ts:37](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L37)
 
 ___
 
@@ -140,15 +150,15 @@ Retrieves and removes the end of the list
 
 **Returns:** *undefined* \| T
 
-The value at the end of the list or `undefined` if empty.
+The value at the end of the list, or `undefined` if empty.
 
-Defined in: [src/list/list.ts:31](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L31)
+Defined in: [src/list/list.ts:43](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L43)
 
 ___
 
 ### push
 
-▸ **push**(`element`: T): *boolean*
+▸ **push**(`element`: T): *number*
 
 Inserts the specified value into the end of the list
 
@@ -158,11 +168,11 @@ Inserts the specified value into the end of the list
 | :------ | :------ | :------ |
 | `element` | T | The element to be inserted |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
-`true` upon success, otherwise `false`
+The new size of the list
 
-Defined in: [src/list/list.ts:39](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L39)
+Defined in: [src/list/list.ts:51](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L51)
 
 ___
 
@@ -180,9 +190,9 @@ Retrieves and removes the element at the given index
 
 **Returns:** *undefined* \| T
 
-The value at the index or `undefined` if the index does not exist
+The value at the index, or `undefined` if the index is invalid
 
-Defined in: [src/list/list.ts:47](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L47)
+Defined in: [src/list/list.ts:59](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L59)
 
 ___
 
@@ -201,9 +211,9 @@ Update the element at the specified index
 
 **Returns:** *undefined* \| T
 
-The previous element in the index, or undefined if the index does not exist
+The previous element in the index, or undefined if the index is invalid
 
-Defined in: [src/list/list.ts:56](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L56)
+Defined in: [src/list/list.ts:68](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L68)
 
 ___
 
@@ -217,13 +227,13 @@ Retrieves and removes the first element in the list
 
 The value at the front of the list or `undefined` if this list is empty.
 
-Defined in: [src/list/list.ts:62](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L62)
+Defined in: [src/list/list.ts:74](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L74)
 
 ___
 
 ### unshift
 
-▸ **unshift**(`element`: T): *boolean*
+▸ **unshift**(`element`: T): *number*
 
 Inserts the specified value into the front of the list
 
@@ -233,8 +243,8 @@ Inserts the specified value into the front of the list
 | :------ | :------ | :------ |
 | `element` | T | The element to be inserted |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
-`true` upon success, otherwise `false`
+The new size of the list
 
-Defined in: [src/list/list.ts:74](https://github.com/havelessbemore/dastal/blob/7516240/src/list/list.ts#L74)
+Defined in: [src/list/list.ts:86](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L86)

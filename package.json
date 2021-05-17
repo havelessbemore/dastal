@@ -21,7 +21,7 @@
   "scripts": {
     "build": "tsc",
     "docs": "rm -rf ./docs/* && typedoc --options typedoc.docs.json",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "mocha",
     "coverage": "nyc npm run test",
     "prepublish": "npm run lint && npm run build",
@@ -34,8 +34,12 @@
     "collections",
     "data structures",
     "heap",
+    "list",
     "queue",
+    "segment tree",
+    "stack",
     "structures",
+    "trie",
     "typescript"
   ],
   "author": "dev.michael.rojas@gmail.com",

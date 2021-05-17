@@ -1,22 +1,26 @@
+import { LinkedList, List } from '../list';
 import { Stack } from './stack';
 
 /**
- * An implementation of the {@link Stack} interface using an array
+ * A linked list implementation of the {@link Stack} interface
  */
-export class ArrayStack<T> implements Stack<T> {
+export class LinkedStack<T> implements Stack<T> {
     /**
      * @ignore
      */
-    protected array: T[];
+    protected list: List<T>;
 
     constructor(elements?: Iterable<T>) {
-        this.array = elements ? Array.from(elements) : [];
+        this.list = new LinkedList();
+        for (const element of elements || []) {
+            this.push(element);
+        }
     }
     /**
      * Removes all elements from the stack
      */
     clear(): void {
-        this.array.length = 0;
+        this.list.clear();
     }
     /**
      * Retrieves, but does not remove, the top of the stack
@@ -24,7 +28,7 @@ export class ArrayStack<T> implements Stack<T> {
      * @returns The element at the top of the stack or `undefined` if empty.
      */
     peek(): T | undefined {
-        return this.array[this.array.length - 1];
+        return this.list.get(0);
     }
     /**
      * Retrieves and removes the top of the stack
@@ -32,7 +36,7 @@ export class ArrayStack<T> implements Stack<T> {
      * @returns The element at the top of the stack or `undefined` if empty.
      */
     pop(): T | undefined {
-        return this.array.pop();
+        return this.list.shift();
     }
     /**
      * Inserts a element into the stack
@@ -42,13 +46,13 @@ export class ArrayStack<T> implements Stack<T> {
      * @returns The new size of the stack
      */
     push(element: T): number {
-        return this.array.push(element);
+        return this.list.unshift(element);
     }
     /**
      * The number of elements in the stack
      */
     get size(): number {
-        return this.array.length;
+        return this.list.size;
     }
     /**
      * Receive an iterator through the stack.
@@ -57,8 +61,7 @@ export class ArrayStack<T> implements Stack<T> {
      *
      * @returns An iterator through the stack
      */
-    *[Symbol.iterator](): Iterator<T> {
-        const array = this.array;
-        for (let i = array.length; i > 0; yield array[--i]) {}
+    [Symbol.iterator](): Iterator<T> {
+        return this.list[Symbol.iterator]();
     }
 }

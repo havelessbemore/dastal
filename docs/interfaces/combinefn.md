@@ -1,16 +1,17 @@
 [dastal - v1.0.0](../README.md) / CombineFn
 
-# Interface: CombineFn<T\>
+# Interface: CombineFn<T, K\>
 
 ## Type parameters
 
-| Name |
-| :------ |
-| `T` |
+| Name | Default |
+| :------ | :------ |
+| `T` | - |
+| `K` | T |
 
 ## Callable
 
-▸ **CombineFn**(`a`: T, `b`: T): T
+▸ **CombineFn**(`a`: T, `b`: T): K
 
 #### Parameters:
 
@@ -19,6 +20,6 @@
 | `a` | T |
 | `b` | T |
 
-**Returns:** T
+**Returns:** K
 
-Defined in: [src/index.ts:20](https://github.com/havelessbemore/dastal/blob/7516240/src/index.ts#L20)
+Defined in: [src/index.ts:14](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/index.ts#L14)

@@ -25,6 +25,20 @@ export function lsp(a: number): number {
 }
 
 /**
+ * Get the number of bits set (on) of a number
+ *
+ * @param a
+ */
+export function onBits(a: number): number {
+    let b = 0;
+    while (a !== 0) {
+        ++b;
+        a &= -a;
+    }
+    return b;
+}
+
+/**
  * Get the Most Significant Bit of a number
  *
  * @param a
@@ -48,8 +62,10 @@ export function msb(a: number): number {
  * @returns 2**msb(a)
  */
 export function msp(a: number): number {
-    for (let b = a & -a; a !== b; b = a & -a) {
+    let b = a & -a;
+    while (a != b) {
         a ^= b;
+        b = a & -a;
     }
-    return a >>> 0;
+    return b >>> 0;
 }

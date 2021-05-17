@@ -1,6 +1,16 @@
-import { lsb, lsp, msb, msp } from 'src/math/bits';
-import { SegmentTree } from './segmentTree';
+import { LinkedList } from '../list/linkedList';
+import { lsb, lsp, msb, msp } from '../math/bits';
+import { LazyOperation, Operation, SegmentTree } from './segmentTree';
 import { CombineFn } from '..';
+
+/*
+    mca(a, b) = lsp(a | msp(b - a)) ; // where a <= b
+    left(i) = i - (lsp(i + 1) >>> 1)
+    right(i) = i + (lsp(i + 1) >>> 1)
+    parent(i) =
+        offset = lsp(i + 1)
+        i + offset - ((i & 2*offset) >>> 0)
+*/
 
 /**
  * A {@link SegmentTree} with entries stored in in-order traversal.
@@ -19,14 +29,19 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     static readonly MAX_SIZE: number = 2147483647;
 
     /**
-     * The internal array used to store elements and aggregation nodes
+     * The set of elements and aggregation nodes for the tree
      */
-    protected array: Array<T>;
+    protected array: T[];
 
     /**
      * The function used to aggregate elements
      */
     protected combine: CombineFn<T>;
+
+    /**
+     * The set of pending operations to perform on element ranges
+     */
+    protected lazy: (LinkedList<LazyOperation<T>> | undefined)[];
 
     /**
      * Construct a new {@link InOrderSegmentTree}
@@ -37,6 +52,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     constructor(combine: CombineFn<T>, elements: Iterable<T> = []) {
         this.array = [];
         this.combine = combine;
+        this.lazy = [];
         this.build(elements);
     }
 
@@ -56,6 +72,127 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      */
     clear(): void {
         this.array.length = 0;
+        this.lazy.length = 0;
+    }
+
+    protected lazyPropagate(min: number, max: number): void {
+        // (a +1) & -(a + 1)
+        const stack: number[] = [];
+
+        // Get top complete aggregation nodes in the range
+        // for (let i = msp(min); i < max; stack.push(i - 1)) {
+        //     i += lsp(i | msp(this.array.length - i));
+        // }
+
+        // Get top complete aggregation nodes in the range in reverse
+
+        // Iterate through the range, jumping across the largest possible subranges
+        do {
+            const offset = lsp(min | msp(max - min));
+            const mid = min + (offset >>> 1) - 1;
+            min += offset;
+
+            // Apply updates down to the current subrange
+            do {
+                const par = stack.pop()!;
+                if (this.lazy[par]) {
+                }
+            } while (true);
+
+            // let value = operation(this.array[top], min >>> 1, (min + offset) >>> 1);
+        } while (min < max);
+
+        throw new Error('Figure out initial i');
+        /*
+        let i = msp(max);
+        for (i = lsp(i | msp(this.array.length - i)); i > min; i -= i & -i) {
+            stack.push(i - (lsp(i) >>> 1) - 1);
+        }
+
+        // Take the longest possible jumps from min to max
+        while (min < max) {
+            const offset = lsp(min | msp(max - min));
+            min += offset;
+            
+            const i = min - 1 + (offset >>> 1);
+
+            
+        }
+        */
+
+        // Check each level
+
+        /*
+        // Get existing
+        const q = [];
+        for (let i = min; i < max; ) {
+            const offset = lsp(min | msp(max - min));
+            i += offset;
+        }
+
+        max = msb(min ^ this.array.length) - lsb(min);
+        */
+    }
+
+    /**
+     * Lazily updates elements in a given range
+     *
+     * @param min - The start of the range, inclusive
+     * @param max - The end of the range, exclusive
+     * @param operation - The operation to perform on the range
+     */
+    lazyUpdate(min: number, max: number, operation: LazyOperation<T>): void {
+        // Sanitize range
+        if (min >= max) {
+            return;
+        }
+        if (min < 0 || max > this.size) {
+            throw new RangeError(`Range [${min}..${max}) not in [0..${this.size})`);
+        }
+
+        // Translate range to interior indices
+        min *= 2;
+        max *= 2;
+
+        // Apply pending updates on the range
+        this.lazyPropagate(min, max);
+
+        // Taking the longest possible jumps from min to max...
+        let value: T;
+        do {
+            // Make the jump and update its lowest common ancestor
+            const offset = lsp(min | msp(max - min));
+            const top = min + (offset >>> 1) - 1;
+            value = operation(this.array[top], min >>> 1, (min + offset) >>> 1);
+            this.array[top] = value;
+            min += offset - 1;
+
+            // Mark children for lazy update
+            if (top & 1) {
+                (this.lazy[top] ?? new LinkedList()).push(operation);
+            }
+
+            // Update aggregation nodes
+            for (let mask = 2 * lsp(top + 1); min & mask; mask *= 2) {
+                value = this.combine(this.array[min - mask - (mask >>> 1)], value);
+                this.array[min - mask] = value;
+            }
+        } while (++min < max);
+
+        // Update remaining aggregation nodes
+        let dc = 0;
+        let dp = lsp(min);
+        max = msb(min ^ this.array.length) - lsb(min);
+        for (--min; max > 0; --max) {
+            value = this.combine(value, this.array[min + (dp >>> 1) - dc]);
+            this.array[min] = value;
+            dc = (min & (2 * dp)) >>> 0;
+            min += dp - dc;
+            dp *= 2;
+        }
+
+        // Update the incomplete aggregation node
+        this.array[min] = value;
     }
 
     /**
@@ -78,6 +215,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         // Return element
         const out = this.array[i - 1];
         this.array.length -= 2;
+        this.lazy.length -= 2;
         return out;
     }
 
@@ -87,7 +225,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      * @param element - The element to be inserted
      *
      */
-    push(element: T): void {
+    push(element: T): number {
         // Sanitize range
         if (this.size >= InOrderSegmentTree.MAX_SIZE) {
             throw new RangeError(`Invalid SegmentTree length`);
@@ -105,6 +243,8 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
 
         // Push new aggregation node
         this.array.push(element);
+        this.lazy.length += 2;
+        return this.size;
     }
 
     /**
@@ -165,9 +305,9 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      *
      * @param min - The start of the range, inclusive
      * @param max - The end of the range, exclusive
-     * @param transform - The callback function doing the updating
+     * @param operation - The operation to perform on the range
      */
-    update(min: number, max: number, transform: (element: T, index: number) => T): void {
+    update(min: number, max: number, operation: Operation<T>): void {
         // Sanitize range
         if (min >= max) {
             return;
@@ -184,7 +324,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         let value: T;
         do {
             // Update the value
-            value = transform(this.array[min], min >>> 1);
+            value = operation(this.array[min], min >>> 1);
             this.array[min++] = value;
 
             // Update aggregation nodes

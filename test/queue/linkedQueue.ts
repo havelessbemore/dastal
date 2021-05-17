@@ -1,77 +1,77 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
-import { ArrayStack } from 'src/stack/arrayStack';
+import { LinkedQueue } from 'src/queue/linkedQueue';
 
-describe('ArrayStack unit tests', function () {
-    let empty: ArrayStack<number>;
-    let filled: ArrayStack<number>;
+describe('LinkedQueue unit tests', function () {
+    let empty: LinkedQueue<number>;
+    let filled: LinkedQueue<number>;
     const values = new Uint32Array(36);
 
     // eslint-disable-next-line
     randomFill(values, (_) => {});
 
     beforeEach(function () {
-        empty = new ArrayStack();
-        filled = new ArrayStack(values);
+        empty = new LinkedQueue();
+        filled = new LinkedQueue(values);
     });
     describe('#clear()', function () {
         it('Should clear when empty', function () {
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(empty.pop()).to.equal(undefined);
+            expect(empty.dequeue()).to.equal(undefined);
         });
         it('Should clear value', function () {
-            empty.push(12);
+            empty.enqueue(12);
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(empty.pop()).to.equal(undefined);
+            expect(empty.dequeue()).to.equal(undefined);
         });
         it('Should clear values', function () {
-            empty.push(1);
-            empty.push(2);
-            empty.push(3);
+            empty.enqueue(1);
+            empty.enqueue(2);
+            empty.enqueue(3);
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(empty.pop()).to.equal(undefined);
+            expect(empty.dequeue()).to.equal(undefined);
         });
     });
-    describe('#pop()', function () {
+    describe('#dequeue()', function () {
         it('Should return `undefined` when empty', function () {
-            expect(empty.pop()).to.equal(undefined);
-            expect(empty.pop()).to.equal(undefined);
+            expect(empty.dequeue()).to.equal(undefined);
+            expect(empty.dequeue()).to.equal(undefined);
         });
         it('Should return the added value', function () {
-            empty.push(12);
-            expect(empty.pop()).to.equal(12);
-            expect(empty.pop()).to.equal(undefined);
+            empty.enqueue(12);
+            expect(empty.dequeue()).to.equal(12);
+            expect(empty.dequeue()).to.equal(undefined);
         });
-        it('Should return the newest added value', function () {
-            empty.push(1);
-            empty.push(2);
-            empty.push(3);
-            expect(empty.pop()).to.equal(3);
-            expect(empty.pop()).to.equal(2);
-            expect(empty.pop()).to.equal(1);
-            expect(empty.pop()).to.equal(undefined);
-            for (let i = filled.size - 1; i >= 0; --i) {
-                expect(filled.pop()).to.equal(values[i]);
+        it('Should return the oldest added value', function () {
+            empty.enqueue(1);
+            empty.enqueue(2);
+            empty.enqueue(3);
+            expect(empty.dequeue()).to.equal(1);
+            expect(empty.dequeue()).to.equal(2);
+            expect(empty.dequeue()).to.equal(3);
+            expect(empty.dequeue()).to.equal(undefined);
+            for (let i = 0; i < values.length; ++i) {
+                expect(filled.dequeue()).to.equal(values[i]);
             }
         });
     });
-    describe('#push()', function () {
-        it('Should add values to the top of the stack', function () {
+    describe('#enqueue()', function () {
+        it('Should add values to the end of the queue', function () {
             const vals: number[] = [];
             for (let n = 25; n > 0; --n) {
                 const v = randomInt(1 << 30);
-                vals.unshift(v);
-                empty.push(v);
+                vals.push(v);
+                empty.enqueue(v);
                 expect(Array.from(empty)).to.eql(vals);
             }
         });
-        it('Should return the new length of the stack', function () {
+        it('Should return the new length of the queue', function () {
             let size = 0;
             for (let n = 25; n > 0; --n) {
-                empty.push(99);
+                empty.enqueue(99);
                 expect(empty.size).to.eql(++size);
             }
         });
@@ -82,28 +82,28 @@ describe('ArrayStack unit tests', function () {
             expect(empty.peek()).to.equal(undefined);
         });
         it('Should return the added value', function () {
-            empty.push(12);
+            empty.enqueue(12);
             expect(empty.peek()).to.equal(12);
         });
-        it('Should return the last added value', function () {
-            empty.push(1);
-            empty.push(2);
-            expect(empty.peek()).to.equal(2);
-        });
-        it('Should return the newest added value', function () {
-            empty.push(1);
-            empty.push(2);
-            empty.push(3);
-            expect(empty.peek()).to.equal(3);
-            empty.pop();
-            expect(empty.peek()).to.equal(2);
-            empty.pop();
+        it('Should return the first added value', function () {
+            empty.enqueue(1);
+            empty.enqueue(2);
             expect(empty.peek()).to.equal(1);
-            empty.pop();
+        });
+        it('Should return the oldest added value', function () {
+            empty.enqueue(1);
+            empty.enqueue(2);
+            empty.enqueue(3);
+            expect(empty.peek()).to.equal(1);
+            empty.dequeue();
+            expect(empty.peek()).to.equal(2);
+            empty.dequeue();
+            expect(empty.peek()).to.equal(3);
+            empty.dequeue();
             expect(empty.peek()).to.equal(undefined);
-            for (let i = filled.size - 1; i >= 0; --i) {
+            for (let i = 0; i < values.length; ++i) {
                 expect(filled.peek()).to.equal(values[i]);
-                filled.pop();
+                filled.dequeue();
             }
         });
     });
@@ -116,35 +116,35 @@ describe('ArrayStack unit tests', function () {
             expect(filled.size).to.equal(values.length);
         });
         it('Should show correct size when adding values', function () {
-            empty.push(1);
+            empty.enqueue(1);
             expect(empty.size).to.equal(1);
-            empty.push(1);
+            empty.enqueue(1);
             expect(empty.size).to.equal(2);
-            empty.push(1);
+            empty.enqueue(1);
             expect(empty.size).to.equal(3);
         });
         it('Should show 0 if popping when empty', function () {
-            empty.pop();
+            empty.dequeue();
             expect(empty.size).to.equal(0);
         });
         it('Should show 0 when value is removed', function () {
-            empty.push(12);
-            empty.pop();
+            empty.enqueue(12);
+            empty.dequeue();
             expect(empty.size).to.equal(0);
         });
         it('Should show correct size when removing values', function () {
-            empty.push(1);
-            empty.push(1);
-            empty.push(1);
-            empty.pop();
+            empty.enqueue(1);
+            empty.enqueue(1);
+            empty.enqueue(1);
+            empty.dequeue();
             expect(empty.size).to.equal(2);
-            empty.pop();
+            empty.dequeue();
             expect(empty.size).to.equal(1);
-            empty.pop();
+            empty.dequeue();
             expect(empty.size).to.equal(0);
             let n = values.length;
             while (n > 0) {
-                filled.pop();
+                filled.dequeue();
                 expect(filled.size).to.equal(--n);
             }
         });
@@ -154,8 +154,8 @@ describe('ArrayStack unit tests', function () {
             const vals: number[] = [];
             expect(Array.from(empty)).to.eql(vals);
             for (let i = 0; i < values.length; ++i) {
-                empty.push((vals[i] = values[i]));
-                expect(Array.from(empty)).to.eql(Array.from(vals).reverse());
+                empty.enqueue((vals[i] = values[i]));
+                expect(Array.from(empty)).to.eql(vals);
             }
         });
     });

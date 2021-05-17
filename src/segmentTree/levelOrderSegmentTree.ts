@@ -1,6 +1,6 @@
 import { CombineFn } from '..';
 import { lsp, msb, msp } from '../math/bits';
-import { SegmentTree } from './segmentTree';
+import { LazyOperation, Operation, SegmentTree } from './segmentTree';
 
 /**
  * A {@link SegmentTree} with entries stored in level-order traversal.
@@ -186,7 +186,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      *
      * @param element - The element to be inserted
      */
-    push(element: T): void {
+    push(element: T): number {
         // If array is full
         if (this.length >= this.array.length) {
             this.grow();
@@ -200,6 +200,8 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
             element = this.combine(this.array[i - 2], element);
             i >>>= 1;
         }
+
+        return this.size;
     }
 
     /**
@@ -260,9 +262,9 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      *
      * @param min - The start of the range, inclusive
      * @param max - The end of the range, exclusive
-     * @param transform - The callback function doing the updating
+     * @param operation - The operation to perform on the range
      */
-    update(min: number, max: number, transform: (element: T, index: number) => T): void {
+    update(min: number, max: number, operation: Operation<T>): void {
         // Sanitize range
         if (min >= max) {
             return;
@@ -277,7 +279,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
 
         // Update the range
         for (let i = min; i < max; ++i) {
-            this.array[i] = transform(this.array[i], i - this.level);
+            this.array[i] = operation(this.array[i], i - this.level);
         }
 
         // Update the range's aggregation nodes

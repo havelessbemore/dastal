@@ -2,6 +2,8 @@
 
 # Class: LinkedList<T\>
 
+A (circular) linked list implementation of the [List](../interfaces/list.md) interface.
+
 ## Type parameters
 
 | Name |
@@ -18,11 +20,6 @@
 
 - [constructor](linkedlist.md#constructor)
 
-### Properties
-
-- [length](linkedlist.md#length)
-- [tail](linkedlist.md#tail)
-
 ### Accessors
 
 - [size](linkedlist.md#size)
@@ -30,7 +27,6 @@
 ### Methods
 
 - [[Symbol.iterator]](linkedlist.md#[symbol.iterator])
-- [\_get](linkedlist.md#_get)
 - [add](linkedlist.md#add)
 - [clear](linkedlist.md#clear)
 - [get](linkedlist.md#get)
@@ -46,7 +42,7 @@
 
 ### constructor
 
-\+ **new LinkedList**<T\>(): [*LinkedList*](linkedlist.md)<T\>
+\+ **new LinkedList**<T\>(`elements?`: *Iterable*<T\>): [*LinkedList*](linkedlist.md)<T\>
 
 #### Type parameters:
 
@@ -54,25 +50,15 @@
 | :------ |
 | `T` |
 
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `elements?` | *Iterable*<T\> |
+
 **Returns:** [*LinkedList*](linkedlist.md)<T\>
 
-Defined in: [src/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L10)
-
-## Properties
-
-### length
-
-• `Protected` **length**: *number*
-
-Defined in: [src/list/linkedList.ts:9](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L9)
-
-___
-
-### tail
-
-• `Protected` `Optional` **tail**: [*LinkedNode*](../interfaces/linkednode.md)<T\>
-
-Defined in: [src/list/linkedList.ts:10](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L10)
+Defined in: [src/list/linkedList.ts:29](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L29)
 
 ## Accessors
 
@@ -86,7 +72,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [src/list/linkedList.ts:145](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L145)
+Defined in: [src/list/linkedList.ts:161](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L161)
 
 ## Methods
 
@@ -94,7 +80,9 @@ Defined in: [src/list/linkedList.ts:145](https://github.com/havelessbemore/dasta
 
 ▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
 
-Receive an iterator through the list
+Receive an iterator through the list.
+
+**Note:** Unexpected behavior can occur if the collection is modified during iteration.
 
 **Returns:** *Iterator*<T, any, undefined\>
 
@@ -102,29 +90,13 @@ An iterator through the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:154](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L154)
-
-___
-
-### \_get
-
-▸ `Protected`**_get**(`index`: *number*): [*LinkedNode*](../interfaces/linkednode.md)<T\>
-
-#### Parameters:
-
-| Name | Type |
-| :------ | :------ |
-| `index` | *number* |
-
-**Returns:** [*LinkedNode*](../interfaces/linkednode.md)<T\>
-
-Defined in: [src/list/linkedList.ts:184](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L184)
+Defined in: [src/list/linkedList.ts:171](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L171)
 
 ___
 
 ### add
 
-▸ **add**(`index`: *number*, `value`: T): *boolean*
+▸ **add**(`index`: *number*, `value`: T): *number*
 
 Add the element at the specified index
 
@@ -135,11 +107,11 @@ Add the element at the specified index
 | `index` | *number* | The index to add into |
 | `value` | T | - |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:22](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L22)
+Defined in: [src/list/linkedList.ts:43](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L43)
 
 ___
 
@@ -153,7 +125,7 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:35](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L35)
+Defined in: [src/list/linkedList.ts:54](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L54)
 
 ___
 
@@ -171,15 +143,17 @@ Return the element at the specified index
 
 **Returns:** *undefined* \| T
 
+The element at the index, or `undefined` if index is invalid
+
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:45](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L45)
+Defined in: [src/list/linkedList.ts:65](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L65)
 
 ___
 
 ### getSet
 
-▸ **getSet**(`index`: *number*, `callback`: (`element`: T) => T): *void*
+▸ **getSet**(`index`: *number*, `callback`: (`element`: T) => T): *undefined* \| T
 
 Update the element at the specified index
 
@@ -188,13 +162,15 @@ Update the element at the specified index
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `index` | *number* | The index to retrieve |
-| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element |
+| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element. Note: The function is only called if the index is valid |
 
-**Returns:** *void*
+**Returns:** *undefined* \| T
+
+The previous element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:55](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L55)
+Defined in: [src/list/linkedList.ts:77](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L77)
 
 ___
 
@@ -206,17 +182,17 @@ Retrieves and removes the end of the list
 
 **Returns:** *undefined* \| T
 
-The value at the end of the list or `undefined` if empty.
+The value at the end of the list, or `undefined` if empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:67](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L67)
+Defined in: [src/list/linkedList.ts:91](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L91)
 
 ___
 
 ### push
 
-▸ **push**(`value`: T): *boolean*
+▸ **push**(`value`: T): *number*
 
 Inserts the specified value into the end of the list
 
@@ -226,13 +202,13 @@ Inserts the specified value into the end of the list
 | :------ | :------ |
 | `value` | T |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
 `true` upon success, otherwise `false`
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:78](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L78)
+Defined in: [src/list/linkedList.ts:101](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L101)
 
 ___
 
@@ -250,11 +226,11 @@ Retrieves and removes the element at the given index
 
 **Returns:** *undefined* \| T
 
-The value at the index or `undefined` if the index does not exist
+The value at the index or `undefined` if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:91](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L91)
+Defined in: [src/list/linkedList.ts:113](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L113)
 
 ___
 
@@ -273,11 +249,11 @@ Update the element at the specified index
 
 **Returns:** *undefined* \| T
 
-The previous element in the index, or undefined if the index does not exist
+The previous element in the index, or undefined if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:113](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L113)
+Defined in: [src/list/linkedList.ts:133](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L133)
 
 ___
 
@@ -293,13 +269,13 @@ The value at the front of the list or `undefined` if this list is empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:128](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L128)
+Defined in: [src/list/linkedList.ts:147](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L147)
 
 ___
 
 ### unshift
 
-▸ **unshift**(`value`: T): *boolean*
+▸ **unshift**(`value`: T): *number*
 
 Inserts the specified value into the front of the list
 
@@ -309,10 +285,10 @@ Inserts the specified value into the front of the list
 | :------ | :------ |
 | `value` | T |
 
-**Returns:** *boolean*
+**Returns:** *number*
 
 `true` upon success, otherwise `false`
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:169](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L169)
+Defined in: [src/list/linkedList.ts:185](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L185)

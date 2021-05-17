@@ -1,5 +1,5 @@
 import { bubbleUp, heapify, sinkDown } from './heapify';
-import { Comparator } from '..';
+import { Comparator } from '.';
 import { Heap } from './heap';
 
 export abstract class BinaryHeap<T> implements Heap<T> {
@@ -79,12 +79,13 @@ export abstract class BinaryHeap<T> implements Heap<T> {
         return value;
     }
 
-    push(value: T): void {
+    push(value: T): number {
         // Add new value to the end of the heap
         this.array.push(value);
 
         // Update the heap
         bubbleUp(this.array.length - 1, (a, b) => this.isAboveOrEqual(a, b), this.array);
+        return this.size;
     }
 
     // Push a new value to the heap and then pop the root

@@ -2,6 +2,10 @@
 
 # Interface: DoublyLinkedNode<T\>
 
+A doubly-linked node version of the [LinkedNode](linkednode.md) interface.
+
+Each node links to its neighbors on the left (prev) and right (next) of it.
+
 ## Type parameters
 
 | Name |
@@ -20,17 +24,21 @@
 
 ### next
 
-• **next**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
+• `Optional` **next**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
 
-Defined in: [src/list/doublyLinkedList.ts:4](https://github.com/havelessbemore/dastal/blob/7516240/src/list/doublyLinkedList.ts#L4)
+A link to the node's next (right) neighbor
+
+Defined in: [src/list/doublyLinkedList.ts:12](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/doublyLinkedList.ts#L12)
 
 ___
 
 ### prev
 
-• **prev**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
+• `Optional` **prev**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
 
-Defined in: [src/list/doublyLinkedList.ts:5](https://github.com/havelessbemore/dastal/blob/7516240/src/list/doublyLinkedList.ts#L5)
+A link to the node's previous (left) neighbor
+
+Defined in: [src/list/doublyLinkedList.ts:16](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/doublyLinkedList.ts#L16)
 
 ___
 
@@ -38,4 +46,6 @@ ___
 
 • **value**: T
 
-Defined in: [src/list/doublyLinkedList.ts:6](https://github.com/havelessbemore/dastal/blob/7516240/src/list/doublyLinkedList.ts#L6)
+The value of the node
+
+Defined in: [src/list/doublyLinkedList.ts:20](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/doublyLinkedList.ts#L20)

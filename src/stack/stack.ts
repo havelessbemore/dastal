@@ -1,3 +1,13 @@
+/**
+ * An ordered collection of elements in LIFO (last-in-first-out) order.
+ *
+ * Typically LIFO refers to the insertion order of elements. However, it
+ * can refer to other types of ordering via a different implementation or a given comparator.
+ * FIFO stacks (e.g. queues) order elements in first-in-first-out order.
+ *
+ * Regardless, a call to pop() should return the last element relative to its order.
+ * Every implementation should specify its ordering properties. Otherwise, insertion order should be used.
+ */
 export interface Stack<T> extends Iterable<T> {
     /**
      * Removes all elements from the stack
@@ -6,23 +16,23 @@ export interface Stack<T> extends Iterable<T> {
     /**
      * Retrieves, but does not remove, the top of the stack
      *
-     * @returns The value at the top of the stack or `undefined` if empty.
+     * @returns The element at the top of the stack or `undefined` if empty.
      */
     peek(): T | undefined;
     /**
      * Retrieves and removes the top of the stack
      *
-     * @returns The value at the top of the stack or `undefined` if empty.
+     * @returns The element at the top of the stack or `undefined` if empty.
      */
     pop(): T | undefined;
     /**
-     * Inserts a value into the stack
+     * Inserts an element into the stack
      *
-     * @param element - The value to be inserted
+     * @param element - The element to be inserted
      *
-     * @returns `true` upon success, otherwise `false`
+     * @returns The new size of the stack
      */
-    push(element: T): boolean;
+    push(element: T): number;
     /**
      * The number of elements in the stack
      */

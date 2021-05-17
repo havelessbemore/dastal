@@ -2,6 +2,10 @@
 
 # Interface: LinkedNode<T\>
 
+A linked node interface.
+
+Each node links to its next neighbor.
+
 ## Type parameters
 
 | Name |
@@ -19,9 +23,11 @@
 
 ### next
 
-• **next**: [*LinkedNode*](linkednode.md)<T\>
+• `Optional` **next**: [*LinkedNode*](linkednode.md)<T\>
 
-Defined in: [src/list/linkedList.ts:4](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L4)
+A link to the node's neighbor
+
+Defined in: [src/list/linkedList.ts:12](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L12)
 
 ___
 
@@ -29,4 +35,6 @@ ___
 
 • **value**: T
 
-Defined in: [src/list/linkedList.ts:5](https://github.com/havelessbemore/dastal/blob/7516240/src/list/linkedList.ts#L5)
+The value of the node
+
+Defined in: [src/list/linkedList.ts:16](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/linkedList.ts#L16)

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+    /* Visit https://www.staging-typescript.org/tsconfig to read more about this file */
 
     /* Basic Options */
     // "incremental": true,                         /* Enable incremental compilation */

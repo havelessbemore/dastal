@@ -7,20 +7,19 @@ dastal - v1.0.0
 ### Classes
 
 - [ArrayList](classes/arraylist.md)
+- [ArrayQueue](classes/arrayqueue.md)
+- [ArrayStack](classes/arraystack.md)
 - [DoublyLinkedList](classes/doublylinkedlist.md)
 - [LinkedList](classes/linkedlist.md)
+- [LinkedQueue](classes/linkedqueue.md)
+- [LinkedStack](classes/linkedstack.md)
 
 ### Interfaces
 
 - [Combinator](interfaces/combinator.md)
 - [CombineFn](interfaces/combinefn.md)
-- [Comparator](interfaces/comparator.md)
-- [CompareFn](interfaces/comparefn.md)
 - [DoublyLinkedNode](interfaces/doublylinkednode.md)
 - [LinkedNode](interfaces/linkednode.md)
 - [List](interfaces/list.md)
-- [SortFn](interfaces/sortfn.md)
-- [Sortable](interfaces/sortable.md)
-- [Sorted](interfaces/sorted.md)
-- [TokenizeFn](interfaces/tokenizefn.md)
-- [Tokenizer](interfaces/tokenizer.md)
+- [Queue](interfaces/queue.md)
+- [Stack](interfaces/stack.md)

@@ -1,18 +1,18 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
-import { ArrayStack } from 'src/stack/arrayStack';
+import { LinkedStack } from 'src/stack/linkedStack';
 
-describe('ArrayStack unit tests', function () {
-    let empty: ArrayStack<number>;
-    let filled: ArrayStack<number>;
+describe('LinkedStack unit tests', function () {
+    let empty: LinkedStack<number>;
+    let filled: LinkedStack<number>;
     const values = new Uint32Array(36);
 
     // eslint-disable-next-line
     randomFill(values, (_) => {});
 
     beforeEach(function () {
-        empty = new ArrayStack();
-        filled = new ArrayStack(values);
+        empty = new LinkedStack();
+        filled = new LinkedStack(values);
     });
     describe('#clear()', function () {
         it('Should clear when empty', function () {

@@ -1,4 +1,5 @@
-import { TokenizeFn } from '..';
+import { LinkedQueue } from 'src/queue';
+import { TokenizeFn } from '.';
 import { Trie } from './trie';
 
 export interface GenericTrieNode<Token, Value> {
@@ -8,11 +9,14 @@ export interface GenericTrieNode<Token, Value> {
 }
 
 export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
-    protected length!: number;
-    protected root!: GenericTrieNode<Token, Value>;
+    protected length: number;
+    protected root: GenericTrieNode<Token, Value>;
+    protected tokenize: TokenizeFn<Key, Token>;
 
-    constructor(protected tokenize: TokenizeFn<Key, Token>) {
-        this.clear();
+    constructor(tokenize: TokenizeFn<Key, Token>) {
+        this.length = 0;
+        this.root = { children: new Map(), isKey: false };
+        this.tokenize = tokenize;
     }
 
     clear(): void {
@@ -58,6 +62,10 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         return node?.value;
     }
 
+    getSet(key: Key, callback: (element: Value | undefined) => Value): void {
+        throw new Error('TODO');
+    }
+
     protected getNode(key: Key): GenericTrieNode<Token, Value> | undefined {
         let node: GenericTrieNode<Token, Value> | undefined = this.root;
         for (const token of this.tokenize(key)) {
@@ -100,5 +108,23 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
 
     get size(): number {
         return this.length;
+    }
+
+    *[Symbol.iterator](): Iterator<Value> {
+        return this.values();
+    }
+
+    *values(): Iterator<Value> {
+        const q = new LinkedQueue<GenericTrieNode<Token, Value>>();
+        q.enqueue(this.root);
+        do {
+            const node = q.dequeue()!;
+            if (node.isKey) {
+                yield node.value!;
+            }
+            for (const child of node.children.values()) {
+                q.enqueue(child);
+            }
+        } while (q.size > 0);
     }
 }

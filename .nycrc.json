@@ -3,7 +3,11 @@
     "all": true,
     "check-coverage": true,
     "exclude": [
-        "**/*.d.ts"
+        "**/*.d.ts",
+        "src/array/**/*",
+        "src/heap/**/*",
+        "src/segmentTree/**/*",
+        "src/trie/**/*"
     ],
     "extension": [".ts", ".tsx"],
     "include": [
