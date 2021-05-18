@@ -1,6 +1,6 @@
 {
   "name": "dastal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Data Structures & Algorithms implementations",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
@@ -19,7 +19,7 @@
     "lib/src/*"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf ./lib/* && tsc",
     "docs": "rm -rf ./docs/* && typedoc --options typedoc.docs.json",
     "lint": "eslint '{src,test}/**/*.{js,ts,tsx}' --quiet --fix",
     "test": "mocha",

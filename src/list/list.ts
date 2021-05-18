@@ -18,6 +18,28 @@ export interface List<T> extends Iterable<T> {
      */
     clear(): void;
     /**
+     * Combines the list with multiple iterables into a new list. Does not modify the existing list or inputs.
+     *
+     * @param lists — Additional iterables to add to the end of the list.
+     *
+     * @returns A new list consisting of the elements in the list on which it is called,
+     * followed in order by the elements of each argument (if the argument is an iterable)
+     * or the argument itself. It does not recurse into nested iterable arguments
+     */
+    concat(...lists: Iterable<T>[]): List<T>;
+    /**
+     * Returns the this object after filling the section identified by min and max with element
+     *
+     * @param element — element to fill list section with
+     * @param min - index to start filling the list at. If start is negative,
+     * it is treated as length+start where length is the length of the list.
+     * @param end - index to stop filling the list at. If end is negative,
+     * it is treated as length+end where length is the length of the list.
+     *
+     * @returns The list on which this method was called
+     */
+    fill(element: T, min?: number, max?: number): this;
+    /**
      * Return the element at the specified index
      *
      * @param index - The index to retrieve
@@ -57,6 +79,12 @@ export interface List<T> extends Iterable<T> {
      * @returns The value at the index, or `undefined` if the index is invalid
      */
     remove(index: number): T | undefined;
+    /**
+     * Reverses the elements in the list in place.
+     *
+     * @returns a reference to the same list
+     */
+    reverse(): this;
     /**
      * Update the element at the specified index
      *

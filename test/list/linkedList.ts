@@ -75,6 +75,86 @@ describe('LinkedList unit tests', function () {
             expect(empty.pop()).to.equal(undefined);
         });
     });
+    describe('#concat()', function () {
+        it('Should return a copy of the list if no arguments', function () {
+            const list = filled.concat();
+            expect(filled).to.not.equal(list);
+        });
+        it('Should concatenate argument to original list', function () {
+            let list = empty.concat([1, 2, 3]);
+            expect(empty).to.not.equal(list);
+            expect(Array.from(list)).to.eql([1, 2, 3]);
+            list = filled.concat([1, 2, 3]);
+            expect(filled).to.not.equal(list);
+            expect(Array.from(list)).to.eql(Array.from(values).concat([1, 2, 3]));
+        });
+        it('Should concatenate arguments to original list', function () {
+            const args: number[][] = [];
+            let vals = Array.from(values);
+            for (let i = 0; i < 10; ++i) {
+                const arg = new Uint32Array(randomInt(0, 25));
+                // eslint-disable-next-line
+                randomFill(arg, (_) => {});
+                args.push(Array.from(arg));
+                vals = vals.concat(args[args.length - 1]);
+                const list1 = new LinkedList(values);
+                const list2 = list1.concat(...args);
+                expect(list1).to.not.equal(list2);
+                expect(list2.size).to.equal(vals.length);
+                expect(Array.from(list2)).to.eql(vals);
+            }
+        });
+    });
+    describe('#fill()', function () {
+        it('Should work on an empty list', function () {
+            expect(empty.fill(-12, 0, 0)).to.equal(empty);
+            expect(empty.size).to.equal(0);
+        });
+        it('Should fill list if min and max not given', function () {
+            expect(filled.fill(-12)).to.equal(filled);
+            expect(filled.size).to.equal(values.length);
+            expect(Array.from(filled)).to.eql(Array.from(values).fill(-12));
+        });
+        it('Should wrap around length if negative min given', function () {
+            expect(filled.fill(-12, -5)).to.equal(filled);
+            expect(filled.size).to.equal(values.length);
+            expect(Array.from(filled)).to.eql(Array.from(values).fill(-12, -5));
+        });
+        it('Should wrap around length if negative max given', function () {
+            expect(filled.fill(-12, undefined, -3)).to.equal(filled);
+            expect(filled.size).to.equal(values.length);
+            expect(Array.from(filled)).to.eql(Array.from(values).fill(-12, undefined, -3));
+        });
+        it('Should fill until end of list if max not given', function () {
+            for (let min = -values.length; min < values.length; ++min) {
+                const list = new LinkedList(values);
+                const vals = Array.from(values).fill(-12, min);
+                expect(list.fill(-12, min)).to.equal(list);
+                expect(list.size).to.equal(vals.length);
+                expect(Array.from(list)).to.eql(vals);
+            }
+        });
+        it('Should fill from start of list if min not given', function () {
+            for (let max = -values.length; max < values.length; ++max) {
+                const list = new LinkedList(values);
+                const vals = Array.from(values).fill(-12, undefined, max);
+                expect(list.fill(-12, undefined, max)).to.equal(list);
+                expect(list.size).to.equal(vals.length);
+                expect(Array.from(list)).to.eql(vals);
+            }
+        });
+        it('Should fill intended range', function () {
+            for (let min = -values.length; min < values.length; ++min) {
+                for (let max = -values.length; max < values.length; ++max) {
+                    const list = new LinkedList(values);
+                    const vals = Array.from(values).fill(-12, min, max);
+                    expect(list.fill(-12, min, max)).to.equal(list);
+                    expect(list.size).to.equal(vals.length);
+                    expect(Array.from(list)).to.eql(vals);
+                }
+            }
+        });
+    });
     describe('#get()', function () {
         it('Should return `undefined` if empty', function () {
             expect(empty.get(0)).to.equal(undefined);
@@ -217,6 +297,26 @@ describe('LinkedList unit tests', function () {
                 const expected = vals.splice(i, 1)[0];
                 const actual = filled.remove(i);
                 expect(Array.from(filled)).to.eql(vals);
+            }
+        });
+    });
+    describe('#reverse()', function () {
+        it('Should work on an empty list', function () {
+            expect(empty.reverse()).to.equal(empty);
+            expect(empty.size).to.equal(0);
+            expect(Array.from(empty)).to.eql([]);
+        });
+        it('Should reverse elements', function () {
+            const forward: number[] = [];
+            const reverse: number[] = [];
+            for (let i = 0; i < values.length; ++i) {
+                forward.push(values[i]);
+                reverse.unshift(values[i]);
+                empty.push(values[i]);
+                expect(empty.reverse()).to.equal(empty);
+                expect(empty.size).to.equal(forward.length);
+                expect(Array.from(empty)).to.eql(reverse);
+                empty.reverse();
             }
         });
     });

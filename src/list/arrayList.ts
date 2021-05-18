@@ -33,6 +33,40 @@ export class ArrayList<T> implements List<T> {
         this.array.length = 0;
     }
     /**
+     * Combines the list with multiple iterables into a new list.
+     * Does not modify the existing list or inputs.
+     *
+     * @param lists — Additional iterables to add to the end of the list.
+     *
+     * @returns A new list consisting of the elements in the list on which
+     * it is called, followed in order by the elements of each argument. It
+     * does not recurse into nested iterable arguments
+     */
+    concat(...lists: Iterable<T>[]): ArrayList<T> {
+        const out = new ArrayList(this);
+        for (const list of lists) {
+            for (const element of list) {
+                out.push(element);
+            }
+        }
+        return out;
+    }
+    /**
+     * Returns the this object after filling the section identified by min and max with element
+     *
+     * @param element — element to fill list section with
+     * @param min - index to start filling the list at. If start is negative,
+     * it is treated as length+start where length is the length of the list.
+     * @param end - index to stop filling the list at. If end is negative,
+     * it is treated as length+end where length is the length of the list.
+     *
+     * @returns The list on which this method was called
+     */
+    fill(element: T, min?: number, max?: number): this {
+        this.array.fill(element, min, max);
+        return this;
+    }
+    /**
      * Return the element at the specified index
      *
      * @param index - The index to retrieve
@@ -92,6 +126,15 @@ export class ArrayList<T> implements List<T> {
             return undefined;
         }
         return this.array.splice(index, 1)[0];
+    }
+    /**
+     * Reverses the elements in the list in place.
+     *
+     * @returns a reference to the same list
+     */
+    reverse(): this {
+        this.array.reverse();
+        return this;
     }
     /**
      * Update the element at the specified index

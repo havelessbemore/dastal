@@ -1,4 +1,4 @@
-[dastal - v1.0.0](../README.md) / ArrayList
+[dastal - v1.1.0](../README.md) / ArrayList
 
 # Class: ArrayList<T\>
 
@@ -29,11 +29,14 @@ An implementation of the [List](../interfaces/list.md) interface using an array
 - [[Symbol.iterator]](arraylist.md#[symbol.iterator])
 - [add](arraylist.md#add)
 - [clear](arraylist.md#clear)
+- [concat](arraylist.md#concat)
+- [fill](arraylist.md#fill)
 - [get](arraylist.md#get)
 - [getSet](arraylist.md#getset)
 - [pop](arraylist.md#pop)
 - [push](arraylist.md#push)
 - [remove](arraylist.md#remove)
+- [reverse](arraylist.md#reverse)
 - [set](arraylist.md#set)
 - [shift](arraylist.md#shift)
 - [unshift](arraylist.md#unshift)
@@ -58,7 +61,7 @@ An implementation of the [List](../interfaces/list.md) interface using an array
 
 **Returns:** [*ArrayList*](arraylist.md)<T\>
 
-Defined in: [src/list/arrayList.ts:10](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L10)
+Defined in: [src/list/arrayList.ts:10](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L10)
 
 ## Accessors
 
@@ -72,7 +75,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [src/list/arrayList.ts:123](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L123)
+Defined in: [src/list/arrayList.ts:166](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L166)
 
 ## Methods
 
@@ -90,7 +93,7 @@ An iterator through the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:133](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L133)
+Defined in: [src/list/arrayList.ts:176](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L176)
 
 ___
 
@@ -113,7 +116,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:23](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L23)
+Defined in: [src/list/arrayList.ts:23](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L23)
 
 ___
 
@@ -127,7 +130,56 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:32](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L32)
+Defined in: [src/list/arrayList.ts:32](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L32)
+
+___
+
+### concat
+
+▸ **concat**(...`lists`: *Iterable*<T\>[]): [*ArrayList*](arraylist.md)<T\>
+
+Combines the list with multiple iterables into a new list.
+Does not modify the existing list or inputs.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `...lists` | *Iterable*<T\>[] | — Additional iterables to add to the end of the list. |
+
+**Returns:** [*ArrayList*](arraylist.md)<T\>
+
+A new list consisting of the elements in the list on which
+it is called, followed in order by the elements of each argument. It
+does not recurse into nested iterable arguments
+
+Implementation of: [List](../interfaces/list.md)
+
+Defined in: [src/list/arrayList.ts:45](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L45)
+
+___
+
+### fill
+
+▸ **fill**(`element`: T, `min?`: *number*, `max?`: *number*): [*ArrayList*](arraylist.md)<T\>
+
+Returns the this object after filling the section identified by min and max with element
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `element` | T | — element to fill list section with |
+| `min?` | *number* | index to start filling the list at. If start is negative, it is treated as length+start where length is the length of the list. |
+| `max?` | *number* | - |
+
+**Returns:** [*ArrayList*](arraylist.md)<T\>
+
+The list on which this method was called
+
+Implementation of: [List](../interfaces/list.md)
+
+Defined in: [src/list/arrayList.ts:65](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L65)
 
 ___
 
@@ -149,7 +201,7 @@ The element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:42](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L42)
+Defined in: [src/list/arrayList.ts:76](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L76)
 
 ___
 
@@ -172,7 +224,7 @@ The previous element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:57](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L57)
+Defined in: [src/list/arrayList.ts:91](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L91)
 
 ___
 
@@ -188,7 +240,7 @@ The element at the end of the list, or `undefined` if empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:70](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L70)
+Defined in: [src/list/arrayList.ts:104](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L104)
 
 ___
 
@@ -210,7 +262,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:80](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L80)
+Defined in: [src/list/arrayList.ts:114](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L114)
 
 ___
 
@@ -232,7 +284,23 @@ The element at the index or `undefined` if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:90](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L90)
+Defined in: [src/list/arrayList.ts:124](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L124)
+
+___
+
+### reverse
+
+▸ **reverse**(): [*ArrayList*](arraylist.md)<T\>
+
+Reverses the elements in the list in place.
+
+**Returns:** [*ArrayList*](arraylist.md)<T\>
+
+a reference to the same list
+
+Implementation of: [List](../interfaces/list.md)
+
+Defined in: [src/list/arrayList.ts:135](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L135)
 
 ___
 
@@ -255,7 +323,7 @@ The previous element in the index, or undefined if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:104](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L104)
+Defined in: [src/list/arrayList.ts:147](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L147)
 
 ___
 
@@ -271,7 +339,7 @@ The element at the front of the list or `undefined` if this list is empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:117](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L117)
+Defined in: [src/list/arrayList.ts:160](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L160)
 
 ___
 
@@ -293,4 +361,4 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/arrayList.ts:143](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/arrayList.ts#L143)
+Defined in: [src/list/arrayList.ts:186](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/arrayList.ts#L186)

@@ -1,4 +1,4 @@
-[dastal - v1.0.0](../README.md) / List
+[dastal - v1.1.0](../README.md) / List
 
 # Interface: List<T\>
 
@@ -35,11 +35,14 @@ Elements can be accessed by their integer index (position in the list)
 - [[Symbol.iterator]](list.md#[symbol.iterator])
 - [add](list.md#add)
 - [clear](list.md#clear)
+- [concat](list.md#concat)
+- [fill](list.md#fill)
 - [get](list.md#get)
 - [getSet](list.md#getset)
 - [pop](list.md#pop)
 - [push](list.md#push)
 - [remove](list.md#remove)
+- [reverse](list.md#reverse)
 - [set](list.md#set)
 - [shift](list.md#shift)
 - [unshift](list.md#unshift)
@@ -52,7 +55,7 @@ Elements can be accessed by their integer index (position in the list)
 
 The number of elements in this list
 
-Defined in: [src/list/list.ts:78](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L78)
+Defined in: [src/list/list.ts:106](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L106)
 
 ## Methods
 
@@ -85,7 +88,7 @@ Add the element at the specified index
 
 The new size of the list
 
-Defined in: [src/list/list.ts:15](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L15)
+Defined in: [src/list/list.ts:15](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L15)
 
 ___
 
@@ -97,7 +100,51 @@ Removes all elements
 
 **Returns:** *void*
 
-Defined in: [src/list/list.ts:19](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L19)
+Defined in: [src/list/list.ts:19](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L19)
+
+___
+
+### concat
+
+▸ **concat**(...`lists`: *Iterable*<T\>[]): [*List*](list.md)<T\>
+
+Combines the list with multiple iterables into a new list. Does not modify the existing list or inputs.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `...lists` | *Iterable*<T\>[] | — Additional iterables to add to the end of the list. |
+
+**Returns:** [*List*](list.md)<T\>
+
+A new list consisting of the elements in the list on which it is called,
+followed in order by the elements of each argument (if the argument is an iterable)
+or the argument itself. It does not recurse into nested iterable arguments
+
+Defined in: [src/list/list.ts:29](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L29)
+
+___
+
+### fill
+
+▸ **fill**(`element`: T, `min?`: *number*, `max?`: *number*): [*List*](list.md)<T\>
+
+Returns the this object after filling the section identified by min and max with element
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `element` | T | — element to fill list section with |
+| `min?` | *number* | index to start filling the list at. If start is negative, it is treated as length+start where length is the length of the list. |
+| `max?` | *number* | - |
+
+**Returns:** [*List*](list.md)<T\>
+
+The list on which this method was called
+
+Defined in: [src/list/list.ts:41](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L41)
 
 ___
 
@@ -117,7 +164,7 @@ Return the element at the specified index
 
 The element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:27](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L27)
+Defined in: [src/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L49)
 
 ___
 
@@ -138,7 +185,7 @@ Update the element at the specified index
 
 The previous element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:37](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L37)
+Defined in: [src/list/list.ts:59](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L59)
 
 ___
 
@@ -152,7 +199,7 @@ Retrieves and removes the end of the list
 
 The value at the end of the list, or `undefined` if empty.
 
-Defined in: [src/list/list.ts:43](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L43)
+Defined in: [src/list/list.ts:65](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L65)
 
 ___
 
@@ -172,7 +219,7 @@ Inserts the specified value into the end of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:51](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L51)
+Defined in: [src/list/list.ts:73](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L73)
 
 ___
 
@@ -192,7 +239,21 @@ Retrieves and removes the element at the given index
 
 The value at the index, or `undefined` if the index is invalid
 
-Defined in: [src/list/list.ts:59](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L59)
+Defined in: [src/list/list.ts:81](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L81)
+
+___
+
+### reverse
+
+▸ **reverse**(): [*List*](list.md)<T\>
+
+Reverses the elements in the list in place.
+
+**Returns:** [*List*](list.md)<T\>
+
+a reference to the same list
+
+Defined in: [src/list/list.ts:87](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L87)
 
 ___
 
@@ -213,7 +274,7 @@ Update the element at the specified index
 
 The previous element in the index, or undefined if the index is invalid
 
-Defined in: [src/list/list.ts:68](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L68)
+Defined in: [src/list/list.ts:96](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L96)
 
 ___
 
@@ -227,7 +288,7 @@ Retrieves and removes the first element in the list
 
 The value at the front of the list or `undefined` if this list is empty.
 
-Defined in: [src/list/list.ts:74](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L74)
+Defined in: [src/list/list.ts:102](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L102)
 
 ___
 
@@ -247,4 +308,4 @@ Inserts the specified value into the front of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:86](https://github.com/havelessbemore/dastal/blob/4d87fc5/src/list/list.ts#L86)
+Defined in: [src/list/list.ts:114](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L114)
