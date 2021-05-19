@@ -1,6 +1,6 @@
-dastal - v1.1.0
+dastal - v1.2.0
 
-# dastal - v1.1.0
+# dastal - v1.2.0
 
 ## Table of contents
 

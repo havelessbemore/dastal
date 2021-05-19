@@ -1,4 +1,4 @@
-[dastal - v1.1.0](../README.md) / Queue
+[dastal - v1.2.0](../README.md) / Queue
 
 # Interface: Queue<T\>
 
@@ -51,7 +51,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 The number of elements in this queue
 
-Defined in: [src/queue/queue.ts:40](https://github.com/havelessbemore/dastal/blob/f1eca00/src/queue/queue.ts#L40)
+Defined in: [src/queue/queue.ts:40](https://github.com/havelessbemore/dastal/blob/2a8401f/src/queue/queue.ts#L40)
 
 ## Methods
 
@@ -75,7 +75,7 @@ Removes all elements from this queue
 
 **Returns:** *void*
 
-Defined in: [src/queue/queue.ts:16](https://github.com/havelessbemore/dastal/blob/f1eca00/src/queue/queue.ts#L16)
+Defined in: [src/queue/queue.ts:16](https://github.com/havelessbemore/dastal/blob/2a8401f/src/queue/queue.ts#L16)
 
 ___
 
@@ -89,7 +89,7 @@ Retrieves and removes the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:22](https://github.com/havelessbemore/dastal/blob/f1eca00/src/queue/queue.ts#L22)
+Defined in: [src/queue/queue.ts:22](https://github.com/havelessbemore/dastal/blob/2a8401f/src/queue/queue.ts#L22)
 
 ___
 
@@ -109,7 +109,7 @@ Inserts the specified value into this queue
 
 The new size of the queue
 
-Defined in: [src/queue/queue.ts:30](https://github.com/havelessbemore/dastal/blob/f1eca00/src/queue/queue.ts#L30)
+Defined in: [src/queue/queue.ts:30](https://github.com/havelessbemore/dastal/blob/2a8401f/src/queue/queue.ts#L30)
 
 ___
 
@@ -123,4 +123,4 @@ Retrieves, but does not remove, the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:36](https://github.com/havelessbemore/dastal/blob/f1eca00/src/queue/queue.ts#L36)
+Defined in: [src/queue/queue.ts:36](https://github.com/havelessbemore/dastal/blob/2a8401f/src/queue/queue.ts#L36)

@@ -1,4 +1,4 @@
-[dastal - v1.1.0](../README.md) / Combinator
+[dastal - v1.2.0](../README.md) / Combinator
 
 # Interface: Combinator<T, K\>
 
@@ -21,4 +21,4 @@
 
 • **combine**: [*CombineFn*](combinefn.md)<T, K\>
 
-Defined in: [src/index.ts:11](https://github.com/havelessbemore/dastal/blob/f1eca00/src/index.ts#L11)
+Defined in: [src/index.ts:11](https://github.com/havelessbemore/dastal/blob/2a8401f/src/index.ts#L11)

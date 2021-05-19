@@ -1,4 +1,4 @@
-[dastal - v1.1.0](../README.md) / List
+[dastal - v1.2.0](../README.md) / List
 
 # Interface: List<T\>
 
@@ -34,8 +34,10 @@ Elements can be accessed by their integer index (position in the list)
 
 - [[Symbol.iterator]](list.md#[symbol.iterator])
 - [add](list.md#add)
+- [addAll](list.md#addall)
 - [clear](list.md#clear)
 - [concat](list.md#concat)
+- [copyWithin](list.md#copywithin)
 - [fill](list.md#fill)
 - [get](list.md#get)
 - [getSet](list.md#getset)
@@ -45,7 +47,9 @@ Elements can be accessed by their integer index (position in the list)
 - [reverse](list.md#reverse)
 - [set](list.md#set)
 - [shift](list.md#shift)
+- [slice](list.md#slice)
 - [unshift](list.md#unshift)
+- [view](list.md#view)
 
 ## Properties
 
@@ -55,7 +59,7 @@ Elements can be accessed by their integer index (position in the list)
 
 The number of elements in this list
 
-Defined in: [src/list/list.ts:106](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L106)
+Defined in: [src/list/list.ts:141](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L141)
 
 ## Methods
 
@@ -75,20 +79,41 @@ ___
 
 ▸ **add**(`index`: *number*, `element`: T): *number*
 
-Add the element at the specified index
+Add the element at the specified index.
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | *number* | The index to add into |
+| `index` | *number* | The index to add into (0 <= index <= size) |
 | `element` | T | The element to add |
 
 **Returns:** *number*
 
 The new size of the list
 
-Defined in: [src/list/list.ts:15](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L15)
+Defined in: [src/list/list.ts:15](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L15)
+
+___
+
+### addAll
+
+▸ **addAll**(`index`: *number*, `elements`: *Iterable*<T\>): *number*
+
+Add elements at the specified index.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | *number* | The index to add into (0 <= index <= size) |
+| `elements` | *Iterable*<T\> | - |
+
+**Returns:** *number*
+
+The new size of the list
+
+Defined in: [src/list/list.ts:24](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L24)
 
 ___
 
@@ -100,7 +125,7 @@ Removes all elements
 
 **Returns:** *void*
 
-Defined in: [src/list/list.ts:19](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L19)
+Defined in: [src/list/list.ts:28](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L28)
 
 ___
 
@@ -122,7 +147,35 @@ A new list consisting of the elements in the list on which it is called,
 followed in order by the elements of each argument (if the argument is an iterable)
 or the argument itself. It does not recurse into nested iterable arguments
 
-Defined in: [src/list/list.ts:29](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L29)
+Defined in: [src/list/list.ts:38](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L38)
+
+___
+
+### copyWithin
+
+▸ **copyWithin**(`index`: *number*, `min?`: *number*, `max?`: *number*): [*List*](list.md)<T\>
+
+Copies a section of the list identified by min and max to the same array at position index.
+
+Negative indices can be used for index, min and max to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
+
+Note that this method will not change the size of the list. If index is after min,
+the copied sequence will be trimmed to fit list.size
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | *number* | Where to copy the sequence to |
+| `min?` | *number* | Where to start copying elements from, inclusive. Defaults to 0 |
+| `max?` | *number* | Where to end copying elements from, exclusive. Defaults to list.size |
+
+**Returns:** [*List*](list.md)<T\>
+
+The list
+
+Defined in: [src/list/list.ts:54](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L54)
 
 ___
 
@@ -130,21 +183,24 @@ ___
 
 ▸ **fill**(`element`: T, `min?`: *number*, `max?`: *number*): [*List*](list.md)<T\>
 
-Returns the this object after filling the section identified by min and max with element
+Returns the this object after filling the section identified by min and max with element.
+
+Negative indices can be used for min and max to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `element` | T | — element to fill list section with |
-| `min?` | *number* | index to start filling the list at. If start is negative, it is treated as length+start where length is the length of the list. |
+| `min?` | *number* | Where to start filling the list, inclusive. Defaults to 0 |
 | `max?` | *number* | - |
 
 **Returns:** [*List*](list.md)<T\>
 
 The list on which this method was called
 
-Defined in: [src/list/list.ts:41](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L41)
+Defined in: [src/list/list.ts:67](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L67)
 
 ___
 
@@ -152,19 +208,19 @@ ___
 
 ▸ **get**(`index`: *number*): *undefined* \| T
 
-Return the element at the specified index
+Return the element at the specified index.
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | *number* | The index to retrieve |
+| `index` | *number* | The index to retrieve (0 <= index < size) |
 
 **Returns:** *undefined* \| T
 
 The element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L49)
+Defined in: [src/list/list.ts:75](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L75)
 
 ___
 
@@ -172,20 +228,20 @@ ___
 
 ▸ **getSet**(`index`: *number*, `callback`: (`element`: T) => T): *undefined* \| T
 
-Update the element at the specified index
+Update the element at the specified index.
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | *number* | The index to retrieve |
-| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element. Note: The function is only called if the index is valid |
+| `index` | *number* | The index to retrieve (0 <= index < size) |
+| `callback` | (`element`: T) => T | A function that receives the previous element and returns the new element. The function is only called if the index is valid |
 
 **Returns:** *undefined* \| T
 
 The previous element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:59](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L59)
+Defined in: [src/list/list.ts:85](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L85)
 
 ___
 
@@ -193,13 +249,13 @@ ___
 
 ▸ **pop**(): *undefined* \| T
 
-Retrieves and removes the end of the list
+Retrieves and removes the end of the list.
 
 **Returns:** *undefined* \| T
 
 The value at the end of the list, or `undefined` if empty.
 
-Defined in: [src/list/list.ts:65](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L65)
+Defined in: [src/list/list.ts:91](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L91)
 
 ___
 
@@ -219,7 +275,7 @@ Inserts the specified value into the end of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:73](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L73)
+Defined in: [src/list/list.ts:99](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L99)
 
 ___
 
@@ -227,7 +283,10 @@ ___
 
 ▸ **remove**(`index`: *number*): *undefined* \| T
 
-Retrieves and removes the element at the given index
+Retrieves and removes the element at the given index.
+
+A negative index can be used to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
 
 #### Parameters:
 
@@ -239,21 +298,31 @@ Retrieves and removes the element at the given index
 
 The value at the index, or `undefined` if the index is invalid
 
-Defined in: [src/list/list.ts:81](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L81)
+Defined in: [src/list/list.ts:110](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L110)
 
 ___
 
 ### reverse
 
-▸ **reverse**(): [*List*](list.md)<T\>
+▸ **reverse**(`min?`: *number*, `max?`: *number*): [*List*](list.md)<T\>
 
 Reverses the elements in the list in place.
+
+Negative indices can be used for min and max to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `min?` | *number* | The beginning index of the specified portion of the list, inclusive. Defaults to 0 |
+| `max?` | *number* | The end index of the specified portion of the list, exclusive. Defaults to list.size |
 
 **Returns:** [*List*](list.md)<T\>
 
 a reference to the same list
 
-Defined in: [src/list/list.ts:87](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L87)
+Defined in: [src/list/list.ts:122](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L122)
 
 ___
 
@@ -261,20 +330,20 @@ ___
 
 ▸ **set**(`index`: *number*, `element`: T): *undefined* \| T
 
-Update the element at the specified index
+Update the element at the specified index.
 
 #### Parameters:
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | *number* | The index to retrieve |
+| `index` | *number* | The index to retrieve (0 <= index < size) |
 | `element` | T | The new element to insert at index |
 
 **Returns:** *undefined* \| T
 
 The previous element in the index, or undefined if the index is invalid
 
-Defined in: [src/list/list.ts:96](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L96)
+Defined in: [src/list/list.ts:131](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L131)
 
 ___
 
@@ -282,13 +351,37 @@ ___
 
 ▸ **shift**(): *undefined* \| T
 
-Retrieves and removes the first element in the list
+Retrieves and removes the first element in the list.
 
 **Returns:** *undefined* \| T
 
 The value at the front of the list or `undefined` if this list is empty.
 
-Defined in: [src/list/list.ts:102](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L102)
+Defined in: [src/list/list.ts:137](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L137)
+
+___
+
+### slice
+
+▸ **slice**(`min?`: *number*, `max?`: *number*): [*List*](list.md)<T\>
+
+Returns a copy of a section of the list.
+
+Negative indices can be used for min and max to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `min?` | *number* | The beginning index of the specified portion of the list, inclusive. Defaults to 0 |
+| `max?` | *number* | The end index of the specified portion of the list, exclusive. Defaults to list.size |
+
+**Returns:** [*List*](list.md)<T\>
+
+A new list with a copy of the indicated section of the original list
+
+Defined in: [src/list/list.ts:153](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L153)
 
 ___
 
@@ -308,4 +401,30 @@ Inserts the specified value into the front of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:114](https://github.com/havelessbemore/dastal/blob/f1eca00/src/list/list.ts#L114)
+Defined in: [src/list/list.ts:161](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L161)
+
+___
+
+### view
+
+▸ **view**(`min?`: *number*, `max?`: *number*): *Iterable*<T\>
+
+Receive an iterator through a section of the list.
+
+Negative indices can be used for min and max to indicate an offset from the
+end of the list. For example, -2 refers to the second to last element of the list.
+
+**Note:** Unexpected behavior can occur if the collection is modified during iteration.
+
+#### Parameters:
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `min?` | *number* | The beginning index of the specified portion of the list, inclusive. Defaults to 0 |
+| `max?` | *number* | The end index of the specified portion of the list, exclusive. Defaults to list.size |
+
+**Returns:** *Iterable*<T\>
+
+An iterator through the indicated section of the list
+
+Defined in: [src/list/list.ts:175](https://github.com/havelessbemore/dastal/blob/2a8401f/src/list/list.ts#L175)

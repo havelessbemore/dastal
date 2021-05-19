@@ -1,4 +1,5 @@
 import { List } from './list';
+import { wrap } from '../utils';
 
 /**
  * A doubly-linked node version of the {@link LinkedNode} interface.
@@ -45,10 +46,12 @@ export class DoublyLinkedList<T> implements List<T> {
         }
     }
     /**
-     * Add the element at the specified index
+     * Add the element at the specified index.
      *
-     * @param index - The index to add into
-     * @param value - The element to add
+     * @param index - The index to add into (0 <= index <= size)
+     * @param element - The element to add
+     *
+     * @returns The new size of the list
      */
     add(index: number, value: T): number {
         if (index < 0 || index > this.length) {
@@ -56,8 +59,33 @@ export class DoublyLinkedList<T> implements List<T> {
         }
         const prev = this._get(index - 1);
         const node = { next: prev.next, prev, value };
-        prev.next = node.next!.prev = node;
+        prev.next = node;
+        node.next!.prev = node;
         return ++this.length;
+    }
+    /**
+     * Add elements at the specified index.
+     *
+     * @param index - The index to add into (0 <= index <= size)
+     * @param element - The elements to add
+     *
+     * @returns The new size of the list
+     */
+    addAll(index: number, elements: Iterable<T>): number {
+        if (index < 0 || index > this.length) {
+            return this.length;
+        }
+        let prev = this._get(index - 1);
+        const next = prev.next!;
+        for (const value of elements) {
+            const node = { prev, value };
+            prev.next = node;
+            prev = node;
+            ++this.length;
+        }
+        prev.next = next;
+        next.prev = prev;
+        return this.length;
     }
     /**
      * Removes all elements
@@ -86,21 +114,72 @@ export class DoublyLinkedList<T> implements List<T> {
         return out;
     }
     /**
-     * Returns the this object after filling the section identified by min and max with element
+     * Copies a section of the list identified by min and max to the same array at position index.
+     *
+     * Negative indices can be used for index, min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * Note that this method will not change the size of the list. If index is after min,
+     * the copied sequence will be trimmed to fit list.size
+     *
+     * @param index - Where to copy the sequence to
+     * @param min - Where to start copying elements from, inclusive. Defaults to 0
+     * @param max - Where to end copying elements from, exclusive. Defaults to list.size
+     *
+     * @returns The list
+     */
+    copyWithin(index: number, min?: number, max?: number): this {
+        // Check if copying to the same section
+        index = wrap(index, 0, this.length);
+        min = wrap(min ?? 0, 0, this.length);
+        if (min === index) {
+            return this;
+        }
+
+        // Check if the section to copy has no length
+        max = wrap(max ?? this.length, 0, this.length);
+        max = min + Math.min(max - min, this.length - index);
+        if (min >= max) {
+            return this;
+        }
+
+        // Check for overlap edge case
+        if (min < index && index < max) {
+            let nodeA = this._get(max);
+            let nodeB = this._get(index + (max - min));
+            do {
+                nodeA = nodeA.prev!;
+                nodeB = nodeB.prev!;
+                nodeB.value = nodeA.value;
+            } while (min < --max);
+            return this;
+        }
+
+        // Copy the section to the destination
+        let nodeA = this._get(min);
+        let nodeB = this._get(index);
+        do {
+            nodeB.value = nodeA.value;
+            nodeA = nodeA.next!;
+            nodeB = nodeB.next!;
+        } while (++min < max);
+        return this;
+    }
+    /**
+     * Returns the this object after filling the section identified by min and max with element.
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
      *
      * @param element — element to fill list section with
-     * @param min - index to start filling the list at. If start is negative,
-     * it is treated as length+start where length is the length of the list.
-     * @param end - index to stop filling the list at. If end is negative,
-     * it is treated as length+end where length is the length of the list.
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param end - Where to stop filling the list, exclusive. Defaults to list.size
      *
      * @returns The list on which this method was called
      */
     fill(element: T, min?: number, max?: number): this {
-        min = min == null ? 0 : min < 0 ? this.length + min : min;
-        max = max == null ? this.length : max < 0 ? this.length + max : max;
-        min = Math.min(this.length, Math.max(0, min));
-        max = Math.min(this.length, Math.max(0, max));
+        min = wrap(min ?? 0, 0, this.length);
+        max = wrap(max ?? this.length, 0, this.length);
         if (min < max) {
             let node = this._get(min);
             do {
@@ -111,9 +190,9 @@ export class DoublyLinkedList<T> implements List<T> {
         return this;
     }
     /**
-     * Return the element at the specified index
+     * Return the element at the specified index.
      *
-     * @param index - The index to retrieve
+     * @param index - The index to retrieve (0 <= index < size)
      *
      * @returns The element at the index, or `undefined` if index is invalid
      */
@@ -121,11 +200,11 @@ export class DoublyLinkedList<T> implements List<T> {
         return index < 0 || index >= this.length ? undefined : this._get(index).value;
     }
     /**
-     * Update the element at the specified index
+     * Update the element at the specified index.
      *
-     * @param index - The index to retrieve
-     * @param callback - A function that receives the previous element and returns the new element
-     * Note: The function is only called if the index is valid
+     * @param index - The index to retrieve (0 <= index < size)
+     * @param callback - A function that receives the previous element and returns
+     * the new element. The function is only called if the index is valid
      *
      * @returns The previous element at the index, or `undefined` if index is invalid
      */
@@ -167,11 +246,11 @@ export class DoublyLinkedList<T> implements List<T> {
         return ++this.length;
     }
     /**
-     * Retrieves and removes the element at the given index
+     * Retrieves and removes the element at the given index.
      *
-     * @param index - The index to remove
+     * @param index - The index to remove (0 <= index < size)
      *
-     * @returns The element at the index or `undefined` if the index is invalid
+     * @returns The value at the index, or `undefined` if the index is invalid
      */
     remove(index: number): T | undefined {
         if (index < 0 || index >= this.length) {
@@ -186,22 +265,38 @@ export class DoublyLinkedList<T> implements List<T> {
     /**
      * Reverses the elements in the list in place.
      *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - The beginning index of the specified portion of the list, inclusive. Defaults to 0
+     * @param max - The end index of the specified portion of the list, exclusive. Defaults to list.size
+     *
      * @returns a reference to the same list
      */
-    reverse(): this {
-        let node = this.root;
-        for (let n = this.length; n >= 0; --n) {
-            const temp = node.next!;
-            node.next = node.prev;
-            node.prev = temp;
-            node = temp;
+    reverse(min?: number, max?: number): this {
+        min = wrap(min ?? 0, 0, this.length);
+        max = wrap(max ?? this.length, 0, this.length);
+        if (max - min > 1) {
+            const root = this._get(min - 1);
+            const tail = root.next!;
+            let node = tail;
+            do {
+                const temp = node.next!;
+                node.next = node.prev;
+                node.prev = temp;
+                root.next = node;
+                node = temp;
+            } while (++min < max);
+            tail.next = node;
+            node.prev = tail;
+            root.next!.prev = root;
         }
         return this;
     }
     /**
-     * Update the element at the specified index
+     * Update the element at the specified index.
      *
-     * @param index - The index to retrieve
+     * @param index - The index to retrieve (0 <= index < size)
      * @param element - The new element to insert at index
      *
      * @returns The previous element in the index, or undefined if the index is invalid
@@ -237,6 +332,20 @@ export class DoublyLinkedList<T> implements List<T> {
         return this.length;
     }
     /**
+     * Returns a copy of a section of the list.
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - The beginning index of the specified portion of the list, inclusive. Defaults to 0
+     * @param max - The end index of the specified portion of the list, exclusive. Defaults to list.size
+     *
+     * @returns A new list with a copy of the indicated section of the original list
+     */
+    slice(min?: number, max?: number): DoublyLinkedList<T> {
+        return new DoublyLinkedList(this.view(min, max));
+    }
+    /**
      * Receive an iterator through the list.
      *
      * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
@@ -264,6 +373,37 @@ export class DoublyLinkedList<T> implements List<T> {
         return ++this.length;
     }
     /**
+     * Receive an iterator through a section of the list.
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
+     *
+     * @param min - The beginning index of the specified portion of the list, inclusive. Defaults to 0
+     * @param max - The end index of the specified portion of the list, exclusive. Defaults to list.size
+     *
+     * @returns An iterator through the indicated section of the list
+     */
+    *view(min?: number, max?: number): Iterable<T> {
+        min = wrap(min ?? 0, 0, this.length);
+
+        let len = () => Math.min(max!, this.length);
+        if (max == null) {
+            len = () => this.length;
+        } else if (max < 0) {
+            len = () => this.length + max!;
+        }
+
+        if (min < len()) {
+            let prev = this._get(min);
+            do {
+                yield prev.value;
+                prev = prev.next!;
+            } while (++min < len());
+        }
+    }
+    /**
      * @ignore
      * A helper method to iterate and return the node at the given index.
      *
@@ -275,7 +415,6 @@ export class DoublyLinkedList<T> implements List<T> {
      */
     protected _get(index: number): DoublyLinkedNode<T> {
         let node = this.root;
-
         if (index < this.length / 2) {
             while (index-- >= 0) {
                 node = node.next!;
@@ -285,7 +424,6 @@ export class DoublyLinkedList<T> implements List<T> {
                 node = node.prev!;
             }
         }
-
         return node;
     }
 }
