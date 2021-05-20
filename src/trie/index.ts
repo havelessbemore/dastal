@@ -6,6 +6,8 @@ export interface TokenizeFn<Key, Token> {
     (key: Key): Iterable<Token>;
 }
 
+/*
 export interface Tokenizer<Key, Token> {
     tokenize: TokenizeFn<Key, Token>;
 }
+*/

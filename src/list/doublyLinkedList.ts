@@ -1,5 +1,5 @@
 import { List } from './list';
-import { clamp, first, iterate, wrap } from '../utils';
+import { clamp, wrap } from '../utils';
 
 /**
  * A doubly-linked node version of the {@link LinkedNode} interface.
@@ -41,9 +41,7 @@ export class DoublyLinkedList<T> implements List<T> {
         this.length = 0;
         this.root = {} as DoublyLinkedNode<T>;
         this.root.prev = this.root.next = this.root;
-        for (const element of elements || []) {
-            this.push(element);
-        }
+        this._addAll(this.root, elements ?? []);
     }
     /**
      * Add the element at the specified index.
@@ -72,21 +70,9 @@ export class DoublyLinkedList<T> implements List<T> {
      * @returns The new size of the list
      */
     addAll(index: number, elements: Iterable<T>): number {
-        if (index < 0 || index > this.length) {
-            return this.length;
+        if (index >= 0 && index <= this.length) {
+            this._addAll(this._get(index), elements);
         }
-
-        let prev = this._get(index - 1);
-        const next = prev.next!;
-        for (const value of elements) {
-            const node = { prev, value };
-            prev.next = node;
-            prev = node;
-            ++this.length;
-        }
-        prev.next = next;
-        next.prev = prev;
-
         return this.length;
     }
     /**
@@ -109,9 +95,7 @@ export class DoublyLinkedList<T> implements List<T> {
     concat(...lists: Iterable<T>[]): DoublyLinkedList<T> {
         const out = new DoublyLinkedList(this);
         for (const list of lists) {
-            for (const element of list) {
-                out.push(element);
-            }
+            out.addAll(out.size, list);
         }
         return out;
     }
@@ -153,7 +137,7 @@ export class DoublyLinkedList<T> implements List<T> {
                 nodeA = nodeA.prev!;
                 nodeB = nodeB.prev!;
                 nodeB.value = nodeA.value;
-            } while (min < --max);
+            } while (++min < max);
             return this;
         }
 
@@ -242,9 +226,9 @@ export class DoublyLinkedList<T> implements List<T> {
      * @returns `true` upon success, otherwise `false`
      */
     push(value: T): number {
-        const tail = this.root.prev!;
-        const node = { next: this.root, prev: tail, value };
-        tail.next = this.root.prev = node;
+        const prev = this.root.prev!;
+        const node = { next: this.root, prev, value };
+        prev.next = this.root.prev = node;
         return ++this.length;
     }
     /**
@@ -278,21 +262,22 @@ export class DoublyLinkedList<T> implements List<T> {
     reverse(min?: number, max?: number): this {
         min = wrap(min ?? 0, 0, this.length);
         max = wrap(max ?? this.length, 0, this.length);
-        if (max - min > 1) {
-            const root = this._get(min - 1);
-            const tail = root.next!;
-            let node = tail;
-            do {
-                const temp = node.next!;
-                node.next = node.prev;
-                node.prev = temp;
-                root.next = node;
-                node = temp;
-            } while (++min < max);
-            tail.next = node;
-            node.prev = tail;
-            root.next!.prev = root;
+        if (max - min < 2) {
+            return this;
         }
+        const root = this._get(min - 1);
+        const tail = root.next!;
+        let node = tail;
+        do {
+            const temp = node.next!;
+            node.next = node.prev;
+            node.prev = temp;
+            root.next = node;
+            node = temp;
+        } while (++min < max);
+        tail.next = node;
+        node.prev = tail;
+        root.next!.prev = root;
         return this;
     }
     /**
@@ -308,9 +293,9 @@ export class DoublyLinkedList<T> implements List<T> {
             return undefined;
         }
         const node = this._get(index);
-        const prev = node.value;
+        const value = node.value;
         node.value = element;
-        return prev;
+        return value;
     }
     /**
      * Retrieves and removes the first element in the list
@@ -374,37 +359,25 @@ export class DoublyLinkedList<T> implements List<T> {
     splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
         start = wrap(start ?? 0, 0, this.size);
         count = clamp(count ?? this.size, 0, this.size - start);
-        const list = new DoublyLinkedList<T>();
-        const iterator = (elements ?? [])[Symbol.iterator]();
 
-        // Replace elements
-        let node = this._get(start);
-        for (const element of first(count, iterator)) {
-            list.push(node.value);
-            node.value = element;
-            node = node.next!;
-            --count;
+        // If not modifying the list
+        const list = new DoublyLinkedList<T>();
+        if (elements == null && count < 1) {
+            return list;
         }
 
         // Delete elements
-        if (count > 0) {
-            while (count-- > 0) {
-                list.push(node.value);
-                node.prev!.next = node.next!;
-                node.next!.prev = node.prev!;
-                node = node.next!;
-                --this.length;
-            }
-
-            // Add elements
-        } else {
-            for (const value of iterate(iterator)) {
-                const newNode = { next: node, prev: node.prev, value };
-                node.prev!.next = newNode;
-                node.prev = newNode;
-                ++this.length;
-            }
+        let node = this._get(start);
+        while (count-- > 0) {
+            list.push(node.value);
+            node.prev!.next = node.next!;
+            node.next!.prev = node.prev!;
+            node = node.next!;
+            --this.length;
         }
+
+        // Add elements
+        this._addAll(node, elements ?? []);
 
         return list;
     }
@@ -416,9 +389,7 @@ export class DoublyLinkedList<T> implements List<T> {
      * @returns An iterator through the list
      */
     *[Symbol.iterator](): Iterator<T> {
-        let node = this.root;
-        for (let i = 0; i < this.length; ++i) {
-            node = node.next!;
+        for (let node = this.root.next!; node !== this.root; node = node.next!) {
             yield node.value;
         }
     }
@@ -513,20 +484,37 @@ export class DoublyLinkedList<T> implements List<T> {
     *view(min?: number, max?: number): Iterable<T> {
         min = wrap(min ?? 0, 0, this.length);
 
-        let len = () => Math.min(max!, this.length);
+        let len: () => number;
         if (max == null) {
             len = () => this.length;
-        } else if (max < 0) {
-            len = () => this.length + max!;
+        } else if (max >= 0) {
+            len = () => max;
+        } else {
+            len = () => this.length + max;
         }
 
         if (min < len()) {
-            let prev = this._get(min);
+            let node = this._get(min);
             do {
-                yield prev.value;
-                prev = prev.next!;
-            } while (++min < len());
+                yield node.value;
+                node = node.next!;
+            } while (++min < len() && node !== this.root);
         }
+    }
+    /**
+     * @ignore
+     *
+     */
+    protected _addAll(next: DoublyLinkedNode<T>, elements: Iterable<T>): void {
+        let prev = next.prev!;
+        for (const value of elements) {
+            const node = { prev, value };
+            prev.next = node;
+            prev = node;
+            ++this.length;
+        }
+        prev.next = next;
+        next.prev = prev;
     }
     /**
      * @ignore

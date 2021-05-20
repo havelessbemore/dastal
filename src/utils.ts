@@ -18,10 +18,7 @@ export function* batch<T>(size: number, elements: Iterable<T>): Generator<T[]> {
  */
 export function clamp(num: number, min: number, max: number): number {
     return Math.min(max, Math.max(min, num));
-}
-/**
- * @ignore
- */
+} /*
 export function* first<T>(num: number, iterator: Iterator<T>): Generator<T> {
     while (num-- > 0) {
         const res = iterator.next();
@@ -31,9 +28,7 @@ export function* first<T>(num: number, iterator: Iterator<T>): Generator<T> {
         yield res.value;
     }
 }
-/**
- * @ignore
- */
+*/ /*
 export function* iterate<T>(iterator: Iterator<T>): Generator<T> {
     let res = iterator.next();
     while (!res.done) {
@@ -41,9 +36,15 @@ export function* iterate<T>(iterator: Iterator<T>): Generator<T> {
         res = iterator.next();
     }
 }
+*/
 /**
  * @ignore
  */
-export function wrap(num: number, min: number, max: number): number {
+/**
+ * @ignore
+ */
+/**
+ * @ignore
+ */ export function wrap(num: number, min: number, max: number): number {
     return clamp(num < 0 ? max + num : num, min, max);
 }

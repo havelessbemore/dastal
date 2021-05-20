@@ -81,6 +81,10 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         return this.getNode(key) !== undefined;
     }
 
+    *keys(): Iterator<Key> {
+        throw new Error('TODO');
+    }
+
     set(key: Key, value: Value): Value | undefined {
         let node = this.root;
 
@@ -110,8 +114,8 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         return this.length;
     }
 
-    *[Symbol.iterator](): Iterator<Value> {
-        return this.values();
+    *[Symbol.iterator](): Iterator<[Key, Value]> {
+        throw new Error('TODO');
     }
 
     *values(): Iterator<Value> {

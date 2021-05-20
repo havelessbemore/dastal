@@ -1,5 +1,5 @@
 import { List } from './list';
-import { clamp, first, iterate, wrap } from '../utils';
+import { clamp, wrap } from '../utils';
 
 /**
  * A linked node interface.
@@ -36,10 +36,8 @@ export class LinkedList<T> implements List<T> {
     constructor(elements?: Iterable<T>) {
         this.length = 0;
         this.root = {} as LinkedNode<T>;
-        this.tail = this.root.next = this.root;
-        for (const element of elements || []) {
-            this.push(element);
-        }
+        this.root.next = this.root;
+        this.tail = this._addAll(this.root, elements ?? []);
     }
     /**
      * Add the element at the specified index.
@@ -50,12 +48,14 @@ export class LinkedList<T> implements List<T> {
      * @returns The new size of the list
      */
     add(index: number, value: T): number {
-        if (index < 0 || index >= this.length) {
-            return index == this.length ? this.push(value) : this.length;
+        if (index >= 0 && index < this.length) {
+            const prev = this._get(index - 1);
+            prev.next = { value, next: prev.next };
+            ++this.length;
+        } else if (index === this.length) {
+            this.push(value);
         }
-        const prev = this._get(index - 1);
-        prev.next = { value, next: prev.next };
-        return ++this.length;
+        return this.length;
     }
     /**
      * Add elements at the specified index.
@@ -66,23 +66,11 @@ export class LinkedList<T> implements List<T> {
      * @returns The new size of the list
      */
     addAll(index: number, elements: Iterable<T>): number {
-        if (index < 0 || index >= this.length) {
-            if (index == this.length) {
-                for (const element of elements) {
-                    this.push(element);
-                }
-            }
-            return this.length;
+        if (index >= 0 && index < this.length) {
+            this._addAll(this._get(index - 1), elements);
+        } else if (index === this.length) {
+            this.tail = this._addAll(this.tail, elements);
         }
-        let prev = this._get(index - 1);
-        const next = prev.next!;
-        for (const value of elements) {
-            const node = { value };
-            prev.next = node;
-            prev = node;
-            ++this.length;
-        }
-        prev.next = next;
         return this.length;
     }
     /**
@@ -105,9 +93,7 @@ export class LinkedList<T> implements List<T> {
     concat(...lists: Iterable<T>[]): LinkedList<T> {
         const out = new LinkedList(this);
         for (const list of lists) {
-            for (const element of list) {
-                out.push(element);
-            }
+            out.addAll(out.size, list);
         }
         return out;
     }
@@ -200,7 +186,10 @@ export class LinkedList<T> implements List<T> {
      * @returns The element at the index, or `undefined` if index is invalid
      */
     get(index: number): T | undefined {
-        return index < 0 || index >= this.length ? undefined : this._get(index).value;
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
+        return index < this.length - 1 ? this._get(index).value : this.tail.value;
     }
     /**
      * Update the element at the specified index.
@@ -215,7 +204,7 @@ export class LinkedList<T> implements List<T> {
         if (index < 0 || index >= this.length) {
             return undefined;
         }
-        const node = this._get(index);
+        const node = index < this.length - 1 ? this._get(index) : this.tail;
         const value = node.value;
         node.value = callback(node.value);
         return value;
@@ -226,7 +215,14 @@ export class LinkedList<T> implements List<T> {
      * @returns The value at the end of the list, or `undefined` if empty.
      */
     pop(): T | undefined {
-        return this.remove(this.length - 1);
+        if (this.length < 1) {
+            return undefined;
+        }
+        const value = this.tail.value;
+        this.tail = this._get(this.length - 2);
+        this.tail.next = this.root;
+        --this.length;
+        return value;
     }
     /**
      * Inserts the specified value into the end of the list
@@ -236,8 +232,7 @@ export class LinkedList<T> implements List<T> {
      * @returns `true` upon success, otherwise `false`
      */
     push(value: T): number {
-        const tail: LinkedNode<T> = { value } as LinkedNode<T>;
-        tail.next = this.root;
+        const tail: LinkedNode<T> = { next: this.root, value };
         this.tail.next = tail;
         this.tail = tail;
         return ++this.length;
@@ -256,7 +251,9 @@ export class LinkedList<T> implements List<T> {
         const prev = this._get(index - 1);
         const node = prev.next!;
         prev.next = node.next;
-        --this.length;
+        if (index === --this.length) {
+            this.tail = prev;
+        }
         return node.value;
     }
     /**
@@ -314,13 +311,7 @@ export class LinkedList<T> implements List<T> {
      * @returns The value at the front of the list or `undefined` if this list is empty.
      */
     shift(): T | undefined {
-        if (this.length < 1) {
-            return undefined;
-        }
-        const head = this.root.next!;
-        this.root.next = head.next;
-        --this.length;
-        return head.value;
+        return this.remove(0);
     }
     /**
      * The number of elements in this list
@@ -369,46 +360,28 @@ export class LinkedList<T> implements List<T> {
     splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
         start = wrap(start ?? 0, 0, this.size);
         count = clamp(count ?? this.size, 0, this.size - start);
-        const newTail = start + count >= this.size;
-        const list = new LinkedList<T>();
-        const iterator = (elements ?? [])[Symbol.iterator]();
 
-        // Replace elements
-        let prev = this._get(start - 1);
-        for (const element of first(count, iterator)) {
-            const node = prev.next!;
-            list.push(node.value);
-            node.value = element;
-            prev = node;
-            --count;
+        // If not modifying the list
+        const deleted = new LinkedList<T>();
+        if (elements == null && count < 1) {
+            return deleted;
         }
 
         // Delete elements
-        if (count > 0) {
-            do {
-                const node = prev.next!;
-                list.push(node.value);
-                prev.next = node.next;
-                --this.length;
-            } while (--count > 0);
-
-            // Add elements
-        } else {
-            for (const value of iterate(iterator)) {
-                const node = { next: prev.next, value };
-                prev.next = node;
-                prev = node;
-                ++start;
-                ++this.length;
-            }
+        let prev = this._get(start - 1);
+        const newTail = start + count >= this.size;
+        while (count-- > 0) {
+            const node = prev.next!;
+            deleted.push(node.value);
+            prev.next = node.next;
+            --this.length;
         }
 
-        // Update state
-        if (newTail) {
-            this.tail = prev;
-        }
+        // Add elements
+        prev = this._addAll(prev, elements ?? []);
+        this.tail = newTail ? prev : this.tail;
 
-        return list;
+        return deleted;
     }
     /**
      * Receive an iterator through the list.
@@ -418,9 +391,7 @@ export class LinkedList<T> implements List<T> {
      * @returns An iterator through the list
      */
     *[Symbol.iterator](): Iterator<T> {
-        let node = this.root;
-        for (let i = 0; i < this.length; ++i) {
-            node = node!.next!;
+        for (let node = this.root.next!; node !== this.root; node = node.next!) {
             yield node.value;
         }
     }
@@ -432,10 +403,7 @@ export class LinkedList<T> implements List<T> {
      * @returns `true` upon success, otherwise `false`
      */
     unshift(value: T): number {
-        const head: LinkedNode<T> = { value } as LinkedNode<T>;
-        head.next = this.root.next;
-        this.root.next = head;
-        return ++this.length;
+        return this.add(0, value);
     }
     /**
      * Update the elements of the list
@@ -515,20 +483,33 @@ export class LinkedList<T> implements List<T> {
     *view(min?: number, max?: number): Iterable<T> {
         min = wrap(min ?? 0, 0, this.length);
 
-        let len = () => Math.min(max!, this.length);
+        let len: () => number;
         if (max == null) {
             len = () => this.length;
-        } else if (max < 0) {
-            len = () => this.length + max!;
+        } else if (max >= 0) {
+            len = () => max;
+        } else {
+            len = () => this.length + max;
         }
 
         if (min < len()) {
-            let prev = this._get(min);
+            let node = this._get(min);
             do {
-                yield prev.value;
-                prev = prev.next!;
-            } while (++min < len());
+                yield node.value;
+                node = node.next!;
+            } while (++min < len() && node !== this.root);
         }
+    }
+    protected _addAll(prev: LinkedNode<T>, elements: Iterable<T>): LinkedNode<T> {
+        const next = prev.next!;
+        for (const value of elements) {
+            const node = { value };
+            prev.next = node;
+            prev = node;
+            ++this.length;
+        }
+        prev.next = next;
+        return prev;
     }
     /**
      * @ignore

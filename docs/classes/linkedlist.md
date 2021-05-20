@@ -1,4 +1,4 @@
-[dastal - v1.3.0](../README.md) / LinkedList
+[dastal - v1.3.1](../README.md) / LinkedList
 
 # Class: LinkedList<T\>
 
@@ -27,6 +27,7 @@ A (circular) linked list implementation of the [List](../interfaces/list.md) int
 ### Methods
 
 - [[Symbol.iterator]](linkedlist.md#[symbol.iterator])
+- [\_addAll](linkedlist.md#_addall)
 - [add](linkedlist.md#add)
 - [addAll](linkedlist.md#addall)
 - [clear](linkedlist.md#clear)
@@ -67,7 +68,7 @@ A (circular) linked list implementation of the [List](../interfaces/list.md) int
 
 **Returns:** [*LinkedList*](linkedlist.md)<T\>
 
-Defined in: [src/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L34)
+Defined in: [src/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L34)
 
 ## Accessors
 
@@ -81,7 +82,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [src/list/linkedList.ts:328](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L328)
+Defined in: [src/list/linkedList.ts:319](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L319)
 
 ## Methods
 
@@ -99,7 +100,24 @@ An iterator through the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:420](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L420)
+Defined in: [src/list/linkedList.ts:393](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L393)
+
+___
+
+### \_addAll
+
+▸ `Protected`**_addAll**(`prev`: [*LinkedNode*](../interfaces/linkednode.md)<T\>, `elements`: *Iterable*<T\>): [*LinkedNode*](../interfaces/linkednode.md)<T\>
+
+#### Parameters:
+
+| Name | Type |
+| :------ | :------ |
+| `prev` | [*LinkedNode*](../interfaces/linkednode.md)<T\> |
+| `elements` | *Iterable*<T\> |
+
+**Returns:** [*LinkedNode*](../interfaces/linkednode.md)<T\>
+
+Defined in: [src/list/linkedList.ts:503](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L503)
 
 ___
 
@@ -122,7 +140,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:52](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L52)
+Defined in: [src/list/linkedList.ts:50](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L50)
 
 ___
 
@@ -145,7 +163,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:68](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L68)
+Defined in: [src/list/linkedList.ts:68](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L68)
 
 ___
 
@@ -159,7 +177,7 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:91](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L91)
+Defined in: [src/list/linkedList.ts:79](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L79)
 
 ___
 
@@ -184,7 +202,7 @@ does not recurse into nested iterable arguments
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:105](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L105)
+Defined in: [src/list/linkedList.ts:93](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L93)
 
 ___
 
@@ -214,7 +232,7 @@ The list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:129](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L129)
+Defined in: [src/list/linkedList.ts:115](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L115)
 
 ___
 
@@ -241,7 +259,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:183](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L183)
+Defined in: [src/list/linkedList.ts:169](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L169)
 
 ___
 
@@ -263,7 +281,7 @@ The element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:202](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L202)
+Defined in: [src/list/linkedList.ts:188](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L188)
 
 ___
 
@@ -286,7 +304,7 @@ The previous element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:214](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L214)
+Defined in: [src/list/linkedList.ts:203](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L203)
 
 ___
 
@@ -302,7 +320,7 @@ The value at the end of the list, or `undefined` if empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:228](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L228)
+Defined in: [src/list/linkedList.ts:217](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L217)
 
 ___
 
@@ -324,7 +342,7 @@ Inserts the specified value into the end of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:238](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L238)
+Defined in: [src/list/linkedList.ts:234](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L234)
 
 ___
 
@@ -346,7 +364,7 @@ The value at the index, or `undefined` if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:252](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L252)
+Defined in: [src/list/linkedList.ts:247](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L247)
 
 ___
 
@@ -372,7 +390,7 @@ a reference to the same list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:273](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L273)
+Defined in: [src/list/linkedList.ts:270](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L270)
 
 ___
 
@@ -395,7 +413,7 @@ The previous element in the index, or undefined if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:302](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L302)
+Defined in: [src/list/linkedList.ts:299](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L299)
 
 ___
 
@@ -411,7 +429,7 @@ The value at the front of the list or `undefined` if this list is empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:316](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L316)
+Defined in: [src/list/linkedList.ts:313](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L313)
 
 ___
 
@@ -437,7 +455,7 @@ A new list with a copy of the indicated section of the original list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:342](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L342)
+Defined in: [src/list/linkedList.ts:333](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L333)
 
 ___
 
@@ -462,7 +480,7 @@ A new list of deleted elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:369](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L369)
+Defined in: [src/list/linkedList.ts:360](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L360)
 
 ___
 
@@ -484,7 +502,7 @@ Inserts the specified value into the front of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:434](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L434)
+Defined in: [src/list/linkedList.ts:405](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L405)
 
 ___
 
@@ -506,7 +524,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:447](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L447)
+Defined in: [src/list/linkedList.ts:415](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L415)
 
 ▸ **update**(`min`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*LinkedList*](linkedlist.md)<T\>
 
@@ -528,7 +546,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:459](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L459)
+Defined in: [src/list/linkedList.ts:427](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L427)
 
 ▸ **update**(`min`: *undefined* \| *number*, `max`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*LinkedList*](linkedlist.md)<T\>
 
@@ -551,7 +569,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:472](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L472)
+Defined in: [src/list/linkedList.ts:440](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L440)
 
 ___
 
@@ -579,4 +597,4 @@ An iterator through the indicated section of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:515](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/linkedList.ts#L515)
+Defined in: [src/list/linkedList.ts:483](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/linkedList.ts#L483)

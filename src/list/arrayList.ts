@@ -63,9 +63,7 @@ export class ArrayList<T> implements List<T> {
     concat(...lists: Iterable<T>[]): ArrayList<T> {
         const out = new ArrayList(this);
         for (const list of lists) {
-            for (const element of list) {
-                out.push(element);
-            }
+            out.addAll(out.size, list);
         }
         return out;
     }
@@ -186,10 +184,11 @@ export class ArrayList<T> implements List<T> {
      */
     reverse(min?: number, max?: number): this {
         min = wrap(min ?? 0, 0, this.size);
-        max = wrap(max ?? this.size, 0, this.size);
-        for (const items of batch(1000, this.array.slice(min, max).reverse())) {
-            this.array.splice(min, items.length, ...items);
-            min += items.length;
+        max = wrap(max ?? this.size, 0, this.size) - 1;
+        while (min < max) {
+            const temp = this.array[min];
+            this.array[min++] = this.array[max];
+            this.array[max--] = temp;
         }
         return this;
     }
@@ -366,11 +365,13 @@ export class ArrayList<T> implements List<T> {
     *view(min?: number, max?: number): Iterable<T> {
         min = wrap(min ?? 0, 0, this.size);
 
-        let len = () => Math.min(max!, this.size);
+        let len: () => number;
         if (max == null) {
             len = () => this.size;
-        } else if (max < 0) {
-            len = () => this.size + max!;
+        } else if (max >= 0) {
+            len = () => Math.min(max, this.size);
+        } else {
+            len = () => this.size + max;
         }
 
         while (min < len()) {

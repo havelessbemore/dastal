@@ -201,7 +201,7 @@ describe('ArrayList unit tests', function () {
         it('Should copy intended range', async function () {
             this.timeout(0);
             for (let n = 10; n > 0; --n) {
-                const i = randomInt(2*values.length) - values.length;
+                const i = randomInt(2 * values.length) - values.length;
                 for (let min = -values.length; min < values.length; ++min) {
                     for (let max = -values.length; max < values.length; ++max) {
                         const list = new ArrayList(values);

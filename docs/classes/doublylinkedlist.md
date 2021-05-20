@@ -1,4 +1,4 @@
-[dastal - v1.3.0](../README.md) / DoublyLinkedList
+[dastal - v1.3.1](../README.md) / DoublyLinkedList
 
 # Class: DoublyLinkedList<T\>
 
@@ -69,7 +69,7 @@ Operations that index into the list will traverse the list from the beginning or
 
 **Returns:** [*DoublyLinkedList*](doublylinkedlist.md)<T\>
 
-Defined in: [src/list/doublyLinkedList.ts:38](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L38)
+Defined in: [src/list/doublyLinkedList.ts:38](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L38)
 
 ## Accessors
 
@@ -83,7 +83,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [src/list/doublyLinkedList.ts:333](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L333)
+Defined in: [src/list/doublyLinkedList.ts:318](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L318)
 
 ## Methods
 
@@ -101,7 +101,7 @@ An iterator through the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:418](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L418)
+Defined in: [src/list/doublyLinkedList.ts:391](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L391)
 
 ___
 
@@ -124,7 +124,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:56](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L56)
+Defined in: [src/list/doublyLinkedList.ts:54](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L54)
 
 ___
 
@@ -147,7 +147,7 @@ The new size of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:74](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L74)
+Defined in: [src/list/doublyLinkedList.ts:72](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L72)
 
 ___
 
@@ -161,7 +161,7 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:95](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L95)
+Defined in: [src/list/doublyLinkedList.ts:81](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L81)
 
 ___
 
@@ -186,7 +186,7 @@ does not recurse into nested iterable arguments
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:109](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L109)
+Defined in: [src/list/doublyLinkedList.ts:95](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L95)
 
 ___
 
@@ -216,7 +216,7 @@ The list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:133](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L133)
+Defined in: [src/list/doublyLinkedList.ts:117](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L117)
 
 ___
 
@@ -243,7 +243,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:182](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L182)
+Defined in: [src/list/doublyLinkedList.ts:166](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L166)
 
 ___
 
@@ -265,7 +265,7 @@ The element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:201](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L201)
+Defined in: [src/list/doublyLinkedList.ts:185](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L185)
 
 ___
 
@@ -288,7 +288,7 @@ The previous element at the index, or `undefined` if index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:213](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L213)
+Defined in: [src/list/doublyLinkedList.ts:197](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L197)
 
 ___
 
@@ -304,7 +304,7 @@ The element at the end of the list, or `undefined` if empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:227](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L227)
+Defined in: [src/list/doublyLinkedList.ts:211](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L211)
 
 ___
 
@@ -326,7 +326,7 @@ Inserts the specified element into the end of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:244](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L244)
+Defined in: [src/list/doublyLinkedList.ts:228](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L228)
 
 ___
 
@@ -348,7 +348,7 @@ The value at the index, or `undefined` if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:257](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L257)
+Defined in: [src/list/doublyLinkedList.ts:241](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L241)
 
 ___
 
@@ -374,7 +374,7 @@ a reference to the same list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:278](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L278)
+Defined in: [src/list/doublyLinkedList.ts:262](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L262)
 
 ___
 
@@ -397,7 +397,7 @@ The previous element in the index, or undefined if the index is invalid
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:306](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L306)
+Defined in: [src/list/doublyLinkedList.ts:291](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L291)
 
 ___
 
@@ -413,7 +413,7 @@ The element at the front of the list or `undefined` if this list is empty.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:320](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L320)
+Defined in: [src/list/doublyLinkedList.ts:305](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L305)
 
 ___
 
@@ -439,7 +439,7 @@ A new list with a copy of the indicated section of the original list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:347](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L347)
+Defined in: [src/list/doublyLinkedList.ts:332](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L332)
 
 ___
 
@@ -464,7 +464,7 @@ A new list of deleted elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:374](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L374)
+Defined in: [src/list/doublyLinkedList.ts:359](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L359)
 
 ___
 
@@ -486,7 +486,7 @@ Inserts the specified element into the front of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:432](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L432)
+Defined in: [src/list/doublyLinkedList.ts:403](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L403)
 
 ___
 
@@ -508,7 +508,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:445](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L445)
+Defined in: [src/list/doublyLinkedList.ts:416](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L416)
 
 ▸ **update**(`min`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*DoublyLinkedList*](doublylinkedlist.md)<T\>
 
@@ -530,7 +530,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:457](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L457)
+Defined in: [src/list/doublyLinkedList.ts:428](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L428)
 
 ▸ **update**(`min`: *undefined* \| *number*, `max`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*DoublyLinkedList*](doublylinkedlist.md)<T\>
 
@@ -553,7 +553,7 @@ The list on which this method was called
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:470](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L470)
+Defined in: [src/list/doublyLinkedList.ts:441](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L441)
 
 ___
 
@@ -581,4 +581,4 @@ An iterator through the indicated section of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/doublyLinkedList.ts:513](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/list/doublyLinkedList.ts#L513)
+Defined in: [src/list/doublyLinkedList.ts:484](https://github.com/havelessbemore/dastal/blob/0f470df/src/list/doublyLinkedList.ts#L484)
