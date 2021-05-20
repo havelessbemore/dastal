@@ -1,5 +1,5 @@
 import { List } from './list';
-import { batch, clamp, wrap } from '../utils';
+import { batch, clamp, wrap } from './utils';
 
 /**
  * An implementation of the {@link List} interface using an array

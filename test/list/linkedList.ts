@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { LinkedList } from 'src/list/linkedList';
-import { clamp, wrap } from 'src/utils';
+import { clamp, wrap } from 'src/list/utils';
 
 describe('LinkedList unit tests', function () {
     let empty: LinkedList<number>;

@@ -1,5 +1,5 @@
 import { List } from './list';
-import { clamp, wrap } from '../utils';
+import { clamp, wrap } from './utils';
 
 /**
  * A linked node interface.
