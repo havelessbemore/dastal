@@ -1,5 +1,5 @@
 import { List } from './list';
-import { wrap } from '../utils';
+import { clamp, first, iterate, wrap } from '../utils';
 
 /**
  * A doubly-linked node version of the {@link LinkedNode} interface.
@@ -75,6 +75,7 @@ export class DoublyLinkedList<T> implements List<T> {
         if (index < 0 || index > this.length) {
             return this.length;
         }
+
         let prev = this._get(index - 1);
         const next = prev.next!;
         for (const value of elements) {
@@ -85,6 +86,7 @@ export class DoublyLinkedList<T> implements List<T> {
         }
         prev.next = next;
         next.prev = prev;
+
         return this.length;
     }
     /**
@@ -346,6 +348,67 @@ export class DoublyLinkedList<T> implements List<T> {
         return new DoublyLinkedList(this.view(min, max));
     }
     /**
+     * Removes elements from the list and optionally inserts new elements in their place.
+     * Returns any deleted elements.
+     *
+     * @param start - The index from which to start removing elements. Defaults to 0
+     *
+     * If > size, start will be set to size. In this case, no element will be
+     * deleted but the method can still add elements to the end of the list.
+     *
+     * If < 0, start will indicate an offset from the end of the list. For example,
+     * -2 refers to the second to last element of the list.
+     *
+     * If < -size, start will be set to 0
+     * @param count - The number of elements to remove. Defaults to size - start
+     *
+     * If >= size - start (that is, if it's >= than the number of elements from start
+     * until the end of the list), then all the elements from start until the end of
+     * the list will be removed.
+     *
+     * If <= 0, no elements are removed
+     * @param elements - The new elements to insert at start. Defaults to none
+     *
+     * @returns A new list of deleted elements
+     */
+    splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
+        start = wrap(start ?? 0, 0, this.size);
+        count = clamp(count ?? this.size, 0, this.size - start);
+        const list = new DoublyLinkedList<T>();
+        const iterator = (elements ?? [])[Symbol.iterator]();
+
+        // Replace elements
+        let node = this._get(start);
+        for (const element of first(count, iterator)) {
+            list.push(node.value);
+            node.value = element;
+            node = node.next!;
+            --count;
+        }
+
+        // Delete elements
+        if (count > 0) {
+            while (count-- > 0) {
+                list.push(node.value);
+                node.prev!.next = node.next!;
+                node.next!.prev = node.prev!;
+                node = node.next!;
+                --this.length;
+            }
+
+            // Add elements
+        } else {
+            for (const value of iterate(iterator)) {
+                const newNode = { next: node, prev: node.prev, value };
+                node.prev!.next = newNode;
+                node.prev = newNode;
+                ++this.length;
+            }
+        }
+
+        return list;
+    }
+    /**
      * Receive an iterator through the list.
      *
      * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
@@ -371,6 +434,68 @@ export class DoublyLinkedList<T> implements List<T> {
         const node = { next: head, prev: this.root, value };
         this.root.next = head.prev = node;
         return ++this.length;
+    }
+    /**
+     * Update the elements of the list
+     *
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(min: number | undefined, callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param max - Where to stop filling the list, exclusive. Defaults to list.size
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(
+        min: number | undefined,
+        max: number | undefined,
+        callback: (element: T, index: number) => T,
+    ): this;
+    update(
+        min: number | undefined | ((element: T, index: number) => T),
+        max?: number | ((element: T, index: number) => T),
+        callback?: (element: T, index: number) => T,
+    ): this {
+        if (callback == null) {
+            if (arguments.length < 2) {
+                callback = min as (element: T, index: number) => T;
+                min = undefined;
+            } else {
+                callback = max as (element: T, index: number) => T;
+                max = undefined;
+            }
+        }
+        min = wrap((min as number) ?? 0, 0, this.length);
+        max = wrap((max as number) ?? this.length, 0, this.length);
+        if (min < max) {
+            let node = this._get(min);
+            do {
+                node.value = callback(node.value, min);
+                node = node.next!;
+            } while (++min < max);
+        }
+        return this;
     }
     /**
      * Receive an iterator through a section of the list.

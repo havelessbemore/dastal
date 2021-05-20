@@ -1,5 +1,5 @@
 import { List } from './list';
-import { wrap } from '../utils';
+import { clamp, first, iterate, wrap } from '../utils';
 
 /**
  * A linked node interface.
@@ -127,7 +127,7 @@ export class LinkedList<T> implements List<T> {
      * @returns The list
      */
     copyWithin(index: number, min?: number, max?: number): this {
-        // Check if copying to the same section
+        // Check if copying to itself
         index = wrap(index, 0, this.length);
         min = wrap(min ?? 0, 0, this.length);
         if (min === index) {
@@ -141,17 +141,31 @@ export class LinkedList<T> implements List<T> {
             return this;
         }
 
-        // Check for overlap edge case
-        if (min < index && index < max) {
-            let prev = this._get(index - 1);
-            this._reverse(prev, max - min);
-            prev = this._copyWithin(this._get(min - 1), prev, index - min);
-            this._reverse(prev, max - index);
+        // Copy to earlier in the list
+        if (index < min) {
+            const node = this._get(index - 1);
+            this._copyWithin(this._get(min - index - 1, node), node, max - min);
             return this;
         }
 
-        // Copy the section to the destination
-        this._copyWithin(this._get(min - 1), this._get(index - 1), max - min);
+        // Copy to later in the list
+        if (index > max) {
+            const node = this._get(min - 1);
+            this._copyWithin(node, this._get(index - min - 1, node), max - min);
+            return this;
+        }
+
+        // Copy to overlapping destination
+        const nodeA = this._get(min - 1);
+        const nodeC = this._get(max - min - 1, nodeA);
+        const nodeD = this._copyWithin(nodeA, nodeC, index - min);
+        if (index + (max - min) >= this.length) {
+            this.tail = nodeC;
+        }
+        const temp = nodeA.next;
+        nodeA.next = nodeC.next;
+        nodeC.next = nodeD.next;
+        nodeD.next = temp;
         return this;
     }
     /**
@@ -259,11 +273,22 @@ export class LinkedList<T> implements List<T> {
     reverse(min?: number, max?: number): this {
         min = wrap(min ?? 0, 0, this.length);
         max = wrap(max ?? this.length, 0, this.length);
-        if (max - min > 1) {
-            const prev = this._get(min - 1);
-            this.tail = max >= this.length ? prev.next! : this.tail;
-            this._reverse(prev, max - min);
+        if (max - min < 2) {
+            return this;
         }
+        const root = this._get(min - 1);
+        this.tail = max >= this.length ? root.next! : this.tail;
+        const tail = root.next!;
+        let prev = tail;
+        let node = tail.next!;
+        while (++min < max) {
+            const next = node.next!;
+            node.next = prev;
+            prev = node;
+            node = next;
+        }
+        root.next = prev;
+        tail.next = node;
         return this;
     }
     /**
@@ -318,6 +343,74 @@ export class LinkedList<T> implements List<T> {
         return new LinkedList(this.view(min, max));
     }
     /**
+     * Removes elements from the list and optionally inserts new elements in their place.
+     * Returns any deleted elements.
+     *
+     * @param start - The index from which to start removing elements. Defaults to 0
+     *
+     * If > size, start will be set to size. In this case, no element will be
+     * deleted but the method can still add elements to the end of the list.
+     *
+     * If < 0, start will indicate an offset from the end of the list. For example,
+     * -2 refers to the second to last element of the list.
+     *
+     * If < -size, start will be set to 0
+     * @param count - The number of elements to remove. Defaults to size - start
+     *
+     * If >= size - start (that is, if it's >= than the number of elements from start
+     * until the end of the list), then all the elements from start until the end of
+     * the list will be removed.
+     *
+     * If <= 0, no elements are removed
+     * @param elements - The new elements to insert at start. Defaults to none
+     *
+     * @returns A new list of deleted elements
+     */
+    splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
+        start = wrap(start ?? 0, 0, this.size);
+        count = clamp(count ?? this.size, 0, this.size - start);
+        const newTail = start + count >= this.size;
+        const list = new LinkedList<T>();
+        const iterator = (elements ?? [])[Symbol.iterator]();
+
+        // Replace elements
+        let prev = this._get(start - 1);
+        for (const element of first(count, iterator)) {
+            const node = prev.next!;
+            list.push(node.value);
+            node.value = element;
+            prev = node;
+            --count;
+        }
+
+        // Delete elements
+        if (count > 0) {
+            do {
+                const node = prev.next!;
+                list.push(node.value);
+                prev.next = node.next;
+                --this.length;
+            } while (--count > 0);
+
+            // Add elements
+        } else {
+            for (const value of iterate(iterator)) {
+                const node = { next: prev.next, value };
+                prev.next = node;
+                prev = node;
+                ++start;
+                ++this.length;
+            }
+        }
+
+        // Update state
+        if (newTail) {
+            this.tail = prev;
+        }
+
+        return list;
+    }
+    /**
      * Receive an iterator through the list.
      *
      * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
@@ -343,6 +436,68 @@ export class LinkedList<T> implements List<T> {
         head.next = this.root.next;
         this.root.next = head;
         return ++this.length;
+    }
+    /**
+     * Update the elements of the list
+     *
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(min: number | undefined, callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param max - Where to stop filling the list, exclusive. Defaults to list.size
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(
+        min: number | undefined,
+        max: number | undefined,
+        callback: (element: T, index: number) => T,
+    ): this;
+    update(
+        min: number | undefined | ((element: T, index: number) => T),
+        max?: number | ((element: T, index: number) => T),
+        callback?: (element: T, index: number) => T,
+    ): this {
+        if (callback == null) {
+            if (arguments.length < 2) {
+                callback = min as (element: T, index: number) => T;
+                min = undefined;
+            } else {
+                callback = max as (element: T, index: number) => T;
+                max = undefined;
+            }
+        }
+        min = wrap((min as number) ?? 0, 0, this.length);
+        max = wrap((max as number) ?? this.length, 0, this.length);
+        if (min < max) {
+            let node = this._get(min);
+            do {
+                node.value = callback(node.value, min);
+                node = node.next!;
+            } while (++min < max);
+        }
+        return this;
     }
     /**
      * Receive an iterator through a section of the list.
@@ -399,33 +554,11 @@ export class LinkedList<T> implements List<T> {
      *
      * @returns The node at the given index
      */
-    protected _get(index: number): LinkedNode<T> {
-        let node = this.root!;
+    protected _get(index: number, root: LinkedNode<T> = this.root): LinkedNode<T> {
+        let node = root!;
         while (index-- >= 0) {
             node = node.next!;
         }
         return node;
-    }
-    /**
-     * @ignore
-     * Reverse 'count' nodes beginning from 'node'
-     *
-     * @param node - The initial node to reverse from
-     * @param count - The number of values to reverse
-     *
-     * @returns
-     */
-    protected _reverse(root: LinkedNode<T>, count: number): void {
-        const tail = root.next!;
-        let prev = tail;
-        let node = tail.next!;
-        while (--count > 0) {
-            const next = node.next!;
-            node.next = prev;
-            prev = node;
-            node = next;
-        }
-        root.next = prev;
-        tail.next = node;
     }
 }

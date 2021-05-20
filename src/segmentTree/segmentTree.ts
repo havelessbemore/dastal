@@ -6,6 +6,16 @@ export interface Operation<T> {
     (element: T, index: number): T;
 }
 
+/*
+export interface Combinator<T, K = T> {
+    combine: CombineFn<T, K>;
+}
+*/
+
+export interface CombineFn<T, K = T> {
+    (a: T, b: T): K;
+}
+
 export interface SegmentTree<T> extends Iterable<T> {
     /**
      * Removes all elements

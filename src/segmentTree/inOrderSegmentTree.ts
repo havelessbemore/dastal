@@ -1,7 +1,7 @@
 import { LinkedList } from '../list/linkedList';
 import { lsb, lsp, msb, msp } from '../math/bits';
 import { LazyOperation, Operation, SegmentTree } from './segmentTree';
-import { CombineFn } from '..';
+import { CombineFn } from '.';
 
 /*
     mca(a, b) = lsp(a | msp(b - a)) ; // where a <= b

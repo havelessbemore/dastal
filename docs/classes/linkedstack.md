@@ -1,4 +1,4 @@
-[dastal - v1.2.0](../README.md) / LinkedStack
+[dastal - v1.3.0](../README.md) / LinkedStack
 
 # Class: LinkedStack<T\>
 
@@ -52,7 +52,7 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 **Returns:** [*LinkedStack*](linkedstack.md)<T\>
 
-Defined in: [src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L11)
+Defined in: [src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L11)
 
 ## Accessors
 
@@ -66,7 +66,7 @@ The number of elements in the stack
 
 Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
 
-Defined in: [src/stack/linkedStack.ts:54](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L54)
+Defined in: [src/stack/linkedStack.ts:54](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L54)
 
 ## Methods
 
@@ -84,7 +84,7 @@ An iterator through the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:64](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L64)
+Defined in: [src/stack/linkedStack.ts:64](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L64)
 
 ___
 
@@ -98,7 +98,7 @@ Removes all elements from the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:22](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L22)
+Defined in: [src/stack/linkedStack.ts:22](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L22)
 
 ___
 
@@ -114,7 +114,7 @@ The element at the top of the stack or `undefined` if empty.
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:30](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L30)
+Defined in: [src/stack/linkedStack.ts:30](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L30)
 
 ___
 
@@ -130,7 +130,7 @@ The element at the top of the stack or `undefined` if empty.
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:38](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L38)
+Defined in: [src/stack/linkedStack.ts:38](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L38)
 
 ___
 
@@ -152,4 +152,4 @@ The new size of the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:48](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/linkedStack.ts#L48)
+Defined in: [src/stack/linkedStack.ts:48](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/linkedStack.ts#L48)

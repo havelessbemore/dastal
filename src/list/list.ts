@@ -1,7 +1,33 @@
 /**
- * An ordered collection (also known as a sequence). A list allows exactly stating where an element is inserted.
+ * An ordered collection (also known as a sequence). A list allows exactly stating
+ * where an element is inserted. Elements can be accessed by their integer index (position in the list)
  *
- * Elements can be accessed by their integer index (position in the list)
+ * #### Iterate
+ * - Iterate the entire list: {@link [Symbol.iterator]}
+ * - Iterate a subset of the list: {@link view}
+ *
+ * #### Get
+ * - Get the element at a given index: {@link get}
+ * - Get the elements in a given range: {@link slice}
+ *
+ * #### Add
+ * - Add 1 at the start: {@link unshift}
+ * - Add 1 at the end: {@link push}
+ * - Add 1 at a given index: {@link add}
+ * - Add 1+ at a given index: {@link addAll}
+ *
+ * #### Set
+ * - Set 1 index: {@link set}
+ * - Get and set 1 index: {@link getSet}
+ * - Set a range to 1 element: {@link fill}
+ * - Set a range to a copy of another range within the list: {@link copyWithin}
+ * - Set a range: {@link update}
+ *
+ * #### Remove
+ * - Remove 1 from the start: {@link shift}
+ * - Remove 1 from the end: {@link pop}
+ * - Remove 1 from a given index: {@link remove}
+ * - Remove a range (and add new elements): {@link splice}
  */
 export interface List<T> extends Iterable<T> {
     /**
@@ -152,6 +178,31 @@ export interface List<T> extends Iterable<T> {
      */
     slice(min?: number, max?: number): List<T>;
     /**
+     * Removes elements from the list and optionally inserts new elements in their place.
+     * Returns any deleted elements.
+     *
+     * @param start - The index from which to start removing elements. Defaults to 0
+     *
+     * If > size, start will be set to size. In this case, no element will be
+     * deleted but the method can still add elements to the end of the list.
+     *
+     * If < 0, start will indicate an offset from the end of the list. For example,
+     * -2 refers to the second to last element of the list.
+     *
+     * If < -size, start will be set to 0
+     * @param count - The number of elements to remove. Defaults to size - start
+     *
+     * If >= size - start (that is, if it's >= than the number of elements from start
+     * until the end of the list), then all the elements from start until the end of
+     * the list will be removed.
+     *
+     * If <= 0, no elements are removed
+     * @param elements - The new elements to insert at start. Defaults to none
+     *
+     * @returns A new list of deleted elements
+     */
+    splice(start?: number, count?: number, elements?: Iterable<T>): List<T>;
+    /**
      * Inserts the specified value into the front of the list
      *
      * @param element - The element to be inserted
@@ -159,6 +210,43 @@ export interface List<T> extends Iterable<T> {
      * @returns The new size of the list
      */
     unshift(element: T): number;
+    /**
+     * Update the elements of the list
+     *
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(min: number | undefined, callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param max - Where to stop filling the list, exclusive. Defaults to list.size
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(
+        min: number | undefined,
+        max: number | undefined,
+        callback: (element: T, index: number) => T,
+    ): this;
     /**
      * Receive an iterator through a section of the list.
      *

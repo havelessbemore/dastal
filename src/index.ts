@@ -6,11 +6,3 @@ export * from './queue';
 export * from './stack';
 // export * from './tree';
 // export * from './trie';
-
-export interface Combinator<T, K = T> {
-    combine: CombineFn<T, K>;
-}
-
-export interface CombineFn<T, K = T> {
-    (a: T, b: T): K;
-}

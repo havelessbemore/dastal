@@ -1,4 +1,4 @@
-[dastal - v1.2.0](../README.md) / Stack
+[dastal - v1.3.0](../README.md) / Stack
 
 # Interface: Stack<T\>
 
@@ -50,7 +50,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 The number of elements in the stack
 
-Defined in: [src/stack/stack.ts:39](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/stack.ts#L39)
+Defined in: [src/stack/stack.ts:39](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/stack.ts#L39)
 
 ## Methods
 
@@ -74,7 +74,7 @@ Removes all elements from the stack
 
 **Returns:** *void*
 
-Defined in: [src/stack/stack.ts:15](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/stack.ts#L15)
+Defined in: [src/stack/stack.ts:15](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/stack.ts#L15)
 
 ___
 
@@ -88,7 +88,7 @@ Retrieves, but does not remove, the top of the stack
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:21](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/stack.ts#L21)
+Defined in: [src/stack/stack.ts:21](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/stack.ts#L21)
 
 ___
 
@@ -102,7 +102,7 @@ Retrieves and removes the top of the stack
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:27](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/stack.ts#L27)
+Defined in: [src/stack/stack.ts:27](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/stack.ts#L27)
 
 ___
 
@@ -122,4 +122,4 @@ Inserts an element into the stack
 
 The new size of the stack
 
-Defined in: [src/stack/stack.ts:35](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/stack.ts#L35)
+Defined in: [src/stack/stack.ts:35](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/stack.ts#L35)

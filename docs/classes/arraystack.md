@@ -1,4 +1,4 @@
-[dastal - v1.2.0](../README.md) / ArrayStack
+[dastal - v1.3.0](../README.md) / ArrayStack
 
 # Class: ArrayStack<T\>
 
@@ -52,7 +52,7 @@ An implementation of the [Stack](../interfaces/stack.md) interface using an arra
 
 **Returns:** [*ArrayStack*](arraystack.md)<T\>
 
-Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L10)
+Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L10)
 
 ## Accessors
 
@@ -66,7 +66,7 @@ The number of elements in the stack
 
 Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
 
-Defined in: [src/stack/arrayStack.ts:50](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L50)
+Defined in: [src/stack/arrayStack.ts:50](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L50)
 
 ## Methods
 
@@ -84,7 +84,7 @@ An iterator through the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:60](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L60)
+Defined in: [src/stack/arrayStack.ts:60](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L60)
 
 ___
 
@@ -98,7 +98,7 @@ Removes all elements from the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:18](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L18)
+Defined in: [src/stack/arrayStack.ts:18](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L18)
 
 ___
 
@@ -114,7 +114,7 @@ The element at the top of the stack or `undefined` if empty.
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:26](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L26)
+Defined in: [src/stack/arrayStack.ts:26](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L26)
 
 ___
 
@@ -130,7 +130,7 @@ The element at the top of the stack or `undefined` if empty.
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:34](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L34)
+Defined in: [src/stack/arrayStack.ts:34](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L34)
 
 ___
 
@@ -152,4 +152,4 @@ The new size of the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:44](https://github.com/havelessbemore/dastal/blob/2a8401f/src/stack/arrayStack.ts#L44)
+Defined in: [src/stack/arrayStack.ts:44](https://github.com/havelessbemore/dastal/blob/cb5e8f6/src/stack/arrayStack.ts#L44)

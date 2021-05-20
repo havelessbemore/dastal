@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { DoublyLinkedList } from 'src/list/doublyLinkedList';
-import { wrap } from 'src/utils';
+import { clamp, wrap } from 'src/utils';
 
 describe('DoublyLinkedList unit tests', function () {
     let empty: DoublyLinkedList<number>;
@@ -198,9 +198,10 @@ describe('DoublyLinkedList unit tests', function () {
                 }
             }
         });
-        it('Should copy intended range', function () {
+        it('Should copy intended range', async function () {
+            this.timeout(0);
             for (let n = 10; n > 0; --n) {
-                const i = randomInt(values.length);
+                const i = randomInt(2*values.length) - values.length;
                 for (let min = -values.length; min < values.length; ++min) {
                     for (let max = -values.length; max < values.length; ++max) {
                         const list = new DoublyLinkedList(values);
@@ -210,6 +211,20 @@ describe('DoublyLinkedList unit tests', function () {
                     }
                 }
             }
+        });
+        it('Should work correctly at the end of the list', function () {
+            let list = new DoublyLinkedList(filled);
+            list.copyWithin(4, 0, values.length);
+            list.push(2);
+            let vals = Array.from(values);
+            vals.copyWithin(4, 0, vals.length);
+            expect(Array.from(list)).to.eql(vals.concat([2]));
+            list = new DoublyLinkedList(filled);
+            list.copyWithin(4, 0, values.length);
+            list.addAll(list.size, [4, 5, 6]);
+            vals = Array.from(values);
+            vals.copyWithin(4, 0, vals.length);
+            expect(Array.from(list)).to.eql(vals.concat([4, 5, 6]));
         });
     });
     describe('#fill()', function () {
@@ -691,6 +706,146 @@ describe('DoublyLinkedList unit tests', function () {
             }
         });
     });
+    describe('#splice()', function () {
+        it('Should delete the entire list if no arguments', function () {
+            const deleted = filled.splice();
+            expect(deleted).to.not.equal(filled);
+            expect(filled.size).to.equal(0);
+            expect(deleted.size).to.equal(values.length);
+            expect(Array.from(filled)).to.eql([]);
+            expect(Array.from(deleted)).to.eql(Array.from(values));
+        });
+        it('Should wrap start around length if negative value given', function () {
+            const deleted = filled.splice(-5);
+            expect(deleted).to.not.equal(filled);
+            expect(filled.size).to.equal(values.length - 5);
+            expect(deleted.size).to.equal(5);
+            expect(Array.from(filled)).to.eql(Array.from(values.slice(0, -5)));
+            expect(Array.from(deleted)).to.eql(Array.from(values.slice(-5)));
+        });
+        it('Should default start to 0 if start < -length', function () {
+            const deleted = filled.splice(-(filled.size + 12));
+            expect(deleted).to.not.equal(filled);
+            expect(filled.size).to.equal(0);
+            expect(deleted.size).to.equal(values.length);
+            expect(Array.from(filled)).to.eql([]);
+            expect(Array.from(deleted)).to.eql(Array.from(values));
+        });
+        it('Should default start to length if start > length', function () {
+            const deleted = filled.splice(filled.size + 5);
+            expect(deleted).to.not.equal(filled);
+            expect(filled.size).to.equal(values.length);
+            expect(deleted.size).to.equal(0);
+            expect(Array.from(filled)).to.eql(Array.from(values));
+            expect(Array.from(deleted)).to.eql([]);
+        });
+        it('Should delete from start if no count', function () {
+            for (let start = -filled.size; start < filled.size; ++start) {
+                const size = filled.size - wrap(start, 0, filled.size);
+                const list = new DoublyLinkedList(filled);
+                const deleted = list.splice(start);
+                expect(list).to.not.equal(deleted);
+                expect(list.size).to.equal(values.length - size);
+                expect(deleted.size).to.equal(size);
+                expect(Array.from(list)).to.eql(Array.from(values.slice(0, start)));
+                expect(Array.from(deleted)).to.eql(Array.from(values.slice(start)));
+            }
+        });
+        it('Should default count to 0 if count < 0', function () {
+            const list = filled.splice(5, -2);
+            expect(list).to.not.equal(filled);
+            expect(filled.size).to.equal(values.length);
+            expect(list.size).to.equal(0);
+            expect(Array.from(filled)).to.eql(Array.from(values));
+            expect(Array.from(list)).to.eql([]);
+        });
+        it('Should default count to length - start if start + count > length', function () {
+            const list = filled.splice(filled.size - 5, 7);
+            expect(list).to.not.equal(filled);
+            expect(filled.size).to.equal(values.length - 5);
+            expect(list.size).to.equal(5);
+            expect(Array.from(filled)).to.eql(Array.from(values.slice(0, -5)));
+            expect(Array.from(list)).to.eql(Array.from(values.slice(-5)));
+        });
+        it('Should delete from beginning if no start', function () {
+            for (let count = 0; count < filled.size; ++count) {
+                const list = new DoublyLinkedList(filled);
+                const deleted = list.splice(undefined, count);
+                expect(list).to.not.equal(deleted);
+                expect(list.size).to.equal(values.length - count);
+                expect(deleted.size).to.equal(count);
+                expect(Array.from(list)).to.eql(Array.from(values.slice(count)));
+                expect(Array.from(deleted)).to.eql(Array.from(values.slice(0, count)));
+            }
+        });
+        it('Should delete intended range', function () {
+            for (let start = -filled.size; start < filled.size; ++start) {
+                for (let count = 0; count < filled.size; ++count) {
+                    const min = wrap(start, 0, filled.size);
+                    const size = clamp(count, 0, filled.size - min);
+                    const list = new DoublyLinkedList(filled);
+                    const deleted = list.splice(start, count);
+                    const vals = Array.from(values);
+                    vals.splice(start, count);
+                    expect(list).to.not.equal(deleted);
+                    expect(list.size).to.equal(values.length - size);
+                    expect(deleted.size).to.equal(size);
+                    expect(Array.from(list)).to.eql(vals);
+                    expect(Array.from(deleted)).to.eql(Array.from(values.slice(min, min + size)));
+                }
+            }
+        });
+        it('Should add elements at intended index', function () {
+            for (let start = -filled.size; start < filled.size; ++start) {
+                const list = new DoublyLinkedList(filled);
+                const deleted = list.splice(start, 0, [-1, 2, -3]);
+                const vals = Array.from(values);
+                vals.splice(start, 0, ...[-1, 2, -3]);
+                expect(list).to.not.equal(deleted);
+                expect(list.size).to.equal(values.length + 3);
+                expect(deleted.size).to.equal(0);
+                expect(Array.from(list)).to.eql(vals);
+                expect(Array.from(deleted)).to.eql([]);
+            }
+        });
+        it('Should delete and add elements at intended index', async function () {
+            this.timeout(0);
+            for (let start = -filled.size; start < filled.size; ++start) {
+                for (let count = 0; count < filled.size; ++count) {
+                    for (let n = 10; n > 0; --n) {
+                        const items = updatedValues.slice(randomInt(updatedValues.length));
+                        const min = wrap(start, 0, filled.size);
+                        const size = clamp(count, 0, filled.size - min);
+                        const list = new DoublyLinkedList(filled);
+                        const deleted = list.splice(start, count, items);
+                        const vals = Array.from(values);
+                        vals.splice(start, count, ...items);
+                        expect(list).to.not.equal(deleted);
+                        expect(list.size).to.equal(values.length - size + items.length);
+                        expect(deleted.size).to.equal(size);
+                        expect(Array.from(list)).to.eql(vals);
+                        expect(Array.from(deleted)).to.eql(
+                            Array.from(values.slice(min, min + size)),
+                        );
+                    }
+                }
+            }
+        });
+        it('Should work correctly at the end of the list', function () {
+            let list = new DoublyLinkedList(filled);
+            list.splice(-3, 5);
+            list.push(2);
+            let vals = Array.from(values);
+            vals.splice(-3, 5, 2);
+            expect(Array.from(list)).to.eql(vals);
+            list = new DoublyLinkedList(filled);
+            list.splice(list.size - 3, 5, [1, 2, 3]);
+            list.addAll(list.size, [4, 5]);
+            vals = Array.from(values);
+            vals.splice(-3, 5, 1, 2, 3, 4, 5);
+            expect(Array.from(list)).to.eql(vals);
+        });
+    });
     describe('#[Symbol.iterator]()', function () {
         it('Should return an array copy of the values', function () {
             const vals: number[] = [];
@@ -716,6 +871,78 @@ describe('DoublyLinkedList unit tests', function () {
             for (let n = 25; n > 0; --n) {
                 empty.unshift(99);
                 expect(empty.size).to.eql(++size);
+            }
+        });
+    });
+    describe('#update()', function () {
+        it('Should work on an empty list', function () {
+            const list = empty.update(0, 0, (_, i) => updatedValues[i]);
+            expect(list).to.equal(empty);
+            expect(Array.from(list)).to.eql([]);
+            expect(list.size).to.equal(0);
+            expect(empty.size).to.equal(0);
+        });
+        it('Should update the entire list if min and max not given', function () {
+            const list = filled.update((_, i) => updatedValues[i]);
+            expect(list).to.equal(filled);
+            expect(Array.from(filled)).to.eql(Array.from(updatedValues));
+            expect(list.size).to.equal(values.length);
+            expect(filled.size).to.equal(values.length);
+        });
+        it('Should wrap around length if negative min given', function () {
+            const list = filled.update(-5, (_, i) => updatedValues[i]);
+            const vals = Array.from(values);
+            vals.splice(-5, 5, ...updatedValues.slice(-5));
+            expect(list).to.equal(filled);
+            expect(Array.from(filled)).to.eql(vals);
+            expect(list.size).to.equal(values.length);
+            expect(filled.size).to.equal(values.length);
+        });
+        it('Should wrap around length if negative max given', function () {
+            const list = filled.update(undefined, -3, (_, i) => updatedValues[i]);
+            const vals = Array.from(values);
+            vals.splice(0, values.length - 3, ...updatedValues.slice(0, -3));
+            expect(list).to.equal(filled);
+            expect(Array.from(filled)).to.eql(vals);
+            expect(list.size).to.equal(values.length);
+            expect(filled.size).to.equal(values.length);
+        });
+        it('Should update until end of list if max not given', function () {
+            for (let min = -values.length; min < values.length; ++min) {
+                const size = values.length - wrap(min, 0, values.length);
+                const list = new DoublyLinkedList(values);
+                const res = list.update(min, undefined, (_, i) => updatedValues[i]);
+                const vals = Array.from(values);
+                vals.splice(min, size, ...updatedValues.slice(min));
+                expect(list).to.equal(res);
+                expect(Array.from(list)).to.eql(vals);
+                expect(list.size).to.equal(values.length);
+            }
+        });
+        it('Should update from start of list if min not given', function () {
+            for (let max = -values.length; max < values.length; ++max) {
+                const size = wrap(max, 0, values.length);
+                const list = new DoublyLinkedList(values);
+                const res = list.update(undefined, max, (_, i) => updatedValues[i]);
+                const vals = Array.from(values);
+                vals.splice(0, size, ...updatedValues.slice(0, max));
+                expect(list).to.equal(res);
+                expect(Array.from(list)).to.eql(vals);
+                expect(list.size).to.equal(values.length);
+            }
+        });
+        it('Should update intended range', function () {
+            for (let min = -values.length; min < values.length; ++min) {
+                for (let max = -values.length; max < values.length; ++max) {
+                    const size = wrap(max, 0, values.length) - wrap(min, 0, values.length);
+                    const list = new DoublyLinkedList(values);
+                    const res = list.update(min, max, (_, i) => updatedValues[i]);
+                    const vals = Array.from(values);
+                    vals.splice(min, size, ...updatedValues.slice(min, max));
+                    expect(list).to.equal(res);
+                    expect(Array.from(list)).to.eql(vals);
+                    expect(list.size).to.equal(values.length);
+                }
             }
         });
     });

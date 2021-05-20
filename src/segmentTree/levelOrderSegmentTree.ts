@@ -1,4 +1,4 @@
-import { CombineFn } from '..';
+import { CombineFn } from '.';
 import { lsp, msb, msp } from '../math/bits';
 import { LazyOperation, Operation, SegmentTree } from './segmentTree';
 

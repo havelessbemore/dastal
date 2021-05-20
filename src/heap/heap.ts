@@ -23,10 +23,10 @@ export interface Sortable<T> {
     sort: SortFn<T>;
 }
 
-export interface Sorted<T> {
-    comparator(): Comparator<T>;
+export interface SortFn<T> {
+    (compare: CompareFn<T>): void;
 }
 
-export interface SortFn<T> {
-    (comparator: Comparator<T>): void;
+export interface Sorted<T> {
+    comparator(): Comparator<T>;
 }

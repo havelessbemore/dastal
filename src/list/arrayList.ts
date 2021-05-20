@@ -1,5 +1,5 @@
 import { List } from './list';
-import { wrap } from '../utils';
+import { batch, clamp, wrap } from '../utils';
 
 /**
  * An implementation of the {@link List} interface using an array
@@ -16,16 +16,13 @@ export class ArrayList<T> implements List<T> {
     /**
      * Add the element at the specified index.
      *
-     * A negative index can be used to indicate an offset from the end of the list.
-     * For example, -2 refers to the second to last element of the list.
-     *
      * @param index - The index to add into
      * @param element - The element to add
      *
      * @returns The new size of the list
      */
     add(index: number, element: T): number {
-        if (index >= 0 && index <= this.array.length) {
+        if (index >= 0 && index <= this.size) {
             this.array.splice(index, 0, element);
         }
         return this.size;
@@ -33,32 +30,18 @@ export class ArrayList<T> implements List<T> {
     /**
      * Add elements at the specified index.
      *
-     * A negative index can be used to indicate an offset from the end of the list.
-     * For example, -2 refers to the second to last element of the list.
-     *
      * @param index - The index to add into
      * @param element - The elements to add
      *
      * @returns The new size of the list
      */
     addAll(index: number, elements: Iterable<T>): number {
-        if (index < 0 || index > this.array.length) {
-            return this.size;
+        if (index >= 0 && index <= this.size) {
+            for (const items of batch(10000, elements)) {
+                this.array.splice(index, 0, ...items);
+                index += items.length;
+            }
         }
-
-        const iterator = elements[Symbol.iterator]();
-        const max = 10000;
-        let res = iterator.next();
-        while (!res.done) {
-            const array: T[] = [];
-            do {
-                array.push(res.value);
-                res = iterator.next();
-            } while (!res.done && array.length < max);
-            this.array.splice(index, 0, ...array);
-            index += array.length;
-        }
-
         return this.size;
     }
     /**
@@ -102,7 +85,10 @@ export class ArrayList<T> implements List<T> {
      * @returns The list
      */
     copyWithin(index: number, min?: number, max?: number): this {
-        this.array.copyWithin(index, min ?? 0, max);
+        index = wrap(index ?? 0, 0, this.size);
+        min = wrap(min ?? 0, 0, this.size);
+        max = wrap(max ?? this.size, 0, this.size);
+        this.array.copyWithin(index, min, max);
         return this;
     }
     /**
@@ -118,6 +104,8 @@ export class ArrayList<T> implements List<T> {
      * @returns The list on which this method was called
      */
     fill(element: T, min?: number, max?: number): this {
+        min = wrap(min ?? 0, 0, this.size);
+        max = wrap(max ?? this.size, 0, this.size);
         this.array.fill(element, min, max);
         return this;
     }
@@ -132,10 +120,7 @@ export class ArrayList<T> implements List<T> {
      * @returns The element at the index, or `undefined` if index is invalid
      */
     get(index: number): T | undefined {
-        if (index < 0 || index >= this.array.length) {
-            return undefined;
-        }
-        return this.array[index];
+        return index < 0 || index >= this.size ? undefined : this.array[index];
     }
     /**
      * Update the element at the specified index.
@@ -150,11 +135,11 @@ export class ArrayList<T> implements List<T> {
      * @returns The previous element at the index, or `undefined` if index is invalid
      */
     getSet(index: number, callback: (element: T) => T): T | undefined {
-        if (index < 0 || index >= this.array.length) {
-            return undefined;
+        let value: T | undefined = undefined;
+        if (index >= 0 && index < this.size) {
+            value = this.array[index];
+            this.array[index] = callback(value);
         }
-        const value = this.array[index];
-        this.array[index] = callback(value);
         return value;
     }
     /**
@@ -186,10 +171,7 @@ export class ArrayList<T> implements List<T> {
      * @returns The value at the index, or `undefined` if the index is invalid
      */
     remove(index: number): T | undefined {
-        if (index < 0 || index >= this.array.length) {
-            return undefined;
-        }
-        return this.array.splice(index, 1)[0];
+        return index < 0 || index >= this.size ? undefined : this.array.splice(index, 1)[0];
     }
     /**
      * Reverses the elements in the list in place.
@@ -203,18 +185,16 @@ export class ArrayList<T> implements List<T> {
      * @returns a reference to the same list
      */
     reverse(min?: number, max?: number): this {
-        min = wrap(min ?? 0, 0, this.array.length);
-        max = wrap(max ?? this.array.length, 0, this.array.length);
-        if (max - min > 1) {
-            this.array.splice(min, max - min, ...this.array.slice(min, max).reverse());
+        min = wrap(min ?? 0, 0, this.size);
+        max = wrap(max ?? this.size, 0, this.size);
+        for (const items of batch(1000, this.array.slice(min, max).reverse())) {
+            this.array.splice(min, items.length, ...items);
+            min += items.length;
         }
         return this;
     }
     /**
      * Update the element at the specified index.
-     *
-     * A negative index can be used to indicate an offset from the
-     * end of the list. For example, -2 refers to the second to last element of the list.
      *
      * @param index - The index to retrieve
      * @param element - The new element to insert at index
@@ -222,11 +202,11 @@ export class ArrayList<T> implements List<T> {
      * @returns The previous element in the index, or undefined if the index is invalid
      */
     set(index: number, element: T): T | undefined {
-        if (index < 0 || index >= this.array.length) {
-            return undefined;
+        let prev: T | undefined = undefined;
+        if (index >= 0 && index < this.size) {
+            prev = this.array[index];
+            this.array[index] = element;
         }
-        const prev = this.array[index];
-        this.array[index] = element;
         return prev;
     }
     /**
@@ -258,6 +238,40 @@ export class ArrayList<T> implements List<T> {
         return new ArrayList(this.array.slice(min, max));
     }
     /**
+     * Removes elements from the list and optionally inserts new elements in their place.
+     * Returns any deleted elements.
+     *
+     * @param start - The index from which to start removing elements. Defaults to 0
+     *
+     * If > size, start will be set to size. In this case, no element will be
+     * deleted but the method can still add elements to the end of the list.
+     *
+     * If < 0, start will indicate an offset from the end of the list. For example,
+     * -2 refers to the second to last element of the list.
+     *
+     * If < -size, start will be set to 0
+     * @param count - The number of elements to remove. Defaults to size - start
+     *
+     * If >= size - start (that is, if it's >= than the number of elements from start
+     * until the end of the list), then all the elements from start until the end of
+     * the list will be removed.
+     *
+     * If <= 0, no elements are removed
+     * @param elements - The new elements to insert at start. Defaults to none
+     *
+     * @returns A new list of deleted elements
+     */
+    splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
+        start = wrap(start ?? 0, 0, this.size);
+        count = clamp(count ?? this.size, 0, this.size - start);
+        const list = new ArrayList(this.array.splice(start, count));
+        for (const items of batch(10000, elements ?? [])) {
+            this.array.splice(start, 0, ...items);
+            start += items.length;
+        }
+        return list;
+    }
+    /**
      * Receive an iterator through the list.
      *
      * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
@@ -278,6 +292,65 @@ export class ArrayList<T> implements List<T> {
         return this.array.unshift(element);
     }
     /**
+     * Update the elements of the list
+     *
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(min: number | undefined, callback: (element: T, index: number) => T): this;
+    /**
+     * Update the elements of the list
+     *
+     * Negative indices can be used for min and max to indicate an offset from the
+     * end of the list. For example, -2 refers to the second to last element of the list.
+     *
+     * @param min - Where to start filling the list, inclusive. Defaults to 0
+     * @param max - Where to stop filling the list, exclusive. Defaults to list.size
+     * @param callback - A function called for each index. Returns the new element
+     *
+     * @returns The list on which this method was called
+     */
+    update(
+        min: number | undefined,
+        max: number | undefined,
+        callback: (element: T, index: number) => T,
+    ): this;
+    update(
+        min: number | undefined | ((element: T, index: number) => T),
+        max?: number | ((element: T, index: number) => T),
+        callback?: (element: T, index: number) => T,
+    ): this {
+        if (callback == null) {
+            if (arguments.length < 2) {
+                callback = min as (element: T, index: number) => T;
+                min = undefined;
+            } else {
+                callback = max as (element: T, index: number) => T;
+                max = undefined;
+            }
+        }
+        min = wrap((min as number) ?? 0, 0, this.size);
+        max = wrap((max as number) ?? this.size, 0, this.size);
+        while (min < max) {
+            this.array[min] = callback(this.array[min], min);
+            ++min;
+        }
+        return this;
+    }
+    /**
      * Receive an iterator through a section of the list.
      *
      * Negative indices can be used for min and max to indicate an offset from the
@@ -291,13 +364,13 @@ export class ArrayList<T> implements List<T> {
      * @returns An iterator through the indicated section of the list
      */
     *view(min?: number, max?: number): Iterable<T> {
-        min = wrap(min ?? 0, 0, this.array.length);
+        min = wrap(min ?? 0, 0, this.size);
 
-        let len = () => Math.min(max!, this.array.length);
+        let len = () => Math.min(max!, this.size);
         if (max == null) {
-            len = () => this.array.length;
+            len = () => this.size;
         } else if (max < 0) {
-            len = () => this.array.length + max!;
+            len = () => this.size + max!;
         }
 
         while (min < len()) {

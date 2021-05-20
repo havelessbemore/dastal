@@ -1,6 +1,6 @@
-dastal - v1.2.0
+dastal - v1.3.0
 
-# dastal - v1.2.0
+# dastal - v1.3.0
 
 ## Table of contents
 
@@ -16,8 +16,6 @@ dastal - v1.2.0
 
 ### Interfaces
 
-- [Combinator](interfaces/combinator.md)
-- [CombineFn](interfaces/combinefn.md)
 - [DoublyLinkedNode](interfaces/doublylinkednode.md)
 - [LinkedNode](interfaces/linkednode.md)
 - [List](interfaces/list.md)
