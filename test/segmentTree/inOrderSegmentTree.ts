@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { randomFill } from 'crypto';
-import { InOrderSegmentTree } from 'src/segmentTree/inOrderSegmentTree';
+import { InOrderSegmentTree } from 'src/TODO/segmentTree/inOrderSegmentTree';
 
 describe('InOrderSegmentTree unit tests', function () {
     let empty: InOrderSegmentTree<number>;
@@ -232,7 +232,7 @@ describe('InOrderSegmentTree unit tests', function () {
             expect(() => empty.update(-5, 5, (v) => v)).to.throw(RangeError);
         });
         it('Should correctly update a tree', async function () {
-            this.timeout(0);
+            this.timeout(60000);
             for (let size = 1; size <= values.length; ++size) {
                 let max = size;
                 for (let min = 0; max <= values.length; ++min, ++max) {

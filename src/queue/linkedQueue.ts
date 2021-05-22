@@ -6,46 +6,34 @@ import { Queue } from './queue';
  */
 export class LinkedQueue<T> implements Queue<T> {
     /**
-     * @ignore
+     * The list containing every element.
      */
     protected list: List<T>;
-
+    /**
+     * Instantiate the queue.
+     *
+     * @param elements - A set of elements to initialize the queue with.
+     */
     constructor(elements?: Iterable<T>) {
         this.list = new LinkedList(elements);
     }
-    /**
-     * Removes all elements from this queue
-     */
+
     clear(): void {
         this.list.clear();
     }
-    /**
-     * Retrieves and removes the head of this queue
-     *
-     * @returns The element at the head of the queue or `undefined` if this queue is empty.
-     */
+
     dequeue(): T | undefined {
         return this.list.shift();
     }
-    /**
-     * Inserts the specified element into this queue
-     *
-     * @param element - The element to be inserted
-     */
+
     enqueue(element: T): number {
         return this.list.push(element);
     }
-    /**
-     * Retrieves, but does not remove, the head of this queue
-     *
-     * @returns The element at the head of the queue or `undefined` if this queue is empty.
-     */
+
     peek(): T | undefined {
         return this.list.get(0);
     }
-    /**
-     * The number of elements in this queue
-     */
+
     get size(): number {
         return this.list.size;
     }

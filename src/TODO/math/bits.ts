@@ -12,7 +12,6 @@ export function lsb(a: number): number {
     }
     return b;
 }
-
 /**
  * Get the Least Significant Power of a number
  *
@@ -23,7 +22,6 @@ export function lsb(a: number): number {
 export function lsp(a: number): number {
     return (a & -a) >>> 0;
 }
-
 /**
  * Get the number of bits set (on) of a number
  *
@@ -37,7 +35,6 @@ export function onBits(a: number): number {
     }
     return b;
 }
-
 /**
  * Get the Most Significant Bit of a number
  *
@@ -53,7 +50,6 @@ export function msb(a: number): number {
     }
     return b;
 }
-
 /**
  * Get the Most Significant Power of a number
  *

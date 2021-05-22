@@ -8,41 +8,41 @@ export * from './stack';
 // export * from './trie';
 
 /**
+ * A function used to determine the order of a set of elements.
  *
+ * @param a - The first element
+ * @param b - The second element
+ *
+ * @returns
+ * - A negative value if a < b
+ * - Zero if a == b
+ * - A positive value if a > b
  */
-export interface CompareFn<T> {
-    /**
-     *
-     */
-    (a: T, b: T): number;
-}
-
+export type CompareFn<T> = (a: T, b: T) => number;
 /**
- *
+ * Represents an object containing a set of elements that can be sorted.
  */
 export interface Sortable<T> {
     /**
+     * Sorts the elements in place.
      *
-     */
-    sort: SortFn<T>;
-}
-
-/**
- *
- */
-export interface SortFn<T> {
-    /**
+     * @param compareFn - A function used to determine the order of elements.
      *
+     * It is expected to return:
+     * - A negative value if first argument < second argument
+     * - Zero if first argument == second argument
+     * - A positive value if first argument > second argument
+     *
+     * @returns The object this method was called on
      */
-    (compareFn: CompareFn<T>): void;
+    sort(compareFn: CompareFn<T>): this;
 }
-
 /**
- *
+ * Represents an object containing a set of sorted elements.
  */
 export interface Sorted<T> {
     /**
-     *
+     * @returns The function with which elements are sorted
      */
     comparator(): CompareFn<T>;
 }

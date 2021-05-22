@@ -1,4 +1,4 @@
-[dastal - v1.3.1](../README.md) / ArrayStack
+[dastal - v1.4.0](../README.md) / ArrayStack
 
 # Class: ArrayStack<T\>
 
@@ -38,6 +38,8 @@ An implementation of the [Stack](../interfaces/stack.md) interface using an arra
 
 \+ **new ArrayStack**<T\>(`elements?`: *Iterable*<T\>): [*ArrayStack*](arraystack.md)<T\>
 
+Instantiate the stack.
+
 #### Type parameters:
 
 | Name |
@@ -46,13 +48,13 @@ An implementation of the [Stack](../interfaces/stack.md) interface using an arra
 
 #### Parameters:
 
-| Name | Type |
-| :------ | :------ |
-| `elements?` | *Iterable*<T\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elements?` | *Iterable*<T\> | A set of elements to initialize the stack with. |
 
 **Returns:** [*ArrayStack*](arraystack.md)<T\>
 
-Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L10)
+Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L10)
 
 ## Accessors
 
@@ -66,7 +68,7 @@ The number of elements in the stack
 
 Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
 
-Defined in: [src/stack/arrayStack.ts:50](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L50)
+Defined in: [src/stack/arrayStack.ts:36](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L36)
 
 ## Methods
 
@@ -84,7 +86,7 @@ An iterator through the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:60](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L60)
+Defined in: [src/stack/arrayStack.ts:46](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L46)
 
 ___
 
@@ -98,7 +100,7 @@ Removes all elements from the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:18](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L18)
+Defined in: [src/stack/arrayStack.ts:20](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L20)
 
 ___
 
@@ -110,11 +112,9 @@ Retrieves, but does not remove, the top of the stack
 
 **Returns:** *undefined* \| T
 
-The element at the top of the stack or `undefined` if empty.
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:26](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L26)
+Defined in: [src/stack/arrayStack.ts:24](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L24)
 
 ___
 
@@ -126,11 +126,9 @@ Retrieves and removes the top of the stack
 
 **Returns:** *undefined* \| T
 
-The element at the top of the stack or `undefined` if empty.
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:34](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L34)
+Defined in: [src/stack/arrayStack.ts:28](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L28)
 
 ___
 
@@ -138,18 +136,16 @@ ___
 
 ▸ **push**(`element`: T): *number*
 
-Inserts a element into the stack
+Inserts an element into the stack
 
 #### Parameters:
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `element` | T | The element to be inserted |
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
 
 **Returns:** *number*
 
-The new size of the stack
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:44](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/arrayStack.ts#L44)
+Defined in: [src/stack/arrayStack.ts:32](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/arrayStack.ts#L32)

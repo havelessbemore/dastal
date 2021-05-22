@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
-import { SkewHeap } from 'src/heap';
-import { BinaryHeap } from 'src/heap/binaryHeap';
+import { BinaryHeap } from 'src/heap';
+import { SkewHeap } from 'src/heap/skewHeap';
 
-describe('BinaryHeap unit tests', function () {
+describe('SkewHeap unit tests', function () {
     const compareFn = (a: number, b: number) => a - b;
-    let empty: BinaryHeap<number>;
-    let filled: BinaryHeap<number>;
+    let empty: SkewHeap<number>;
+    let filled: SkewHeap<number>;
     const values = new Uint32Array(36);
     const updatedValues = new Uint32Array(36);
 
@@ -16,8 +16,8 @@ describe('BinaryHeap unit tests', function () {
     randomFill(updatedValues, (_) => {});
 
     beforeEach(function () {
-        empty = new BinaryHeap(compareFn);
-        filled = new BinaryHeap(compareFn, values);
+        empty = new SkewHeap(compareFn);
+        filled = new SkewHeap(compareFn, values);
     });
 
     describe('#addAll()', function () {
@@ -36,7 +36,7 @@ describe('BinaryHeap unit tests', function () {
                 const arr1 = Array.from(values.slice(0, i));
                 for (let j = 0; j <= updatedValues.length; ++j) {
                     const arr2 = Array.from(updatedValues.slice(0, j));
-                    const heap = new BinaryHeap(compareFn, arr1);
+                    const heap = new SkewHeap(compareFn, arr1);
                     expect(heap.size).to.equal(arr1.length);
                     expect(heap.addAll(arr2)).to.equal(i + j);
                     const sorted = arr1.concat(arr2);
@@ -128,7 +128,7 @@ describe('BinaryHeap unit tests', function () {
         it('Should not break heap', function () {
             const vals = Array.from(values);
             for (let i = vals.length - 1; i >= 0; --i) {
-                const heap = new BinaryHeap(compareFn, vals);
+                const heap = new SkewHeap(compareFn, vals);
                 const val = vals.splice(randomInt(vals.length), 1)[0];
                 expect(heap.delete(val)).to.equal(true);
                 expect(heap.size).to.equal(vals.length);
@@ -160,7 +160,7 @@ describe('BinaryHeap unit tests', function () {
             expect(empty.size).to.equal(filled.size);
         });
         it('Should work when not empty', function () {
-            const heap = new BinaryHeap(compareFn, filled.dump());
+            const heap = new SkewHeap(compareFn, filled.dump());
             expect(filled.merge(heap)).to.equal(filled);
             expect(filled.peek()).to.equal(filled.peek());
             expect(filled.size).to.equal(2 * heap.size);
@@ -317,7 +317,7 @@ describe('BinaryHeap unit tests', function () {
         it('Should not break heap', function () {
             const vals: number[] = [];
             for (let i = 0; i < values.length; ++i) {
-                const heap = new BinaryHeap(compareFn, vals);
+                const heap = new SkewHeap(compareFn, vals);
                 heap.push(values[i]);
                 vals.push(values[i]);
                 const sorted = Array.from(vals).sort((a, b) => compareFn(b, a));
@@ -366,7 +366,7 @@ describe('BinaryHeap unit tests', function () {
         it('Should not break heap', function () {
             const vals = Array.from(values);
             for (let i = 0; i < updatedValues.length; ++i) {
-                const heap = new BinaryHeap(compareFn, vals);
+                const heap = new SkewHeap(compareFn, vals);
                 vals.push(updatedValues[i]);
                 vals.sort((a, b) => compareFn(b, a));
                 const expected = vals.pop();
@@ -416,7 +416,7 @@ describe('BinaryHeap unit tests', function () {
         it('Should not break heap', function () {
             const vals = Array.from(values).sort((a, b) => compareFn(b, a));
             for (let i = 0; i < updatedValues.length; ++i) {
-                const heap = new BinaryHeap(compareFn, vals);
+                const heap = new SkewHeap(compareFn, vals);
                 const expected = vals.pop()!;
                 expect(heap.replace(updatedValues[i])).to.equal(expected);
                 vals.push(updatedValues[i]);
@@ -491,7 +491,7 @@ describe('BinaryHeap unit tests', function () {
         it('Should not break heap', function () {
             const vals = Array.from(values);
             for (let i = 0; i < vals.length; ++i) {
-                const heap = new BinaryHeap(compareFn, vals);
+                const heap = new SkewHeap(compareFn, vals);
                 expect(heap.update(vals[i], updatedValues[i])).to.equal(true);
                 expect(heap.size).to.equal(vals.length);
                 vals[i] = updatedValues[i];

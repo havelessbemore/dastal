@@ -5,48 +5,34 @@ import { Stack } from './stack';
  */
 export class ArrayStack<T> implements Stack<T> {
     /**
-     * @ignore
+     * The array containing every element.
      */
     protected array: T[];
-
+    /**
+     * Instantiate the stack.
+     *
+     * @param elements - A set of elements to initialize the stack with.
+     */
     constructor(elements?: Iterable<T>) {
         this.array = elements ? Array.from(elements) : [];
     }
-    /**
-     * Removes all elements from the stack
-     */
+
     clear(): void {
         this.array.length = 0;
     }
-    /**
-     * Retrieves, but does not remove, the top of the stack
-     *
-     * @returns The element at the top of the stack or `undefined` if empty.
-     */
+
     peek(): T | undefined {
         return this.array[this.array.length - 1];
     }
-    /**
-     * Retrieves and removes the top of the stack
-     *
-     * @returns The element at the top of the stack or `undefined` if empty.
-     */
+
     pop(): T | undefined {
         return this.array.pop();
     }
-    /**
-     * Inserts a element into the stack
-     *
-     * @param element - The element to be inserted
-     *
-     * @returns The new size of the stack
-     */
+
     push(element: T): number {
         return this.array.push(element);
     }
-    /**
-     * The number of elements in the stack
-     */
+
     get size(): number {
         return this.array.length;
     }

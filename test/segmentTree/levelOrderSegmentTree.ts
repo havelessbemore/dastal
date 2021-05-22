@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { randomFill } from 'crypto';
-import { LevelOrderSegmentTree } from 'src/segmentTree/levelOrderSegmentTree';
+import { LevelOrderSegmentTree } from 'src/TODO/segmentTree/levelOrderSegmentTree';
 
 describe('LevelOrderSegmentTree unit tests', function () {
     let empty: LevelOrderSegmentTree<number>;
@@ -232,7 +232,7 @@ describe('LevelOrderSegmentTree unit tests', function () {
             expect(() => empty.update(-5, 5, (v) => v)).to.throw(RangeError);
         });
         it('Should correctly update a tree', async function () {
-            this.timeout(0);
+            this.timeout(60000);
             for (let size = 1; size <= values.length; ++size) {
                 let max = size;
                 for (let min = 0; max <= values.length; ++min, ++max) {

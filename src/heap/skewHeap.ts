@@ -1,0 +1,198 @@
+import { BinaryTreeNode } from 'src/tree';
+import { clone, preOrderTraverse, toBinaryTree } from 'src/tree/utils';
+import { CompareFn } from '..';
+import { BinaryHeap } from './binaryHeap';
+import { Heap } from './heap';
+import { skewMerge } from './utils';
+
+/**
+ *
+ */
+export class SkewHeap<T> implements Heap<T> {
+    /**
+     * The function to determine the order of elements.
+     */
+    protected compare: CompareFn<T>;
+    /**
+     * The number of elements in the list.
+     */
+    protected length: number;
+    /**
+     * The node at the "top" of the heap.
+     */
+    protected root: BinaryTreeNode<T> | undefined;
+    /**
+     * Instantiate a heap.
+     *
+     * @param compareFn - The function to determine the order of elements.
+     * @param elements - A set of elements to initialize the list with.
+     */
+    constructor(compareFn: CompareFn<T>, elements?: Iterable<T>) {
+        this.compare = compareFn;
+        this.length = 0;
+        this.addAll(elements ?? []);
+    }
+
+    addAll(elements: Iterable<T>): number {
+        for (const element of elements) {
+            this.push(element);
+        }
+        return this.length;
+    }
+
+    clear(): void {
+        this.length = 0;
+        this.root = undefined;
+    }
+
+    comparator(): CompareFn<T> {
+        return this.compare;
+    }
+
+    contains(element: T): boolean {
+        for (const node of preOrderTraverse(this.root)) {
+            if (element === node.value) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    delete(element: T): boolean {
+        if (this.root == null) {
+            return false;
+        }
+        if (this.root.value === element) {
+            this.pop()!;
+            return true;
+        }
+        for (const par of preOrderTraverse(this.root)) {
+            const key: keyof BinaryTreeNode<T> | undefined =
+                par.left && par.left.value === element
+                    ? 'left'
+                    : par.right && par.right.value === element
+                    ? 'right'
+                    : undefined;
+            if (key != null) {
+                const node = par[key]!;
+                par[key] = skewMerge(this.compare, [node.left, node.right]);
+                --this.length;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    *dump(): Iterable<T> {
+        for (const node of preOrderTraverse(this.root)) {
+            yield node.value;
+        }
+    }
+
+    merge(heap: Heap<T>): this {
+        if (heap instanceof SkewHeap) {
+            this.root = skewMerge(this.compare, [this.root, clone(heap.root)]);
+            this.length += heap.size;
+        } else if (heap instanceof BinaryHeap) {
+            this.root = skewMerge(this.compare, [this.root, toBinaryTree(heap['array'])!]);
+            this.length += heap.size;
+        } else {
+            this.addAll(heap.dump());
+        }
+        return this;
+    }
+
+    peek(): T | undefined {
+        return this.root?.value;
+    }
+
+    pop(): T | undefined {
+        if (this.root == null) {
+            return undefined;
+        }
+        const value = this.root.value;
+        this.root = skewMerge(this.compare, [this.root.left, this.root.right]);
+        --this.length;
+        return value;
+    }
+
+    push(value: T): number {
+        this.root = skewMerge(this.compare, [this.root, { value }]);
+        return ++this.length;
+    }
+
+    pushPop(value: T): T {
+        this.push(value);
+        return this.pop()!;
+    }
+
+    replace(value: T): T | undefined {
+        if (this.root == null) {
+            this.root = { value };
+            this.length = 1;
+            return undefined;
+        }
+        const out = this.root.value;
+        this.root = skewMerge(this.compare, [this.root.left, this.root.right, { value }]);
+        return out;
+    }
+
+    get size(): number {
+        return this.length;
+    }
+    /**
+     * Iterate through the heap in sorted order.
+     *
+     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
+     *
+     * @returns An iterator through the heap.
+     */
+    *[Symbol.iterator](): Iterator<T> {
+        if (this.root == null) {
+            return;
+        }
+        const heap = new SkewHeap<BinaryTreeNode<T>>((a, b) => this.compare(a.value, b.value), [
+            this.root,
+        ]);
+        do {
+            const node = heap.pop()!;
+            yield node.value;
+            node.left && heap.push(node.left);
+            node.right && heap.push(node.right);
+        } while (heap.size > 0);
+    }
+
+    update(curElement: T, newElement: T): boolean {
+        if (this.root == null) {
+            return false;
+        }
+        if (this.root.value === curElement) {
+            this.root = skewMerge(this.compare, [
+                this.root.left,
+                this.root.right,
+                { value: newElement },
+            ]);
+            return true;
+        }
+        for (const par of preOrderTraverse(this.root)) {
+            const key: keyof BinaryTreeNode<T> | undefined =
+                par.left && par.left.value === curElement
+                    ? 'left'
+                    : par.right && par.right.value === curElement
+                    ? 'right'
+                    : undefined;
+            if (key != null) {
+                const node = par[key]!;
+                par[key] = undefined;
+                this.root = skewMerge(this.compare, [
+                    this.root,
+                    node.left,
+                    node.right,
+                    { value: newElement },
+                ]);
+                return true;
+            }
+        }
+        return false;
+    }
+}

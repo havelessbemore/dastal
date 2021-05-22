@@ -1,4 +1,4 @@
-[dastal - v1.3.1](../README.md) / ArrayQueue
+[dastal - v1.4.0](../README.md) / ArrayQueue
 
 # Class: ArrayQueue<T\>
 
@@ -38,6 +38,8 @@ An implementation of the [Queue](../interfaces/queue.md) interface using an arra
 
 \+ **new ArrayQueue**<T\>(`elements?`: *Iterable*<T\>): [*ArrayQueue*](arrayqueue.md)<T\>
 
+Instantiate the queue.
+
 #### Type parameters:
 
 | Name |
@@ -46,13 +48,13 @@ An implementation of the [Queue](../interfaces/queue.md) interface using an arra
 
 #### Parameters:
 
-| Name | Type |
-| :------ | :------ |
-| `elements?` | *Iterable*<T\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elements?` | *Iterable*<T\> | A set of elements to initialize the queue with. |
 
 **Returns:** [*ArrayQueue*](arrayqueue.md)<T\>
 
-Defined in: [src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L10)
+Defined in: [src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L10)
 
 ## Accessors
 
@@ -66,7 +68,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: [src/queue/arrayQueue.ts:48](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L48)
+Defined in: [src/queue/arrayQueue.ts:36](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L36)
 
 ## Methods
 
@@ -84,7 +86,7 @@ An iterator through the queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:58](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L58)
+Defined in: [src/queue/arrayQueue.ts:46](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L46)
 
 ___
 
@@ -98,7 +100,7 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:18](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L18)
+Defined in: [src/queue/arrayQueue.ts:20](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L20)
 
 ___
 
@@ -110,11 +112,9 @@ Retrieves and removes the head of this queue
 
 **Returns:** *undefined* \| T
 
-The element at the head of the queue or `undefined` if this queue is empty.
-
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:26](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L26)
+Defined in: [src/queue/arrayQueue.ts:24](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L24)
 
 ___
 
@@ -122,19 +122,19 @@ ___
 
 ▸ **enqueue**(`element`: T): *number*
 
-Inserts the specified element into this queue
+Inserts the specified value into this queue
 
 #### Parameters:
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `element` | T | The element to be inserted |
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
 
 **Returns:** *number*
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:34](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L34)
+Defined in: [src/queue/arrayQueue.ts:28](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L28)
 
 ___
 
@@ -146,8 +146,6 @@ Retrieves, but does not remove, the head of this queue
 
 **Returns:** *undefined* \| T
 
-The value at the head of the queue or `undefined` if this queue is empty.
-
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:42](https://github.com/havelessbemore/dastal/blob/0f470df/src/queue/arrayQueue.ts#L42)
+Defined in: [src/queue/arrayQueue.ts:32](https://github.com/havelessbemore/dastal/blob/dba59a5/src/queue/arrayQueue.ts#L32)

@@ -1,5 +1,7 @@
 {
     "entryPoints": ["src/index.ts"],
+    "excludePrivate": true,
+    "excludeProtected": true,
     "includeVersion": true,
     "out": "docs",
     "readme": "none",

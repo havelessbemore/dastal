@@ -1,5 +1,7 @@
+import { MAX_ARRAY_LENGTH } from 'src/array/utils';
 import { CompareFn } from '..';
 import { Heap } from './heap';
+import { SkewHeap } from './skewHeap';
 import { bubbleUp, heapify, sinkDown } from './utils';
 
 /**
@@ -7,18 +9,43 @@ import { bubbleUp, heapify, sinkDown } from './utils';
  */
 export class BinaryHeap<T> implements Heap<T> {
     /**
-     * @ignore
+     * The array containing every element.
      */
     protected array: T[];
     /**
-     * @ignore
+     * The function to determine the order of elements.
      */
     protected compare: CompareFn<T>;
-
+    /**
+     * Instantiate a heap.
+     *
+     * @param compareFn - The function to determine the order of elements.
+     * @param elements - A set of elements to initialize the list with.
+     */
     constructor(compareFn: CompareFn<T>, elements?: Iterable<T>) {
         this.compare = compareFn;
-        this.array = Array.from(elements ?? []);
-        heapify(this.compare, this.array);
+        this.array = [];
+        this.addAll(elements ?? []);
+    }
+
+    addAll(elements: Iterable<T>): number {
+        const array = this.array;
+
+        // Add new elements
+        const length = array.length;
+        for (const element of elements) {
+            if (array.length >= MAX_ARRAY_LENGTH) {
+                throw new RangeError('Invalid heap length');
+            }
+            array.push(element);
+        }
+
+        // Update the heap
+        if (length < array.length) {
+            heapify(this.compare, array);
+        }
+
+        return array.length;
     }
 
     clear(): void {
@@ -54,26 +81,28 @@ export class BinaryHeap<T> implements Heap<T> {
     }
 
     *dump(): Iterable<T> {
-        for (let i = 0; i < this.array.length; ++i) {
-            yield this.array[i];
+        for (const value of this.array) {
+            yield value;
         }
     }
 
-    merge(elements: Iterable<T>): number {
+    merge(heap: Heap<T>): this {
         const array = this.array;
-        const length = array.length;
-        try {
-            for (const element of elements) {
-                array.push(element);
-            }
-        } catch (error) {
-            throw error;
-        } finally {
-            if (length != array.length) {
-                heapify(this.compare, array);
-            }
+
+        if (heap.size < 1) {
+            return this;
         }
-        return this.size;
+        if (array.length + heap.size > MAX_ARRAY_LENGTH) {
+            throw new RangeError('Invalid heap length');
+        }
+
+        const elements = heap instanceof BinaryHeap ? heap.array : heap.dump();
+        for (const element of elements) {
+            array.push(element);
+        }
+
+        heapify(this.compare, array);
+        return this;
     }
 
     peek(): T | undefined {
@@ -91,8 +120,7 @@ export class BinaryHeap<T> implements Heap<T> {
 
         // If value != last
         if (this.array.length > 0) {
-            // Add the last value to
-            // the root and update the heap
+            // Move the last value to the root and update the heap
             this.array[0] = last!;
             sinkDown(0, this.compare, this.array);
         }
@@ -109,9 +137,8 @@ export class BinaryHeap<T> implements Heap<T> {
         return this.size;
     }
 
-    // Push a new value to the heap and then pop the root
     pushPop(value: T): T {
-        // If empty or value is above or equal to root
+        // If empty or value is <= to root
         if (this.array.length < 1 || this.compare(value, this.array[0]) <= 0) {
             return value;
         }
@@ -123,7 +150,6 @@ export class BinaryHeap<T> implements Heap<T> {
         return root;
     }
 
-    // Pop the root of the heap and then push a new value
     replace(value: T): T | undefined {
         // If empty
         if (this.array.length < 1) {
@@ -138,16 +164,34 @@ export class BinaryHeap<T> implements Heap<T> {
 
         // Update the heap
         sinkDown(0, this.compare, this.array);
-
         return value;
     }
 
     get size(): number {
         return this.array.length;
     }
-
-    [Symbol.iterator](): Iterator<T> {
-        return Array.from(this.array).sort(this.compare)[Symbol.iterator]();
+    /**
+     * Iterate through the heap in sorted order.
+     *
+     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
+     *
+     * @returns An iterator through the heap.
+     */
+    *[Symbol.iterator](): Iterator<T> {
+        if (this.array.length < 1) {
+            return;
+        }
+        const array = this.array;
+        const heap = new BinaryHeap<number>((a, b) => this.compare(array[a], array[b]), [0]);
+        do {
+            let index = heap.pop()!;
+            if (index < array.length) {
+                yield array[index];
+                index = 2 * index + 1;
+                index < array.length && heap.push(index);
+                ++index < array.length && heap.push(index);
+            }
+        } while (heap.size > 0);
     }
 
     update(curElement: T, newElement: T): boolean {

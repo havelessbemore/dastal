@@ -1,3 +1,5 @@
+import { Sortable } from '..';
+
 /**
  * An ordered collection (also known as a sequence). A list allows exactly stating
  * where an element is inserted. Elements can be accessed by their integer index (position in the list)
@@ -7,6 +9,7 @@
  * - Iterate a subset of the list: {@link view}
  *
  * #### Get
+ * - Get the size of the list: {@link size}
  * - Get the element at a given index: {@link get}
  * - Get the elements in a given range: {@link slice}
  *
@@ -15,6 +18,7 @@
  * - Add 1 at the end: {@link push}
  * - Add 1 at a given index: {@link add}
  * - Add 1+ at a given index: {@link addAll}
+ * - Add 1+ into a new list: {@link concat}
  *
  * #### Set
  * - Set 1 index: {@link set}
@@ -22,14 +26,17 @@
  * - Set a range to 1 element: {@link fill}
  * - Set a range to a copy of another range within the list: {@link copyWithin}
  * - Set a range: {@link update}
+ * - Sort the list: {@link sort}
+ * - Reverse the list {@link reverse}
  *
  * #### Remove
  * - Remove 1 from the start: {@link shift}
  * - Remove 1 from the end: {@link pop}
  * - Remove 1 from a given index: {@link remove}
  * - Remove a range (and add new elements): {@link splice}
+ * - Remove all elements: {@link clear}
  */
-export interface List<T> extends Iterable<T> {
+export interface List<T> extends Iterable<T>, Sortable<T> {
     /**
      * Add the element at the specified index.
      *

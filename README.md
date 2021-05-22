@@ -2,6 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/dastal.svg)](https://www.npmjs.com/package/dastal)
 [![types](https://img.shields.io/npm/types/dastal)](https://www.npmjs.com/package/dastal)
+[![nycrc config on GitHub](https://img.shields.io/nycrc/havelessbemore/dastal?config=.nycrc.json)](https://www.npmjs.com/package/dastal)
 
 Data structures & algorithms implementations for node
 

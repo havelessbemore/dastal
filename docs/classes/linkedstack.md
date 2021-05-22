@@ -1,4 +1,4 @@
-[dastal - v1.3.1](../README.md) / LinkedStack
+[dastal - v1.4.0](../README.md) / LinkedStack
 
 # Class: LinkedStack<T\>
 
@@ -38,6 +38,8 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 \+ **new LinkedStack**<T\>(`elements?`: *Iterable*<T\>): [*LinkedStack*](linkedstack.md)<T\>
 
+Instantiate the stack.
+
 #### Type parameters:
 
 | Name |
@@ -46,13 +48,13 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 #### Parameters:
 
-| Name | Type |
-| :------ | :------ |
-| `elements?` | *Iterable*<T\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `elements?` | *Iterable*<T\> | A set of elements to initialize the stack with. |
 
 **Returns:** [*LinkedStack*](linkedstack.md)<T\>
 
-Defined in: [src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L11)
+Defined in: [src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L11)
 
 ## Accessors
 
@@ -66,7 +68,7 @@ The number of elements in the stack
 
 Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
 
-Defined in: [src/stack/linkedStack.ts:54](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L54)
+Defined in: [src/stack/linkedStack.ts:40](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L40)
 
 ## Methods
 
@@ -84,7 +86,7 @@ An iterator through the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:64](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L64)
+Defined in: [src/stack/linkedStack.ts:50](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L50)
 
 ___
 
@@ -98,7 +100,7 @@ Removes all elements from the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:22](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L22)
+Defined in: [src/stack/linkedStack.ts:24](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L24)
 
 ___
 
@@ -110,11 +112,9 @@ Retrieves, but does not remove, the top of the stack
 
 **Returns:** *undefined* \| T
 
-The element at the top of the stack or `undefined` if empty.
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:30](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L30)
+Defined in: [src/stack/linkedStack.ts:28](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L28)
 
 ___
 
@@ -126,11 +126,9 @@ Retrieves and removes the top of the stack
 
 **Returns:** *undefined* \| T
 
-The element at the top of the stack or `undefined` if empty.
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:38](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L38)
+Defined in: [src/stack/linkedStack.ts:32](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L32)
 
 ___
 
@@ -138,18 +136,16 @@ ___
 
 ▸ **push**(`element`: T): *number*
 
-Inserts a element into the stack
+Inserts an element into the stack
 
 #### Parameters:
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `element` | T | The element to be inserted |
+| Name | Type |
+| :------ | :------ |
+| `element` | T |
 
 **Returns:** *number*
 
-The new size of the stack
-
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/linkedStack.ts:48](https://github.com/havelessbemore/dastal/blob/0f470df/src/stack/linkedStack.ts#L48)
+Defined in: [src/stack/linkedStack.ts:36](https://github.com/havelessbemore/dastal/blob/dba59a5/src/stack/linkedStack.ts#L36)

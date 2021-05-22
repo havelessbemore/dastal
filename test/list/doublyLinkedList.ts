@@ -1,11 +1,13 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
+import { CompareFn } from 'src';
 import { DoublyLinkedList } from 'src/list/doublyLinkedList';
-import { clamp, wrap } from 'src/list/utils';
+import { clamp, cwrap } from 'src/list/utils';
 
 describe('DoublyLinkedList unit tests', function () {
     let empty: DoublyLinkedList<number>;
     let filled: DoublyLinkedList<number>;
+    const compareFn: CompareFn<number> = (a, b) => a - b;
     const values = new Uint32Array(36);
     const updatedValues = new Uint32Array(36);
 
@@ -199,7 +201,7 @@ describe('DoublyLinkedList unit tests', function () {
             }
         });
         it('Should copy intended range', async function () {
-            this.timeout(0);
+            this.timeout(60000);
             for (let n = 10; n > 0; --n) {
                 const i = randomInt(2 * values.length) - values.length;
                 for (let min = -values.length; min < values.length; ++min) {
@@ -457,7 +459,7 @@ describe('DoublyLinkedList unit tests', function () {
         });
         it('Should fill until end of list if max not given', function () {
             for (let min = -values.length; min < values.length; ++min) {
-                const from = wrap(min, 0, values.length);
+                const from = cwrap(min, 0, values.length);
                 const list = new DoublyLinkedList(values);
                 const vals = Array.from(values);
                 vals.splice(min, values.length - from, ...values.slice(min).reverse());
@@ -469,7 +471,7 @@ describe('DoublyLinkedList unit tests', function () {
         });
         it('Should fill from start of list if min not given', function () {
             for (let max = -values.length; max < values.length; ++max) {
-                const to = wrap(max, 0, values.length);
+                const to = cwrap(max, 0, values.length);
                 const list = new DoublyLinkedList(values);
                 const vals = Array.from(values);
                 vals.splice(0, to, ...values.slice(0, max).reverse());
@@ -482,8 +484,8 @@ describe('DoublyLinkedList unit tests', function () {
         it('Should reverse intended range', function () {
             for (let min = -values.length; min < values.length; ++min) {
                 for (let max = -values.length; max < values.length; ++max) {
-                    const from = wrap(min, 0, values.length);
-                    const to = wrap(max, 0, values.length);
+                    const from = cwrap(min, 0, values.length);
+                    const to = cwrap(max, 0, values.length);
                     const list = new DoublyLinkedList(values);
                     const vals = Array.from(values);
                     vals.splice(min, to - from, ...values.slice(min, max).reverse());
@@ -741,7 +743,7 @@ describe('DoublyLinkedList unit tests', function () {
         });
         it('Should delete from start if no count', function () {
             for (let start = -filled.size; start < filled.size; ++start) {
-                const size = filled.size - wrap(start, 0, filled.size);
+                const size = filled.size - cwrap(start, 0, filled.size);
                 const list = new DoublyLinkedList(filled);
                 const deleted = list.splice(start);
                 expect(list).to.not.equal(deleted);
@@ -781,7 +783,7 @@ describe('DoublyLinkedList unit tests', function () {
         it('Should delete intended range', function () {
             for (let start = -filled.size; start < filled.size; ++start) {
                 for (let count = 0; count < filled.size; ++count) {
-                    const min = wrap(start, 0, filled.size);
+                    const min = cwrap(start, 0, filled.size);
                     const size = clamp(count, 0, filled.size - min);
                     const list = new DoublyLinkedList(filled);
                     const deleted = list.splice(start, count);
@@ -809,12 +811,12 @@ describe('DoublyLinkedList unit tests', function () {
             }
         });
         it('Should delete and add elements at intended index', async function () {
-            this.timeout(0);
+            this.timeout(60000);
             for (let start = -filled.size; start < filled.size; ++start) {
                 for (let count = 0; count < filled.size; ++count) {
                     for (let n = 10; n > 0; --n) {
                         const items = updatedValues.slice(randomInt(updatedValues.length));
-                        const min = wrap(start, 0, filled.size);
+                        const min = cwrap(start, 0, filled.size);
                         const size = clamp(count, 0, filled.size - min);
                         const list = new DoublyLinkedList(filled);
                         const deleted = list.splice(start, count, items);
@@ -844,6 +846,37 @@ describe('DoublyLinkedList unit tests', function () {
             vals = Array.from(values);
             vals.splice(-3, 5, 1, 2, 3, 4, 5);
             expect(Array.from(list)).to.eql(vals);
+        });
+    });
+    describe('#sort()', function () {
+        it('Should work on an empty list', function () {
+            expect(empty.sort(compareFn)).to.equal(empty);
+            expect(empty.size).to.equal(0);
+            expect(Array.from(empty)).to.eql([]);
+        });
+        it('Should sort the list', function () {
+            const vals: number[] = [];
+            for (let i = 0; i < values.length; ++i) {
+                const list = new DoublyLinkedList(vals);
+                vals.push(values[i]);
+                list.push(values[i]);
+                const sorted = Array.from(vals).sort(compareFn);
+                expect(list.sort(compareFn)).to.equal(list);
+                expect(list.size).to.equal(vals.length);
+                expect(Array.from(list)).to.eql(sorted);
+            }
+        });
+        it('Should not break list', function () {
+            const vals: number[] = [];
+            for (let i = 0; i < values.length; ++i) {
+                const list = new DoublyLinkedList(vals);
+                vals.push(values[i]);
+                list.push(values[i]);
+                const reverse = Array.from(vals).sort((a, b) => compareFn(b, a));
+                list.sort(compareFn).reverse();
+                expect(list.size).to.equal(vals.length);
+                expect(Array.from(list)).to.eql(reverse);
+            }
         });
     });
     describe('#[Symbol.iterator]()', function () {
@@ -909,7 +942,7 @@ describe('DoublyLinkedList unit tests', function () {
         });
         it('Should update until end of list if max not given', function () {
             for (let min = -values.length; min < values.length; ++min) {
-                const size = values.length - wrap(min, 0, values.length);
+                const size = values.length - cwrap(min, 0, values.length);
                 const list = new DoublyLinkedList(values);
                 const res = list.update(min, undefined, (_, i) => updatedValues[i]);
                 const vals = Array.from(values);
@@ -921,7 +954,7 @@ describe('DoublyLinkedList unit tests', function () {
         });
         it('Should update from start of list if min not given', function () {
             for (let max = -values.length; max < values.length; ++max) {
-                const size = wrap(max, 0, values.length);
+                const size = cwrap(max, 0, values.length);
                 const list = new DoublyLinkedList(values);
                 const res = list.update(undefined, max, (_, i) => updatedValues[i]);
                 const vals = Array.from(values);
@@ -934,7 +967,7 @@ describe('DoublyLinkedList unit tests', function () {
         it('Should update intended range', function () {
             for (let min = -values.length; min < values.length; ++min) {
                 for (let max = -values.length; max < values.length; ++max) {
-                    const size = wrap(max, 0, values.length) - wrap(min, 0, values.length);
+                    const size = cwrap(max, 0, values.length) - cwrap(min, 0, values.length);
                     const list = new DoublyLinkedList(values);
                     const res = list.update(min, max, (_, i) => updatedValues[i]);
                     const vals = Array.from(values);
