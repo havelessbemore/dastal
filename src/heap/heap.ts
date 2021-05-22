@@ -3,7 +3,8 @@ import { Sorted } from '..';
 /**
  * A specialized tree-based data structure that satisfies the heap property.
  *
- * **Heap property**: For any given node N, the key (e.g. value) of N is greater than or equal to the key of its children.
+ * **Heap property**: For any given node N, the key (e.g. value) of N is
+ * greater than or equal to the key of its children.
  *
  * In a heap, the highest priority element (relative to its ordering) is always stored at the root.
  * However, a heap is not a sorted structure; it can be regarded as being partially ordered.

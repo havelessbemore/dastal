@@ -67,4 +67,4 @@ A function used to determine the order of a set of elements.
 
 **Returns:** *number*
 
-Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/dba59a5/src/index.ts#L21)
+Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/index.ts#L21)

@@ -6,7 +6,30 @@ import { Heap } from './heap';
 import { skewMerge } from './utils';
 
 /**
+ * A skew heap is a heap implemented as a binary tree
+ * ([source](https://en.wikipedia.org/wiki/Skew_heap)).
  *
+ * A skew heap is a self-adjusting heap which attempts to maintain balance
+ * by unconditionally swapping all nodes in the merge path when merging two heaps. Every
+ * operation that modifies the heap (e.g. push, pop, merge) is considered a merge and is done
+ * by using a skew heap merge.
+ *
+ * Skew heaps can merge more quickly than binary heaps. This can seem contradictory, since
+ * skew heaps have no structural constraints and no guarantee that the height of the tree is
+ * logarithmic (i.e. balanced). However, amortized complexity analysis can demonstrate that
+ * all operations on a skew heap can be done in O(log(n)). More specifically, the
+ * amortized complexity is known to be log<sub>φ</sub>(n) where φ is the golden ratio. This is
+ * approximately 1.44*log<sub>2</sub>(n).
+ *
+ * #### Complexity
+ *
+ * | Property | Average  | Worst |
+ * | :------- | :------  | :---- |
+ * | Space    | O(n)     | O(n)
+ * | Push     | O(log n) | O(log n)
+ * | Peek     | O(1)	 | O(1)
+ * | Pop      | O(log n) | O(log n)
+ * | Search   | O(n)     | O(n)
  */
 export class SkewHeap<T> implements Heap<T> {
     /**

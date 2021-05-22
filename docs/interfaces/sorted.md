@@ -32,4 +32,4 @@ Represents an object containing a set of sorted elements.
 
 The function with which elements are sorted
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/dba59a5/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/index.ts#L47)

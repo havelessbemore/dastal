@@ -27,7 +27,7 @@ Each node links to its next neighbor.
 
 A link to the node's neighbor
 
-Defined in: [src/list/linkedList.ts:14](https://github.com/havelessbemore/dastal/blob/dba59a5/src/list/linkedList.ts#L14)
+Defined in: [src/list/linkedList.ts:14](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/linkedList.ts#L14)
 
 ___
 
@@ -37,4 +37,4 @@ ___
 
 The value of the node
 
-Defined in: [src/list/linkedList.ts:18](https://github.com/havelessbemore/dastal/blob/dba59a5/src/list/linkedList.ts#L18)
+Defined in: [src/list/linkedList.ts:18](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/linkedList.ts#L18)

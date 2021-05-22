@@ -4,7 +4,8 @@
 
 A specialized tree-based data structure that satisfies the heap property.
 
-**Heap property**: For any given node N, the key (e.g. value) of N is greater than or equal to the key of its children.
+**Heap property**: For any given node N, the key (e.g. value) of N is
+greater than or equal to the key of its children.
 
 In a heap, the highest priority element (relative to its ordering) is always stored at the root.
 However, a heap is not a sorted structure; it can be regarded as being partially ordered.
@@ -92,7 +93,7 @@ a priority queue.
 
 The number of elements in the heap.
 
-Defined in: [src/heap/heap.ts:127](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L127)
+Defined in: [src/heap/heap.ts:128](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L128)
 
 ## Methods
 
@@ -124,7 +125,7 @@ Insert a set of elements into the heap.
 
 The new size of the list.
 
-Defined in: [src/heap/heap.ts:52](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L52)
+Defined in: [src/heap/heap.ts:53](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L53)
 
 ___
 
@@ -136,7 +137,7 @@ Remove all elements.
 
 **Returns:** *void*
 
-Defined in: [src/heap/heap.ts:56](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L56)
+Defined in: [src/heap/heap.ts:57](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L57)
 
 ___
 
@@ -150,7 +151,7 @@ The function with which elements are sorted
 
 Inherited from: [Sorted](sorted.md)
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/dba59a5/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/index.ts#L47)
 
 ___
 
@@ -170,7 +171,7 @@ Check if an element is in the heap.
 
 `true` if the element was found, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:64](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L64)
+Defined in: [src/heap/heap.ts:65](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L65)
 
 ___
 
@@ -190,7 +191,7 @@ Delete an element from the heap.
 
 `true` if the element was found and deleted, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:72](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L72)
+Defined in: [src/heap/heap.ts:73](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L73)
 
 ___
 
@@ -204,7 +205,7 @@ Iterate through the heap.
 
 **Returns:** *Iterable*<T\>
 
-Defined in: [src/heap/heap.ts:78](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L78)
+Defined in: [src/heap/heap.ts:79](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L79)
 
 ___
 
@@ -225,7 +226,7 @@ contain elements of both. Does not modify the input.
 
 The new heap size.
 
-Defined in: [src/heap/heap.ts:87](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L87)
+Defined in: [src/heap/heap.ts:88](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L88)
 
 ___
 
@@ -239,7 +240,7 @@ Retrieves, but does not remove, the top of the heap.
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:93](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L93)
+Defined in: [src/heap/heap.ts:94](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L94)
 
 ___
 
@@ -253,7 +254,7 @@ Remove the top of the heap (AKA extract).
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:99](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L99)
+Defined in: [src/heap/heap.ts:100](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L100)
 
 ___
 
@@ -273,7 +274,7 @@ Inserts an element into the heap (AKA insert, add).
 
 The new size of the heap.
 
-Defined in: [src/heap/heap.ts:107](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L107)
+Defined in: [src/heap/heap.ts:108](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L108)
 
 ___
 
@@ -293,7 +294,7 @@ Insert an element and then remove the top of the heap.
 
 The element at the top of the heap.
 
-Defined in: [src/heap/heap.ts:115](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L115)
+Defined in: [src/heap/heap.ts:116](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L116)
 
 ___
 
@@ -313,7 +314,7 @@ Remove the top of the heap and then insert a new element (AKA popPush).
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:123](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L123)
+Defined in: [src/heap/heap.ts:124](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L124)
 
 ___
 
@@ -334,4 +335,4 @@ Update a specific element.
 
 `true` if curElement was found and updated, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:136](https://github.com/havelessbemore/dastal/blob/dba59a5/src/heap/heap.ts#L136)
+Defined in: [src/heap/heap.ts:137](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/heap/heap.ts#L137)

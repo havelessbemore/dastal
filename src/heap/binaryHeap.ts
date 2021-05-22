@@ -1,11 +1,25 @@
 import { MAX_ARRAY_LENGTH } from 'src/array/utils';
 import { CompareFn } from '..';
 import { Heap } from './heap';
-import { SkewHeap } from './skewHeap';
 import { bubbleUp, heapify, sinkDown } from './utils';
 
 /**
+ * A binary heap is a heap implemented as a binary tree with an additional shape property
+ * ([source](https://en.wikipedia.org/wiki/Binary_heap)).
  *
+ * **Shape property**: Must be a complete binary tree. This means all levels of the tree
+ * (except possibly the last one) are fully filled. If the last level of the tree is incomplete,
+ * the nodes of that level are filled from left to right.
+ *
+ * #### Complexity
+ *
+ * | Property | Average | Worst |
+ * | :------- | :------ | :---- |
+ * | Space    | O(n)    | O(n)
+ * | Push     | O(1)    | O(log n)
+ * | Peek     | O(1)	| O(1)
+ * | Pop      | O(log n)| O(log n)
+ * | Search   | O(n)    | O(n)
  */
 export class BinaryHeap<T> implements Heap<T> {
     /**
@@ -92,6 +106,7 @@ export class BinaryHeap<T> implements Heap<T> {
         if (heap.size < 1) {
             return this;
         }
+
         if (array.length + heap.size > MAX_ARRAY_LENGTH) {
             throw new RangeError('Invalid heap length');
         }
