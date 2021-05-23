@@ -1,4 +1,4 @@
-import { LinkedList } from 'src/list';
+import { LinkedNode } from 'src/list';
 import { BinaryTreeNode } from 'src/tree';
 import { CompareFn } from '..';
 
@@ -30,6 +30,25 @@ export function bubbleUp<T>(index: number, compareFn: CompareFn<T>, array: Array
  */
 export function heapify<T>(compareFn: CompareFn<T>, array: T[]): void {
     for (let i = (array.length + 1) >>> 1; i > 0; sinkDown(--i, compareFn, array)) {}
+}
+/**
+ * @internal
+ */
+export function mergeKSorted<T>(compareFn: CompareFn<T>, lists: LinkedNode<T>[]): LinkedNode<T> {
+    // Heapify the list of lists based on
+    // the value at the head of each list.
+    const compare: CompareFn<LinkedNode<T>> = (a, b) => compareFn(a.value, b.value);
+    heapify(compare, lists);
+
+    // Combine the lists into a single list.
+    const list: LinkedNode<T> = lists[0];
+    for (let tail = list; lists.length > 1; tail = tail.next) {
+        lists[0] = lists[0].next ?? lists.pop()!;
+        sinkDown(0, compare, lists);
+        tail.next = lists[0];
+    }
+
+    return list;
 }
 /**
  * @internal
@@ -78,45 +97,52 @@ export function sinkDown<T>(index: number, compareFn: CompareFn<T>, array: Array
  */
 export function skewMerge<T>(
     compareFn: CompareFn<T>,
-    heaps: Iterable<BinaryTreeNode<T> | undefined>,
+    heaps: (BinaryTreeNode<T> | undefined)[],
 ): BinaryTreeNode<T> | undefined {
-    // Sanitize inputs
-    const list = new LinkedList<BinaryTreeNode<T>>();
-    for (const node of heaps) {
-        if (node != null) {
-            list.push(node);
-        }
-    }
-    if (list.size < 2) {
-        return list.pop()!;
-    }
-
-    // Split each heap into subtrees by cutting every path.
-    // (From the root node, sever the right node and make the right
-    // child its own subtree.) This will result in a set of trees
-    // in which the root either only has a left child or no children at all.
-    for (const node of list) {
-        if (node.right != null) {
-            list.push(node.right);
-            node.right = undefined;
+    // Remove undefineds and initialize a list for each heap
+    const lists: LinkedNode<BinaryTreeNode<T>>[] = [];
+    for (let i = 0; i < heaps.length; ++i) {
+        if (heaps[i] != null) {
+            lists.push({ value: heaps[i]! });
         }
     }
 
-    // Sort the subtrees in descending order based on the
-    // value of the root node of each subtree.
-    list.sort((a, b) => compareFn(b.value, a.value));
+    // Check if nothing to merge with
+    if (lists.length < 2) {
+        return lists[0]?.value;
+    }
 
-    // While there are still multiple subtrees, iteratively recombine
+    // Split each heap into subheaps by cutting every right path; From the root
+    // node, sever the right node to make the right child its own heap. Repeat
+    // until you can't go right. This will turn each heap into a list of heaps
+    // where the root either only has a left child or no children at all. The
+    // lists of heaps will be in desc order (from bottom to top).
+    for (let i = 0; i < lists.length; ++i) {
+        let list = lists[i];
+        let tree: BinaryTreeNode<T> | undefined = list.value;
+        while ((tree = tree.right)) {
+            list = { next: list, value: tree };
+        }
+        lists[i] = list;
+    }
+
+    // Combine the lists into a single list in desc order
+    let list: LinkedNode<BinaryTreeNode<T>> | undefined = mergeKSorted(
+        (a, b) => compareFn(b.value, a.value),
+        lists,
+    );
+
+    // While there are still multiple heaps, iteratively combine
     // the first two (from left to right). If the root of the second-to-first
     // subtree has a left child, swap it to be the right child. Link the root
     // of the last subtree as the left child of the second-to-first subtree.
-    let heap = list.shift()!;
-    do {
-        const next = list.shift()!;
-        next.right = next.left;
-        next.left = heap;
-        heap = next;
-    } while (list.size > 0);
+    let heap = list.value;
+    while ((list = list.next)) {
+        const node = list.value;
+        node.right = node.left;
+        node.left = heap;
+        heap = node;
+    }
 
     return heap;
 }

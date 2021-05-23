@@ -204,7 +204,7 @@ describe('BinaryHeap unit tests', function () {
             }
         });
         it('Should work with generic heap', async function () {
-            this.timeout(60000)
+            this.timeout(60000);
             for (let i = 0; i <= values.length; ++i) {
                 const arr1 = Array.from(values.slice(0, i));
                 for (let j = 0; j <= updatedValues.length; ++j) {

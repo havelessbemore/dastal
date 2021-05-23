@@ -1,6 +1,6 @@
 {
   "name": "dastal",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Data Structures & Algorithms implementations",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",

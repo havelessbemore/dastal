@@ -17,7 +17,7 @@ import { skewMerge } from './utils';
  * Skew heaps can merge more quickly than binary heaps. This can seem contradictory, since
  * skew heaps have no structural constraints and no guarantee that the height of the tree is
  * logarithmic (i.e. balanced). However, amortized complexity analysis can demonstrate that
- * all operations on a skew heap can be done in O(log(n)). More specifically, the
+ * all operations on a skew heap can be done in O(log(n). More specifically, the
  * amortized complexity is known to be log<sub>φ</sub>(n) where φ is the golden ratio. This is
  * approximately 1.44*log<sub>2</sub>(n).
  *
