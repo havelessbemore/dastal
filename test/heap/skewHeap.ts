@@ -199,7 +199,11 @@ describe('SkewHeap unit tests', function () {
                     const arr2 = Array.from(updatedValues.slice(0, j));
                     const heap = new SkewHeap(compareFn, arr1);
                     expect(heap.size).to.equal(arr1.length);
-                    const heap2 = { size: arr2.length, [Symbol.iterator]: () => arr2[Symbol.iterator]() } as any;
+                    const heap2 = { 
+                        comparator: () => compareFn,
+                        size: arr2.length, 
+                        [Symbol.iterator]: () => arr2[Symbol.iterator]() 
+                    } as any;
                     expect(heap.merge(heap2)).to.equal(heap);
                     expect(heap.size).to.equal(i + j);
                     const sorted = arr1.concat(arr2);
