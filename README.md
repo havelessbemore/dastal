@@ -14,7 +14,26 @@ npm install dastal
 
 ## API
 
-See [docs/](./docs/README.md) for details. The latest documentation can also be found in the [wiki](https://github.com/havelessbemore/dastal/wiki).
+See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/dastal/wiki)  for details. At a glance:
+
+### Interfaces
+- [Heap](docs/interfaces/heap.md)
+- [List](docs/interfaces/list.md)
+- [Queue](docs/interfaces/queue.md)
+- [Stack](docs/interfaces/stack.md)
+- [Tree](docs/interfaces/tree.md)
+
+### Classes
+- [AATree](docs/classes/aatree.md)
+- [ArrayList](docs/classes/arraylist.md)
+- [ArrayQueue](docs/classes/arrayqueue.md)
+- [ArrayStack](docs/classes/arraystack.md)
+- [BinaryHeap](docs/classes/binaryheap.md)
+- [DoublyLinkedList](docs/classes/doublylinkedlist.md)
+- [LinkedList](docs/classes/linkedlist.md)
+- [LinkedQueue](docs/classes/linkedqueue.md)
+- [LinkedStack](docs/classes/linkedstack.md)
+- [SkewHeap](docs/classes/skewheap.md)
 
 ## Contribute
 
