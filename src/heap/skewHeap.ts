@@ -62,6 +62,8 @@ export class SkewHeap<T> implements Heap<T> {
             for (let i = 0; i < elements.length; ++i) {
                 this.push(elements[i]);
             }
+        } else if (elements instanceof SkewHeap || elements instanceof BinaryHeap) {
+            this.merge(elements);
         } else {
             for (const element of elements) {
                 this.push(element);
@@ -171,9 +173,10 @@ export class SkewHeap<T> implements Heap<T> {
         if (this.root == null) {
             return;
         }
-        const heap = new SkewHeap<BinaryTreeNode<T>>((a, b) => this.compare(a.value, b.value), [
-            this.root,
-        ]);
+        const heap = new SkewHeap<BinaryTreeNode<T>>(
+            (a, b) => this.compare(a.value, b.value),
+            [this.root],
+        );
         do {
             const node = heap.pop()!;
             yield node.value;

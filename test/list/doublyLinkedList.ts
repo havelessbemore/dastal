@@ -20,6 +20,39 @@ describe('DoublyLinkedList unit tests', function () {
         empty = new DoublyLinkedList();
         filled = new DoublyLinkedList(values);
     });
+    describe('#constructor()', function () {
+        it('Should initialize an empty stack', function () {
+            const stack = new DoublyLinkedList();
+            expect(stack.size).to.equal(0);
+            expect(stack.get(0)).to.equal(undefined);
+        });
+        it('Should initialize an empty stack if given empty array', function () {
+            const stack = new DoublyLinkedList([]);
+            expect(stack.size).to.equal(0);
+            expect(stack.get(0)).to.equal(undefined);
+        });
+        it('Should initialize an empty stack if given empty iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const stack = new DoublyLinkedList(it);
+            expect(stack.size).to.equal(0);
+            expect(stack.get(0)).to.equal(undefined);
+        });
+        it('Should initialize a filled stack if given an array', function () {
+            const stack = new DoublyLinkedList(values);
+            expect(stack.size).to.equal(values.length);
+            const expected = Array.from(values);
+            const actual = Array.from(stack);
+            expect(actual).to.eql(expected);
+        });
+        it('Should initialize a filled stack if given an iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const stack = new DoublyLinkedList(values);
+            expect(stack.size).to.equal(values.length);
+            const expected = Array.from(values);
+            const actual = Array.from(stack);
+            expect(actual).to.eql(expected);
+        });
+    });
     describe('#add()', function () {
         describe('#add()', function () {
             it('Should not add when index < 0', function () {

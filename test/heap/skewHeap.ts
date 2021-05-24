@@ -19,7 +19,53 @@ describe('SkewHeap unit tests', function () {
         empty = new SkewHeap(compareFn);
         filled = new SkewHeap(compareFn, values);
     });
-
+    describe('#constructor()', function () {
+        it('Should initialize an empty heap', function () {
+            const heap = new SkewHeap(compareFn);
+            expect(heap.size).to.equal(0);
+            expect(heap.peek()).to.equal(undefined);
+        });
+        it('Should initialize an empty heap if given empty array', function () {
+            const heap = new SkewHeap(compareFn, []);
+            expect(heap.size).to.equal(0);
+            expect(heap.peek()).to.equal(undefined);
+        });
+        it('Should initialize an empty heap if given empty iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const heap = new SkewHeap(compareFn, it);
+            expect(heap.size).to.equal(0);
+            expect(heap.peek()).to.equal(undefined);
+        });
+        it('Should initialize a filled heap if given an array', function () {
+            const heap = new SkewHeap(compareFn, values);
+            expect(heap.size).to.equal(values.length);
+            const expected = Array.from(values).sort(compareFn);
+            const actual = Array.from(heap).sort(compareFn);
+            expect(actual).to.eql(expected);
+        });
+        it('Should initialize a filled heap if given an iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const heap = new SkewHeap(compareFn, values);
+            expect(heap.size).to.equal(values.length);
+            const expected = Array.from(values).sort(compareFn);
+            const actual = Array.from(heap).sort(compareFn);
+            expect(actual).to.eql(expected);
+        });
+        it('Should initialize a filled heap if given a SkewHeap', function () {
+            const heap = new SkewHeap(compareFn, filled);
+            expect(heap.size).to.equal(values.length);
+            const expected = Array.from(values).sort(compareFn);
+            const actual = Array.from(heap).sort(compareFn);
+            expect(actual).to.eql(expected);
+        });
+        it('Should initialize a filled heap if given a BinaryHeap', function () {
+            const heap = new BinaryHeap(compareFn, filled);
+            expect(heap.size).to.equal(values.length);
+            const expected = Array.from(values).sort(compareFn);
+            const actual = Array.from(heap).sort(compareFn);
+            expect(actual).to.eql(expected);
+        });
+    });
     describe('#addAll()', function () {
         it('Should work when empty', function () {
             expect(empty.addAll([3, 2, 1])).to.equal(3);

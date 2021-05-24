@@ -14,6 +14,39 @@ describe('LinkedQueue unit tests', function () {
         empty = new LinkedQueue();
         filled = new LinkedQueue(values);
     });
+    describe('#constructor()', function () {
+        it('Should initialize an empty queue', function () {
+            const queue = new LinkedQueue();
+            expect(queue.size).to.equal(0);
+            expect(queue.peek()).to.equal(undefined);
+        });
+        it('Should initialize an empty queue if given empty array', function () {
+            const queue = new LinkedQueue([]);
+            expect(queue.size).to.equal(0);
+            expect(queue.peek()).to.equal(undefined);
+        });
+        it('Should initialize an empty queue if given empty iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const queue = new LinkedQueue(it);
+            expect(queue.size).to.equal(0);
+            expect(queue.peek()).to.equal(undefined);
+        });
+        it('Should initialize a filled queue if given an array', function () {
+            const queue = new LinkedQueue(values);
+            expect(queue.size).to.equal(values.length);
+            const expected = Array.from(values);
+            const actual = Array.from(queue);
+            expect(actual).to.eql(expected);
+        });
+        it('Should initialize a filled queue if given an iterable', function () {
+            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const queue = new LinkedQueue(values);
+            expect(queue.size).to.equal(values.length);
+            const expected = Array.from(values);
+            const actual = Array.from(queue);
+            expect(actual).to.eql(expected);
+        });
+    });
     describe('#clear()', function () {
         it('Should clear when empty', function () {
             empty.clear();
