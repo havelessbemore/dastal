@@ -1,7 +1,3 @@
-export interface LazyOperation<T> {
-    (element: T, min: number, max: number): T;
-}
-
 export interface Operation<T> {
     (element: T, index: number): T;
 }
@@ -12,13 +8,9 @@ export interface CombineFn<T, K = T> {
 
 export interface SegmentTree<T> extends Iterable<T> {
     /**
-     * Removes all elements
+     * Remove all elements.
      */
     clear(): void;
-    /**
-     *
-     */
-    // lazyUpdate(min: number, max: number, operation: LazyOperation<T>): void;
     /**
      * Retrieves and removes the last element
      *
@@ -54,4 +46,44 @@ export interface SegmentTree<T> extends Iterable<T> {
      * @param operation - The update to perform
      */
     update(min: number, max: number, operation: Operation<T>): void;
+}
+
+// lazyUpdate(min: number, max: number, type: OperationType, operation: LazyOperation<T>): void;
+
+export enum OperationType {
+    Assignment = 'assignment',
+    /**
+     * Represents an operation that
+     */
+    Identity = 'identity',
+}
+export interface AssignmentOperation<T> {
+    (): T;
+}
+export interface IdentityOperation<T> {
+    (): T;
+}
+
+// commutative: one can change the order of the terms and still get the same result.
+// a + b = b + a
+// f(a, b) = f(b, a)
+
+// associative: The grouping of operations does not change the result.
+// (a + b) + c = a + (b + c)
+// f(f((a, b), c) = f(a, f(b, c))
+
+// distributive:
+// a*(b + c) = a*b + a*c
+// g(a, f(b, c)) = f(g(a, b), g(a, c))
+
+// assignment:
+// a = x
+// f(a) = x
+
+// identity:
+// a + 0 = a
+// f(a) = a
+
+export interface LazyOperation<T> {
+    (element: T, min: number, max: number): T;
 }

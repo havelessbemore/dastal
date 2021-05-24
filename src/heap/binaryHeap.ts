@@ -1,4 +1,4 @@
-import { MAX_ARRAY_LENGTH } from 'src/array/utils';
+import { isArray, MAX_ARRAY_LENGTH } from 'src/array/utils';
 import { CompareFn } from '..';
 import { Heap } from './heap';
 import { bubbleUp, heapify, sinkDown } from './utils';
@@ -44,14 +44,22 @@ export class BinaryHeap<T> implements Heap<T> {
 
     addAll(elements: Iterable<T>): number {
         const array = this.array;
-
-        // Add new elements
         const length = array.length;
-        for (const element of elements) {
-            if (array.length >= MAX_ARRAY_LENGTH) {
+
+        if (isArray(elements)) {
+            if (array.length + elements.length > MAX_ARRAY_LENGTH) {
                 throw new RangeError('Invalid heap length');
             }
-            array.push(element);
+            for (let i = 0; i < elements.length; ++i) {
+                array.push(elements[i]);
+            }
+        } else {
+            for (const element of elements) {
+                if (array.length >= MAX_ARRAY_LENGTH) {
+                    throw new RangeError('Invalid heap length');
+                }
+                array.push(element);
+            }
         }
 
         // Update the heap
@@ -94,12 +102,6 @@ export class BinaryHeap<T> implements Heap<T> {
         return true;
     }
 
-    *dump(): Iterable<T> {
-        for (const value of this.array) {
-            yield value;
-        }
-    }
-
     merge(heap: Heap<T>): this {
         const array = this.array;
 
@@ -111,8 +113,7 @@ export class BinaryHeap<T> implements Heap<T> {
             throw new RangeError('Invalid heap length');
         }
 
-        const elements = heap instanceof BinaryHeap ? heap.array : heap.dump();
-        for (const element of elements) {
+        for (const element of heap) {
             array.push(element);
         }
 
@@ -185,14 +186,8 @@ export class BinaryHeap<T> implements Heap<T> {
     get size(): number {
         return this.array.length;
     }
-    /**
-     * Iterate through the heap in sorted order.
-     *
-     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
-     *
-     * @returns An iterator through the heap.
-     */
-    *[Symbol.iterator](): Iterator<T> {
+
+    *sorted(): Iterable<T> {
         if (this.array.length < 1) {
             return;
         }
@@ -207,6 +202,16 @@ export class BinaryHeap<T> implements Heap<T> {
                 ++index < array.length && heap.push(index);
             }
         } while (heap.size > 0);
+    }
+    /**
+     * Receive an iterator through the list.
+     *
+     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
+     *
+     * @returns An iterator through the list
+     */
+    [Symbol.iterator](): Iterator<T> {
+        return this.array[Symbol.iterator]();
     }
 
     update(curElement: T, newElement: T): boolean {

@@ -1,11 +1,12 @@
-dastal - v1.4.0
+dastal - v2.0.0
 
-# dastal - v1.4.0
+# dastal - v2.0.0
 
 ## Table of contents
 
 ### Classes
 
+- [AATree](classes/aatree.md)
 - [ArrayList](classes/arraylist.md)
 - [ArrayQueue](classes/arrayqueue.md)
 - [ArrayStack](classes/arraystack.md)
@@ -18,6 +19,8 @@ dastal - v1.4.0
 
 ### Interfaces
 
+- [AATreeNode](interfaces/aatreenode.md)
+- [BinaryTreeNode](interfaces/binarytreenode.md)
 - [DoublyLinkedNode](interfaces/doublylinkednode.md)
 - [Heap](interfaces/heap.md)
 - [LinkedNode](interfaces/linkednode.md)
@@ -25,7 +28,9 @@ dastal - v1.4.0
 - [Queue](interfaces/queue.md)
 - [Sortable](interfaces/sortable.md)
 - [Sorted](interfaces/sorted.md)
+- [SortedTree](interfaces/sortedtree.md)
 - [Stack](interfaces/stack.md)
+- [Tree](interfaces/tree.md)
 
 ### Type aliases
 
@@ -67,4 +72,4 @@ A function used to determine the order of a set of elements.
 
 **Returns:** *number*
 
-Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/index.ts#L21)
+Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/5cebce9/src/index.ts#L21)

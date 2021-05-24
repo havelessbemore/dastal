@@ -1,7 +1,8 @@
 import { Sorted } from '..';
 
 /**
- * A specialized tree-based data structure that satisfies the heap property.
+ * A specialized tree-based data structure that satisfies the heap property
+ * ([source](https://en.wikipedia.org/wiki/Heap_(data_structure))).
  *
  * **Heap property**: For any given node N, the key (e.g. value) of N is
  * greater than or equal to the key of its children.
@@ -15,30 +16,32 @@ import { Sorted } from '..';
  * remove the object with the highest priority. In the sense, it can be used to implement
  * a priority queue.
  *
- * #### Iterate
- * - Iterate the heap: {@link dump}
- * - Iterate the heap in sorted order: {@link [Symbol.iterator]}
+ * #### At a Glance
  *
- * #### Get
+ * Iterate
+ * - Iterate the heap: {@link [Symbol.iterator]}
+ * - Iterate the heap in sorted order: {@link sorted}
+ *
+ * Get
  * - Get the size of the heap: {@link size}
  * - Get the top element: {@link peek}
  * - Check if the heap contains a given element: {@link contains}
  * - Get the heap's sorting method: {@link comparator}
  *
- * #### Set
+ * Set
  * - Update an element: {@link update}
  *
- * #### Add
+ * Add
  * - Add 1 element: {@link push}
  * - Add 1 heap: {@link merge}
  * - Add multiple elements: {@link addAll}
  *
- * #### Remove
+ * Remove
  * - Remove the top element: {@link pop}
  * - Delete a given element: {@link delete}
  * - Remove all elements: {@link clear}
  *
- * #### Add and Remove
+ * Add & Remove
  * - Add and then remove the top element: {@link pushPop}
  * - Remove the top element and then add an element: {@link replace}
  */
@@ -71,12 +74,6 @@ export interface Heap<T> extends Iterable<T>, Sorted<T> {
      * @returns `true` if the element was found and deleted, otherwise `false`.
      */
     delete(element: T): boolean;
-    /**
-     * Iterate through the heap.
-     *
-     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
-     */
-    dump(): Iterable<T>;
     /**
      * Join with a different heap and modify the existing heap to
      * contain elements of both. Does not modify the input.
@@ -126,6 +123,12 @@ export interface Heap<T> extends Iterable<T>, Sorted<T> {
      * The number of elements in the heap.
      */
     readonly size: number;
+    /**
+     * Iterate through the heap in sorted order.
+     *
+     * **Note:** Unexpected behavior can occur if the collection is modified during iteration.
+     */
+    sorted(): Iterable<T>;
     /**
      * Update a specific element.
      *

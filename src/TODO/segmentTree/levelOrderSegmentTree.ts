@@ -1,7 +1,7 @@
 import { MAX_ARRAY_LENGTH } from 'src/array/utils';
 import { CombineFn } from '.';
 import { lsp, msb, msp } from '../math/bits';
-import { LazyOperation, Operation, SegmentTree } from './segmentTree';
+import { Operation, SegmentTree } from './segmentTree';
 
 /**
  * A {@link SegmentTree} with entries stored in level-order traversal.

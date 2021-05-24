@@ -1,17 +1,5 @@
-/**
- *
- */
-export interface BinaryTreeNode<T> {
-    /**
-     *
-     */
-    value: T;
-    /**
-     *
-     */
-    left?: BinaryTreeNode<T>;
-    /**
-     *
-     */
-    right?: BinaryTreeNode<T>;
-}
+export * from './aaTree';
+export * from './aaTreeNode';
+export * from './binaryTreeNode';
+export * from './sortedTree';
+export * from './tree';

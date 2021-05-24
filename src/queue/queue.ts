@@ -1,5 +1,6 @@
 /**
- * An ordered collection of elements in FIFO (first-in-first-out) order.
+ * An ordered collection of elements in FIFO (first-in-first-out) order
+ * ([source](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))).
  *
  * Typically FIFO refers to the insertion order of elements. However, it
  * can refer to other types of ordering. For example, priority queues order elements

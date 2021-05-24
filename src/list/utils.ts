@@ -1,6 +1,7 @@
+import { isArray } from '../array/utils';
 import { CompareFn } from '..';
-import { DoublyLinkedNode } from './doublyLinkedList';
-import { LinkedNode } from './linkedList';
+import { DoublyLinkedNode } from './doublyLinkedNode';
+import { LinkedNode } from './linkedNode';
 
 /**
  * Groups an iterable into batches of a given size.
@@ -12,7 +13,44 @@ import { LinkedNode } from './linkedList';
  *
  * @internal
  */
-export function* batch<T>(
+export function batch<T>(
+    size: number,
+    iterable: Iterable<T>,
+): Generator<T[], void, number | undefined> {
+    if (isArray(iterable)) {
+        return batchArray(size, iterable);
+    }
+    return batchIterable(size, iterable);
+}
+/**
+ * Groups an iterable into batches of a given size.
+ *
+ * @param size - The maximum batch size
+ * @param iterable - The iterable to batch
+ *
+ * @returns An iterable of batches
+ *
+ * @internal
+ */
+export function* batchArray<T>(size: number, array: T[]): Generator<T[], void, number | undefined> {
+    let min = 0;
+    while (min < array.length) {
+        const max = min + size;
+        size = (yield array.slice(min, max)) ?? size;
+        min = max;
+    }
+}
+/**
+ * Groups an iterable into batches of a given size.
+ *
+ * @param size - The maximum batch size
+ * @param iterable - The iterable to batch
+ *
+ * @returns An iterable of batches
+ *
+ * @internal
+ */
+export function* batchIterable<T>(
     size: number,
     iterable: Iterable<T>,
 ): Generator<T[], void, number | undefined> {
@@ -150,22 +188,6 @@ export function mergeSorted<T, Node extends LinkedNode<T>>(
     return root.next as Node;
 }
 /**
- * Moves a given number of spaces forward in a list
- *
- * @param head - The head of the list
- * @param len - The number of spaces to move
- *
- * @returns - The node len spaces ahead from head
- *
- * @internal
- */
-export function next<T, Node extends LinkedNode<T>>(head: Node, len: number): Node {
-    while (len-- > 0) {
-        head = head.next as Node;
-    }
-    return head;
-}
-/**
  * Wraps a number around a pivot
  *
  * f(x, min, pivot) = {
@@ -183,3 +205,20 @@ export function next<T, Node extends LinkedNode<T>>(head: Node, len: number): No
 export function wrap(num: number, pivot: number): number {
     return num < 0 ? pivot + num : num;
 }
+/**
+ * Moves a given number of spaces forward in a list
+ *
+ * @param head - The head of the list
+ * @param len - The number of spaces to move
+ *
+ * @returns - The node len spaces ahead from head
+ *
+ * @internal
+ *
+export function next<T, Node extends LinkedNode<T>>(head: Node, len: number): Node {
+    while (len-- > 0) {
+        head = head.next as Node;
+    }
+    return head;
+}
+*/

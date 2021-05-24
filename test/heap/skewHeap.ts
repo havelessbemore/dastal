@@ -31,7 +31,8 @@ describe('SkewHeap unit tests', function () {
             expect(filled.peek()).to.equal(-3);
             expect(filled.size).to.equal(values.length + 3);
         });
-        it('Should not break heap', function () {
+        it('Should not break heap', async function () {
+            this.timeout(60000);
             for (let i = 0; i <= values.length; ++i) {
                 const arr1 = Array.from(values.slice(0, i));
                 for (let j = 0; j <= updatedValues.length; ++j) {
@@ -54,18 +55,18 @@ describe('SkewHeap unit tests', function () {
         it('Should clear when empty', function () {
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(Array.from(empty.dump())).to.eql([]);
+            expect(Array.from(empty)).to.eql([]);
         });
         it('Should clear when not empty', function () {
             filled.clear();
             expect(filled.size).to.equal(0);
-            expect(Array.from(filled.dump())).to.eql([]);
+            expect(Array.from(filled)).to.eql([]);
         });
         it('Should clear added value', function () {
             empty.push(12);
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(Array.from(empty.dump())).to.eql([]);
+            expect(Array.from(empty)).to.eql([]);
         });
         it('Should clear added values', function () {
             empty.push(1);
@@ -73,7 +74,7 @@ describe('SkewHeap unit tests', function () {
             empty.push(3);
             empty.clear();
             expect(empty.size).to.equal(0);
-            expect(Array.from(empty.dump())).to.eql([]);
+            expect(Array.from(empty)).to.eql([]);
         });
     });
     describe('#contains()', function () {
@@ -139,20 +140,6 @@ describe('SkewHeap unit tests', function () {
             }
         });
     });
-    describe('#dump()', function () {
-        it('Should work when empty', function () {
-            expect(Array.from(empty.dump())).to.eql([]);
-        });
-        it('Should work with single value', function () {
-            empty.push(12);
-            expect(Array.from(empty.dump())).to.eql([12]);
-        });
-        it('Should return iterable on all elements', function () {
-            const expected = Array.from(values).sort(compareFn);
-            const actual = Array.from(filled.dump()).sort(compareFn);
-            expect(actual).to.eql(expected);
-        });
-    });
     describe('#merge()', function () {
         it('Should work when empty', function () {
             expect(empty.merge(filled)).to.equal(empty);
@@ -160,17 +147,18 @@ describe('SkewHeap unit tests', function () {
             expect(empty.size).to.equal(filled.size);
         });
         it('Should work when not empty', function () {
-            const heap = new SkewHeap(compareFn, filled.dump());
+            const heap = new SkewHeap(compareFn, filled);
             expect(filled.merge(heap)).to.equal(filled);
             expect(filled.peek()).to.equal(filled.peek());
             expect(filled.size).to.equal(2 * heap.size);
         });
-        it('Should work with BinaryHeap', function () {
+        it('Should work with BinaryHeap', async function () {
+            this.timeout(60000);
             for (let i = 0; i <= values.length; ++i) {
                 const arr1 = Array.from(values.slice(0, i));
                 for (let j = 0; j <= updatedValues.length; ++j) {
                     const arr2 = Array.from(updatedValues.slice(0, j));
-                    const heap = new BinaryHeap(compareFn, arr1);
+                    const heap = new SkewHeap(compareFn, arr1);
                     expect(heap.size).to.equal(arr1.length);
                     expect(heap.merge(new BinaryHeap(compareFn, arr2))).to.equal(heap);
                     expect(heap.size).to.equal(i + j);
@@ -209,9 +197,9 @@ describe('SkewHeap unit tests', function () {
                 const arr1 = Array.from(values.slice(0, i));
                 for (let j = 0; j <= updatedValues.length; ++j) {
                     const arr2 = Array.from(updatedValues.slice(0, j));
-                    const heap = new BinaryHeap(compareFn, arr1);
+                    const heap = new SkewHeap(compareFn, arr1);
                     expect(heap.size).to.equal(arr1.length);
-                    const heap2 = { size: arr2.length, dump: () => arr2 } as any;
+                    const heap2 = { size: arr2.length, [Symbol.iterator]: () => arr2[Symbol.iterator]() } as any;
                     expect(heap.merge(heap2)).to.equal(heap);
                     expect(heap.size).to.equal(i + j);
                     const sorted = arr1.concat(arr2);
@@ -439,6 +427,20 @@ describe('SkewHeap unit tests', function () {
             }
         });
     });
+    describe('#sorted()', function () {
+        it('Should work when empty', function () {
+            expect(Array.from(empty.sorted())).to.eql([]);
+        });
+        it('Should work with single value', function () {
+            empty.push(12);
+            expect(Array.from(empty.sorted())).to.eql([12]);
+        });
+        it('Should return sorted iterable on all elements', function () {
+            const expected = Array.from(values).sort(compareFn);
+            const actual = Array.from(filled.sorted());
+            expect(actual).to.eql(expected);
+        });
+    });
     describe('#[Symbol.iterator]()', function () {
         it('Should work when empty', function () {
             expect(Array.from(empty)).to.eql([]);
@@ -447,9 +449,9 @@ describe('SkewHeap unit tests', function () {
             empty.push(12);
             expect(Array.from(empty)).to.eql([12]);
         });
-        it('Should return sorted iterable on all elements', function () {
+        it('Should return iterable on all elements', function () {
             const expected = Array.from(values).sort(compareFn);
-            const actual = Array.from(filled);
+            const actual = Array.from(filled).sort(compareFn);
             expect(actual).to.eql(expected);
         });
     });

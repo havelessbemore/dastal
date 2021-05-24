@@ -1,8 +1,9 @@
-[dastal - v1.4.0](../README.md) / Queue
+[dastal - v2.0.0](../README.md) / Queue
 
 # Interface: Queue<T\>
 
-An ordered collection of elements in FIFO (first-in-first-out) order.
+An ordered collection of elements in FIFO (first-in-first-out) order
+([source](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))).
 
 Typically FIFO refers to the insertion order of elements. However, it
 can refer to other types of ordering. For example, priority queues order elements
@@ -51,7 +52,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 The number of elements in this queue
 
-Defined in: [src/queue/queue.ts:40](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/queue/queue.ts#L40)
+Defined in: [src/queue/queue.ts:41](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L41)
 
 ## Methods
 
@@ -75,7 +76,7 @@ Removes all elements from this queue
 
 **Returns:** *void*
 
-Defined in: [src/queue/queue.ts:16](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/queue/queue.ts#L16)
+Defined in: [src/queue/queue.ts:17](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L17)
 
 ___
 
@@ -89,7 +90,7 @@ Retrieves and removes the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:22](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/queue/queue.ts#L22)
+Defined in: [src/queue/queue.ts:23](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L23)
 
 ___
 
@@ -109,7 +110,7 @@ Inserts the specified value into this queue
 
 The new size of the queue
 
-Defined in: [src/queue/queue.ts:30](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/queue/queue.ts#L30)
+Defined in: [src/queue/queue.ts:31](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L31)
 
 ___
 
@@ -123,4 +124,4 @@ Retrieves, but does not remove, the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:36](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/queue/queue.ts#L36)
+Defined in: [src/queue/queue.ts:37](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L37)

@@ -1,6 +1,5 @@
-import { LinkedList } from '../../list/linkedList';
 import { lsb, lsp, msb, msp } from '../math/bits';
-import { LazyOperation, Operation, SegmentTree } from './segmentTree';
+import { Operation, SegmentTree } from './segmentTree';
 import { CombineFn } from '.';
 import { MAX_ARRAY_LENGTH } from 'src/array/utils';
 
@@ -33,10 +32,6 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      */
     protected combine: CombineFn<T>;
     /**
-     * The set of pending operations to perform on element ranges
-     */
-    protected lazy: (LinkedList<LazyOperation<T>> | undefined)[];
-    /**
      * Construct a new segment tree
      *
      * @param combine - The function used to aggregate segment information
@@ -45,21 +40,12 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     constructor(combine: CombineFn<T>, elements: Iterable<T> = []) {
         this.array = [];
         this.combine = combine;
-        this.lazy = [];
         this.build(elements);
     }
 
     clear(): void {
         this.array.length = 0;
-        this.lazy.length = 0;
-    }
-    /**
-     * Lazily updates elements in a given range
-     *
-     * @param min - The start of the range, inclusive
-     * @param max - The end of the range, exclusive
-     * @param operation - The operation to perform on the range
-     */
+    } /*
     lazyUpdate(min: number, max: number, operation: LazyOperation<T>): void {
         // Sanitize range
         if (min >= max) {
@@ -113,8 +99,14 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         // Update the incomplete aggregation node
         this.array[min] = value;
     }
-
-    pop(): T | undefined {
+    */
+    /**
+     * Lazily updates elements in a given range
+     *
+     * @param min - The start of the range, inclusive
+     * @param max - The end of the range, exclusive
+     * @param operation - The operation to perform on the range
+     */ pop(): T | undefined {
         // Sanitize range
         if (this.size < 1) {
             return undefined;
@@ -129,7 +121,6 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         // Return element
         const out = this.array[i - 1];
         this.array.length -= 2;
-        this.lazy.length -= 2;
         return out;
     }
 
@@ -151,7 +142,6 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
 
         // Push new aggregation node
         this.array.push(element);
-        this.lazy.length += 2;
         return this.size;
     }
 
@@ -249,6 +239,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         }
     }
 
+    /*
     protected lazyPropagate(min: number, max: number): void {
         // (a +1) & -(a + 1)
         const stack: number[] = [];
@@ -294,9 +285,9 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         }
         */
 
-        // Check each level
+    // Check each level
 
-        /*
+    /*
         // Get existing
         const q = [];
         for (let i = min; i < max; ) {
@@ -305,6 +296,6 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         }
 
         max = msb(min ^ this.array.length) - lsb(min);
-        */
     }
+    */
 }

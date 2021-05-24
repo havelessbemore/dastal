@@ -1,5 +1,5 @@
 import { LinkedNode } from 'src/list';
-import { BinaryTreeNode } from 'src/tree';
+import { BinaryTreeNode } from 'src/tree/binaryTreeNode';
 import { CompareFn } from '..';
 
 /**

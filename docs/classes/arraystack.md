@@ -1,4 +1,4 @@
-[dastal - v1.4.0](../README.md) / ArrayStack
+[dastal - v2.0.0](../README.md) / ArrayStack
 
 # Class: ArrayStack<T\>
 
@@ -54,7 +54,7 @@ Instantiate the stack.
 
 **Returns:** [*ArrayStack*](arraystack.md)<T\>
 
-Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L10)
+Defined in: [src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L10)
 
 ## Accessors
 
@@ -68,7 +68,7 @@ The number of elements in the stack
 
 Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
 
-Defined in: [src/stack/arrayStack.ts:36](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L36)
+Defined in: [src/stack/arrayStack.ts:36](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L36)
 
 ## Methods
 
@@ -86,7 +86,7 @@ An iterator through the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:46](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L46)
+Defined in: [src/stack/arrayStack.ts:46](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L46)
 
 ___
 
@@ -100,7 +100,7 @@ Removes all elements from the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:20](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L20)
+Defined in: [src/stack/arrayStack.ts:20](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L20)
 
 ___
 
@@ -114,7 +114,7 @@ Retrieves, but does not remove, the top of the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:24](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L24)
+Defined in: [src/stack/arrayStack.ts:24](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L24)
 
 ___
 
@@ -128,7 +128,7 @@ Retrieves and removes the top of the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:28](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L28)
+Defined in: [src/stack/arrayStack.ts:28](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L28)
 
 ___
 
@@ -148,4 +148,4 @@ Inserts an element into the stack
 
 Implementation of: [Stack](../interfaces/stack.md)
 
-Defined in: [src/stack/arrayStack.ts:32](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/stack/arrayStack.ts#L32)
+Defined in: [src/stack/arrayStack.ts:32](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/arrayStack.ts#L32)

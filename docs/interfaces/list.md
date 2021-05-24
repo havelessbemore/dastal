@@ -1,4 +1,4 @@
-[dastal - v1.4.0](../README.md) / List
+[dastal - v2.0.0](../README.md) / List
 
 # Interface: List<T\>
 
@@ -95,7 +95,7 @@ where an element is inserted. Elements can be accessed by their integer index (p
 
 The number of elements in this list
 
-Defined in: [src/list/list.ts:174](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L174)
+Defined in: [src/list/list.ts:174](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L174)
 
 ## Methods
 
@@ -128,7 +128,7 @@ Add the element at the specified index.
 
 The new size of the list
 
-Defined in: [src/list/list.ts:48](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L48)
+Defined in: [src/list/list.ts:48](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L48)
 
 ___
 
@@ -149,7 +149,7 @@ Add elements at the specified index.
 
 The new size of the list
 
-Defined in: [src/list/list.ts:57](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L57)
+Defined in: [src/list/list.ts:57](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L57)
 
 ___
 
@@ -161,7 +161,7 @@ Removes all elements
 
 **Returns:** *void*
 
-Defined in: [src/list/list.ts:61](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L61)
+Defined in: [src/list/list.ts:61](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L61)
 
 ___
 
@@ -183,7 +183,7 @@ A new list consisting of the elements in the list on which it is called,
 followed in order by the elements of each argument (if the argument is an iterable)
 or the argument itself. It does not recurse into nested iterable arguments
 
-Defined in: [src/list/list.ts:71](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L71)
+Defined in: [src/list/list.ts:71](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L71)
 
 ___
 
@@ -211,7 +211,7 @@ the copied sequence will be trimmed to fit list.size
 
 The list
 
-Defined in: [src/list/list.ts:87](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L87)
+Defined in: [src/list/list.ts:87](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L87)
 
 ___
 
@@ -236,7 +236,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 The list on which this method was called
 
-Defined in: [src/list/list.ts:100](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L100)
+Defined in: [src/list/list.ts:100](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L100)
 
 ___
 
@@ -256,7 +256,7 @@ Return the element at the specified index.
 
 The element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:108](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L108)
+Defined in: [src/list/list.ts:108](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L108)
 
 ___
 
@@ -277,7 +277,7 @@ Update the element at the specified index.
 
 The previous element at the index, or `undefined` if index is invalid
 
-Defined in: [src/list/list.ts:118](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L118)
+Defined in: [src/list/list.ts:118](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L118)
 
 ___
 
@@ -291,7 +291,7 @@ Retrieves and removes the end of the list.
 
 The value at the end of the list, or `undefined` if empty.
 
-Defined in: [src/list/list.ts:124](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L124)
+Defined in: [src/list/list.ts:124](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L124)
 
 ___
 
@@ -311,7 +311,7 @@ Inserts the specified value into the end of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:132](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L132)
+Defined in: [src/list/list.ts:132](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L132)
 
 ___
 
@@ -334,7 +334,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 The value at the index, or `undefined` if the index is invalid
 
-Defined in: [src/list/list.ts:143](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L143)
+Defined in: [src/list/list.ts:143](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L143)
 
 ___
 
@@ -358,7 +358,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 a reference to the same list
 
-Defined in: [src/list/list.ts:155](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L155)
+Defined in: [src/list/list.ts:155](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L155)
 
 ___
 
@@ -379,7 +379,7 @@ Update the element at the specified index.
 
 The previous element in the index, or undefined if the index is invalid
 
-Defined in: [src/list/list.ts:164](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L164)
+Defined in: [src/list/list.ts:164](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L164)
 
 ___
 
@@ -393,7 +393,7 @@ Retrieves and removes the first element in the list.
 
 The value at the front of the list or `undefined` if this list is empty.
 
-Defined in: [src/list/list.ts:170](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L170)
+Defined in: [src/list/list.ts:170](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L170)
 
 ___
 
@@ -417,7 +417,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 A new list with a copy of the indicated section of the original list
 
-Defined in: [src/list/list.ts:186](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L186)
+Defined in: [src/list/list.ts:186](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L186)
 
 ___
 
@@ -439,7 +439,7 @@ The object this method was called on
 
 Inherited from: [Sortable](sortable.md)
 
-Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/index.ts#L38)
+Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/5cebce9/src/index.ts#L38)
 
 ___
 
@@ -462,7 +462,7 @@ Returns any deleted elements.
 
 A new list of deleted elements
 
-Defined in: [src/list/list.ts:211](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L211)
+Defined in: [src/list/list.ts:211](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L211)
 
 ___
 
@@ -482,7 +482,7 @@ Inserts the specified value into the front of the list
 
 The new size of the list
 
-Defined in: [src/list/list.ts:219](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L219)
+Defined in: [src/list/list.ts:219](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L219)
 
 ___
 
@@ -502,7 +502,7 @@ Update the elements of the list
 
 The list on which this method was called
 
-Defined in: [src/list/list.ts:227](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L227)
+Defined in: [src/list/list.ts:227](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L227)
 
 ▸ **update**(`min`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*List*](list.md)<T\>
 
@@ -522,7 +522,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 The list on which this method was called
 
-Defined in: [src/list/list.ts:239](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L239)
+Defined in: [src/list/list.ts:239](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L239)
 
 ▸ **update**(`min`: *undefined* \| *number*, `max`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*List*](list.md)<T\>
 
@@ -543,7 +543,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 The list on which this method was called
 
-Defined in: [src/list/list.ts:252](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L252)
+Defined in: [src/list/list.ts:252](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L252)
 
 ___
 
@@ -569,4 +569,4 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 An iterator through the indicated section of the list
 
-Defined in: [src/list/list.ts:270](https://github.com/havelessbemore/dastal/blob/ae4a0f6/src/list/list.ts#L270)
+Defined in: [src/list/list.ts:270](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/list.ts#L270)
