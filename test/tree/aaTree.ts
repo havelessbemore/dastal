@@ -184,14 +184,14 @@ describe('AATree unit tests', function () {
             tree = new AATree(compareFn, [2, 1]);
             expect(tree.max()).to.equal(2);
         });
-        it('Should return the largest values as heap grows', function () {
+        it('Should return the largest values as tree grows', function () {
             for (let i = 0; i < values.length; ++i) {
                 empty.add(values[i]);
                 const sorted = Array.from(values.slice(0, i + 1)).sort(compareFn);
                 expect(empty.max()).to.equal(sorted[sorted.length - 1]);
             }
         });
-        it('Should return the largest values as heap shrinks', function () {
+        it('Should return the largest values as tree shrinks', function () {
             const sorted = Array.from(values).sort(compareFn);
             for (let i = values.length; i > 0; --i) {
                 expect(filled.max()).to.equal(sorted[i - 1]);
@@ -215,14 +215,14 @@ describe('AATree unit tests', function () {
             tree = new AATree(compareFn, [2, 1]);
             expect(tree.min()).to.equal(1);
         });
-        it('Should return the smallest values as heap grows', function () {
+        it('Should return the smallest values as tree grows', function () {
             for (let i = 0; i < values.length; ++i) {
                 empty.add(values[i]);
                 const sorted = Array.from(values.slice(0, i + 1)).sort(compareFn);
                 expect(empty.min()).to.equal(sorted[0]);
             }
         });
-        it('Should return the smallest values as heap shrinks', function () {
+        it('Should return the smallest values as tree shrinks', function () {
             const sorted = Array.from(values).sort((a, b) => compareFn(b, a));
             for (let i = values.length; i > 0; --i) {
                 expect(filled.min()).to.equal(sorted[i - 1]);

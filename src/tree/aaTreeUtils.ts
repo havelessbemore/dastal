@@ -21,11 +21,11 @@ export function insert<T>(
         return { level: 1, value };
     }
 
-    // If value <= node
+    // If value < node
     if (compareFn(value, node.value) < 0) {
         node.left = insert(value, node.left, compareFn);
 
-        // If value > node
+        // If value >= node
     } else {
         node.right = insert(value, node.right, compareFn);
     }

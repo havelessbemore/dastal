@@ -63,45 +63,39 @@ export function* inOrderTraverse<T, Node extends BinaryTreeNode<T>>(
  * @returns
  *
  * @internal
- *
- export function *inOrderArrayTraverse<T>(array: T[]): Generator<T> {
-    const stack: number[] = [];
-
-    for (let i = 0; i < array.length; i += i + 1) {
-        stack.push(i);
-    }
-    
-    while (stack.length > 0) {
-        let i = stack.pop()!;
-        yield array[i];
-        for (i += i + 2; i < array.length; i += i + 1) {
-            stack.push(i);
+ */
+export function levelOrderTraverse<T, Node extends BinaryTreeNode<T>>(
+    node: Node | undefined,
+    padded?: false,
+): Generator<Node>;
+export function levelOrderTraverse<T, Node extends BinaryTreeNode<T>>(
+    node: Node | undefined,
+    padded: true,
+): Generator<Node | undefined>;
+export function* levelOrderTraverse<T, Node extends BinaryTreeNode<T>>(
+    node: Node | undefined,
+    padded = false,
+): Generator<Node | undefined> {
+    const nil = {} as LinkedNode<Node | undefined>;
+    let head: LinkedNode<Node | undefined> = { value: node };
+    let tail = head;
+    for (let cont = node != null; cont; head = head.next!) {
+        tail = tail.next = nil;
+        for (cont = false; head !== nil; head = head.next!) {
+            node = head.value;
+            if (node != null) {
+                yield node;
+                cont ||= node.left != null || node.right != null;
+                tail = tail.next = { value: node.left };
+                tail = tail.next = { value: node.right };
+            } else if (padded) {
+                yield undefined;
+                tail = tail.next = { value: undefined };
+                tail = tail.next = { value: undefined };
+            }
         }
     }
 }
-*/
-/*
- *
- * @param node
- *
- * @returns
- *
- * @internal
- *
-export function *levelOrderTraverse<T>(
-    node: BinaryTreeNode<T> | undefined,
-): Generator<BinaryTreeNode<T>> {
-    const q = new LinkedQueue<BinaryTreeNode<T> | undefined>([node]);
-    do {
-        const node = q.dequeue()!;
-        if (node != null) {
-            yield node;
-            q.enqueue(node.left);
-            q.enqueue(node.right);
-        }
-    } while (q.size > 0);
-}
-*/
 /*
  *
  * @param node
