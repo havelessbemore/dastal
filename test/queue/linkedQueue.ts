@@ -26,7 +26,9 @@ describe('LinkedQueue unit tests', function () {
             expect(queue.peek()).to.equal(undefined);
         });
         it('Should initialize an empty queue if given empty iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const it: Iterable<number> = {
+                [Symbol.iterator]: () => ({ next: () => ({ done: true, value: undefined }) }),
+            };
             const queue = new LinkedQueue(it);
             expect(queue.size).to.equal(0);
             expect(queue.peek()).to.equal(undefined);
@@ -39,7 +41,7 @@ describe('LinkedQueue unit tests', function () {
             expect(actual).to.eql(expected);
         });
         it('Should initialize a filled queue if given an iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const it: Iterable<number> = { [Symbol.iterator]: () => values[Symbol.iterator]() };
             const queue = new LinkedQueue(values);
             expect(queue.size).to.equal(values.length);
             const expected = Array.from(values);

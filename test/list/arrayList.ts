@@ -32,7 +32,9 @@ describe('ArrayList unit tests', function () {
             expect(list.get(0)).to.equal(undefined);
         });
         it('Should initialize an empty list if given empty iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const it: Iterable<number> = {
+                [Symbol.iterator]: () => ({ next: () => ({ done: true, value: undefined }) }),
+            };
             const list = new ArrayList(it);
             expect(list.size).to.equal(0);
             expect(list.get(0)).to.equal(undefined);
@@ -45,7 +47,7 @@ describe('ArrayList unit tests', function () {
             expect(actual).to.eql(expected);
         });
         it('Should initialize a filled list if given an iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const it: Iterable<number> = { [Symbol.iterator]: () => values[Symbol.iterator]() };
             const list = new ArrayList(values);
             expect(list.size).to.equal(values.length);
             const expected = Array.from(values);

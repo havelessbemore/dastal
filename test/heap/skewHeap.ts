@@ -31,7 +31,9 @@ describe('SkewHeap unit tests', function () {
             expect(heap.peek()).to.equal(undefined);
         });
         it('Should initialize an empty heap if given empty iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const it: Iterable<number> = {
+                [Symbol.iterator]: () => ({ next: () => ({ done: true, value: undefined }) }),
+            };
             const heap = new SkewHeap(compareFn, it);
             expect(heap.size).to.equal(0);
             expect(heap.peek()).to.equal(undefined);
@@ -44,7 +46,7 @@ describe('SkewHeap unit tests', function () {
             expect(actual).to.eql(expected);
         });
         it('Should initialize a filled heap if given an iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const it: Iterable<number> = { [Symbol.iterator]: () => values[Symbol.iterator]() };
             const heap = new SkewHeap(compareFn, values);
             expect(heap.size).to.equal(values.length);
             const expected = Array.from(values).sort(compareFn);
@@ -245,10 +247,10 @@ describe('SkewHeap unit tests', function () {
                     const arr2 = Array.from(updatedValues.slice(0, j));
                     const heap = new SkewHeap(compareFn, arr1);
                     expect(heap.size).to.equal(arr1.length);
-                    const heap2 = { 
+                    const heap2 = {
                         comparator: () => compareFn,
-                        size: arr2.length, 
-                        [Symbol.iterator]: () => arr2[Symbol.iterator]() 
+                        size: arr2.length,
+                        [Symbol.iterator]: () => arr2[Symbol.iterator](),
                     } as any;
                     expect(heap.merge(heap2)).to.equal(heap);
                     expect(heap.size).to.equal(i + j);

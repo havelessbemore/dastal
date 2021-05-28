@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
-import { AATree } from 'src/tree/aaTree';
+import { AVLTree } from 'src/TODO/tree/avlTree';
 
-describe('AATree unit tests', function () {
+describe.skip('AVLTree unit tests', function () {
     const compareFn = (a: number, b: number) => a - b;
-    let empty: AATree<number>;
-    let filled: AATree<number>;
+    let empty: AVLTree<number>;
+    let filled: AVLTree<number>;
     const values = new Uint32Array(36);
     const updatedValues = new Uint32Array(36);
 
@@ -15,17 +15,17 @@ describe('AATree unit tests', function () {
     randomFill(updatedValues, (_) => {});
 
     beforeEach(function () {
-        empty = new AATree(compareFn);
-        filled = new AATree(compareFn, values);
+        empty = new AVLTree(compareFn);
+        filled = new AVLTree(compareFn, values);
     });
     describe('#constructor()', function () {
         it('Should initialize an empty tree', function () {
-            const tree = new AATree(compareFn);
+            const tree = new AVLTree(compareFn);
             expect(tree.size).to.equal(0);
             expect(tree.min()).to.equal(undefined);
         });
         it('Should initialize an empty tree if given empty array', function () {
-            const tree = new AATree(compareFn, []);
+            const tree = new AVLTree(compareFn, []);
             expect(tree.size).to.equal(0);
             expect(tree.min()).to.equal(undefined);
         });
@@ -33,12 +33,12 @@ describe('AATree unit tests', function () {
             const it: Iterable<number> = {
                 [Symbol.iterator]: () => ({ next: () => ({ done: true, value: undefined }) }),
             };
-            const tree = new AATree(compareFn, it);
+            const tree = new AVLTree(compareFn, it);
             expect(tree.size).to.equal(0);
             expect(tree.min()).to.equal(undefined);
         });
         it('Should initialize a filled tree if given an array', function () {
-            const tree = new AATree(compareFn, values);
+            const tree = new AVLTree(compareFn, values);
             expect(tree.size).to.equal(values.length);
             const expected = Array.from(values).sort(compareFn);
             const actual = Array.from(tree).sort(compareFn);
@@ -46,18 +46,29 @@ describe('AATree unit tests', function () {
         });
         it('Should initialize a filled tree if given an iterable', function () {
             const it: Iterable<number> = { [Symbol.iterator]: () => values[Symbol.iterator]() };
-            const tree = new AATree(compareFn, values);
+            const tree = new AVLTree(compareFn, values);
             expect(tree.size).to.equal(values.length);
             const expected = Array.from(values).sort(compareFn);
             const actual = Array.from(tree).sort(compareFn);
             expect(actual).to.eql(expected);
         });
-        it('Should initialize a filled tree if given an AATree', function () {
-            const tree = new AATree(compareFn, filled);
+        it('Should initialize a filled tree if given an AVLTree', function () {
+            const tree = new AVLTree(compareFn, filled);
             expect(tree.size).to.equal(values.length);
             const expected = Array.from(values).sort(compareFn);
             const actual = Array.from(tree).sort(compareFn);
             expect(actual).to.eql(expected);
+        });
+        it('Should create the tree', function () {
+            expect(() => {
+                const tree = new AVLTree(
+                    compareFn,
+                    [
+                        29, 28, 4, 21, 26, 1, 10, 33, 32, 15, 35, 22, 2, 31, 7, 5, 23, 17, 6, 9, 3,
+                        11, 13, 34, 12, 25, 30, 0, 8, 20, 16, 18, 27, 19, 14, 24,
+                    ],
+                );
+            }).to.not.throw();
         });
     });
     describe('#add()', function () {
@@ -120,7 +131,7 @@ describe('AATree unit tests', function () {
             }
         });
     });
-    describe('#delete()', function () {
+    describe.skip('#delete()', function () {
         it('Should return false when empty', function () {
             expect(empty.delete(1)).to.equal(false);
             expect(empty.size).to.equal(0);
@@ -181,9 +192,9 @@ describe('AATree unit tests', function () {
             expect(empty.max()).to.equal(12);
         });
         it('Should return the largest value', function () {
-            let tree = new AATree(compareFn, [1, 2]);
+            let tree = new AVLTree(compareFn, [1, 2]);
             expect(tree.max()).to.equal(2);
-            tree = new AATree(compareFn, [2, 1]);
+            tree = new AVLTree(compareFn, [2, 1]);
             expect(tree.max()).to.equal(2);
         });
         it('Should return the largest values as tree grows', function () {
@@ -193,7 +204,7 @@ describe('AATree unit tests', function () {
                 expect(empty.max()).to.equal(sorted[sorted.length - 1]);
             }
         });
-        it('Should return the largest values as tree shrinks', function () {
+        it.skip('Should return the largest values as tree shrinks', function () {
             const sorted = Array.from(values).sort(compareFn);
             for (let i = values.length; i > 0; --i) {
                 expect(filled.max()).to.equal(sorted[i - 1]);
@@ -212,9 +223,9 @@ describe('AATree unit tests', function () {
             expect(empty.min()).to.equal(12);
         });
         it('Should return the smallest value', function () {
-            let tree = new AATree(compareFn, [1, 2]);
+            let tree = new AVLTree(compareFn, [1, 2]);
             expect(tree.min()).to.equal(1);
-            tree = new AATree(compareFn, [2, 1]);
+            tree = new AVLTree(compareFn, [2, 1]);
             expect(tree.min()).to.equal(1);
         });
         it('Should return the smallest values as tree grows', function () {
@@ -224,7 +235,7 @@ describe('AATree unit tests', function () {
                 expect(empty.min()).to.equal(sorted[0]);
             }
         });
-        it('Should return the smallest values as tree shrinks', function () {
+        it.skip('Should return the smallest values as tree shrinks', function () {
             const sorted = Array.from(values).sort((a, b) => compareFn(b, a));
             for (let i = values.length; i > 0; --i) {
                 expect(filled.min()).to.equal(sorted[i - 1]);
@@ -233,7 +244,7 @@ describe('AATree unit tests', function () {
             }
         });
     });
-    describe('#pop()', function () {
+    describe.skip('#pop()', function () {
         it('Should work when empty', function () {
             expect(empty.pop()).to.equal(undefined);
             expect(empty.size).to.equal(0);
@@ -265,7 +276,7 @@ describe('AATree unit tests', function () {
             }
         });
     });
-    describe('#shift()', function () {
+    describe.skip('#shift()', function () {
         it('Should work when empty', function () {
             expect(empty.pop()).to.equal(undefined);
             expect(empty.size).to.equal(0);
@@ -301,15 +312,18 @@ describe('AATree unit tests', function () {
         it('Should be zero when empty', function () {
             expect(empty.size).to.equal(0);
         });
-        it('Should be accurate', function () {
+        it('Should be accurate as tree grows', function () {
             let i = 0;
             while (i < values.length) {
                 empty.add(values[i]);
                 expect(empty.size).to.equal(++i);
             }
+        });
+        it.skip('Should be accurate as tree shrinks', function () {
+            let i = values.length;
             while (i > 0) {
-                empty.delete(values[--i]);
-                expect(empty.size).to.equal(i);
+                filled.delete(values[--i]);
+                expect(filled.size).to.equal(i);
             }
         });
     });
@@ -341,7 +355,7 @@ describe('AATree unit tests', function () {
             expect(actual).to.eql(expected);
         });
     });
-    describe('#update()', function () {
+    describe.skip('#update()', function () {
         it('Should return false when empty', function () {
             expect(empty.update(1, 2)).to.equal(false);
             expect(empty.size).to.equal(0);

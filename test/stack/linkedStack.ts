@@ -26,7 +26,9 @@ describe('LinkedStack unit tests', function () {
             expect(stack.peek()).to.equal(undefined);
         });
         it('Should initialize an empty stack if given empty iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => ({next: () => ({done: true, value: undefined})})};
+            const it: Iterable<number> = {
+                [Symbol.iterator]: () => ({ next: () => ({ done: true, value: undefined }) }),
+            };
             const stack = new LinkedStack(it);
             expect(stack.size).to.equal(0);
             expect(stack.peek()).to.equal(undefined);
@@ -39,7 +41,7 @@ describe('LinkedStack unit tests', function () {
             expect(actual).to.eql(expected);
         });
         it('Should initialize a filled stack if given an iterable', function () {
-            const it: Iterable<number> = {[Symbol.iterator]: () => values[Symbol.iterator]()};
+            const it: Iterable<number> = { [Symbol.iterator]: () => values[Symbol.iterator]() };
             const stack = new LinkedStack(values);
             expect(stack.size).to.equal(values.length);
             const expected = Array.from(values).reverse();
