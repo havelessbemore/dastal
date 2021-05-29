@@ -3,7 +3,7 @@
  * for understanding balance factor changes after rotations
  */
 import { AVLTreeNode } from './avlTreeNode';
-import { Edge, successor } from './binaryTreeUtils';
+import { Edge, successorStack } from './binaryTreeUtils';
 import { LinkedNode } from 'src/list';
 
 /**
@@ -44,7 +44,7 @@ export function remove<T>(stack: LinkedNode<Edge<AVLTreeNode<T>>>): boolean {
         node = node.right;
     } else {
         // If two children, find the successor
-        stack = successor(stack);
+        stack = successorStack(stack);
         edge = stack.value;
 
         // Swap with the successor

@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { AVLTree } from 'src/tree/avlTree';
 
-describe.only('AVLTree unit tests', function () {
+describe('AVLTree unit tests', function () {
     const compareFn = (a: number, b: number) => a - b;
     let empty: AVLTree<number>;
     let filled: AVLTree<number>;

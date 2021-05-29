@@ -2,12 +2,15 @@ import { CompareFn } from 'src';
 import { AVLTreeNode } from './avlTreeNode';
 import {
     clone,
+    search,
     Edge,
     inOrderTraverse,
     leftmost,
+    leftmostStack,
     preOrderTraverse,
     rightmost,
-    search,
+    rightmostStack,
+    searchStack,
 } from './binaryTreeUtils';
 import { SortedTree } from './sortedTree';
 import { isArray } from 'src/array/utils';
@@ -84,7 +87,7 @@ export class AVLTree<T> implements SortedTree<T> {
     add(element: T): number {
         // Find the element
         let edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
-        let stack = search(element, { value: edge }, this.compare, this.dupeWeight);
+        let stack = searchStack(element, { value: edge }, this.compare, this.dupeWeight);
 
         // If element already exists
         if (stack.value.to != null) {
@@ -121,15 +124,13 @@ export class AVLTree<T> implements SortedTree<T> {
     }
 
     contains(element: T): boolean {
-        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
-        edge = search(element, { value: edge }, this.compare, 0).value;
-        return edge.to != null;
+        return search(element, this.root.left, this.compare) != null;
     }
 
     delete(element: T): boolean {
         // Remove the element if found
         const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
-        const stack = search(element, { value: edge }, this.compare, 0);
+        const stack = searchStack(element, { value: edge }, this.compare, 0);
         const removed = remove(stack);
 
         // Update state
@@ -138,21 +139,17 @@ export class AVLTree<T> implements SortedTree<T> {
     }
 
     max(): T | undefined {
-        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
-        edge = rightmost({ value: edge }).value;
-        return edge.to?.value;
+        return rightmost(this.root.left)?.value;
     }
 
     min(): T | undefined {
-        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
-        edge = leftmost({ value: edge }).value;
-        return edge.to?.value;
+        return leftmost(this.root.left)?.value;
     }
 
     pop(): T | undefined {
         // Find the maximum value
         const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
-        const stack = rightmost({ value: edge });
+        const stack = rightmostStack({ value: edge });
         const value = stack.value.to?.value;
 
         // Remove the value
@@ -166,7 +163,7 @@ export class AVLTree<T> implements SortedTree<T> {
     shift(): T | undefined {
         // Find the minimum value
         const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
-        const stack = leftmost({ value: edge });
+        const stack = leftmostStack({ value: edge });
         const value = stack.value.to?.value;
 
         // Remove the value

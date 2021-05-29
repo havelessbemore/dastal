@@ -105,7 +105,22 @@ export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined)
 /**
  * @internal
  */
-export function leftmost<Node extends BinaryTreeNode<unknown>>(
+export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function leftmost<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
+export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
+export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+    if (node == null) {
+        return undefined;
+    }
+    while (node.left) {
+        node = node.left;
+    }
+    return node;
+}
+/**
+ * @internal
+ */
+export function leftmostStack<Node extends BinaryTreeNode<unknown>>(
     stack: LinkedNode<Edge<Node>>,
 ): LinkedNode<Edge<Node>> {
     let node = stack.value.to;
@@ -217,7 +232,16 @@ export function* postOrderTraverse<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function predecessor<Node extends BinaryTreeNode<unknown>>(
+export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function predecessor<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
+export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
+export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+    return node == null ? undefined : rightmost(node.left);
+}
+/**
+ * @internal
+ */
+export function predecessorStack<Node extends BinaryTreeNode<unknown>>(
     stack: LinkedNode<Edge<Node>>,
 ): LinkedNode<Edge<Node>> {
     const node = stack.value.to;
@@ -228,7 +252,7 @@ export function predecessor<Node extends BinaryTreeNode<unknown>>(
     if (node.left == null) {
         return stack;
     }
-    return rightmost(stack);
+    return rightmostStack(stack);
 }
 /**
  * @internal
@@ -250,7 +274,10 @@ export function* preOrderTraverse<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function reverse<Node extends BinaryTreeNode<unknown>>(root: Node): void {
+export function reverse<Node extends BinaryTreeNode<unknown>>(root?: Node): void {
+    if (root == null) {
+        return;
+    }
     for (const node of preOrderTraverse(root)) {
         const left = node.left;
         node.left = node.right;
@@ -260,7 +287,22 @@ export function reverse<Node extends BinaryTreeNode<unknown>>(root: Node): void 
 /**
  * @internal
  */
-export function rightmost<Node extends BinaryTreeNode<unknown>>(
+export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function rightmost<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
+export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
+export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+    if (node == null) {
+        return undefined;
+    }
+    while (node.right) {
+        node = node.right;
+    }
+    return node;
+}
+/**
+ * @internal
+ */
+export function rightmostStack<Node extends BinaryTreeNode<unknown>>(
     stack: LinkedNode<Edge<Node>>,
 ): LinkedNode<Edge<Node>> {
     let node = stack.value.to;
@@ -278,6 +320,24 @@ export function rightmost<Node extends BinaryTreeNode<unknown>>(
  * @internal
  */
 export function search<T, Node extends BinaryTreeNode<T>>(
+    element: T,
+    node: Node | undefined,
+    compareFn: CompareFn<T>,
+): Node | undefined {
+    while (node) {
+        const comp: number = compareFn(element, node.value);
+        if (comp == 0) {
+            break;
+        }
+        node = comp < 0 ? node.left : node.right;
+    }
+    return node;
+}
+/**
+ * Assumes sorted by compareFn
+ * @internal
+ */
+export function searchStack<T, Node extends BinaryTreeNode<T>>(
     element: T,
     stack: LinkedNode<Edge<Node>>,
     compareFn: CompareFn<T>,
@@ -299,7 +359,18 @@ export function search<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
+export function successor<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function successor<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
+export function successor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
 export function successor<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined {
+    return node == null ? undefined : leftmost(node.right);
+}
+/**
+ * @internal
+ */
+export function successorStack<Node extends BinaryTreeNode<unknown>>(
     stack: LinkedNode<Edge<Node>>,
 ): LinkedNode<Edge<Node>> {
     const node = stack.value.to;
@@ -310,7 +381,7 @@ export function successor<Node extends BinaryTreeNode<unknown>>(
     if (node.right == null) {
         return stack;
     }
-    return leftmost(stack);
+    return leftmostStack(stack);
 }
 /**
  * @internal
