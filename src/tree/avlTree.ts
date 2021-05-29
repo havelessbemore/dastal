@@ -11,7 +11,7 @@ import {
 } from './binaryTreeUtils';
 import { SortedTree } from './sortedTree';
 import { isArray } from 'src/array/utils';
-import { balance, height, remove } from './avlTreeUtils';
+import { balance, remove } from './avlTreeUtils';
 
 /**
  * An AVL tree is a self-balancing binary search tree ([source](https://en.wikipedia.org/wiki/AVL_tree)).
@@ -83,7 +83,7 @@ export class AVLTree<T> implements SortedTree<T> {
 
     add(element: T): number {
         // Find the element
-        const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
+        let edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
         let stack = search(element, { value: edge }, this.compare, this.dupeWeight);
 
         // If element already exists
@@ -92,18 +92,22 @@ export class AVLTree<T> implements SortedTree<T> {
         }
 
         // Add element
-        const node = stack.value.from!;
-        node[stack.value.label!] = { height: 0, value: element };
+        edge = stack.value;
+        let label = edge.label;
+        edge.from![label!] = { balanceFactor: 0, value: element };
 
         // Balance the tree
         while (stack.next) {
             stack = stack.next;
-            const edge = stack.value;
-            edge.to!.height = height(edge.to!);
-            edge.from![edge.label!] = balance(edge.to!);
+            edge = stack.value;
+            edge.to!.balanceFactor += label === 'left' ? -1 : 1;
+            edge.to = balance(edge.to!);
+            edge.from![(label = edge.label!)] = edge.to;
+            if (edge.to!.balanceFactor === 0) {
+                break;
+            }
         }
 
-        // Update state
         return ++this.length;
     }
 

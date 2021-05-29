@@ -40,4 +40,4 @@ Sorts the elements in place.
 
 The object this method was called on
 
-Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/8c69c82/src/index.ts#L38)
+Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/index.ts#L38)

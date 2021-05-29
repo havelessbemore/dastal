@@ -36,7 +36,7 @@ Each node links to its left and right child.
 
 A link to the node's left child.
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L10)
+Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 A link to the node's right child.
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L14)
+Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
@@ -56,4 +56,4 @@ ___
 
 The value of the node
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L18)
+Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L18)

@@ -87,7 +87,7 @@ Instantiate a heap.
 
 **Returns:** [*SkewHeap*](skewheap.md)<T\>
 
-Defined in: [src/heap/skewHeap.ts:47](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L47)
+Defined in: [src/heap/skewHeap.ts:47](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L47)
 
 ## Accessors
 
@@ -101,7 +101,7 @@ The number of elements in the heap.
 
 Implementation of: [Heap](../interfaces/heap.md).[size](../interfaces/heap.md#size)
 
-Defined in: [src/heap/skewHeap.ts:168](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L168)
+Defined in: [src/heap/skewHeap.ts:168](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L168)
 
 ## Methods
 
@@ -119,7 +119,7 @@ An iterator through the list
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:194](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L194)
+Defined in: [src/heap/skewHeap.ts:194](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L194)
 
 ___
 
@@ -141,7 +141,7 @@ The new size of the list.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:60](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L60)
+Defined in: [src/heap/skewHeap.ts:60](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L60)
 
 ___
 
@@ -155,7 +155,7 @@ Remove all elements.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:75](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L75)
+Defined in: [src/heap/skewHeap.ts:75](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L75)
 
 ___
 
@@ -169,7 +169,7 @@ The function with which elements are sorted
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:80](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L80)
+Defined in: [src/heap/skewHeap.ts:80](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L80)
 
 ___
 
@@ -191,7 +191,7 @@ Check if an element is in the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:84](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L84)
+Defined in: [src/heap/skewHeap.ts:84](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L84)
 
 ___
 
@@ -213,7 +213,7 @@ Delete an element from the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:93](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L93)
+Defined in: [src/heap/skewHeap.ts:93](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L93)
 
 ___
 
@@ -236,7 +236,7 @@ The new heap size.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:118](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L118)
+Defined in: [src/heap/skewHeap.ts:118](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L118)
 
 ___
 
@@ -252,7 +252,7 @@ The element at the top of the heap or `undefined` if empty.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:133](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L133)
+Defined in: [src/heap/skewHeap.ts:133](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L133)
 
 ___
 
@@ -268,7 +268,7 @@ The element at the top of the heap or `undefined` if empty.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:137](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L137)
+Defined in: [src/heap/skewHeap.ts:137](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L137)
 
 ___
 
@@ -290,7 +290,7 @@ The new size of the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:147](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L147)
+Defined in: [src/heap/skewHeap.ts:147](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L147)
 
 ___
 
@@ -312,7 +312,7 @@ The element at the top of the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:152](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L152)
+Defined in: [src/heap/skewHeap.ts:152](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L152)
 
 ___
 
@@ -334,7 +334,7 @@ The element at the top of the heap or `undefined` if empty.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:157](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L157)
+Defined in: [src/heap/skewHeap.ts:157](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L157)
 
 ___
 
@@ -350,7 +350,7 @@ Iterate through the heap in sorted order.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:172](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L172)
+Defined in: [src/heap/skewHeap.ts:172](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L172)
 
 ___
 
@@ -373,4 +373,4 @@ Update a specific element.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/skewHeap.ts:200](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/skewHeap.ts#L200)
+Defined in: [src/heap/skewHeap.ts:200](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/heap/skewHeap.ts#L200)

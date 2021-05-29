@@ -54,7 +54,7 @@ The number of elements in the tree.
 
 Inherited from: [Tree](tree.md).[size](tree.md#size)
 
-Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L60)
+Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L60)
 
 ## Methods
 
@@ -88,7 +88,7 @@ The new size of the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L36)
+Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L36)
 
 ___
 
@@ -102,7 +102,7 @@ Remove all elements.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L40)
+Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L40)
 
 ___
 
@@ -116,7 +116,7 @@ The function with which elements are sorted
 
 Inherited from: [Sorted](sorted.md)
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/8c69c82/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/index.ts#L47)
 
 ___
 
@@ -138,7 +138,7 @@ Check if an element is in the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L48)
+Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L48)
 
 ___
 
@@ -160,7 +160,7 @@ Delete an element from the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L56)
+Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L56)
 
 ___
 
@@ -172,7 +172,7 @@ Get the maximum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/tree/sortedTree.ts:11](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L11)
+Defined in: [src/tree/sortedTree.ts:11](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/sortedTree.ts#L11)
 
 ___
 
@@ -184,7 +184,7 @@ Get the minimum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/tree/sortedTree.ts:15](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L15)
+Defined in: [src/tree/sortedTree.ts:15](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/sortedTree.ts#L15)
 
 ___
 
@@ -196,7 +196,7 @@ Remove the maximum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/tree/sortedTree.ts:19](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L19)
+Defined in: [src/tree/sortedTree.ts:19](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/sortedTree.ts#L19)
 
 ___
 
@@ -208,7 +208,7 @@ Remove the minimum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: [src/tree/sortedTree.ts:23](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L23)
+Defined in: [src/tree/sortedTree.ts:23](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/sortedTree.ts#L23)
 
 ___
 
@@ -222,7 +222,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 **Returns:** *Iterable*<T\>
 
-Defined in: [src/tree/sortedTree.ts:29](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L29)
+Defined in: [src/tree/sortedTree.ts:29](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/sortedTree.ts#L29)
 
 ___
 
@@ -245,4 +245,4 @@ Update a specific element.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L69)
+Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L69)

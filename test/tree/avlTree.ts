@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { AVLTree } from 'src/tree/avlTree';
 
-describe('AVLTree unit tests', function () {
+describe.only('AVLTree unit tests', function () {
     const compareFn = (a: number, b: number) => a - b;
     let empty: AVLTree<number>;
     let filled: AVLTree<number>;
@@ -10,7 +10,7 @@ describe('AVLTree unit tests', function () {
     const updatedValues = new Uint32Array(36);
 
     // eslint-disable-next-line
-    randomFill(values, (_) => {});
+    randomFill(values, (_) => {})
     // eslint-disable-next-line
     randomFill(updatedValues, (_) => {});
 

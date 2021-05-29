@@ -23,20 +23,20 @@ If at any time they differ by more than one, rebalancing is done to restore this
 
 ### Properties
 
-- [height](avltreenode.md#height)
+- [balanceFactor](avltreenode.md#balancefactor)
 - [left](avltreenode.md#left)
 - [right](avltreenode.md#right)
 - [value](avltreenode.md#value)
 
 ## Properties
 
-### height
+### balanceFactor
 
-• **height**: *number*
+• **balanceFactor**: *number*
 
-The height of the node.
+The balance factor of the node.
 
-Defined in: [src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/avlTreeNode.ts#L13)
+Defined in: [src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTreeNode.ts#L13)
 
 ___
 
@@ -48,7 +48,7 @@ A link to the node's left child.
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L10)
+Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
@@ -60,7 +60,7 @@ A link to the node's right child.
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L14)
+Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
@@ -72,4 +72,4 @@ The value of the node
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L18)
+Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L18)

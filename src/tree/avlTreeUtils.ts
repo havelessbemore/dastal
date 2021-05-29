@@ -1,3 +1,7 @@
+/**
+ * Special thanks to [Gil Hamilton and MaksymB](https://cs.stackexchange.com/a/67818)
+ * for understanding balance factor changes after rotations
+ */
 import { AVLTreeNode } from './avlTreeNode';
 import { Edge, successor } from './binaryTreeUtils';
 import { LinkedNode } from 'src/list';
@@ -6,31 +10,18 @@ import { LinkedNode } from 'src/list';
  * @internal
  */
 export function balance<T>(node: AVLTreeNode<T>): AVLTreeNode<T> {
-    const bf = balanceFactor(node);
-    if (bf > 1) {
-        if (balanceFactor(node.right!) < 0) {
+    if (node.balanceFactor > 1) {
+        if (node.right!.balanceFactor < 0) {
             node.right = rotateR(node.right!);
         }
         node = rotateL(node);
-    } else if (bf < -1) {
-        if (balanceFactor(node.left!) > 0) {
+    } else if (node.balanceFactor < -1) {
+        if (node.left!.balanceFactor > 0) {
             node.left = rotateL(node.left!);
         }
         node = rotateR(node);
     }
     return node;
-}
-/**
- * @internal
- */
-export function balanceFactor(node: AVLTreeNode<unknown>): number {
-    return (node.right?.height ?? -1) - (node.left?.height ?? -1);
-}
-/**
- * @internal
- */
-export function height(node: AVLTreeNode<unknown>): number {
-    return 1 + Math.max(node.right?.height ?? -1, node.left?.height ?? -1);
 }
 /**
  * @internal
@@ -65,14 +56,19 @@ export function remove<T>(stack: LinkedNode<Edge<AVLTreeNode<T>>>): boolean {
     }
 
     // Make the replacement / update the tree
-    edge.from![edge.label!] = edge.to = node;
+    let label = edge.label;
+    edge.from![label!] = edge.to = node;
 
     // Balance the tree
     while (stack.next) {
         stack = stack.next;
-        const edge = stack.value;
-        edge.to!.height = height(edge.to!);
-        edge.from![edge.label!] = balance(edge.to!);
+        edge = stack.value;
+        edge.to!.balanceFactor -= label === 'left' ? -1 : 1;
+        edge.to = balance(edge.to!);
+        edge.from![(label = edge.label!)] = edge.to;
+        if (edge.to!.balanceFactor !== 0) {
+            break;
+        }
     }
 
     return true;
@@ -84,8 +80,8 @@ export function rotateL<T>(P: AVLTreeNode<T>): AVLTreeNode<T> {
     const R = P.right!;
     P.right = R.left;
     R.left = P;
-    P.height = height(P);
-    R.height = height(R);
+    P.balanceFactor -= 1 + Math.max(0, R.balanceFactor);
+    R.balanceFactor -= 1 - Math.min(0, P.balanceFactor);
     return R;
 }
 /**
@@ -95,7 +91,7 @@ export function rotateR<T>(P: AVLTreeNode<T>): AVLTreeNode<T> {
     const L = P.left!;
     P.left = L.right;
     L.right = P;
-    P.height = height(P);
-    L.height = height(L);
+    P.balanceFactor += 1 - Math.min(0, L.balanceFactor);
+    L.balanceFactor += 1 + Math.max(0, P.balanceFactor);
     return L;
 }

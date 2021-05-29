@@ -8,7 +8,7 @@ import { BinaryTreeNode } from './binaryTreeNode';
  */
 export interface AVLTreeNode<T> extends BinaryTreeNode<T> {
     /**
-     * The height of the node.
+     * The balance factor of the node.
      */
-    height: number;
+    balanceFactor: number;
 }
