@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
-import { AVLTree } from 'src/TODO/tree/avlTree';
+import { AVLTree } from 'src/tree/avlTree';
 
-describe.skip('AVLTree unit tests', function () {
+describe('AVLTree unit tests', function () {
     const compareFn = (a: number, b: number) => a - b;
     let empty: AVLTree<number>;
     let filled: AVLTree<number>;
@@ -131,7 +131,7 @@ describe.skip('AVLTree unit tests', function () {
             }
         });
     });
-    describe.skip('#delete()', function () {
+    describe('#delete()', function () {
         it('Should return false when empty', function () {
             expect(empty.delete(1)).to.equal(false);
             expect(empty.size).to.equal(0);
@@ -204,7 +204,7 @@ describe.skip('AVLTree unit tests', function () {
                 expect(empty.max()).to.equal(sorted[sorted.length - 1]);
             }
         });
-        it.skip('Should return the largest values as tree shrinks', function () {
+        it('Should return the largest values as tree shrinks', function () {
             const sorted = Array.from(values).sort(compareFn);
             for (let i = values.length; i > 0; --i) {
                 expect(filled.max()).to.equal(sorted[i - 1]);
@@ -235,7 +235,7 @@ describe.skip('AVLTree unit tests', function () {
                 expect(empty.min()).to.equal(sorted[0]);
             }
         });
-        it.skip('Should return the smallest values as tree shrinks', function () {
+        it('Should return the smallest values as tree shrinks', function () {
             const sorted = Array.from(values).sort((a, b) => compareFn(b, a));
             for (let i = values.length; i > 0; --i) {
                 expect(filled.min()).to.equal(sorted[i - 1]);
@@ -244,7 +244,7 @@ describe.skip('AVLTree unit tests', function () {
             }
         });
     });
-    describe.skip('#pop()', function () {
+    describe('#pop()', function () {
         it('Should work when empty', function () {
             expect(empty.pop()).to.equal(undefined);
             expect(empty.size).to.equal(0);
@@ -276,7 +276,7 @@ describe.skip('AVLTree unit tests', function () {
             }
         });
     });
-    describe.skip('#shift()', function () {
+    describe('#shift()', function () {
         it('Should work when empty', function () {
             expect(empty.pop()).to.equal(undefined);
             expect(empty.size).to.equal(0);
@@ -319,7 +319,7 @@ describe.skip('AVLTree unit tests', function () {
                 expect(empty.size).to.equal(++i);
             }
         });
-        it.skip('Should be accurate as tree shrinks', function () {
+        it('Should be accurate as tree shrinks', function () {
             let i = values.length;
             while (i > 0) {
                 filled.delete(values[--i]);
@@ -355,7 +355,7 @@ describe.skip('AVLTree unit tests', function () {
             expect(actual).to.eql(expected);
         });
     });
-    describe.skip('#update()', function () {
+    describe('#update()', function () {
         it('Should return false when empty', function () {
             expect(empty.update(1, 2)).to.equal(false);
             expect(empty.size).to.equal(0);

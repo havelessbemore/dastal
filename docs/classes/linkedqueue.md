@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / LinkedQueue
+[dastal - v2.0.1](../README.md) / LinkedQueue
 
 # Class: LinkedQueue<T\>
 
@@ -12,7 +12,7 @@ A linked list implementation of the [Queue](../interfaces/queue.md) interface
 
 ## Implements
 
-* [*Queue*](../interfaces/queue.md)<T\>
+- [*Queue*](../interfaces/queue.md)<T\>
 
 ## Table of contents
 
@@ -40,13 +40,13 @@ A linked list implementation of the [Queue](../interfaces/queue.md) interface
 
 Instantiate the queue.
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `T` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -54,7 +54,7 @@ Instantiate the queue.
 
 **Returns:** [*LinkedQueue*](linkedqueue.md)<T\>
 
-Defined in: [src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L11)
+Defined in: [src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L11)
 
 ## Accessors
 
@@ -68,7 +68,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: [src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L37)
+Defined in: [src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L37)
 
 ## Methods
 
@@ -86,7 +86,7 @@ An iterator through the queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L47)
+Defined in: [src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L47)
 
 ___
 
@@ -100,7 +100,7 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L21)
+Defined in: [src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L21)
 
 ___
 
@@ -114,7 +114,7 @@ Retrieves and removes the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L25)
+Defined in: [src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L25)
 
 ___
 
@@ -124,7 +124,7 @@ ___
 
 Inserts the specified value into this queue
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -134,7 +134,7 @@ Inserts the specified value into this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L29)
+Defined in: [src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L29)
 
 ___
 
@@ -148,4 +148,4 @@ Retrieves, but does not remove, the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/linkedQueue.ts#L33)
+Defined in: [src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/linkedQueue.ts#L33)

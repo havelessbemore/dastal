@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / LinkedList
+[dastal - v2.0.1](../README.md) / LinkedList
 
 # Class: LinkedList<T\>
 
@@ -12,7 +12,7 @@ A (circular) linked list implementation of the [List](../interfaces/list.md) int
 
 ## Implements
 
-* [*List*](../interfaces/list.md)<T\>
+- [*List*](../interfaces/list.md)<T\>
 
 ## Table of contents
 
@@ -56,13 +56,13 @@ A (circular) linked list implementation of the [List](../interfaces/list.md) int
 
 Instantiate the list.
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `T` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -70,7 +70,7 @@ Instantiate the list.
 
 **Returns:** [*LinkedList*](linkedlist.md)<T\>
 
-Defined in: [src/list/linkedList.ts:21](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L21)
+Defined in: [src/list/linkedList.ts:21](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L21)
 
 ## Accessors
 
@@ -84,7 +84,7 @@ The number of elements in this list
 
 Implementation of: [List](../interfaces/list.md).[size](../interfaces/list.md#size)
 
-Defined in: [src/list/linkedList.ts:207](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L207)
+Defined in: [src/list/linkedList.ts:207](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L207)
 
 ## Methods
 
@@ -102,7 +102,7 @@ An iterator through the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:257](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L257)
+Defined in: [src/list/linkedList.ts:257](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L257)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 Add the element at the specified index.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -123,7 +123,7 @@ Add the element at the specified index.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L34)
+Defined in: [src/list/linkedList.ts:34](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L34)
 
 ___
 
@@ -133,7 +133,7 @@ ___
 
 Add elements at the specified index.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -144,7 +144,7 @@ Add elements at the specified index.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:45](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L45)
+Defined in: [src/list/linkedList.ts:45](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L45)
 
 ___
 
@@ -158,7 +158,7 @@ Removes all elements
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:54](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L54)
+Defined in: [src/list/linkedList.ts:54](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L54)
 
 ___
 
@@ -168,7 +168,7 @@ ___
 
 Combines the list with multiple iterables into a new list. Does not modify the existing list or inputs.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -178,7 +178,7 @@ Combines the list with multiple iterables into a new list. Does not modify the e
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:59](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L59)
+Defined in: [src/list/linkedList.ts:59](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L59)
 
 ___
 
@@ -194,7 +194,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 Note that this method will not change the size of the list. If index is after min,
 the copied sequence will be trimmed to fit list.size
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -206,7 +206,7 @@ the copied sequence will be trimmed to fit list.size
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:67](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L67)
+Defined in: [src/list/linkedList.ts:67](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L67)
 
 ___
 
@@ -219,7 +219,7 @@ Returns the this object after filling the section identified by min and max with
 Negative indices can be used for min and max to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -231,7 +231,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:110](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L110)
+Defined in: [src/list/linkedList.ts:110](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L110)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 Return the element at the specified index.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -251,7 +251,7 @@ Return the element at the specified index.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:123](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L123)
+Defined in: [src/list/linkedList.ts:123](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L123)
 
 ___
 
@@ -261,7 +261,7 @@ ___
 
 Update the element at the specified index.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -272,7 +272,7 @@ Update the element at the specified index.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:130](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L130)
+Defined in: [src/list/linkedList.ts:130](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L130)
 
 ___
 
@@ -286,7 +286,7 @@ Retrieves and removes the end of the list.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:140](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L140)
+Defined in: [src/list/linkedList.ts:140](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L140)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 Inserts the specified value into the end of the list
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -306,7 +306,7 @@ Inserts the specified value into the end of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:151](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L151)
+Defined in: [src/list/linkedList.ts:151](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L151)
 
 ___
 
@@ -319,7 +319,7 @@ Retrieves and removes the element at the given index.
 A negative index can be used to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -329,7 +329,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:158](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L158)
+Defined in: [src/list/linkedList.ts:158](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L158)
 
 ___
 
@@ -342,7 +342,7 @@ Reverses the elements in the list in place.
 Negative indices can be used for min and max to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -353,7 +353,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:171](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L171)
+Defined in: [src/list/linkedList.ts:171](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L171)
 
 ___
 
@@ -363,7 +363,7 @@ ___
 
 Update the element at the specified index.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -374,7 +374,7 @@ Update the element at the specified index.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:193](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L193)
+Defined in: [src/list/linkedList.ts:193](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L193)
 
 ___
 
@@ -388,7 +388,7 @@ Retrieves and removes the first element in the list.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:203](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L203)
+Defined in: [src/list/linkedList.ts:203](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L203)
 
 ___
 
@@ -401,7 +401,7 @@ Returns a copy of a section of the list.
 Negative indices can be used for min and max to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -412,7 +412,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:211](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L211)
+Defined in: [src/list/linkedList.ts:211](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L211)
 
 ___
 
@@ -422,7 +422,7 @@ ___
 
 Sorts the elements in place.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -432,7 +432,7 @@ Sorts the elements in place.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:242](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L242)
+Defined in: [src/list/linkedList.ts:242](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L242)
 
 ___
 
@@ -443,7 +443,7 @@ ___
 Removes elements from the list and optionally inserts new elements in their place.
 Returns any deleted elements.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -455,7 +455,7 @@ Returns any deleted elements.
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:215](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L215)
+Defined in: [src/list/linkedList.ts:215](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L215)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 Inserts the specified value into the front of the list
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -475,7 +475,7 @@ Inserts the specified value into the front of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:263](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L263)
+Defined in: [src/list/linkedList.ts:263](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L263)
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 Update the elements of the list
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -495,7 +495,7 @@ Update the elements of the list
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:267](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L267)
+Defined in: [src/list/linkedList.ts:267](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L267)
 
 ▸ **update**(`min`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*LinkedList*](linkedlist.md)<T\>
 
@@ -504,7 +504,7 @@ Update the elements of the list
 Negative indices can be used to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -515,7 +515,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:268](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L268)
+Defined in: [src/list/linkedList.ts:268](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L268)
 
 ▸ **update**(`min`: *undefined* \| *number*, `max`: *undefined* \| *number*, `callback`: (`element`: T, `index`: *number*) => T): [*LinkedList*](linkedlist.md)<T\>
 
@@ -524,7 +524,7 @@ Update the elements of the list
 Negative indices can be used for min and max to indicate an offset from the
 end of the list. For example, -2 refers to the second to last element of the list.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -536,7 +536,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:269](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L269)
+Defined in: [src/list/linkedList.ts:269](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L269)
 
 ___
 
@@ -551,7 +551,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 **Note:** Unexpected behavior can occur if the collection is modified during iteration.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -562,4 +562,4 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 Implementation of: [List](../interfaces/list.md)
 
-Defined in: [src/list/linkedList.ts:300](https://github.com/havelessbemore/dastal/blob/5cebce9/src/list/linkedList.ts#L300)
+Defined in: [src/list/linkedList.ts:300](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedList.ts#L300)

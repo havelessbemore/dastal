@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / Queue
+[dastal - v2.0.1](../README.md) / Queue
 
 # Interface: Queue<T\>
 
@@ -21,14 +21,14 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ## Hierarchy
 
-* *Iterable*<T\>
+- *Iterable*<T\>
 
   ↳ **Queue**
 
 ## Implemented by
 
-* [*ArrayQueue*](../classes/arrayqueue.md)
-* [*LinkedQueue*](../classes/linkedqueue.md)
+- [*ArrayQueue*](../classes/arrayqueue.md)
+- [*LinkedQueue*](../classes/linkedqueue.md)
 
 ## Table of contents
 
@@ -52,7 +52,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 The number of elements in this queue
 
-Defined in: [src/queue/queue.ts:41](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L41)
+Defined in: [src/queue/queue.ts:41](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/queue.ts#L41)
 
 ## Methods
 
@@ -76,7 +76,7 @@ Removes all elements from this queue
 
 **Returns:** *void*
 
-Defined in: [src/queue/queue.ts:17](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L17)
+Defined in: [src/queue/queue.ts:17](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/queue.ts#L17)
 
 ___
 
@@ -90,7 +90,7 @@ Retrieves and removes the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:23](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L23)
+Defined in: [src/queue/queue.ts:23](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/queue.ts#L23)
 
 ___
 
@@ -100,7 +100,7 @@ ___
 
 Inserts the specified value into this queue
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -110,7 +110,7 @@ Inserts the specified value into this queue
 
 The new size of the queue
 
-Defined in: [src/queue/queue.ts:31](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L31)
+Defined in: [src/queue/queue.ts:31](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/queue.ts#L31)
 
 ___
 
@@ -124,4 +124,4 @@ Retrieves, but does not remove, the head of this queue
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:37](https://github.com/havelessbemore/dastal/blob/5cebce9/src/queue/queue.ts#L37)
+Defined in: [src/queue/queue.ts:37](https://github.com/havelessbemore/dastal/blob/8c69c82/src/queue/queue.ts#L37)

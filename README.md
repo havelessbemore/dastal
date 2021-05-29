@@ -25,6 +25,7 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 
 ### Classes
 - [AATree](docs/classes/aatree.md)
+- [AVLTree](docs/classes/avltree.md)
 - [ArrayList](docs/classes/arraylist.md)
 - [ArrayQueue](docs/classes/arrayqueue.md)
 - [ArrayStack](docs/classes/arraystack.md)

@@ -1,4 +1,4 @@
-import { BinaryTreeNode } from '../../tree/binaryTreeNode';
+import { BinaryTreeNode } from './binaryTreeNode';
 
 /**
  * An AVLTree node interface ([source](https://en.wikipedia.org/wiki/AVL_tree)).

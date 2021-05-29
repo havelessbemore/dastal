@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / AATree
+[dastal - v2.0.1](../README.md) / AATree
 
 # Class: AATree<T\>
 
@@ -25,7 +25,7 @@ in slightly faster search times.
 
 ## Implements
 
-* [*SortedTree*](../interfaces/sortedtree.md)<T\>
+- [*SortedTree*](../interfaces/sortedtree.md)<T\>
 
 ## Table of contents
 
@@ -60,13 +60,13 @@ in slightly faster search times.
 
 Instantiate a tree.
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `T` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -75,7 +75,7 @@ Instantiate a tree.
 
 **Returns:** [*AATree*](aatree.md)<T\>
 
-Defined in: src/tree/aaTree.ts:36
+Defined in: [src/tree/aaTree.ts:36](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L36)
 
 ## Accessors
 
@@ -89,7 +89,7 @@ The number of elements in the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md).[size](../interfaces/sortedtree.md#size)
 
-Defined in: src/tree/aaTree.ts:121
+Defined in: [src/tree/aaTree.ts:121](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L121)
 
 ## Methods
 
@@ -107,7 +107,7 @@ An iterator through the list
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:137
+Defined in: [src/tree/aaTree.ts:137](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L137)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 Inserts an element into the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -127,7 +127,7 @@ Inserts an element into the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:49
+Defined in: [src/tree/aaTree.ts:49](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L49)
 
 ___
 
@@ -141,7 +141,7 @@ Remove all elements.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:54
+Defined in: [src/tree/aaTree.ts:54](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L54)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:59
+Defined in: [src/tree/aaTree.ts:59](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L59)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 Check if an element is in the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -173,7 +173,7 @@ Check if an element is in the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:63
+Defined in: [src/tree/aaTree.ts:63](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L63)
 
 ___
 
@@ -183,7 +183,7 @@ ___
 
 Delete an element from the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -193,7 +193,7 @@ Delete an element from the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:74
+Defined in: [src/tree/aaTree.ts:74](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L74)
 
 ___
 
@@ -207,7 +207,7 @@ Get the maximum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:81
+Defined in: [src/tree/aaTree.ts:81](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L81)
 
 ___
 
@@ -221,7 +221,7 @@ Get the minimum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:92
+Defined in: [src/tree/aaTree.ts:92](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L92)
 
 ___
 
@@ -235,7 +235,7 @@ Remove the maximum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:103
+Defined in: [src/tree/aaTree.ts:103](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L103)
 
 ___
 
@@ -249,7 +249,7 @@ Remove the minimum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:112
+Defined in: [src/tree/aaTree.ts:112](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L112)
 
 ___
 
@@ -265,7 +265,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:125
+Defined in: [src/tree/aaTree.ts:125](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L125)
 
 ___
 
@@ -275,7 +275,7 @@ ___
 
 Update a specific element.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -286,4 +286,4 @@ Update a specific element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: src/tree/aaTree.ts:143
+Defined in: [src/tree/aaTree.ts:143](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/aaTree.ts#L143)

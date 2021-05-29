@@ -7,8 +7,8 @@ import { BinaryTreeNode } from './binaryTreeNode';
  */
 export interface Edge<Node extends BinaryTreeNode<unknown>> {
     label?: 'left' | 'right';
-    prev?: Node;
-    next?: Node;
+    from?: Node;
+    to?: Node;
 }
 /**
  * [source](https://stackoverflow.com/questions/51419176/how-to-get-a-subset-of-keyof-t-whose-value-tk-are-callable-functions-in-typ)
@@ -16,7 +16,68 @@ export interface Edge<Node extends BinaryTreeNode<unknown>> {
  * @internal
  *
 export type KeyOfType<T, U> = {[K in keyof T]: T[K] extends U ? K: never}[keyof T];
-/
+*/
+/**
+ * @internal
+ */
+export function debug<N extends BinaryTreeNode<T>, T = any>(
+    root: N | undefined,
+    mapFn?: (node: N) => any,
+): void {
+    mapFn = mapFn == null ? (n) => n.value : mapFn;
+
+    // Turn the tree into an array in level-order
+    const array: string[] = [];
+    for (const node of levelOrderTraverse(root, true)) {
+        array.push(node ? `${mapFn(node)}` : '?');
+    }
+
+    // If empty
+    if (array.length < 1) {
+        console.log('<empty>\n');
+        return;
+    }
+
+    // Find the longest value string
+    const lenV = array.reduce((p, c) => Math.max(p, c.length), 0);
+
+    // Pad each value
+    for (let i = 0; i < array.length; ++i) {
+        array[i] = pad(array[i], lenV, ' ');
+    }
+
+    // Split values into levels
+    const levels = [];
+    for (let n = 1; array.length > 0; n *= 2) {
+        levels.push(array.splice(0, n));
+    }
+
+    // Initialize formatting variables
+    let branch = '_'.repeat(1 + lenV / 2);
+    let offset = '';
+    const offsetOffset = ' '.repeat(branch.length);
+    let separator = ' '.repeat(1 + ((lenV - 1) & 1));
+    const separatorOffset = ' '.repeat(lenV);
+
+    // Build the last level
+    array.length = levels.length;
+    array[array.length - 1] = levels.pop()!.join(separator);
+
+    // Build remaining levels in reverse
+    for (let n = levels.length - 1; n >= 0; --n) {
+        const level = levels.pop()!;
+        for (let j = 0; j < level.length; ++j) {
+            level[j] = branch + level[j] + branch;
+        }
+        array[n] = offset + level.join(separator);
+        branch += branch;
+        offset += offset + offsetOffset;
+        separator += separator + separatorOffset;
+    }
+
+    // Output
+    console.log(array.join('\n'), '\n');
+}
 /**
  * @internal
  */
@@ -40,6 +101,22 @@ export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined)
         }
     } while (stack);
     return out;
+}
+/**
+ * @internal
+ */
+export function leftmost<Node extends BinaryTreeNode<unknown>>(
+    stack: LinkedNode<Edge<Node>>,
+): LinkedNode<Edge<Node>> {
+    let node = stack.value.to;
+    if (node == null) {
+        return stack;
+    }
+    while (node.left) {
+        stack = { next: stack, value: { label: 'left', from: node, to: node.left } };
+        node = node.left;
+    }
+    return stack;
 }
 /**
  * @internal
@@ -101,48 +178,15 @@ export function* levelOrderTraverse<T, Node extends BinaryTreeNode<T>>(
     }
 }
 /**
- * Assumes sorted
  * @internal
  */
-export function max<T, Node extends BinaryTreeNode<T>>(node?: undefined): undefined;
-export function max<T, Node extends BinaryTreeNode<T>>(node: Node): LinkedNode<Edge<Node>>;
-export function max<T, Node extends BinaryTreeNode<T>>(
-    node: Node | undefined,
-): LinkedNode<Edge<Node>> | undefined;
-export function max<T, Node extends BinaryTreeNode<T>>(
-    node: Node | undefined,
-): LinkedNode<Edge<Node>> | undefined {
-    if (node == null) {
-        return undefined;
+function pad(str: string, maxLen: number, fillString: string): string {
+    const len = str.length;
+    if (len >= maxLen) {
+        return str;
     }
-    let stack: LinkedNode<Edge<Node>> = { value: { next: node } };
-    while (node.right) {
-        stack = { next: stack, value: { label: 'right', prev: node, next: node.right } };
-        node = node.right;
-    }
-    return stack;
-}
-/**
- * Assumes sorted
- * @internal
- */
-export function min<T, Node extends BinaryTreeNode<T>>(node?: undefined): undefined;
-export function min<T, Node extends BinaryTreeNode<T>>(node: Node): LinkedNode<Edge<Node>>;
-export function min<T, Node extends BinaryTreeNode<T>>(
-    node: Node | undefined,
-): LinkedNode<Edge<Node>> | undefined;
-export function min<T, Node extends BinaryTreeNode<T>>(
-    node: Node | undefined,
-): LinkedNode<Edge<Node>> | undefined {
-    if (node == null) {
-        return undefined;
-    }
-    let stack: LinkedNode<Edge<Node>> = { value: { next: node } };
-    while (node.left) {
-        stack = { next: stack, value: { label: 'left', prev: node, next: node.left } };
-        node = node.left;
-    }
-    return stack;
+    const diff = maxLen - len;
+    return str.padStart(len + diff / 2, fillString).padEnd(len + diff, fillString);
 }
 /**
  * @internal
@@ -173,6 +217,22 @@ export function* postOrderTraverse<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
+export function predecessor<Node extends BinaryTreeNode<unknown>>(
+    stack: LinkedNode<Edge<Node>>,
+): LinkedNode<Edge<Node>> {
+    const node = stack.value.to;
+    if (node == null) {
+        return stack;
+    }
+    stack = { next: stack, value: { label: 'left', from: node, to: node.left } };
+    if (node.left == null) {
+        return stack;
+    }
+    return rightmost(stack);
+}
+/**
+ * @internal
+ */
 export function* preOrderTraverse<T, Node extends BinaryTreeNode<T>>(
     node: Node | undefined,
 ): Generator<Node> {
@@ -188,49 +248,69 @@ export function* preOrderTraverse<T, Node extends BinaryTreeNode<T>>(
     } while (stack);
 }
 /**
- * Assumes sorted
+ * @internal
+ */
+export function reverse<Node extends BinaryTreeNode<unknown>>(root: Node): void {
+    for (const node of preOrderTraverse(root)) {
+        const left = node.left;
+        node.left = node.right;
+        node.right = left;
+    }
+}
+/**
+ * @internal
+ */
+export function rightmost<Node extends BinaryTreeNode<unknown>>(
+    stack: LinkedNode<Edge<Node>>,
+): LinkedNode<Edge<Node>> {
+    let node = stack.value.to;
+    if (node == null) {
+        return stack;
+    }
+    while (node.right) {
+        stack = { next: stack, value: { label: 'right', from: node, to: node.right } };
+        node = node.right;
+    }
+    return stack;
+}
+/**
+ * Assumes sorted by compareFn
  * @internal
  */
 export function search<T, Node extends BinaryTreeNode<T>>(
     element: T,
-    node: undefined,
-    compareFn: CompareFn<T>,
-    dupeWeight: number,
-): undefined;
-export function search<T, Node extends BinaryTreeNode<T>>(
-    element: T,
-    node: Node,
-    compareFn: CompareFn<T>,
-    dupeWeight: number,
-): LinkedNode<Edge<Node>>;
-export function search<T, Node extends BinaryTreeNode<T>>(
-    element: T,
-    node: Node | undefined,
-    compareFn: CompareFn<T>,
-    dupeWeight: number,
-): LinkedNode<Edge<Node>> | undefined;
-export function search<T, Node extends BinaryTreeNode<T>>(
-    element: T,
-    node: Node | undefined,
+    stack: LinkedNode<Edge<Node>>,
     compareFn: CompareFn<T>,
     dupeWeight = 0,
-): LinkedNode<Edge<Node>> | undefined {
-    if (node == null) {
-        return undefined;
-    }
+): LinkedNode<Edge<Node>> {
     const paths: ['left', 'right'] = ['left', 'right'];
-    let stack: LinkedNode<Edge<Node>> = { value: { next: node } };
-    do {
+    let node = stack.value.to;
+    while (node) {
         const comp: number = compareFn(element, node.value) || dupeWeight;
         if (comp === 0) {
             break;
         }
         const label = paths[+(comp > 0)];
-        stack = { next: stack, value: { label, prev: node, next: node[label] } };
+        stack = { next: stack, value: { label, from: node, to: node[label] } };
         node = node[label]!;
-    } while (node != null);
-
+    }
     return stack;
+}
+/**
+ * @internal
+ */
+export function successor<Node extends BinaryTreeNode<unknown>>(
+    stack: LinkedNode<Edge<Node>>,
+): LinkedNode<Edge<Node>> {
+    const node = stack.value.to;
+    if (node == null) {
+        return stack;
+    }
+    stack = { next: stack, value: { label: 'right', from: node, to: node.right } };
+    if (node.right == null) {
+        return stack;
+    }
+    return leftmost(stack);
 }
 /**
  * @internal

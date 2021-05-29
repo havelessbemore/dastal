@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / BinaryHeap
+[dastal - v2.0.1](../README.md) / BinaryHeap
 
 # Class: BinaryHeap<T\>
 
@@ -27,7 +27,7 @@ the nodes of that level are filled from left to right.
 
 ## Implements
 
-* [*Heap*](../interfaces/heap.md)<T\>
+- [*Heap*](../interfaces/heap.md)<T\>
 
 ## Table of contents
 
@@ -64,13 +64,13 @@ the nodes of that level are filled from left to right.
 
 Instantiate a heap.
 
-#### Type parameters:
+#### Type parameters
 
 | Name |
 | :------ |
 | `T` |
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -79,7 +79,7 @@ Instantiate a heap.
 
 **Returns:** [*BinaryHeap*](binaryheap.md)<T\>
 
-Defined in: [src/heap/binaryHeap.ts:32](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L32)
+Defined in: [src/heap/binaryHeap.ts:32](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L32)
 
 ## Accessors
 
@@ -93,7 +93,7 @@ The number of elements in the heap.
 
 Implementation of: [Heap](../interfaces/heap.md).[size](../interfaces/heap.md#size)
 
-Defined in: [src/heap/binaryHeap.ts:186](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L186)
+Defined in: [src/heap/binaryHeap.ts:186](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L186)
 
 ## Methods
 
@@ -111,7 +111,7 @@ An iterator through the list
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:213](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L213)
+Defined in: [src/heap/binaryHeap.ts:213](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L213)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 Insert a set of elements into the heap.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -131,7 +131,7 @@ Insert a set of elements into the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:45](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L45)
+Defined in: [src/heap/binaryHeap.ts:45](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L45)
 
 ___
 
@@ -145,7 +145,7 @@ Remove all elements.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:73](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L73)
+Defined in: [src/heap/binaryHeap.ts:73](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L73)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:77](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L77)
+Defined in: [src/heap/binaryHeap.ts:77](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L77)
 
 ___
 
@@ -167,7 +167,7 @@ ___
 
 Check if an element is in the heap.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -177,7 +177,7 @@ Check if an element is in the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:81](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L81)
+Defined in: [src/heap/binaryHeap.ts:81](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L81)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 Delete an element from the heap.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -197,7 +197,7 @@ Delete an element from the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:85](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L85)
+Defined in: [src/heap/binaryHeap.ts:85](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L85)
 
 ___
 
@@ -208,7 +208,7 @@ ___
 Join with a different heap and modify the existing heap to
 contain elements of both. Does not modify the input.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -218,7 +218,7 @@ contain elements of both. Does not modify the input.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:105](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L105)
+Defined in: [src/heap/binaryHeap.ts:105](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L105)
 
 ___
 
@@ -232,7 +232,7 @@ Retrieves, but does not remove, the top of the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:124](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L124)
+Defined in: [src/heap/binaryHeap.ts:124](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L124)
 
 ___
 
@@ -246,7 +246,7 @@ Remove the top of the heap (AKA extract).
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:128](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L128)
+Defined in: [src/heap/binaryHeap.ts:128](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L128)
 
 ___
 
@@ -256,7 +256,7 @@ ___
 
 Inserts an element into the heap (AKA insert, add).
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -266,7 +266,7 @@ Inserts an element into the heap (AKA insert, add).
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:147](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L147)
+Defined in: [src/heap/binaryHeap.ts:147](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L147)
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 Insert an element and then remove the top of the heap.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -286,7 +286,7 @@ Insert an element and then remove the top of the heap.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:156](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L156)
+Defined in: [src/heap/binaryHeap.ts:156](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L156)
 
 ___
 
@@ -296,7 +296,7 @@ ___
 
 Remove the top of the heap and then insert a new element (AKA popPush).
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -306,7 +306,7 @@ Remove the top of the heap and then insert a new element (AKA popPush).
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:169](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L169)
+Defined in: [src/heap/binaryHeap.ts:169](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L169)
 
 ___
 
@@ -322,7 +322,7 @@ Iterate through the heap in sorted order.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:190](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L190)
+Defined in: [src/heap/binaryHeap.ts:190](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L190)
 
 ___
 
@@ -332,7 +332,7 @@ ___
 
 Update a specific element.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
@@ -343,4 +343,4 @@ Update a specific element.
 
 Implementation of: [Heap](../interfaces/heap.md)
 
-Defined in: [src/heap/binaryHeap.ts:217](https://github.com/havelessbemore/dastal/blob/5cebce9/src/heap/binaryHeap.ts#L217)
+Defined in: [src/heap/binaryHeap.ts:217](https://github.com/havelessbemore/dastal/blob/8c69c82/src/heap/binaryHeap.ts#L217)

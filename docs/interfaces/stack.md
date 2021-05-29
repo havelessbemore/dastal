@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / Stack
+[dastal - v2.0.1](../README.md) / Stack
 
 # Interface: Stack<T\>
 
@@ -19,14 +19,14 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ## Hierarchy
 
-* *Iterable*<T\>
+- *Iterable*<T\>
 
   ↳ **Stack**
 
 ## Implemented by
 
-* [*ArrayStack*](../classes/arraystack.md)
-* [*LinkedStack*](../classes/linkedstack.md)
+- [*ArrayStack*](../classes/arraystack.md)
+- [*LinkedStack*](../classes/linkedstack.md)
 
 ## Table of contents
 
@@ -50,7 +50,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 The number of elements in the stack
 
-Defined in: [src/stack/stack.ts:39](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/stack.ts#L39)
+Defined in: [src/stack/stack.ts:39](https://github.com/havelessbemore/dastal/blob/8c69c82/src/stack/stack.ts#L39)
 
 ## Methods
 
@@ -74,7 +74,7 @@ Removes all elements from the stack
 
 **Returns:** *void*
 
-Defined in: [src/stack/stack.ts:15](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/stack.ts#L15)
+Defined in: [src/stack/stack.ts:15](https://github.com/havelessbemore/dastal/blob/8c69c82/src/stack/stack.ts#L15)
 
 ___
 
@@ -88,7 +88,7 @@ Retrieves, but does not remove, the top of the stack
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:21](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/stack.ts#L21)
+Defined in: [src/stack/stack.ts:21](https://github.com/havelessbemore/dastal/blob/8c69c82/src/stack/stack.ts#L21)
 
 ___
 
@@ -102,7 +102,7 @@ Retrieves and removes the top of the stack
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:27](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/stack.ts#L27)
+Defined in: [src/stack/stack.ts:27](https://github.com/havelessbemore/dastal/blob/8c69c82/src/stack/stack.ts#L27)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 Inserts an element into the stack
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -122,4 +122,4 @@ Inserts an element into the stack
 
 The new size of the stack
 
-Defined in: [src/stack/stack.ts:35](https://github.com/havelessbemore/dastal/blob/5cebce9/src/stack/stack.ts#L35)
+Defined in: [src/stack/stack.ts:35](https://github.com/havelessbemore/dastal/blob/8c69c82/src/stack/stack.ts#L35)

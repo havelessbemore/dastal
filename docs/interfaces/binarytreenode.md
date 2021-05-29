@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / BinaryTreeNode
+[dastal - v2.0.1](../README.md) / BinaryTreeNode
 
 # Interface: BinaryTreeNode<T\>
 
@@ -14,9 +14,11 @@ Each node links to its left and right child.
 
 ## Hierarchy
 
-* **BinaryTreeNode**
+- **BinaryTreeNode**
 
   ↳ [*AATreeNode*](aatreenode.md)
+
+  ↳ [*AVLTreeNode*](avltreenode.md)
 
 ## Table of contents
 
@@ -34,7 +36,7 @@ Each node links to its left and right child.
 
 A link to the node's left child.
 
-Defined in: src/tree/binaryTreeNode.ts:10
+Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
@@ -44,7 +46,7 @@ ___
 
 A link to the node's right child.
 
-Defined in: src/tree/binaryTreeNode.ts:14
+Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
@@ -54,4 +56,4 @@ ___
 
 The value of the node
 
-Defined in: src/tree/binaryTreeNode.ts:18
+Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/binaryTreeNode.ts#L18)

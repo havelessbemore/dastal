@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / SortedTree
+[dastal - v2.0.1](../README.md) / SortedTree
 
 # Interface: SortedTree<T\>
 
@@ -12,15 +12,16 @@ Represents a sorted tree data structure.
 
 ## Hierarchy
 
-* [*Tree*](tree.md)<T\>
+- [*Tree*](tree.md)<T\>
 
-* [*Sorted*](sorted.md)<T\>
+- [*Sorted*](sorted.md)<T\>
 
   ↳ **SortedTree**
 
 ## Implemented by
 
-* [*AATree*](../classes/aatree.md)
+- [*AATree*](../classes/aatree.md)
+- [*AVLTree*](../classes/avltree.md)
 
 ## Table of contents
 
@@ -53,7 +54,7 @@ The number of elements in the tree.
 
 Inherited from: [Tree](tree.md).[size](tree.md#size)
 
-Defined in: src/tree/tree.ts:60
+Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L60)
 
 ## Methods
 
@@ -75,7 +76,7 @@ ___
 
 Inserts an element into the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -87,7 +88,7 @@ The new size of the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: src/tree/tree.ts:36
+Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L36)
 
 ___
 
@@ -101,7 +102,7 @@ Remove all elements.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: src/tree/tree.ts:40
+Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L40)
 
 ___
 
@@ -115,7 +116,7 @@ The function with which elements are sorted
 
 Inherited from: [Sorted](sorted.md)
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/5cebce9/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/8c69c82/src/index.ts#L47)
 
 ___
 
@@ -125,7 +126,7 @@ ___
 
 Check if an element is in the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -137,7 +138,7 @@ Check if an element is in the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: src/tree/tree.ts:48
+Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L48)
 
 ___
 
@@ -147,7 +148,7 @@ ___
 
 Delete an element from the tree.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -159,7 +160,7 @@ Delete an element from the tree.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: src/tree/tree.ts:56
+Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L56)
 
 ___
 
@@ -171,7 +172,7 @@ Get the maximum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: src/tree/sortedTree.ts:11
+Defined in: [src/tree/sortedTree.ts:11](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L11)
 
 ___
 
@@ -183,7 +184,7 @@ Get the minimum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: src/tree/sortedTree.ts:15
+Defined in: [src/tree/sortedTree.ts:15](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L15)
 
 ___
 
@@ -195,7 +196,7 @@ Remove the maximum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: src/tree/sortedTree.ts:19
+Defined in: [src/tree/sortedTree.ts:19](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L19)
 
 ___
 
@@ -207,7 +208,7 @@ Remove the minimum element.
 
 **Returns:** *undefined* \| T
 
-Defined in: src/tree/sortedTree.ts:23
+Defined in: [src/tree/sortedTree.ts:23](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L23)
 
 ___
 
@@ -221,7 +222,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 **Returns:** *Iterable*<T\>
 
-Defined in: src/tree/sortedTree.ts:29
+Defined in: [src/tree/sortedTree.ts:29](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/sortedTree.ts#L29)
 
 ___
 
@@ -231,7 +232,7 @@ ___
 
 Update a specific element.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -244,4 +245,4 @@ Update a specific element.
 
 Inherited from: [Tree](tree.md)
 
-Defined in: src/tree/tree.ts:69
+Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/8c69c82/src/tree/tree.ts#L69)

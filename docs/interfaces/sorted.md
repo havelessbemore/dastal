@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / Sorted
+[dastal - v2.0.1](../README.md) / Sorted
 
 # Interface: Sorted<T\>
 
@@ -12,7 +12,7 @@ Represents an object containing a set of sorted elements.
 
 ## Hierarchy
 
-* **Sorted**
+- **Sorted**
 
   ↳ [*Heap*](heap.md)
 
@@ -34,4 +34,4 @@ Represents an object containing a set of sorted elements.
 
 The function with which elements are sorted
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/5cebce9/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/8c69c82/src/index.ts#L47)

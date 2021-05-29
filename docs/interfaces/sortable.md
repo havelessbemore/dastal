@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / Sortable
+[dastal - v2.0.1](../README.md) / Sortable
 
 # Interface: Sortable<T\>
 
@@ -12,7 +12,7 @@ Represents an object containing a set of elements that can be sorted.
 
 ## Hierarchy
 
-* **Sortable**
+- **Sortable**
 
   ↳ [*List*](list.md)
 
@@ -30,7 +30,7 @@ Represents an object containing a set of elements that can be sorted.
 
 Sorts the elements in place.
 
-#### Parameters:
+#### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
@@ -40,4 +40,4 @@ Sorts the elements in place.
 
 The object this method was called on
 
-Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/5cebce9/src/index.ts#L38)
+Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/8c69c82/src/index.ts#L38)

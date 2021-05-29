@@ -1,4 +1,4 @@
-[dastal - v2.0.0](../README.md) / LinkedNode
+[dastal - v2.0.1](../README.md) / LinkedNode
 
 # Interface: LinkedNode<T\>
 
@@ -27,7 +27,7 @@ Each node links to its next neighbor.
 
 A link to the node's neighbor.
 
-Defined in: src/list/linkedNode.ts:10
+Defined in: [src/list/linkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedNode.ts#L10)
 
 ___
 
@@ -37,4 +37,4 @@ ___
 
 The value of the node.
 
-Defined in: src/list/linkedNode.ts:14
+Defined in: [src/list/linkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/8c69c82/src/list/linkedNode.ts#L14)

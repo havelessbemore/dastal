@@ -1,16 +1,17 @@
-import { CompareFn } from '../..';
+import { CompareFn } from 'src';
 import { AVLTreeNode } from './avlTreeNode';
 import {
     clone,
+    Edge,
     inOrderTraverse,
-    max,
-    min,
+    leftmost,
     preOrderTraverse,
+    rightmost,
     search,
-} from '../../tree/binaryTreeUtils';
-import { SortedTree } from '../../tree/sortedTree';
+} from './binaryTreeUtils';
+import { SortedTree } from './sortedTree';
 import { isArray } from 'src/array/utils';
-import { balance, debug, height } from './avlTreeUtils';
+import { balance, height, remove } from './avlTreeUtils';
 
 /**
  * An AVL tree is a self-balancing binary search tree ([source](https://en.wikipedia.org/wiki/AVL_tree)).
@@ -48,7 +49,7 @@ export class AVLTree<T> implements SortedTree<T> {
     /**
      * The root of the tree.
      */
-    protected root: AVLTreeNode<T> | undefined;
+    protected root: AVLTreeNode<T>;
     /**
      * Instantiate a tree.
      *
@@ -76,37 +77,30 @@ export class AVLTree<T> implements SortedTree<T> {
         this.compare = compareFn;
         this.dupeWeight = +allowDuplicates;
         this.length = 0;
+        this.root = {} as AVLTreeNode<T>;
         this.build(elements ?? []);
     }
 
     add(element: T): number {
         // Find the element
-        let stack = search(element, this.root, this.compare, this.dupeWeight);
-
-        // If tree is empty
-        if (stack == null) {
-            this.root = { height: 0, value: element };
-            return ++this.length;
-        }
+        const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
+        let stack = search(element, { value: edge }, this.compare, this.dupeWeight);
 
         // If element already exists
-        if (stack.value.next != null) {
+        if (stack.value.to != null) {
             return this.length;
         }
 
         // Add element
-        const node = stack.value.prev!;
+        const node = stack.value.from!;
         node[stack.value.label!] = { height: 0, value: element };
 
         // Balance the tree
-        for (stack = stack.next; stack; stack = stack.next) {
+        while (stack.next) {
+            stack = stack.next;
             const edge = stack.value;
-            edge.next!.height = height(edge.next!);
-            if (edge.prev == null) {
-                this.root = balance(edge.next!);
-                break;
-            }
-            edge.prev![edge.label!] = balance(edge.next!);
+            edge.to!.height = height(edge.to!);
+            edge.from![edge.label!] = balance(edge.to!);
         }
 
         // Update state
@@ -114,7 +108,7 @@ export class AVLTree<T> implements SortedTree<T> {
     }
 
     clear(): void {
-        this.root = undefined;
+        this.root.left = undefined;
         this.length = 0;
     }
 
@@ -123,47 +117,60 @@ export class AVLTree<T> implements SortedTree<T> {
     }
 
     contains(element: T): boolean {
-        const edges = search(element, this.root, this.compare, 0);
-        return edges != null && edges.value.next != null;
+        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
+        edge = search(element, { value: edge }, this.compare, 0).value;
+        return edge.to != null;
     }
 
     delete(element: T): boolean {
-        const edges = search(element, this.root, this.compare, 0);
-        if (edges == null || edges.value.next == null) {
-            return false;
-        }
-        throw new Error('TODO');
-        return true;
+        // Remove the element if found
+        const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
+        const stack = search(element, { value: edge }, this.compare, 0);
+        const removed = remove(stack);
+
+        // Update state
+        this.length -= +removed;
+        return removed;
     }
 
     max(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-        return max(this.root).value.next!.value;
+        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
+        edge = rightmost({ value: edge }).value;
+        return edge.to?.value;
     }
 
     min(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-        return min(this.root).value.next!.value;
+        let edge: Edge<AVLTreeNode<T>> = { to: this.root.left };
+        edge = leftmost({ value: edge }).value;
+        return edge.to?.value;
     }
 
     pop(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-        const q = max(this.root);
-        throw new Error('TODO');
+        // Find the maximum value
+        const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
+        const stack = rightmost({ value: edge });
+        const value = stack.value.to?.value;
+
+        // Remove the value
+        const removed = remove(stack);
+
+        // Update state
+        this.length -= +removed;
+        return value;
     }
 
     shift(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-        const q = min(this.root);
-        throw new Error('TODO');
+        // Find the minimum value
+        const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
+        const stack = leftmost({ value: edge });
+        const value = stack.value.to?.value;
+
+        // Remove the value
+        const removed = remove(stack);
+
+        // Update state
+        this.length -= +removed;
+        return value;
     }
 
     get size(): number {
@@ -171,7 +178,7 @@ export class AVLTree<T> implements SortedTree<T> {
     }
 
     *sorted(): Iterable<T> {
-        for (const node of inOrderTraverse(this.root)) {
+        for (const node of inOrderTraverse(this.root.left)) {
             yield node.value;
         }
     }
@@ -183,13 +190,17 @@ export class AVLTree<T> implements SortedTree<T> {
      * @returns An iterator through the list
      */
     *[Symbol.iterator](): Iterator<T> {
-        for (const node of preOrderTraverse(this.root)) {
+        for (const node of preOrderTraverse(this.root.left)) {
             yield node.value;
         }
     }
 
     update(curElement: T, newElement: T): boolean {
-        throw new Error('TODO');
+        if (this.delete(curElement)) {
+            this.add(newElement);
+            return true;
+        }
+        return false;
     }
 
     protected build(obj: Iterable<T>): void {
