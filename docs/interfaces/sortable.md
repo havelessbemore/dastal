@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / Sortable
+[dastal - v2.1.0](../README.md) / Sortable
 
 # Interface: Sortable<T\>
 
@@ -40,4 +40,4 @@ Sorts the elements in place.
 
 The object this method was called on
 
-Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/index.ts#L38)
+Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L38)

@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / ArrayQueue
+[dastal - v2.1.0](../README.md) / ArrayQueue
 
 # Class: ArrayQueue<T\>
 
@@ -54,7 +54,7 @@ Instantiate the queue.
 
 **Returns:** [*ArrayQueue*](arrayqueue.md)<T\>
 
-Defined in: [src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L10)
+Defined in: [src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L10)
 
 ## Accessors
 
@@ -68,7 +68,7 @@ The number of elements in this queue
 
 Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
 
-Defined in: [src/queue/arrayQueue.ts:36](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L36)
+Defined in: [src/queue/arrayQueue.ts:36](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L36)
 
 ## Methods
 
@@ -86,7 +86,7 @@ An iterator through the queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:46](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L46)
+Defined in: [src/queue/arrayQueue.ts:46](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L46)
 
 ___
 
@@ -100,7 +100,7 @@ Removes all elements from this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:20](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L20)
+Defined in: [src/queue/arrayQueue.ts:20](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L20)
 
 ___
 
@@ -114,7 +114,7 @@ Retrieves and removes the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:24](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L24)
+Defined in: [src/queue/arrayQueue.ts:24](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L24)
 
 ___
 
@@ -134,7 +134,7 @@ Inserts the specified value into this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:28](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L28)
+Defined in: [src/queue/arrayQueue.ts:28](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L28)
 
 ___
 
@@ -148,4 +148,4 @@ Retrieves, but does not remove, the head of this queue
 
 Implementation of: [Queue](../interfaces/queue.md)
 
-Defined in: [src/queue/arrayQueue.ts:32](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/queue/arrayQueue.ts#L32)
+Defined in: [src/queue/arrayQueue.ts:32](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/arrayQueue.ts#L32)

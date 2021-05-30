@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / AVLTree
+[dastal - v2.1.0](../README.md) / AVLTree
 
 # Class: AVLTree<T\>
 
@@ -76,7 +76,7 @@ Instantiate a tree.
 
 **Returns:** [*AVLTree*](avltree.md)<T\>
 
-Defined in: [src/tree/avlTree.ts:52](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L52)
+Defined in: [src/tree/avlTree.ts:55](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L55)
 
 \+ **new AVLTree**<T\>(`compareFn`: [*CompareFn*](../README.md#comparefn)<T\>, `allowDuplicates`: *boolean*, `elements?`: *Iterable*<T\>): [*AVLTree*](avltree.md)<T\>
 
@@ -98,7 +98,7 @@ Instantiate a tree.
 
 **Returns:** [*AVLTree*](avltree.md)<T\>
 
-Defined in: [src/tree/avlTree.ts:59](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L59)
+Defined in: [src/tree/avlTree.ts:62](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L62)
 
 ## Accessors
 
@@ -112,7 +112,7 @@ The number of elements in the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md).[size](../interfaces/sortedtree.md#size)
 
-Defined in: [src/tree/avlTree.ts:180](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L180)
+Defined in: [src/tree/avlTree.ts:177](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L177)
 
 ## Methods
 
@@ -130,7 +130,7 @@ An iterator through the list
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:196](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L196)
+Defined in: [src/tree/avlTree.ts:193](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L193)
 
 ___
 
@@ -150,7 +150,7 @@ Inserts an element into the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:84](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L84)
+Defined in: [src/tree/avlTree.ts:87](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L87)
 
 ___
 
@@ -164,7 +164,7 @@ Remove all elements.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:114](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L114)
+Defined in: [src/tree/avlTree.ts:117](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L117)
 
 ___
 
@@ -176,7 +176,7 @@ ___
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:119](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L119)
+Defined in: [src/tree/avlTree.ts:122](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L122)
 
 ___
 
@@ -196,7 +196,7 @@ Check if an element is in the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:123](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L123)
+Defined in: [src/tree/avlTree.ts:126](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L126)
 
 ___
 
@@ -216,7 +216,7 @@ Delete an element from the tree.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:129](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L129)
+Defined in: [src/tree/avlTree.ts:130](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L130)
 
 ___
 
@@ -230,7 +230,7 @@ Get the maximum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:140](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L140)
+Defined in: [src/tree/avlTree.ts:141](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L141)
 
 ___
 
@@ -244,7 +244,7 @@ Get the minimum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:146](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L146)
+Defined in: [src/tree/avlTree.ts:145](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L145)
 
 ___
 
@@ -258,7 +258,7 @@ Remove the maximum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:152](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L152)
+Defined in: [src/tree/avlTree.ts:149](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L149)
 
 ___
 
@@ -272,7 +272,7 @@ Remove the minimum element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:166](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L166)
+Defined in: [src/tree/avlTree.ts:163](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L163)
 
 ___
 
@@ -288,7 +288,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:184](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L184)
+Defined in: [src/tree/avlTree.ts:181](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L181)
 
 ___
 
@@ -309,4 +309,4 @@ Update a specific element.
 
 Implementation of: [SortedTree](../interfaces/sortedtree.md)
 
-Defined in: [src/tree/avlTree.ts:202](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/avlTree.ts#L202)
+Defined in: [src/tree/avlTree.ts:199](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTree.ts#L199)

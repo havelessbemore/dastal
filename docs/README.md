@@ -1,6 +1,6 @@
-dastal - v2.0.1
+dastal - v2.1.0
 
-# dastal - v2.0.1
+# dastal - v2.1.0
 
 ## Table of contents
 
@@ -74,4 +74,4 @@ A function used to determine the order of a set of elements.
 
 **Returns:** *number*
 
-Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/index.ts#L21)
+Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L21)

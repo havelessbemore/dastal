@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / DoublyLinkedNode
+[dastal - v2.1.0](../README.md) / DoublyLinkedNode
 
 # Interface: DoublyLinkedNode<T\>
 
@@ -28,7 +28,7 @@ Each node links to its neighbors on the left (prev) and right (next) of it.
 
 A link to the node's next (right) neighbor
 
-Defined in: [src/list/doublyLinkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/list/doublyLinkedNode.ts#L10)
+Defined in: [src/list/doublyLinkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L10)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 A link to the node's previous (left) neighbor
 
-Defined in: [src/list/doublyLinkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/list/doublyLinkedNode.ts#L14)
+Defined in: [src/list/doublyLinkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L14)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 The value of the node
 
-Defined in: [src/list/doublyLinkedNode.ts:18](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/list/doublyLinkedNode.ts#L18)
+Defined in: [src/list/doublyLinkedNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L18)

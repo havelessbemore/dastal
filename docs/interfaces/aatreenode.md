@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / AATreeNode
+[dastal - v2.1.0](../README.md) / AATreeNode
 
 # Interface: AATreeNode<T\>
 
@@ -44,7 +44,7 @@ A link to the node's left child.
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L10)
+Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 The level of the node.
 
-Defined in: [src/tree/aaTreeNode.ts:19](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/aaTreeNode.ts#L19)
+Defined in: [src/tree/aaTreeNode.ts:19](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/aaTreeNode.ts#L19)
 
 ___
 
@@ -66,7 +66,7 @@ A link to the node's right child.
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L14)
+Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
@@ -78,4 +78,4 @@ The value of the node
 
 Inherited from: [BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/binaryTreeNode.ts#L18)
+Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L18)

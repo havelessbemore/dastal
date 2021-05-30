@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / Sorted
+[dastal - v2.1.0](../README.md) / Sorted
 
 # Interface: Sorted<T\>
 
@@ -34,4 +34,4 @@ Represents an object containing a set of sorted elements.
 
 The function with which elements are sorted
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/index.ts#L47)
+Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L47)

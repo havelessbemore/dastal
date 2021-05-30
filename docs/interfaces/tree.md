@@ -1,4 +1,4 @@
-[dastal - v2.0.1](../README.md) / Tree
+[dastal - v2.1.0](../README.md) / Tree
 
 # Interface: Tree<T\>
 
@@ -65,7 +65,7 @@ Remove
 
 The number of elements in the tree.
 
-Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L60)
+Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L60)
 
 ## Methods
 
@@ -97,7 +97,7 @@ Inserts an element into the tree.
 
 The new size of the tree.
 
-Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L36)
+Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L36)
 
 ___
 
@@ -109,7 +109,7 @@ Remove all elements.
 
 **Returns:** *void*
 
-Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L40)
+Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L40)
 
 ___
 
@@ -129,7 +129,7 @@ Check if an element is in the tree.
 
 `true` if the element was found, otherwise `false`.
 
-Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L48)
+Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L48)
 
 ___
 
@@ -149,7 +149,7 @@ Delete an element from the tree.
 
 `true` if the element was found and deleted, otherwise `false`.
 
-Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L56)
+Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L56)
 
 ___
 
@@ -170,4 +170,4 @@ Update a specific element.
 
 `true` if curElement was found and updated, otherwise `false`.
 
-Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/c8bb6f5/src/tree/tree.ts#L69)
+Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L69)
