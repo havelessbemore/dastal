@@ -232,9 +232,6 @@ export function* postOrderTraverse<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
-export function predecessor<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
-export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
 export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
     return node == null ? undefined : rightmost(node.left);
 }
@@ -249,9 +246,6 @@ export function predecessorStack<Node extends BinaryTreeNode<unknown>>(
         return stack;
     }
     stack = { next: stack, value: { label: 'left', from: node, to: node.left } };
-    if (node.left == null) {
-        return stack;
-    }
     return rightmostStack(stack);
 }
 /**
@@ -359,12 +353,7 @@ export function searchStack<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function successor<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
-export function successor<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
-export function successor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
-export function successor<Node extends BinaryTreeNode<unknown>>(
-    node: Node | undefined,
-): Node | undefined {
+export function successor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
     return node == null ? undefined : leftmost(node.right);
 }
 /**
@@ -378,9 +367,6 @@ export function successorStack<Node extends BinaryTreeNode<unknown>>(
         return stack;
     }
     stack = { next: stack, value: { label: 'right', from: node, to: node.right } };
-    if (node.right == null) {
-        return stack;
-    }
     return leftmostStack(stack);
 }
 /**

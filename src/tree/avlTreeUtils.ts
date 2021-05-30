@@ -1,6 +1,6 @@
 /**
  * Special thanks to [Gil Hamilton and MaksymB](https://cs.stackexchange.com/a/67818)
- * for understanding balance factor changes after rotations
+ * in understanding balance factor changes after rotations
  */
 import { AVLTreeNode } from './avlTreeNode';
 import { Edge, successorStack } from './binaryTreeUtils';
@@ -65,7 +65,7 @@ export function remove<T>(stack: LinkedNode<Edge<AVLTreeNode<T>>>): boolean {
         edge = stack.value;
         edge.to!.balanceFactor -= label === 'left' ? -1 : 1;
         edge.to = balance(edge.to!);
-        edge.from![(label = edge.label!)] = edge.to;
+        edge.from![(label = edge.label)!] = edge.to;
         if (edge.to!.balanceFactor !== 0) {
             break;
         }

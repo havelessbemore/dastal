@@ -10,9 +10,10 @@ import {
     preOrderTraverse,
     rightmost,
     rightmostStack,
+    searchStack,
 } from './binaryTreeUtils';
 import { SortedTree } from './sortedTree';
-import { insert, remove } from './aaTreeUtils';
+import { remove, skew, split } from './aaTreeUtils';
 import { isArray } from 'src/array/utils';
 
 /**
@@ -37,6 +38,13 @@ export class AATree<T> implements SortedTree<T> {
      */
     protected compare: CompareFn<T>;
     /**
+     * Indicates how to handle duplicates:
+     * - < 0 : Add to left subtree
+     * - = 0 : Do now allow duplicates
+     * - > 0 : Add to right subtree
+     */
+    protected dupeWeight: number;
+    /**
      * The number of elements in the list.
      */
     protected length: number;
@@ -50,14 +58,56 @@ export class AATree<T> implements SortedTree<T> {
      * @param compareFn - The function to determine the order of elements.
      * @param elements - A set of elements to initialize the tree with.
      */
-    constructor(compareFn: CompareFn<T>, elements?: Iterable<T>) {
+    constructor(compareFn: CompareFn<T>, elements?: Iterable<T>);
+    /**
+     * Instantiate a tree.
+     *
+     * @param compareFn - The function to determine the order of elements.
+     * @param allowDuplicates - Whether to allow duplicates
+     * @param elements - A set of elements to initialize the tree with.
+     */
+    constructor(compareFn: CompareFn<T>, allowDuplicates: boolean, elements?: Iterable<T>);
+    constructor(
+        compareFn: CompareFn<T>,
+        allowDuplicates?: boolean | Iterable<T>,
+        elements?: Iterable<T>,
+    ) {
+        if (typeof allowDuplicates !== 'boolean') {
+            elements = allowDuplicates;
+            allowDuplicates = true;
+        }
         this.compare = compareFn;
+        this.dupeWeight = +allowDuplicates;
         this.length = 0;
         this.build(elements ?? []);
     }
 
     add(element: T): number {
-        this.root = insert(element, this.root, this.compare);
+        // Find the element
+        const sentinel = { left: this.root } as AATreeNode<T>;
+        let edge: Edge<AATreeNode<T>> = { from: sentinel, label: 'left', to: this.root };
+        let stack = searchStack(element, { value: edge }, this.compare, this.dupeWeight);
+
+        // If element already exists
+        if (stack.value.to != null) {
+            return this.length;
+        }
+
+        // Add element
+        edge = stack.value;
+        let label = edge.label;
+        edge.from![label!] = { level: 1, value: element };
+
+        // Balance the tree
+        while (stack.next) {
+            stack = stack.next;
+            edge = stack.value;
+            edge.to = split(skew(edge.to));
+            edge.from![(label = edge.label!)] = edge.to;
+        }
+
+        // Update state
+        this.root = sentinel.left;
         return ++this.length;
     }
 
@@ -75,10 +125,16 @@ export class AATree<T> implements SortedTree<T> {
     }
 
     delete(element: T): boolean {
-        const res = remove(element, this.root, this.compare);
-        this.root = res[0];
-        this.length -= +res[1];
-        return res[1];
+        // Remove the element if found
+        const sentinel = { left: this.root } as AATreeNode<T>;
+        const edge: Edge<AATreeNode<T>> = { from: sentinel, label: 'left', to: this.root };
+        const stack = searchStack(element, { value: edge }, this.compare, 0);
+        const removed = remove(stack);
+
+        // Update state
+        this.root = sentinel.left;
+        this.length -= +removed;
+        return removed;
     }
 
     max(): T | undefined {
@@ -90,40 +146,34 @@ export class AATree<T> implements SortedTree<T> {
     }
 
     pop(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-
         // Find the maximum value
         const sentinel = { left: this.root } as AATreeNode<T>;
         const edge: Edge<AATreeNode<T>> = { from: sentinel, label: 'left', to: this.root };
         const stack = rightmostStack({ value: edge });
+        const value = stack.value.to?.value;
 
         // Remove the value
-        const value = stack.value.to!.value;
-        this.root = remove(value, this.root, this.compare)[0];
+        const removed = remove(stack);
 
         // Update state
-        --this.length;
+        this.root = sentinel.left;
+        this.length -= +removed;
         return value;
     }
 
     shift(): T | undefined {
-        if (this.root == null) {
-            return undefined;
-        }
-
         // Find the minimum value
         const sentinel = { left: this.root } as AATreeNode<T>;
         const edge: Edge<AATreeNode<T>> = { from: sentinel, label: 'left', to: this.root };
         const stack = leftmostStack({ value: edge });
+        const value = stack.value.to?.value;
 
         // Remove the value
-        const value = stack.value.to!.value;
-        this.root = remove(value, this.root, this.compare)[0];
+        const removed = remove(stack);
 
         // Update state
-        --this.length;
+        this.root = sentinel.left;
+        this.length -= +removed;
         return value;
     }
 
