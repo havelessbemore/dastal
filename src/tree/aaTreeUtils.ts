@@ -1,6 +1,6 @@
 import { AATreeNode } from './aaTreeNode';
 import { LinkedNode } from 'src/list';
-import { Edge, predecessorStack, successorStack } from './binaryTreeUtils';
+import { Edge, removeStack as del } from './binaryTreeUtils';
 
 /**
  * @internal
@@ -14,33 +14,8 @@ export function remove<T>(stack: LinkedNode<Edge<AATreeNode<T>>>): boolean {
         return false;
     }
 
-    // Find the replacement
-    if (node.left != null) {
-        // If left child, swap with predecessor
-        stack = predecessorStack(stack);
-        edge = stack.value;
-        const temp = edge.to!;
-        node.value = temp.value;
-
-        // Replace with the predecessor's left child
-        node = temp.left;
-    } else if (node.right != null) {
-        // If right child, swap with successor
-        stack = successorStack(stack);
-        edge = stack.value;
-        const temp = edge.to!;
-        node.value = temp.value;
-
-        // Replace with the successor's right child
-        node = temp.right;
-    } else {
-        // If no children, replace with undefined
-        node = undefined;
-    }
-
-    // Make the replacement
-    let label = edge.label;
-    edge.from![label!] = edge.to = node;
+    // Remove the node
+    stack = del(stack);
 
     // Update the tree
     while (stack.next) {
@@ -67,7 +42,7 @@ export function remove<T>(stack: LinkedNode<Edge<AATreeNode<T>>>): boolean {
         node.right = split(node.right);
 
         // Make the update
-        edge.from![(label = edge.label)!] = edge.to = node;
+        edge.from![edge.label!] = edge.to = node;
     }
 
     return true;

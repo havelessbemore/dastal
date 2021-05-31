@@ -3,7 +3,7 @@
  * in understanding balance factor changes after rotations
  */
 import { AVLTreeNode } from './avlTreeNode';
-import { Edge, successorStack } from './binaryTreeUtils';
+import { Edge, removeStack as del } from './binaryTreeUtils';
 import { LinkedNode } from 'src/list';
 
 /**
@@ -28,38 +28,18 @@ export function balance<T>(node: AVLTreeNode<T>): AVLTreeNode<T> {
  */
 export function remove<T>(stack: LinkedNode<Edge<AVLTreeNode<T>>>): boolean {
     let edge = stack.value;
-    let node = edge.to;
+    const node = edge.to;
 
     // If not found
     if (node == null) {
         return false;
     }
 
-    // Find the replacement
-    if (node.right == null) {
-        // If no right child, replace with left
-        node = node.left;
-    } else if (node.left == null) {
-        // If no left child, replace with right
-        node = node.right;
-    } else {
-        // If two children, find the successor
-        stack = successorStack(stack);
-        edge = stack.value;
-
-        // Swap with the successor
-        const temp = edge.to!;
-        node.value = temp.value;
-
-        // Replace with the successor's right child
-        node = temp.right;
-    }
-
-    // Make the replacement / update the tree
-    let label = edge.label;
-    edge.from![label!] = edge.to = node;
+    // Remove the node
+    stack = del(stack);
 
     // Balance the tree
+    let label = stack.value.label;
     while (stack.next) {
         stack = stack.next;
         edge = stack.value;

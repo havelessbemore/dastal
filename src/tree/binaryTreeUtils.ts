@@ -81,6 +81,52 @@ export function debug<N extends BinaryTreeNode<T>, T = any>(
 /**
  * @internal
  */
+export function removeStack<Node extends BinaryTreeNode<unknown>>(
+    stack: LinkedNode<Edge<Node>>,
+    dir = true,
+): LinkedNode<Edge<Node>> {
+    let edge = stack.value;
+    let node = edge.to;
+
+    // Input check
+    if (node == null) {
+        return stack;
+    }
+
+    // Find the replacement
+    if (node.right == null) {
+        // If no right child, replace with left
+        node = node.left;
+    } else if (node.left == null) {
+        // If no left child, replace with right
+        node = node.right;
+    } else if (dir) {
+        // Replace with the successor
+        stack = successorStack(stack);
+        edge = stack.value;
+        const temp = edge.to!;
+        node.value = temp.value;
+        node = temp.right;
+    } else {
+        // Replace with the predecessor
+        stack = predecessorStack(stack);
+        edge = stack.value;
+        const temp = edge.to!;
+        node.value = temp.value;
+        node = temp.left;
+    }
+
+    // Make the replacement / update the tree
+    edge.to = node;
+    if (edge.from) {
+        edge.from[edge.label!] = edge.to = node;
+    }
+
+    return stack;
+}
+/**
+ * @internal
+ */
 export function clone<T, Node extends BinaryTreeNode<T>>(node?: undefined): undefined;
 export function clone<T, Node extends BinaryTreeNode<T>>(node: Node): Node;
 export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined): Node | undefined;
