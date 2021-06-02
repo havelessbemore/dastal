@@ -11,10 +11,11 @@ import {
     rightmost,
     rightmostStack,
     searchStack,
+    removeStack,
 } from './binaryTreeUtils';
 import { SortedTree } from './sortedTree';
 import { isArray } from 'src/array/utils';
-import { balance, remove } from './avlTreeUtils';
+import { LinkedNode } from 'src/list';
 
 /**
  * An AVL tree is a self-balancing binary search tree ([source](https://en.wikipedia.org/wiki/AVL_tree)).
@@ -84,14 +85,14 @@ export class AVLTree<T> implements SortedTree<T> {
         this.build(elements ?? []);
     }
 
-    add(element: T): number {
+    add(element: T): this {
         // Find the element
         let edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
         let stack = searchStack(element, { value: edge }, this.compare, this.dupeWeight);
 
         // If element already exists
         if (stack.value.to != null) {
-            return this.length;
+            return this;
         }
 
         // Add element
@@ -111,7 +112,9 @@ export class AVLTree<T> implements SortedTree<T> {
             }
         }
 
-        return ++this.length;
+        // Update state
+        ++this.length;
+        return this;
     }
 
     clear(): void {
@@ -123,10 +126,6 @@ export class AVLTree<T> implements SortedTree<T> {
         return this.compare;
     }
 
-    contains(element: T): boolean {
-        return search(element, this.root.left, this.compare) != null;
-    }
-
     delete(element: T): boolean {
         // Remove the element if found
         const edge: Edge<AVLTreeNode<T>> = { from: this.root, label: 'left', to: this.root.left };
@@ -136,6 +135,10 @@ export class AVLTree<T> implements SortedTree<T> {
         // Update state
         this.length -= +removed;
         return removed;
+    }
+
+    has(element: T): boolean {
+        return search(element, this.root.left, this.compare) != null;
     }
 
     max(): T | undefined {
@@ -218,4 +221,73 @@ export class AVLTree<T> implements SortedTree<T> {
             }
         }
     }
+}
+/**
+ * @internal
+ */
+export function balance<T>(node: AVLTreeNode<T>): AVLTreeNode<T> {
+    if (node.balanceFactor > 1) {
+        if (node.right!.balanceFactor < 0) {
+            node.right = rotateR(node.right!);
+        }
+        node = rotateL(node);
+    } else if (node.balanceFactor < -1) {
+        if (node.left!.balanceFactor > 0) {
+            node.left = rotateL(node.left!);
+        }
+        node = rotateR(node);
+    }
+    return node;
+}
+/**
+ * @internal
+ */
+export function remove<T>(stack: LinkedNode<Edge<AVLTreeNode<T>>>): boolean {
+    let edge = stack.value;
+    const node = edge.to;
+
+    // If not found
+    if (node == null) {
+        return false;
+    }
+
+    // Remove the node
+    stack = removeStack(stack);
+
+    // Balance the tree
+    let label = stack.value.label;
+    while (stack.next) {
+        stack = stack.next;
+        edge = stack.value;
+        edge.to!.balanceFactor -= label === 'left' ? -1 : 1;
+        edge.to = balance(edge.to!);
+        edge.from![(label = edge.label)!] = edge.to;
+        if (edge.to!.balanceFactor !== 0) {
+            break;
+        }
+    }
+
+    return true;
+}
+/**
+ * @internal
+ */
+export function rotateL<T>(P: AVLTreeNode<T>): AVLTreeNode<T> {
+    const R = P.right!;
+    P.right = R.left;
+    R.left = P;
+    P.balanceFactor -= 1 + Math.max(0, R.balanceFactor);
+    R.balanceFactor -= 1 - Math.min(0, P.balanceFactor);
+    return R;
+}
+/**
+ * @internal
+ */
+export function rotateR<T>(P: AVLTreeNode<T>): AVLTreeNode<T> {
+    const L = P.left!;
+    P.left = L.right;
+    L.right = P;
+    P.balanceFactor += 1 - Math.min(0, L.balanceFactor);
+    L.balanceFactor += 1 + Math.max(0, P.balanceFactor);
+    return L;
 }

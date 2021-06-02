@@ -62,11 +62,11 @@ describe('AATree unit tests', function () {
     });
     describe('#add()', function () {
         it('Should work when empty', function () {
-            expect(empty.add(1)).to.equal(1);
+            expect(empty.add(1)).to.equal(empty);
             expect(empty.size).to.equal(1);
         });
         it('Should work when not empty', function () {
-            expect(filled.add(12)).to.equal(values.length + 1);
+            expect(filled.add(12)).to.equal(filled);
             expect(filled.size).to.equal(values.length + 1);
         });
         it('Should not break tree', function () {
@@ -105,19 +105,6 @@ describe('AATree unit tests', function () {
             empty.clear();
             expect(empty.size).to.equal(0);
             expect(Array.from(empty)).to.eql([]);
-        });
-    });
-    describe('#contains()', function () {
-        it('Should return false when empty', function () {
-            expect(empty.contains(values[0])).to.equal(false);
-        });
-        it('Should return false when not found', function () {
-            expect(filled.contains(-99)).to.equal(false);
-        });
-        it('Should return true if found', function () {
-            for (let i = 0; i < values.length; ++i) {
-                expect(filled.contains(values[i])).to.equal(true);
-            }
         });
     });
     describe('#delete()', function () {
@@ -168,6 +155,19 @@ describe('AATree unit tests', function () {
                 for (const v of filled.sorted()) {
                     expect(v).to.equal(sorted.pop());
                 }
+            }
+        });
+    });
+    describe('#has()', function () {
+        it('Should return false when empty', function () {
+            expect(empty.has(values[0])).to.equal(false);
+        });
+        it('Should return false when not found', function () {
+            expect(filled.has(-99)).to.equal(false);
+        });
+        it('Should return true if found', function () {
+            for (let i = 0; i < values.length; ++i) {
+                expect(filled.has(values[i])).to.equal(true);
             }
         });
     });

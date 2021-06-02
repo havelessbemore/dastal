@@ -1,6 +1,6 @@
-export * from './aaTree';
+export { AATree } from './aaTree';
 export * from './aaTreeNode';
-export * from './avlTree';
+export { AVLTree } from './avlTree';
 export * from './avlTreeNode';
 export * from './binaryTreeNode';
 export * from './sortedTree';

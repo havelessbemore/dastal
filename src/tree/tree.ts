@@ -31,21 +31,13 @@ export interface Tree<T> extends Iterable<T> {
      *
      * @param element - The element to be inserted.
      *
-     * @returns The new size of the tree.
+     * @returns The tree object.
      */
-    add(element: T): number;
+    add(element: T): this;
     /**
      * Remove all elements.
      */
     clear(): void;
-    /**
-     * Check if an element is in the tree.
-     *
-     * @param element - The element to find.
-     *
-     * @returns `true` if the element was found, otherwise `false`.
-     */
-    contains(element: T): boolean;
     /**
      * Delete an element from the tree.
      *
@@ -54,6 +46,14 @@ export interface Tree<T> extends Iterable<T> {
      * @returns `true` if the element was found and deleted, otherwise `false`.
      */
     delete(element: T): boolean;
+    /**
+     * Check if an element is in the tree.
+     *
+     * @param element - The element to find.
+     *
+     * @returns `true` if the element was found, otherwise `false`.
+     */
+    has(element: T): boolean;
     /**
      * The number of elements in the tree.
      */
