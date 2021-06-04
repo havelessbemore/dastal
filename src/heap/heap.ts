@@ -80,7 +80,7 @@ export interface Heap<T> extends Iterable<T>, Sorted<T> {
      *
      * @param heap - The heap to join with.
      *
-     * @returns The new heap size.
+     * @returns The heap.
      */
     merge(heap: Heap<T>): this;
     /**
