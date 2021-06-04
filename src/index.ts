@@ -1,12 +1,12 @@
 // export * from './graph';
 export * from './heap';
 export * from './list';
+export * as math from './math';
 export * from './queue';
 // export * from './segmentTree';
 export * from './stack';
 export * from './tree';
 // export * from './trie';
-
 /**
  * A function used to determine the order of a set of elements.
  *

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { invert, lsb, lsp, onBits, msb, msp, msps } from 'src/math/bits';
+import { invert, lsb, lsp, onBits, msb, msp, msps } from 'src/math/u32';
 
 describe('math/bits unit tests', function () {
     const neg = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16];
