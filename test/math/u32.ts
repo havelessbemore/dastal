@@ -1,7 +1,7 @@
 import { expect } from 'chai';
-import { invert, lsb, lsp, onBits, msb, msp, msps } from 'src/math/u32';
+import { invert, lsb, lsp, lsps, onBits, msb, msp, msps, reverse } from 'src/math/u32';
 
-describe('math/bits unit tests', function () {
+describe.only('math/bits unit tests', function () {
     const neg = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16];
     const pos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     describe('#invert()', function () {
@@ -55,6 +55,23 @@ describe('math/bits unit tests', function () {
             }
         });
     });
+    describe('#lsps()', function () {
+        const nVals = [4294967295, 0, 1, 0, 3, 0, 1, 0, 7, 0, 1, 0, 3, 0, 1, 0];
+        const pVals = [1, 0, 3, 0, 1, 0, 7, 0, 1, 0, 3, 0, 1, 0, 15, 0];
+        it('Should work for "negative" values', function () {
+            for (let i = 0; i < neg.length; ++i) {
+                expect(lsps(neg[i])).to.equal(nVals[i]);
+            }
+        });
+        it('Should work for zero', function () {
+            expect(lsps(0)).to.equal(0);
+        });
+        it('Should work for positive values', function () {
+            for (let i = 0; i < pos.length; ++i) {
+                expect(lsps(pos[i])).to.equal(pVals[i]);
+            }
+        });
+    });
     describe('#onBits()', function () {
         const nVals = [32, 31, 31, 30, 31, 30, 30, 29, 31, 30, 30, 29, 30, 29, 29, 28];
         const pVals = [1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1];
@@ -91,24 +108,7 @@ describe('math/bits unit tests', function () {
     });
     describe('#msp()', function () {
         const p31 = 2147483648;
-        const nVals = [
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-            p31,
-        ];
+        const nVals = (new Array(16)).fill(p31);
         const pVals = [1, 2, 2, 4, 4, 4, 4, 8, 8, 8, 8, 8, 8, 8, 8, 16];
         it('Should work for "negative" values', function () {
             for (let i = 0; i < neg.length; ++i) {
@@ -125,25 +125,11 @@ describe('math/bits unit tests', function () {
         });
     });
     describe('#msps()', function () {
-        const p32m1 = 4294967295;
+        const p32 = 4294967296;
         const nVals = [
-            p32m1,
-            p32m1 - 1,
-            p32m1 - 3,
-            p32m1 - 3,
-            p32m1 - 7,
-            p32m1 - 7,
-            p32m1 - 7,
-            p32m1 - 7,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-            p32m1 - 15,
-        ];
+            1,   2,  4,  4,  8,  8,  8,  8, 
+            16, 16, 16, 16, 16, 16, 16, 16
+        ].map(v => p32 - v);
         const pVals = [1, 2, 3, 4, 4, 6, 7, 8, 8, 8, 8, 12, 12, 14, 15, 16];
         it('Should work for "negative" values', function () {
             for (let i = 0; i < neg.length; ++i) {
@@ -156,6 +142,35 @@ describe('math/bits unit tests', function () {
         it('Should work for positive values', function () {
             for (let i = 0; i < pos.length; ++i) {
                 expect(msps(pos[i])).to.equal(pVals[i]);
+            }
+        });
+    });
+    describe('#reverse()', function () {
+        it('Should work for "negative" values', function () {
+            for (let i = 0; i < neg.length; ++i) {
+                const expected = (neg[i] >>> 0)
+                    .toString(2)
+                    .padStart(32, '0')
+                    .split('')
+                    .reverse()
+                    .join('');
+                const actual = reverse(neg[i]).toString(2).padStart(32, '0');
+                expect(actual).to.equal(expected);
+            }
+        });
+        it('Should work for zero', function () {
+            expect(reverse(0)).to.equal(0);
+        });
+        it('Should work for positive values', function () {
+            for (let i = 0; i < pos.length; ++i) {
+                const expected = (pos[i] >>> 0)
+                    .toString(2)
+                    .padStart(32, '0')
+                    .split('')
+                    .reverse()
+                    .join('');
+                const actual = reverse(pos[i]).toString(2).padStart(32, '0');
+                expect(actual).to.equal(expected);
             }
         });
     });
