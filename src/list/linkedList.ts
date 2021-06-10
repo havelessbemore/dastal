@@ -12,7 +12,7 @@ export class LinkedList<T> implements List<T> {
      */
     protected length: number;
     /**
-     * The sentinel node at the fron of the list.
+     * The sentinel node at the front of the list.
      */
     protected root: LinkedNode<T>;
     /**

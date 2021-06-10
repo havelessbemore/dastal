@@ -13,7 +13,7 @@
  */
 export function invert(a: number): number {
     const b = msp(a);
-    return (a ^ (b | (b - 1))) >>> 0;
+    return u32(a ^ (b | (b - 1)));
 }
 /**
  * Get the Least Significant Bit of a 32-bit unsigned number
@@ -37,31 +37,36 @@ export function lsb(a: number): number {
  * @returns 2**lsb(a)
  */
 export function lsp(a: number): number {
-    return (a & -a) >>> 0;
+    return u32(a & -a);
 }
 /**
- * Get the Least Significant Powers of a 32-bit unsigned number;
- * a set of 0s followed by a set of 1s
+ * Get the Least Significant Power Set of a 32-bit unsigned number.
  *
- * Example: 43 (101011) -> 3 (000011)
+ * Example: 54 (110110) -> 4 (000110)
  *
  * @param a
  */
 export function lsps(a: number): number {
-    return (a ^ (a + 1) ^ lsp(a + 1)) >>> 0;
+    return u32(a & (lsp(a + lsp(a)) - 1));
 }
 /**
- * Get the number of bits set (on) of a 32-bit unsigned number
+ * Get the Most Least Significant Power of a 32-bit unsigned number.
+ *
+ * Example: 54 (110110) -> 4 (000100)
+ *
+ * 111111
+ * 000000
+ * 000000
+ *
+ * 000010
+ * 111000
+ * 001000
+ * 000100
  *
  * @param a
  */
-export function onBits(a: number): number {
-    let b = 0;
-    while (a) {
-        ++b;
-        a &= a - 1;
-    }
-    return b;
+export function mlsp(a: number): number {
+    return lsp(a + lsp(a)) >>> 1 || u32(0x80000000 & a);
 }
 /**
  * Get the Most Significant Bit of a 32-bit unsigned number
@@ -91,11 +96,10 @@ export function msp(a: number): number {
         a ^= b;
         b = a & -a;
     }
-    return b >>> 0;
+    return u32(b);
 }
 /**
- * Get the Most Significant Powers of a 32-bit unsigned number;
- * a set of 1s followed by a set of 0s
+ * Get the Most Significant Power Set of a 32-bit unsigned number.
  *
  * Example: 50 (110010) -> 48 (110000)
  *
@@ -107,7 +111,20 @@ export function msps(a: number): number {
         a ^= b;
         b = a & -a;
     }
-    return a >>> 0;
+    return u32(a);
+}
+/**
+ * Get the number of bits set (on) of a 32-bit unsigned number
+ *
+ * @param a
+ */
+export function onBits(a: number): number {
+    let b = 0;
+    while (a) {
+        ++b;
+        a &= a - 1;
+    }
+    return b;
 }
 /**
  * Reverse a 32-bit unsigned number.
@@ -121,5 +138,13 @@ export function reverse(a: number): number {
     a = ((a & 0xcccccccc) >>> 2) | ((a & 0x33333333) << 2);
     a = ((a & 0xf0f0f0f0) >>> 4) | ((a & 0x0f0f0f0f) << 4);
     a = ((a & 0xff00ff00) >>> 8) | ((a & 0x00ff00ff) << 8);
-    return ((a >>> 16) | (a << 16)) >>> 0;
+    return u32((a >>> 16) | (a << 16));
+}
+/**
+ * Turn a number into an unsigned 32-bit number
+ *
+ * @param a
+ */
+export function u32(a: number): number {
+    return a >>> 0;
 }
