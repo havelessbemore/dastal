@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Queue
+[dastal - v3.0.0](../README.md) / Queue
 
 # Interface: Queue<T\>
 
@@ -21,14 +21,14 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ## Hierarchy
 
-- *Iterable*<T\>
+- `Collection`<T\>
 
   ↳ **Queue**
 
 ## Implemented by
 
-- [*ArrayQueue*](../classes/arrayqueue.md)
-- [*LinkedQueue*](../classes/linkedqueue.md)
+- [ArrayQueue](../classes/arrayqueue.md)
+- [LinkedQueue](../classes/linkedqueue.md)
 
 ## Table of contents
 
@@ -48,55 +48,75 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ### size
 
-• `Readonly` **size**: *number*
+• `Readonly` **size**: `number`
 
-The number of elements in this queue
+The number of elements in the collection.
 
-Defined in: [src/queue/queue.ts:41](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/queue.ts#L41)
+#### Inherited from
+
+Collection.size
+
+#### Defined in
+
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/e94627b/src/collection/collection.ts#L5)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
 
-Inherited from: Iterable.\_\_@iterator
+`Iterator`<T, any, undefined\>
 
-Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
+#### Inherited from
+
+Collection.\_\_@iterator
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Removes all elements from this queue
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/queue/queue.ts:17](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/queue.ts#L17)
+`void`
+
+#### Defined in
+
+[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L19)
 
 ___
 
 ### dequeue
 
-▸ **dequeue**(): *undefined* \| T
+▸ **dequeue**(): `undefined` \| `T`
 
 Retrieves and removes the head of this queue
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:23](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/queue.ts#L23)
+#### Defined in
+
+[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L25)
 
 ___
 
 ### enqueue
 
-▸ **enqueue**(`element`: T): *number*
+▸ **enqueue**(`element`): `number`
 
 Inserts the specified value into this queue
 
@@ -104,24 +124,32 @@ Inserts the specified value into this queue
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted |
+| `element` | `T` | The element to be inserted |
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 The new size of the queue
 
-Defined in: [src/queue/queue.ts:31](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/queue.ts#L31)
+#### Defined in
+
+[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L33)
 
 ___
 
 ### peek
 
-▸ **peek**(): *undefined* \| T
+▸ **peek**(): `undefined` \| `T`
 
 Retrieves, but does not remove, the head of this queue
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The value at the head of the queue or `undefined` if this queue is empty.
 
-Defined in: [src/queue/queue.ts:37](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/queue.ts#L37)
+#### Defined in
+
+[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L39)

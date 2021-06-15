@@ -1,7 +1,8 @@
+import { clamp } from 'src/math';
 import { CompareFn } from '..';
 import { LinkedNode } from './linkedNode';
 import { List } from './list';
-import { clamp, mergeSort, cwrap } from './utils';
+import { linkedMergeSort, cwrap } from './utils';
 
 /**
  * A (circular) linked list implementation of the {@link List} interface.
@@ -241,7 +242,7 @@ export class LinkedList<T> implements List<T> {
 
     sort(compareFn: CompareFn<T>): this {
         if (this.length > 1) {
-            const [head, tail] = mergeSort(this.root.next!, this.length, false, compareFn);
+            const [head, tail] = linkedMergeSort(this.root.next!, this.length, false, compareFn);
             this.root.next = head;
             this.tail = tail;
         }

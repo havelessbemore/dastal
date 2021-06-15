@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / AATreeNode
+[dastal - v3.0.0](../README.md) / AATreeNode
 
 # Interface: AATreeNode<T\>
 
@@ -21,7 +21,7 @@ that has the following properties ([source](https://en.wikipedia.org/wiki/AA_tre
 
 ## Hierarchy
 
-- [*BinaryTreeNode*](binarytreenode.md)<T\>
+- [BinaryTreeNode](binarytreenode.md)<T\>
 
   ↳ **AATreeNode**
 
@@ -38,44 +38,58 @@ that has the following properties ([source](https://en.wikipedia.org/wiki/AA_tre
 
 ### left
 
-• `Optional` **left**: [*AATreeNode*](aatreenode.md)<T\>
+• `Optional` **left**: [AATreeNode](aatreenode.md)<T\>
 
 A link to the node's left child.
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L10)
+[BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
 ### level
 
-• **level**: *number*
+• **level**: `number`
 
 The level of the node.
 
-Defined in: [src/tree/aaTreeNode.ts:19](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/aaTreeNode.ts#L19)
+#### Defined in
+
+[src/tree/aaTreeNode.ts:19](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/aaTreeNode.ts#L19)
 
 ___
 
 ### right
 
-• `Optional` **right**: [*AATreeNode*](aatreenode.md)<T\>
+• `Optional` **right**: [AATreeNode](aatreenode.md)<T\>
 
 A link to the node's right child.
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L14)
+[BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
 ### value
 
-• **value**: T
+• **value**: `T`
 
 The value of the node
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L18)
+[BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L18)

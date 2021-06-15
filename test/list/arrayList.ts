@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { CompareFn } from 'src';
 import { ArrayList } from 'src/list/arrayList';
-import { clamp, cwrap } from 'src/list/utils';
+import { cwrap } from 'src/list/utils';
+import { clamp } from 'src/math';
 
 describe('ArrayList unit tests', function () {
     let empty: ArrayList<number>;

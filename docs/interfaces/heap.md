@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Heap
+[dastal - v3.0.0](../README.md) / Heap
 
 # Interface: Heap<T\>
 
@@ -54,16 +54,16 @@ Add & Remove
 
 ## Hierarchy
 
-- *Iterable*<T\>
+- `Collection`<T\>
 
-- [*Sorted*](sorted.md)<T\>
+- [Sorted](sorted.md)<T\>
 
   ↳ **Heap**
 
 ## Implemented by
 
-- [*BinaryHeap*](../classes/binaryheap.md)
-- [*SkewHeap*](../classes/skewheap.md)
+- [BinaryHeap](../classes/binaryheap.md)
+- [SkewHeap](../classes/skewheap.md)
 
 ## Table of contents
 
@@ -92,29 +92,41 @@ Add & Remove
 
 ### size
 
-• `Readonly` **size**: *number*
+• `Readonly` **size**: `number`
 
-The number of elements in the heap.
+The number of elements in the collection.
 
-Defined in: [src/heap/heap.ts:125](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L125)
+#### Inherited from
+
+Collection.size
+
+#### Defined in
+
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/e94627b/src/collection/collection.ts#L5)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
 
-Inherited from: Iterable.\_\_@iterator
+`Iterator`<T, any, undefined\>
 
-Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
+#### Inherited from
+
+Collection.\_\_@iterator
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
 
 ___
 
 ### addAll
 
-▸ **addAll**(`elements`: *Iterable*<T\>): *number*
+▸ **addAll**(`elements`): `number`
 
 Insert a set of elements into the heap.
 
@@ -122,45 +134,59 @@ Insert a set of elements into the heap.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `elements` | *Iterable*<T\> | The elements to insert. |
+| `elements` | `Iterable`<T\> | The elements to insert. |
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 The new size of the list.
 
-Defined in: [src/heap/heap.ts:56](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L56)
+#### Defined in
+
+[src/heap/heap.ts:57](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L57)
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Remove all elements.
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/heap/heap.ts:60](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L60)
+`void`
+
+#### Defined in
+
+[src/heap/heap.ts:61](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L61)
 
 ___
 
 ### comparator
 
-▸ **comparator**(): [*CompareFn*](../README.md#comparefn)<T\>
+▸ **comparator**(): [CompareFn](../README.md#comparefn)<T\>
 
-**Returns:** [*CompareFn*](../README.md#comparefn)<T\>
+#### Returns
+
+[CompareFn](../README.md#comparefn)<T\>
 
 The function with which elements are sorted
 
-Inherited from: [Sorted](sorted.md)
+#### Inherited from
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L47)
+[Sorted](sorted.md).[comparator](sorted.md#comparator)
+
+#### Defined in
+
+[src/index.ts:59](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L59)
 
 ___
 
 ### contains
 
-▸ **contains**(`element`: T): *boolean*
+▸ **contains**(`element`): `boolean`
 
 Check if an element is in the heap.
 
@@ -168,19 +194,23 @@ Check if an element is in the heap.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to find. |
+| `element` | `T` | The element to find. |
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 `true` if the element was found, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:68](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L68)
+#### Defined in
+
+[src/heap/heap.ts:69](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L69)
 
 ___
 
 ### delete
 
-▸ **delete**(`element`: T): *boolean*
+▸ **delete**(`element`): `boolean`
 
 Delete an element from the heap.
 
@@ -188,19 +218,23 @@ Delete an element from the heap.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to delete. |
+| `element` | `T` | The element to delete. |
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 `true` if the element was found and deleted, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:76](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L76)
+#### Defined in
+
+[src/heap/heap.ts:77](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L77)
 
 ___
 
 ### merge
 
-▸ **merge**(`heap`: [*Heap*](heap.md)<T\>): [*Heap*](heap.md)<T\>
+▸ **merge**(`heap`): [Heap](heap.md)<T\>
 
 Join with a different heap and modify the existing heap to
 contain elements of both. Does not modify the input.
@@ -209,47 +243,59 @@ contain elements of both. Does not modify the input.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `heap` | [*Heap*](heap.md)<T\> | The heap to join with. |
+| `heap` | [Heap](heap.md)<T\> | The heap to join with. |
 
-**Returns:** [*Heap*](heap.md)<T\>
+#### Returns
 
-The new heap size.
+[Heap](heap.md)<T\>
 
-Defined in: [src/heap/heap.ts:85](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L85)
+The heap.
+
+#### Defined in
+
+[src/heap/heap.ts:86](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L86)
 
 ___
 
 ### peek
 
-▸ **peek**(): *undefined* \| T
+▸ **peek**(): `undefined` \| `T`
 
 Retrieves, but does not remove, the top of the heap.
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:91](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L91)
+#### Defined in
+
+[src/heap/heap.ts:92](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L92)
 
 ___
 
 ### pop
 
-▸ **pop**(): *undefined* \| T
+▸ **pop**(): `undefined` \| `T`
 
 Remove the top of the heap (AKA extract).
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:97](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L97)
+#### Defined in
+
+[src/heap/heap.ts:98](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L98)
 
 ___
 
 ### push
 
-▸ **push**(`element`: T): *number*
+▸ **push**(`element`): `number`
 
 Inserts an element into the heap (AKA insert, add).
 
@@ -257,19 +303,23 @@ Inserts an element into the heap (AKA insert, add).
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted. |
+| `element` | `T` | The element to be inserted. |
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 The new size of the heap.
 
-Defined in: [src/heap/heap.ts:105](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L105)
+#### Defined in
+
+[src/heap/heap.ts:106](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L106)
 
 ___
 
 ### pushPop
 
-▸ **pushPop**(`element`: T): T
+▸ **pushPop**(`element`): `T`
 
 Insert an element and then remove the top of the heap.
 
@@ -277,19 +327,23 @@ Insert an element and then remove the top of the heap.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted. |
+| `element` | `T` | The element to be inserted. |
 
-**Returns:** T
+#### Returns
+
+`T`
 
 The element at the top of the heap.
 
-Defined in: [src/heap/heap.ts:113](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L113)
+#### Defined in
+
+[src/heap/heap.ts:114](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L114)
 
 ___
 
 ### replace
 
-▸ **replace**(`element`: T): *undefined* \| T
+▸ **replace**(`element`): `undefined` \| `T`
 
 Remove the top of the heap and then insert a new element (AKA popPush).
 
@@ -297,33 +351,41 @@ Remove the top of the heap and then insert a new element (AKA popPush).
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted. |
+| `element` | `T` | The element to be inserted. |
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The element at the top of the heap or `undefined` if empty.
 
-Defined in: [src/heap/heap.ts:121](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L121)
+#### Defined in
+
+[src/heap/heap.ts:122](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L122)
 
 ___
 
 ### sorted
 
-▸ **sorted**(): *Iterable*<T\>
+▸ **sorted**(): `Iterable`<T\>
 
 Iterate through the heap in sorted order.
 
 **Note:** Unexpected behavior can occur if the collection is modified during iteration.
 
-**Returns:** *Iterable*<T\>
+#### Returns
 
-Defined in: [src/heap/heap.ts:131](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L131)
+`Iterable`<T\>
+
+#### Defined in
+
+[src/heap/heap.ts:128](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L128)
 
 ___
 
 ### update
 
-▸ **update**(`curElement`: T, `newElement`: T): *boolean*
+▸ **update**(`curElement`, `newElement`): `boolean`
 
 Update a specific element.
 
@@ -331,11 +393,15 @@ Update a specific element.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `curElement` | T | The element to update. |
-| `newElement` | T | The new element to insert. |
+| `curElement` | `T` | The element to update. |
+| `newElement` | `T` | The new element to insert. |
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 `true` if curElement was found and updated, otherwise `false`.
 
-Defined in: [src/heap/heap.ts:140](https://github.com/havelessbemore/dastal/blob/99eb870/src/heap/heap.ts#L140)
+#### Defined in
+
+[src/heap/heap.ts:137](https://github.com/havelessbemore/dastal/blob/e94627b/src/heap/heap.ts#L137)

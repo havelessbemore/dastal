@@ -2,7 +2,8 @@ import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { CompareFn } from 'src';
 import { DoublyLinkedList } from 'src/list/doublyLinkedList';
-import { clamp, cwrap } from 'src/list/utils';
+import { cwrap } from 'src/list/utils';
+import { clamp } from 'src/math';
 
 describe('DoublyLinkedList unit tests', function () {
     let empty: DoublyLinkedList<number>;

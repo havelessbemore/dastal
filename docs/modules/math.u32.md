@@ -1,0 +1,319 @@
+[dastal - v3.0.0](../README.md) / [math](math.md) / u32
+
+# Namespace: u32
+
+[math](math.md).u32
+
+Bit hacks for 32-bit unsigned numbers.
+
+## Table of contents
+
+### Functions
+
+- [bitsSet](math.u32.md#bitsset)
+- [invert](math.u32.md#invert)
+- [isPow2](math.u32.md#ispow2)
+- [lsb](math.u32.md#lsb)
+- [lsp](math.u32.md#lsp)
+- [lsps](math.u32.md#lsps)
+- [mlsp](math.u32.md#mlsp)
+- [msb](math.u32.md#msb)
+- [msp](math.u32.md#msp)
+- [msps](math.u32.md#msps)
+- [reverse](math.u32.md#reverse)
+- [u32](math.u32.md#u32)
+
+## Functions
+
+### bitsSet
+
+▸ **bitsSet**(`a`): `number`
+
+Get the number of bits set of a 32-bit unsigned number ([source](https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan))
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L10)
+
+___
+
+### invert
+
+▸ **invert**(`a`): `number`
+
+Invert the bits of a 32-bit unsigned number.
+
+Example: 11 (1011) -> 4 (0100)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `number` | The number to invert |
+
+#### Returns
+
+`number`
+
+The inverted number
+
+#### Defined in
+
+[src/math/u32.ts:27](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L27)
+
+___
+
+### isPow2
+
+▸ **isPow2**(`a`): `boolean`
+
+Check whether a 32-bit unsigned number is a power of 2.
+
+Example: 8 (1000) -> true
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `number` | The number to check |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/math/u32.ts:38](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L38)
+
+___
+
+### lsb
+
+▸ **lsb**(`a`): `number`
+
+Get the Least Significant Bit of a 32-bit unsigned number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+The lowest bit set
+
+#### Defined in
+
+[src/math/u32.ts:48](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L48)
+
+___
+
+### lsp
+
+▸ **lsp**(`a`): `number`
+
+Get the Least Significant Power of a 32-bit unsigned number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+2**lsb(a)
+
+#### Defined in
+
+[src/math/u32.ts:62](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L62)
+
+___
+
+### lsps
+
+▸ **lsps**(`a`): `number`
+
+Get the Least Significant Power Set of a 32-bit unsigned number.
+
+Example: 54 (110110) -> 6 (000110)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:72](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L72)
+
+___
+
+### mlsp
+
+▸ **mlsp**(`a`): `number`
+
+Get the Most Significant Power of the Least Significant Power Set of a 32-bit unsigned number.
+
+Example: 54 (110110) -> 4 (000100)
+
+111111
+000000
+000000
+
+000010
+111000
+001000
+000100
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:91](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L91)
+
+___
+
+### msb
+
+▸ **msb**(`a`): `number`
+
+Get the Most Significant Bit of a 32-bit unsigned number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+⌊log2(a)⌋ : the highest bit set
+
+#### Defined in
+
+[src/math/u32.ts:101](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L101)
+
+___
+
+### msp
+
+▸ **msp**(`a`): `number`
+
+Get the Most Significant Power of a 32-bit unsigned number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+2**msb(a)
+
+#### Defined in
+
+[src/math/u32.ts:116](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L116)
+
+___
+
+### msps
+
+▸ **msps**(`a`): `number`
+
+Get the Most Significant Power Set of a 32-bit unsigned number.
+
+Example: 50 (110010) -> 48 (110000)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:131](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L131)
+
+___
+
+### reverse
+
+▸ **reverse**(`a`): `number`
+
+Reverse a 32-bit unsigned number.
+
+Example: 50 (110010) -> 19 (010011)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:146](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L146)
+
+___
+
+### u32
+
+▸ **u32**(`a`): `number`
+
+Turn a number into an unsigned 32-bit number
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `number` |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/u32.ts:158](https://github.com/havelessbemore/dastal/blob/e94627b/src/math/u32.ts#L158)

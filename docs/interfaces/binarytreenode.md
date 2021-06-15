@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / BinaryTreeNode
+[dastal - v3.0.0](../README.md) / BinaryTreeNode
 
 # Interface: BinaryTreeNode<T\>
 
@@ -16,9 +16,9 @@ Each node links to its left and right child.
 
 - **BinaryTreeNode**
 
-  ↳ [*AATreeNode*](aatreenode.md)
+  ↳ [AATreeNode](aatreenode.md)
 
-  ↳ [*AVLTreeNode*](avltreenode.md)
+  ↳ [AVLTreeNode](avltreenode.md)
 
 ## Table of contents
 
@@ -32,28 +32,34 @@ Each node links to its left and right child.
 
 ### left
 
-• `Optional` **left**: [*BinaryTreeNode*](binarytreenode.md)<T\>
+• `Optional` **left**: [BinaryTreeNode](binarytreenode.md)<T\>
 
 A link to the node's left child.
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L10)
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
 ### right
 
-• `Optional` **right**: [*BinaryTreeNode*](binarytreenode.md)<T\>
+• `Optional` **right**: [BinaryTreeNode](binarytreenode.md)<T\>
 
 A link to the node's right child.
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L14)
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
 ### value
 
-• **value**: T
+• **value**: `T`
 
 The value of the node
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L18)
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L18)

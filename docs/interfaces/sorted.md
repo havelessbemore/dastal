@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Sorted
+[dastal - v3.0.0](../README.md) / Sorted
 
 # Interface: Sorted<T\>
 
@@ -14,9 +14,9 @@ Represents an object containing a set of sorted elements.
 
 - **Sorted**
 
-  ↳ [*Heap*](heap.md)
+  ↳ [Heap](heap.md)
 
-  ↳ [*SortedTree*](sortedtree.md)
+  ↳ [SortedTree](sortedtree.md)
 
 ## Table of contents
 
@@ -28,10 +28,14 @@ Represents an object containing a set of sorted elements.
 
 ### comparator
 
-▸ **comparator**(): [*CompareFn*](../README.md#comparefn)<T\>
+▸ **comparator**(): [CompareFn](../README.md#comparefn)<T\>
 
-**Returns:** [*CompareFn*](../README.md#comparefn)<T\>
+#### Returns
+
+[CompareFn](../README.md#comparefn)<T\>
 
 The function with which elements are sorted
 
-Defined in: [src/index.ts:47](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L47)
+#### Defined in
+
+[src/index.ts:59](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L59)

@@ -1,3 +1,5 @@
+import { Collection } from 'src/collection/collection';
+
 /**
  * An ordered collection of elements in LIFO (last-in-first-out) order.
  *
@@ -8,9 +10,9 @@
  * Regardless, a call to pop() should return the last element relative to its order.
  * Every implementation should specify its ordering properties. Otherwise, insertion order should be used.
  */
-export interface Stack<T> extends Iterable<T> {
+export interface Stack<T> extends Collection<T> {
     /**
-     * Removes all elements from the stack
+     * Removes all elements.
      */
     clear(): void;
     /**
@@ -33,8 +35,4 @@ export interface Stack<T> extends Iterable<T> {
      * @returns The new size of the stack
      */
     push(element: T): number;
-    /**
-     * The number of elements in the stack
-     */
-    readonly size: number;
 }

@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Tree
+[dastal - v3.0.0](../README.md) / Tree
 
 # Interface: Tree<T\>
 
@@ -16,7 +16,7 @@ Iterate
 
 Get
 - Get the size of the tree: [size](tree.md#size)
-- Check if the tree contains a given element: [contains](tree.md#contains)
+- Check if the tree contains a given element: [contains](../classes/binaryheap.md#contains)
 
 Set
 - Update an element: [update](tree.md#update)
@@ -36,11 +36,11 @@ Remove
 
 ## Hierarchy
 
-- *Iterable*<T\>
+- `Collection`<T\>
 
   ↳ **Tree**
 
-  ↳↳ [*SortedTree*](sortedtree.md)
+  ↳↳ [SortedTree](sortedtree.md)
 
 ## Table of contents
 
@@ -53,37 +53,49 @@ Remove
 - [[Symbol.iterator]](tree.md#[symbol.iterator])
 - [add](tree.md#add)
 - [clear](tree.md#clear)
-- [contains](tree.md#contains)
 - [delete](tree.md#delete)
+- [has](tree.md#has)
 - [update](tree.md#update)
 
 ## Properties
 
 ### size
 
-• `Readonly` **size**: *number*
+• `Readonly` **size**: `number`
 
-The number of elements in the tree.
+The number of elements in the collection.
 
-Defined in: [src/tree/tree.ts:60](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L60)
+#### Inherited from
+
+Collection.size
+
+#### Defined in
+
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/e94627b/src/collection/collection.ts#L5)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
 
-Inherited from: Iterable.\_\_@iterator
+`Iterator`<T, any, undefined\>
 
-Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
+#### Inherited from
+
+Collection.\_\_@iterator
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
 
 ___
 
 ### add
 
-▸ **add**(`element`: T): *number*
+▸ **add**(`element`): [Tree](tree.md)<T\>
 
 Inserts an element into the tree.
 
@@ -91,51 +103,39 @@ Inserts an element into the tree.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted. |
+| `element` | `T` | The element to be inserted. |
 
-**Returns:** *number*
+#### Returns
 
-The new size of the tree.
+[Tree](tree.md)<T\>
 
-Defined in: [src/tree/tree.ts:36](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L36)
+The tree object.
+
+#### Defined in
+
+[src/tree/tree.ts:38](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/tree.ts#L38)
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Remove all elements.
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/tree/tree.ts:40](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L40)
+`void`
 
-___
+#### Defined in
 
-### contains
-
-▸ **contains**(`element`: T): *boolean*
-
-Check if an element is in the tree.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `element` | T | The element to find. |
-
-**Returns:** *boolean*
-
-`true` if the element was found, otherwise `false`.
-
-Defined in: [src/tree/tree.ts:48](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L48)
+[src/tree/tree.ts:42](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/tree.ts#L42)
 
 ___
 
 ### delete
 
-▸ **delete**(`element`: T): *boolean*
+▸ **delete**(`element`): `boolean`
 
 Delete an element from the tree.
 
@@ -143,19 +143,47 @@ Delete an element from the tree.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to delete. |
+| `element` | `T` | The element to delete. |
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 `true` if the element was found and deleted, otherwise `false`.
 
-Defined in: [src/tree/tree.ts:56](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L56)
+#### Defined in
+
+[src/tree/tree.ts:50](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/tree.ts#L50)
+
+___
+
+### has
+
+▸ **has**(`element`): `boolean`
+
+Check if an element is in the tree.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `element` | `T` | The element to find. |
+
+#### Returns
+
+`boolean`
+
+`true` if the element was found, otherwise `false`.
+
+#### Defined in
+
+[src/tree/tree.ts:58](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/tree.ts#L58)
 
 ___
 
 ### update
 
-▸ **update**(`curElement`: T, `newElement`: T): *boolean*
+▸ **update**(`curElement`, `newElement`): `boolean`
 
 Update a specific element.
 
@@ -163,11 +191,15 @@ Update a specific element.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `curElement` | T | The element to update. |
-| `newElement` | T | The new element to insert. |
+| `curElement` | `T` | The element to update. |
+| `newElement` | `T` | The new element to insert. |
 
-**Returns:** *boolean*
+#### Returns
+
+`boolean`
 
 `true` if curElement was found and updated, otherwise `false`.
 
-Defined in: [src/tree/tree.ts:69](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/tree.ts#L69)
+#### Defined in
+
+[src/tree/tree.ts:67](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/tree.ts#L67)

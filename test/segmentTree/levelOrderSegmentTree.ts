@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { randomFill } from 'crypto';
-import { LevelOrderSegmentTree } from 'src/TODO/segmentTree/levelOrderSegmentTree';
+import { LevelOrderSegmentTree } from 'src/segmentTree/levelOrderSegmentTree';
 
 describe('LevelOrderSegmentTree unit tests', function () {
     let empty: LevelOrderSegmentTree<number>;

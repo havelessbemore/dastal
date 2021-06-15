@@ -1,6 +1,7 @@
+import { clamp } from 'src/math';
 import { CompareFn } from '..';
 import { List } from './list';
-import { batch, clamp, cwrap } from './utils';
+import { batch, cwrap } from './utils';
 
 /**
  * An implementation of the {@link List} interface using an array

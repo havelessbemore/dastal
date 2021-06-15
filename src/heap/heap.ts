@@ -1,3 +1,4 @@
+import { Collection } from 'src/collection/collection';
 import { Sorted } from '..';
 
 /**
@@ -45,7 +46,7 @@ import { Sorted } from '..';
  * - Add and then remove the top element: {@link pushPop}
  * - Remove the top element and then add an element: {@link replace}
  */
-export interface Heap<T> extends Iterable<T>, Sorted<T> {
+export interface Heap<T> extends Collection<T>, Sorted<T> {
     /**
      * Insert a set of elements into the heap.
      *
@@ -55,7 +56,7 @@ export interface Heap<T> extends Iterable<T>, Sorted<T> {
      */
     addAll(elements: Iterable<T>): number;
     /**
-     * Remove all elements.
+     * Removes all elements.
      */
     clear(): void;
     /**
@@ -119,10 +120,6 @@ export interface Heap<T> extends Iterable<T>, Sorted<T> {
      * @returns The element at the top of the heap or `undefined` if empty.
      */
     replace(element: T): T | undefined;
-    /**
-     * The number of elements in the heap.
-     */
-    readonly size: number;
     /**
      * Iterate through the heap in sorted order.
      *

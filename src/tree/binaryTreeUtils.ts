@@ -127,7 +127,7 @@ export function removeStack<Node extends BinaryTreeNode<unknown>>(
 /**
  * @internal
  */
-export function clone<T, Node extends BinaryTreeNode<T>>(node?: undefined): undefined;
+export function clone<T, Node extends BinaryTreeNode<T>>(node: undefined): undefined;
 export function clone<T, Node extends BinaryTreeNode<T>>(node: Node): Node;
 export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined): Node | undefined;
 export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined): Node | undefined {
@@ -151,10 +151,14 @@ export function clone<T, Node extends BinaryTreeNode<T>>(node: Node | undefined)
 /**
  * @internal
  */
-export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function leftmost<Node extends BinaryTreeNode<unknown>>(node: undefined): undefined;
 export function leftmost<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
-export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
-export function leftmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+export function leftmost<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined;
+export function leftmost<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined {
     if (node == null) {
         return undefined;
     }
@@ -278,7 +282,9 @@ export function* postOrderTraverse<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function predecessor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+export function predecessor<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined {
     return node == null ? undefined : rightmost(node.left);
 }
 /**
@@ -327,10 +333,14 @@ export function reverse<Node extends BinaryTreeNode<unknown>>(root?: Node): void
 /**
  * @internal
  */
-export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: undefined): undefined;
+export function rightmost<Node extends BinaryTreeNode<unknown>>(node: undefined): undefined;
 export function rightmost<Node extends BinaryTreeNode<unknown>>(node: Node): Node;
-export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined;
-export function rightmost<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+export function rightmost<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined;
+export function rightmost<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined {
     if (node == null) {
         return undefined;
     }
@@ -399,7 +409,9 @@ export function searchStack<T, Node extends BinaryTreeNode<T>>(
 /**
  * @internal
  */
-export function successor<Node extends BinaryTreeNode<unknown>>(node?: Node): Node | undefined {
+export function successor<Node extends BinaryTreeNode<unknown>>(
+    node: Node | undefined,
+): Node | undefined {
     return node == null ? undefined : leftmost(node.right);
 }
 /**

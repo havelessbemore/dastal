@@ -1,3 +1,4 @@
+import { Collection } from 'src/collection/collection';
 import { Sortable } from '..';
 
 /**
@@ -36,7 +37,7 @@ import { Sortable } from '..';
  * - Remove a range (and add new elements): {@link splice}
  * - Remove all elements: {@link clear}
  */
-export interface List<T> extends Iterable<T>, Sortable<T> {
+export interface List<T> extends Collection<T>, Sortable<T> {
     /**
      * Add the element at the specified index.
      *
@@ -56,7 +57,7 @@ export interface List<T> extends Iterable<T>, Sortable<T> {
      */
     addAll(index: number, elements: Iterable<T>): number;
     /**
-     * Removes all elements
+     * Removes all elements.
      */
     clear(): void;
     /**
@@ -168,10 +169,6 @@ export interface List<T> extends Iterable<T>, Sortable<T> {
      * @returns The value at the front of the list or `undefined` if this list is empty.
      */
     shift(): T | undefined;
-    /**
-     * The number of elements in this list
-     */
-    readonly size: number;
     /**
      * Returns a copy of a section of the list.
      *

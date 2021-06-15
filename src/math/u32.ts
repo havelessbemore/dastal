@@ -3,6 +3,19 @@
  */
 
 /**
+ * Get the number of bits set of a 32-bit unsigned number ([source](https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan))
+ *
+ * @param a
+ */
+export function bitsSet(a: number): number {
+    let b = 0;
+    while (a) {
+        ++b;
+        a &= a - 1;
+    }
+    return b;
+}
+/**
  * Invert the bits of a 32-bit unsigned number.
  *
  * Example: 11 (1011) -> 4 (0100)
@@ -16,6 +29,16 @@ export function invert(a: number): number {
     return u32(a ^ (b | (b - 1)));
 }
 /**
+ * Check whether a 32-bit unsigned number is a power of 2.
+ *
+ * Example: 8 (1000) -> true
+ *
+ * @param a The number to check
+ */
+export function isPow2(a: number): boolean {
+    return (a & (a - 1)) === 0;
+}
+/**
  * Get the Least Significant Bit of a 32-bit unsigned number
  *
  * @param a
@@ -24,7 +47,7 @@ export function invert(a: number): number {
  */
 export function lsb(a: number): number {
     let b = -1;
-    for (a = lsp(a); a !== 0; a >>>= 1) {
+    for (a = lsp(a); a; a >>>= 1) {
         ++b;
     }
     return b;
@@ -42,7 +65,7 @@ export function lsp(a: number): number {
 /**
  * Get the Least Significant Power Set of a 32-bit unsigned number.
  *
- * Example: 54 (110110) -> 4 (000110)
+ * Example: 54 (110110) -> 6 (000110)
  *
  * @param a
  */
@@ -50,7 +73,7 @@ export function lsps(a: number): number {
     return u32(a & (lsp(a + lsp(a)) - 1));
 }
 /**
- * Get the Most Least Significant Power of a 32-bit unsigned number.
+ * Get the Most Significant Power of the Least Significant Power Set of a 32-bit unsigned number.
  *
  * Example: 54 (110110) -> 4 (000100)
  *
@@ -112,19 +135,6 @@ export function msps(a: number): number {
         b = a & -a;
     }
     return u32(a);
-}
-/**
- * Get the number of bits set (on) of a 32-bit unsigned number
- *
- * @param a
- */
-export function onBits(a: number): number {
-    let b = 0;
-    while (a) {
-        ++b;
-        a &= a - 1;
-    }
-    return b;
 }
 /**
  * Reverse a 32-bit unsigned number.

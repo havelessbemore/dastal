@@ -24,6 +24,10 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         this.root = { children: new Map(), isKey: false };
     }
 
+    entries(): Iterable<[Key, Value]> {
+        throw new Error('TODO');
+    }
+
     delete(key: Key): Value | undefined {
         const ancestors: [Token, GenericTrieNode<Token, Value>][] = [];
 
@@ -81,7 +85,7 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         return this.getNode(key) !== undefined;
     }
 
-    *keys(): Iterator<Key> {
+    *keys(): Iterable<Key> {
         throw new Error('TODO');
     }
 
@@ -118,7 +122,7 @@ export class GenericTrie<Key, Token, Value> implements Trie<Key, Value> {
         throw new Error('TODO');
     }
 
-    *values(): Iterator<Value> {
+    *values(): Iterable<Value> {
         const q = new LinkedQueue<GenericTrieNode<Token, Value>>();
         q.enqueue(this.root);
         do {

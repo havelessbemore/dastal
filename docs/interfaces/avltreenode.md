@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / AVLTreeNode
+[dastal - v3.0.0](../README.md) / AVLTreeNode
 
 # Interface: AVLTreeNode<T\>
 
@@ -15,7 +15,7 @@ If at any time they differ by more than one, rebalancing is done to restore this
 
 ## Hierarchy
 
-- [*BinaryTreeNode*](binarytreenode.md)<T\>
+- [BinaryTreeNode](binarytreenode.md)<T\>
 
   ↳ **AVLTreeNode**
 
@@ -32,44 +32,58 @@ If at any time they differ by more than one, rebalancing is done to restore this
 
 ### balanceFactor
 
-• **balanceFactor**: *number*
+• **balanceFactor**: `number`
 
 The delta rank of the node.
 
-Defined in: [src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/avlTreeNode.ts#L13)
+#### Defined in
+
+[src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/avlTreeNode.ts#L13)
 
 ___
 
 ### left
 
-• `Optional` **left**: [*AVLTreeNode*](avltreenode.md)<T\>
+• `Optional` **left**: [AVLTreeNode](avltreenode.md)<T\>
 
 A link to the node's left child.
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L10)
+[BinaryTreeNode](binarytreenode.md).[left](binarytreenode.md#left)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
 ### right
 
-• `Optional` **right**: [*AVLTreeNode*](avltreenode.md)<T\>
+• `Optional` **right**: [AVLTreeNode](avltreenode.md)<T\>
 
 A link to the node's right child.
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L14)
+[BinaryTreeNode](binarytreenode.md).[right](binarytreenode.md#right)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
 ### value
 
-• **value**: T
+• **value**: `T`
 
 The value of the node
 
-Inherited from: [BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
+#### Inherited from
 
-Defined in: [src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/tree/binaryTreeNode.ts#L18)
+[BinaryTreeNode](binarytreenode.md).[value](binarytreenode.md#value)
+
+#### Defined in
+
+[src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/e94627b/src/tree/binaryTreeNode.ts#L18)

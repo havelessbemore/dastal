@@ -1,7 +1,8 @@
+import { clamp } from 'src/math';
 import { CompareFn } from '..';
 import { DoublyLinkedNode } from './doublyLinkedNode';
 import { List } from './list';
-import { clamp, mergeSort, cwrap } from './utils';
+import { linkedMergeSort, cwrap } from './utils';
 
 /**
  * A (circular) doubly-linked list implementation of the {@link List} interface.
@@ -233,7 +234,7 @@ export class DoublyLinkedList<T> implements List<T> {
 
     sort(compareFn: CompareFn<T>): this {
         if (this.length > 1) {
-            const [head, tail] = mergeSort(this.root.next!, this.length, true, compareFn);
+            const [head, tail] = linkedMergeSort(this.root.next!, this.length, true, compareFn);
             this.root.next = head;
             tail.next!.prev = tail;
         }

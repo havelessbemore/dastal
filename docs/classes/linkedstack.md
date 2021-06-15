@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / LinkedStack
+[dastal - v3.0.0](../README.md) / LinkedStack
 
 # Class: LinkedStack<T\>
 
@@ -12,7 +12,7 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 ## Implements
 
-- [*Stack*](../interfaces/stack.md)<T\>
+- [Stack](../interfaces/stack.md)<T\>
 
 ## Table of contents
 
@@ -36,7 +36,7 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 ### constructor
 
-\+ **new LinkedStack**<T\>(`elements?`: *Iterable*<T\>): [*LinkedStack*](linkedstack.md)<T\>
+• **new LinkedStack**<T\>(`elements?`)
 
 Instantiate the stack.
 
@@ -50,91 +50,121 @@ Instantiate the stack.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `elements?` | *Iterable*<T\> | A set of elements to initialize the stack with. |
+| `elements?` | `Iterable`<T\> | A set of elements to initialize the stack with. |
 
-**Returns:** [*LinkedStack*](linkedstack.md)<T\>
+#### Defined in
 
-Defined in: [src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L11)
+[src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L11)
 
 ## Accessors
 
 ### size
 
-• get **size**(): *number*
+• `get` **size**(): `number`
 
-The number of elements in the stack
+The number of elements in the collection.
 
-**Returns:** *number*
+#### Returns
 
-Implementation of: [Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
+`number`
 
-Defined in: [src/stack/linkedStack.ts:40](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L40)
+#### Implementation of
+
+[Stack](../interfaces/stack.md).[size](../interfaces/stack.md#size)
+
+#### Defined in
+
+[src/stack/linkedStack.ts:40](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L40)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
 Receive an iterator through the stack.
 
 **Note:** Unexpected behavior can occur if the collection is modified during iteration.
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
+
+`Iterator`<T, any, undefined\>
 
 An iterator through the stack
 
-Implementation of: [Stack](../interfaces/stack.md)
+#### Implementation of
 
-Defined in: [src/stack/linkedStack.ts:50](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L50)
+[Stack](../interfaces/stack.md).[[Symbol.iterator]](../interfaces/stack.md#[symbol.iterator])
+
+#### Defined in
+
+[src/stack/linkedStack.ts:50](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L50)
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Removes all elements from the stack
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [Stack](../interfaces/stack.md)
+`void`
 
-Defined in: [src/stack/linkedStack.ts:24](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L24)
+#### Implementation of
+
+[Stack](../interfaces/stack.md).[clear](../interfaces/stack.md#clear)
+
+#### Defined in
+
+[src/stack/linkedStack.ts:24](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L24)
 
 ___
 
 ### peek
 
-▸ **peek**(): *undefined* \| T
+▸ **peek**(): `undefined` \| `T`
 
 Retrieves, but does not remove, the top of the stack
 
-**Returns:** *undefined* \| T
+#### Returns
 
-Implementation of: [Stack](../interfaces/stack.md)
+`undefined` \| `T`
 
-Defined in: [src/stack/linkedStack.ts:28](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L28)
+#### Implementation of
+
+[Stack](../interfaces/stack.md).[peek](../interfaces/stack.md#peek)
+
+#### Defined in
+
+[src/stack/linkedStack.ts:28](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L28)
 
 ___
 
 ### pop
 
-▸ **pop**(): *undefined* \| T
+▸ **pop**(): `undefined` \| `T`
 
 Retrieves and removes the top of the stack
 
-**Returns:** *undefined* \| T
+#### Returns
 
-Implementation of: [Stack](../interfaces/stack.md)
+`undefined` \| `T`
 
-Defined in: [src/stack/linkedStack.ts:32](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L32)
+#### Implementation of
+
+[Stack](../interfaces/stack.md).[pop](../interfaces/stack.md#pop)
+
+#### Defined in
+
+[src/stack/linkedStack.ts:32](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L32)
 
 ___
 
 ### push
 
-▸ **push**(`element`: T): *number*
+▸ **push**(`element`): `number`
 
 Inserts an element into the stack
 
@@ -142,10 +172,16 @@ Inserts an element into the stack
 
 | Name | Type |
 | :------ | :------ |
-| `element` | T |
+| `element` | `T` |
 
-**Returns:** *number*
+#### Returns
 
-Implementation of: [Stack](../interfaces/stack.md)
+`number`
 
-Defined in: [src/stack/linkedStack.ts:36](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/linkedStack.ts#L36)
+#### Implementation of
+
+[Stack](../interfaces/stack.md).[push](../interfaces/stack.md#push)
+
+#### Defined in
+
+[src/stack/linkedStack.ts:36](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/linkedStack.ts#L36)

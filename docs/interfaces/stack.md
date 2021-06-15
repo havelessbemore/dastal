@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Stack
+[dastal - v3.0.0](../README.md) / Stack
 
 # Interface: Stack<T\>
 
@@ -19,14 +19,14 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ## Hierarchy
 
-- *Iterable*<T\>
+- `Collection`<T\>
 
   ↳ **Stack**
 
 ## Implemented by
 
-- [*ArrayStack*](../classes/arraystack.md)
-- [*LinkedStack*](../classes/linkedstack.md)
+- [ArrayStack](../classes/arraystack.md)
+- [LinkedStack](../classes/linkedstack.md)
 
 ## Table of contents
 
@@ -46,69 +46,93 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ### size
 
-• `Readonly` **size**: *number*
+• `Readonly` **size**: `number`
 
-The number of elements in the stack
+The number of elements in the collection.
 
-Defined in: [src/stack/stack.ts:39](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/stack.ts#L39)
+#### Inherited from
+
+Collection.size
+
+#### Defined in
+
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/e94627b/src/collection/collection.ts#L5)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
 
-Inherited from: Iterable.\_\_@iterator
+`Iterator`<T, any, undefined\>
 
-Defined in: node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
+#### Inherited from
+
+Collection.\_\_@iterator
+
+#### Defined in
+
+node_modules/typescript/lib/lib.es2015.iterable.d.ts:51
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Removes all elements from the stack
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Defined in: [src/stack/stack.ts:15](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/stack.ts#L15)
+`void`
+
+#### Defined in
+
+[src/stack/stack.ts:17](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/stack.ts#L17)
 
 ___
 
 ### peek
 
-▸ **peek**(): *undefined* \| T
+▸ **peek**(): `undefined` \| `T`
 
 Retrieves, but does not remove, the top of the stack
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:21](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/stack.ts#L21)
+#### Defined in
+
+[src/stack/stack.ts:23](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/stack.ts#L23)
 
 ___
 
 ### pop
 
-▸ **pop**(): *undefined* \| T
+▸ **pop**(): `undefined` \| `T`
 
 Retrieves and removes the top of the stack
 
-**Returns:** *undefined* \| T
+#### Returns
+
+`undefined` \| `T`
 
 The element at the top of the stack or `undefined` if empty.
 
-Defined in: [src/stack/stack.ts:27](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/stack.ts#L27)
+#### Defined in
+
+[src/stack/stack.ts:29](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/stack.ts#L29)
 
 ___
 
 ### push
 
-▸ **push**(`element`: T): *number*
+▸ **push**(`element`): `number`
 
 Inserts an element into the stack
 
@@ -116,10 +140,14 @@ Inserts an element into the stack
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `element` | T | The element to be inserted |
+| `element` | `T` | The element to be inserted |
 
-**Returns:** *number*
+#### Returns
+
+`number`
 
 The new size of the stack
 
-Defined in: [src/stack/stack.ts:35](https://github.com/havelessbemore/dastal/blob/99eb870/src/stack/stack.ts#L35)
+#### Defined in
+
+[src/stack/stack.ts:37](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/stack.ts#L37)

@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / LinkedQueue
+[dastal - v3.0.0](../README.md) / LinkedQueue
 
 # Class: LinkedQueue<T\>
 
@@ -12,7 +12,7 @@ A linked list implementation of the [Queue](../interfaces/queue.md) interface
 
 ## Implements
 
-- [*Queue*](../interfaces/queue.md)<T\>
+- [Queue](../interfaces/queue.md)<T\>
 
 ## Table of contents
 
@@ -36,7 +36,7 @@ A linked list implementation of the [Queue](../interfaces/queue.md) interface
 
 ### constructor
 
-\+ **new LinkedQueue**<T\>(`elements?`: *Iterable*<T\>): [*LinkedQueue*](linkedqueue.md)<T\>
+• **new LinkedQueue**<T\>(`elements?`)
 
 Instantiate the queue.
 
@@ -50,77 +50,101 @@ Instantiate the queue.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `elements?` | *Iterable*<T\> | A set of elements to initialize the queue with. |
+| `elements?` | `Iterable`<T\> | A set of elements to initialize the queue with. |
 
-**Returns:** [*LinkedQueue*](linkedqueue.md)<T\>
+#### Defined in
 
-Defined in: [src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L11)
+[src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L11)
 
 ## Accessors
 
 ### size
 
-• get **size**(): *number*
+• `get` **size**(): `number`
 
-The number of elements in this queue
+The number of elements in the collection.
 
-**Returns:** *number*
+#### Returns
 
-Implementation of: [Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
+`number`
 
-Defined in: [src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L37)
+#### Implementation of
+
+[Queue](../interfaces/queue.md).[size](../interfaces/queue.md#size)
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L37)
 
 ## Methods
 
 ### [Symbol.iterator]
 
-▸ **[Symbol.iterator]**(): *Iterator*<T, any, undefined\>
+▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
 
 Receive an iterator through the queue.
 
 **Note:** Unexpected behavior can occur if the collection is modified during iteration.
 
-**Returns:** *Iterator*<T, any, undefined\>
+#### Returns
+
+`Iterator`<T, any, undefined\>
 
 An iterator through the queue
 
-Implementation of: [Queue](../interfaces/queue.md)
+#### Implementation of
 
-Defined in: [src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L47)
+[Queue](../interfaces/queue.md).[[Symbol.iterator]](../interfaces/queue.md#[symbol.iterator])
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L47)
 
 ___
 
 ### clear
 
-▸ **clear**(): *void*
+▸ **clear**(): `void`
 
-Removes all elements from this queue
+Removes all elements.
 
-**Returns:** *void*
+#### Returns
 
-Implementation of: [Queue](../interfaces/queue.md)
+`void`
 
-Defined in: [src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L21)
+#### Implementation of
+
+[Queue](../interfaces/queue.md).[clear](../interfaces/queue.md#clear)
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L21)
 
 ___
 
 ### dequeue
 
-▸ **dequeue**(): *undefined* \| T
+▸ **dequeue**(): `undefined` \| `T`
 
 Retrieves and removes the head of this queue
 
-**Returns:** *undefined* \| T
+#### Returns
 
-Implementation of: [Queue](../interfaces/queue.md)
+`undefined` \| `T`
 
-Defined in: [src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L25)
+#### Implementation of
+
+[Queue](../interfaces/queue.md).[dequeue](../interfaces/queue.md#dequeue)
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L25)
 
 ___
 
 ### enqueue
 
-▸ **enqueue**(`element`: T): *number*
+▸ **enqueue**(`element`): `number`
 
 Inserts the specified value into this queue
 
@@ -128,24 +152,36 @@ Inserts the specified value into this queue
 
 | Name | Type |
 | :------ | :------ |
-| `element` | T |
+| `element` | `T` |
 
-**Returns:** *number*
+#### Returns
 
-Implementation of: [Queue](../interfaces/queue.md)
+`number`
 
-Defined in: [src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L29)
+#### Implementation of
+
+[Queue](../interfaces/queue.md).[enqueue](../interfaces/queue.md#enqueue)
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L29)
 
 ___
 
 ### peek
 
-▸ **peek**(): *undefined* \| T
+▸ **peek**(): `undefined` \| `T`
 
 Retrieves, but does not remove, the head of this queue
 
-**Returns:** *undefined* \| T
+#### Returns
 
-Implementation of: [Queue](../interfaces/queue.md)
+`undefined` \| `T`
 
-Defined in: [src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/99eb870/src/queue/linkedQueue.ts#L33)
+#### Implementation of
+
+[Queue](../interfaces/queue.md).[peek](../interfaces/queue.md#peek)
+
+#### Defined in
+
+[src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/linkedQueue.ts#L33)

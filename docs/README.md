@@ -1,8 +1,12 @@
-dastal - v2.1.0
+dastal - v3.0.0
 
-# dastal - v2.1.0
+# dastal - v3.0.0
 
 ## Table of contents
+
+### Namespaces
+
+- [math](modules/math.md)
 
 ### Classes
 
@@ -13,6 +17,8 @@ dastal - v2.1.0
 - [ArrayStack](classes/arraystack.md)
 - [BinaryHeap](classes/binaryheap.md)
 - [DoublyLinkedList](classes/doublylinkedlist.md)
+- [InOrderSegmentTree](classes/inordersegmenttree.md)
+- [LevelOrderSegmentTree](classes/levelordersegmenttree.md)
 - [LinkedList](classes/linkedlist.md)
 - [LinkedQueue](classes/linkedqueue.md)
 - [LinkedStack](classes/linkedstack.md)
@@ -28,6 +34,7 @@ dastal - v2.1.0
 - [LinkedNode](interfaces/linkednode.md)
 - [List](interfaces/list.md)
 - [Queue](interfaces/queue.md)
+- [SegmentTree](interfaces/segmenttree.md)
 - [Sortable](interfaces/sortable.md)
 - [Sorted](interfaces/sorted.md)
 - [SortedTree](interfaces/sortedtree.md)
@@ -36,13 +43,56 @@ dastal - v2.1.0
 
 ### Type aliases
 
+- [CombineFn](README.md#combinefn)
 - [CompareFn](README.md#comparefn)
 
 ## Type aliases
 
+### CombineFn
+
+Ƭ **CombineFn**<T, K\>: (`a`: `T`, `b`: `T`) => `K`
+
+A function that combines two elements into another.
+The output may or may not be of the same type as
+the inputs, depending on the use case.
+
+**`param`** The first element
+
+**`param`** The second element
+
+**`returns`** The combination of the given elements
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `T` |
+| `K` | `K` = `T` |
+
+#### Type declaration
+
+▸ (`a`, `b`): `K`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | `T` |
+| `b` | `T` |
+
+##### Returns
+
+`K`
+
+#### Defined in
+
+[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L21)
+
+___
+
 ### CompareFn
 
-Ƭ **CompareFn**<T\>: (`a`: T, `b`: T) => *number*
+Ƭ **CompareFn**<T\>: (`a`: `T`, `b`: `T`) => `number`
 
 A function used to determine the order of a set of elements.
 
@@ -63,15 +113,19 @@ A function used to determine the order of a set of elements.
 
 #### Type declaration
 
-▸ (`a`: T, `b`: T): *number*
+▸ (`a`, `b`): `number`
 
-#### Parameters
+##### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `a` | T |
-| `b` | T |
+| `a` | `T` |
+| `b` | `T` |
 
-**Returns:** *number*
+##### Returns
 
-Defined in: [src/index.ts:21](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L21)
+`number`
+
+#### Defined in
+
+[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L33)

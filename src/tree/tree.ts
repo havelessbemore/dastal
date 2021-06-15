@@ -1,3 +1,5 @@
+import { Collection } from 'src/collection/collection';
+
 /**
  * Represents a tree data structure ([source](https://en.wikipedia.org/wiki/Tree_(data_structure))).
  *
@@ -25,7 +27,7 @@
  * - Delete a given element: {@link delete}
  * - Remove all elements: {@link clear}
  */
-export interface Tree<T> extends Iterable<T> {
+export interface Tree<T> extends Collection<T> {
     /**
      * Inserts an element into the tree.
      *
@@ -35,7 +37,7 @@ export interface Tree<T> extends Iterable<T> {
      */
     add(element: T): this;
     /**
-     * Remove all elements.
+     * Removes all elements.
      */
     clear(): void;
     /**
@@ -54,10 +56,6 @@ export interface Tree<T> extends Iterable<T> {
      * @returns `true` if the element was found, otherwise `false`.
      */
     has(element: T): boolean;
-    /**
-     * The number of elements in the tree.
-     */
-    readonly size: number;
     /**
      * Update a specific element.
      *

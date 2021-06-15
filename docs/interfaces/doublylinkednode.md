@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / DoublyLinkedNode
+[dastal - v3.0.0](../README.md) / DoublyLinkedNode
 
 # Interface: DoublyLinkedNode<T\>
 
@@ -24,28 +24,34 @@ Each node links to its neighbors on the left (prev) and right (next) of it.
 
 ### next
 
-• `Optional` **next**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
+• `Optional` **next**: [DoublyLinkedNode](doublylinkednode.md)<T\>
 
 A link to the node's next (right) neighbor
 
-Defined in: [src/list/doublyLinkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L10)
+#### Defined in
+
+[src/list/doublyLinkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/list/doublyLinkedNode.ts#L10)
 
 ___
 
 ### prev
 
-• `Optional` **prev**: [*DoublyLinkedNode*](doublylinkednode.md)<T\>
+• `Optional` **prev**: [DoublyLinkedNode](doublylinkednode.md)<T\>
 
 A link to the node's previous (left) neighbor
 
-Defined in: [src/list/doublyLinkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L14)
+#### Defined in
+
+[src/list/doublyLinkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/e94627b/src/list/doublyLinkedNode.ts#L14)
 
 ___
 
 ### value
 
-• **value**: T
+• **value**: `T`
 
 The value of the node
 
-Defined in: [src/list/doublyLinkedNode.ts:18](https://github.com/havelessbemore/dastal/blob/99eb870/src/list/doublyLinkedNode.ts#L18)
+#### Defined in
+
+[src/list/doublyLinkedNode.ts:18](https://github.com/havelessbemore/dastal/blob/e94627b/src/list/doublyLinkedNode.ts#L18)

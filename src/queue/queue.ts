@@ -1,3 +1,5 @@
+import { Collection } from 'src/collection/collection';
+
 /**
  * An ordered collection of elements in FIFO (first-in-first-out) order
  * ([source](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))).
@@ -10,9 +12,9 @@
  * Regardless, a call to dequeue() should return the first element relative to its order.
  * Every implementation should specify its ordering properties. Otherwise, insertion order should be used.
  */
-export interface Queue<T> extends Iterable<T> {
+export interface Queue<T> extends Collection<T> {
     /**
-     * Removes all elements from this queue
+     * Removes all elements.
      */
     clear(): void;
     /**
@@ -35,8 +37,4 @@ export interface Queue<T> extends Iterable<T> {
      * @returns The value at the head of the queue or `undefined` if this queue is empty.
      */
     peek(): T | undefined;
-    /**
-     * The number of elements in this queue
-     */
-    readonly size: number;
 }

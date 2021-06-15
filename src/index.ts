@@ -1,12 +1,24 @@
-// export * from './graph';
 export * from './heap';
 export * from './list';
 export * as math from './math';
 export * from './queue';
-// export * from './segmentTree';
+export * from './segmentTree';
 export * from './stack';
 export * from './tree';
 // export * from './trie';
+
+/**
+ * A function that combines two elements into another.
+ * The output may or may not be of the same type as
+ * the inputs, depending on the use case.
+ *
+ * @param a - The first element
+ * @param b - The second element
+ *
+ * @returns The combination of the given elements
+ *
+ */
+export type CombineFn<T, K = T> = (a: T, b: T) => K;
 /**
  * A function used to determine the order of a set of elements.
  *

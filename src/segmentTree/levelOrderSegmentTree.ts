@@ -1,11 +1,18 @@
-import { MAX_ARRAY_LENGTH } from 'src/array/utils';
-import { CombineFn } from '.';
-import { lsp, msb, msp } from '../math/bits';
-import { Operation, SegmentTree } from './segmentTree';
+/**
+ *  Thanks to [Douglas Wilhelm Harder](https://ece.uwaterloo.ca/~dwharder/aads/Algorithms/Array_resizing/)
+ *  for their analysis on array resizing
+ */
+import { isArray, MAX_ARRAY_LENGTH } from 'src/array/utils';
+import { isCollection } from 'src/collection';
+import { Collection } from 'src/collection/collection';
+import { CombineFn } from '..';
+import { isPow2, lsp, msp } from '../math/u32';
+import { SegmentTree } from './segmentTree';
 
 /**
  * A {@link SegmentTree} with entries stored in level-order traversal.
  * Memory usage: n elements require between 2n-1 to 4(n-1)-1 entries
+ *
  */
 export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
     /**
@@ -60,7 +67,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         const out = this.array[--this.length];
 
         // If level is <= 1/4 full
-        if (this.length < 0.625 * (this.array.length + 1)) {
+        if (this.length <= (this.array.length + 1) >>> 2) {
             this.shrink();
         }
 
@@ -126,7 +133,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         }
     }
 
-    update(min: number, max: number, operation: Operation<T>): void {
+    update(min: number, max: number, operation: (element: T, index: number) => T): void {
         // Sanitize range
         if (min >= max) {
             return;
@@ -145,8 +152,17 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         }
 
         // Update the range's aggregation nodes
+        this.aggregate(min, max);
+    }
+    /**
+     * A helper method to aggregate a range of elements
+     */
+    protected aggregate(min: number, max: number): void {
+        // Align indices with powers of 2
         ++min;
         ++max;
+
+        // Aggregate elements
         for (let cap = this.length + 1; min < max; cap >>>= 1) {
             max += max & ((max - cap) >>> 31);
             for (let i = (min | 1) >>> 0; i < max; i += 2) {
@@ -156,25 +172,20 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
             max >>>= 1;
         }
     }
-
     /**
      * A helper method used to build the tree
      *
      * @param elements The initial set of elements to add into the tree
      */
-    protected build(elements: Iterable<T>): void {
-        let key = '';
+    protected build(elements: Collection<T> | Iterable<T>): void {
+        let key: string | undefined = undefined;
 
         // Check if the iterable's size can be known.
-        // For example: array.length or map.size
-        if ('length' in elements && typeof elements['length'] !== 'number') {
+        if (isArray(elements)) {
             key = 'length';
-        } else if ('size' in elements && typeof elements['size'] !== 'number') {
+        } else if (isCollection(elements)) {
             key = 'size';
-        }
-
-        // Iterate normally if size is not given
-        if (key.length < 1) {
+        } else {
             for (const element of elements) {
                 this.push(element);
             }
@@ -182,7 +193,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         }
 
         // Get the iterable's size
-        const n = (elements as any)[key];
+        const n: number = (elements as any)[key];
 
         // Check for base case
         if (n < 1) {
@@ -194,25 +205,35 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
 
         // Check if max capacity reached
         if (n >= LevelOrderSegmentTree.MAX_SIZE) {
-            throw new RangeError(`Invalid SegmentTree length`);
+            throw new RangeError('Invalid length');
         }
 
         // Allocate the array
         this.level = 2 * msp(n - 1) - 1;
-        this.length = this.level + n;
+        this.length = this.level;
         this.array.length = 2 * this.level + 1;
 
-        // Build the tree
-        const it = elements[Symbol.iterator]();
-        this.update(0, n, (_) => it.next().value);
+        // Add the elements
+        for (const element of elements) {
+            this.array[this.length++] = element;
+        }
+
+        // Update aggregation nodes
+        this.aggregate(this.level, this.length);
     }
     /**
      * Shift the tree down a level
      */
     protected grow(): void {
+        // Check base case
+        if (this.size < 1) {
+            this.array.length = 1;
+            return;
+        }
+
         // Check if max capacity reached
         if (this.size >= LevelOrderSegmentTree.MAX_SIZE) {
-            throw new RangeError(`Invalid SegmentTree length`);
+            throw new RangeError('Invalid length');
         }
 
         // Extend capacity
@@ -230,26 +251,36 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         this.level += this.level + 1;
     }
     /**
-     * Shift the tree up a level
+     * Shrink the tree to the smallest size
      */
     protected shrink(): void {
-        // Get the tree's Lowest Common Ancestor (root)
-        let min = this.level + 1;
-        let max = msb(min ^ this.length) + 1;
-        min >>>= max;
+        const length = this.length - this.level;
 
-        // Shift the tree up a level
-        ++this.level;
-        if (min > 0) {
-            for (max = min + 1; min <= this.level; max *= 2) {
-                this.array.copyWithin((min >>> 1) - 1, min - 1, max - 1);
-                min *= 2;
-            }
+        // Check base case
+        if (length < 2) {
+            this.array.copyWithin(0, this.level, this.length);
+            this.level = 0;
+            this.length = length;
+            this.array.length = length;
+            return;
         }
 
-        // Update pointers and capacity
-        this.level -= (this.level >>> 1) + 1;
-        this.length -= (this.length + 1) >>> 1;
-        this.array.length = this.length - this.level + this.length;
+        // Get the highest node
+        let min = this.level + 1;
+        let mask = msp(length);
+        min = min / lsp(min | mask) - 1;
+
+        // Update the tree
+        this.level = +!isPow2(length);
+        for (let max = min + 1; mask; this.level += this.level + 1) {
+            this.array.copyWithin(this.level, min, max);
+            mask >>>= 1;
+            min += min + 1;
+            max += max + 2 + +((length & mask) > 0);
+        }
+
+        // Update pointers
+        this.length = this.level + length;
+        this.array.length = 2 * this.level + 1;
     }
 }

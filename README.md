@@ -20,6 +20,7 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 - [Heap](docs/interfaces/heap.md)
 - [List](docs/interfaces/list.md)
 - [Queue](docs/interfaces/queue.md)
+- [SegmentTree](docs/interfaces/segmenttree.md)
 - [Stack](docs/interfaces/stack.md)
 - [Tree](docs/interfaces/tree.md)
 
@@ -31,6 +32,8 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 - [ArrayStack](docs/classes/arraystack.md)
 - [BinaryHeap](docs/classes/binaryheap.md)
 - [DoublyLinkedList](docs/classes/doublylinkedlist.md)
+- [InOrderSegmentTree](docs/classes/inordersegmenttree.md)
+- [LevelOrderSegmentTree](docs/classes/levelordersegmenttree.md)
 - [LinkedList](docs/classes/linkedlist.md)
 - [LinkedQueue](docs/classes/linkedqueue.md)
 - [LinkedStack](docs/classes/linkedstack.md)

@@ -1,4 +1,4 @@
-[dastal - v2.1.0](../README.md) / Sortable
+[dastal - v3.0.0](../README.md) / Sortable
 
 # Interface: Sortable<T\>
 
@@ -14,7 +14,7 @@ Represents an object containing a set of elements that can be sorted.
 
 - **Sortable**
 
-  ↳ [*List*](list.md)
+  ↳ [List](list.md)
 
 ## Table of contents
 
@@ -26,7 +26,7 @@ Represents an object containing a set of elements that can be sorted.
 
 ### sort
 
-▸ **sort**(`compareFn`: [*CompareFn*](../README.md#comparefn)<T\>): [*Sortable*](sortable.md)<T\>
+▸ **sort**(`compareFn`): [Sortable](sortable.md)<T\>
 
 Sorts the elements in place.
 
@@ -34,10 +34,14 @@ Sorts the elements in place.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `compareFn` | [*CompareFn*](../README.md#comparefn)<T\> | A function used to determine the order of elements.  It is expected to return: - A negative value if first argument < second argument - Zero if first argument == second argument - A positive value if first argument > second argument |
+| `compareFn` | [CompareFn](../README.md#comparefn)<T\> | A function used to determine the order of elements.  It is expected to return: - A negative value if first argument < second argument - Zero if first argument == second argument - A positive value if first argument > second argument |
 
-**Returns:** [*Sortable*](sortable.md)<T\>
+#### Returns
+
+[Sortable](sortable.md)<T\>
 
 The object this method was called on
 
-Defined in: [src/index.ts:38](https://github.com/havelessbemore/dastal/blob/99eb870/src/index.ts#L38)
+#### Defined in
+
+[src/index.ts:50](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L50)
