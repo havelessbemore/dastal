@@ -1,4 +1,4 @@
-[dastal - v3.0.0](../README.md) / Queue
+[dastal - v4.0.0](../README.md) / Queue
 
 # Interface: Queue<T\>
 
@@ -21,7 +21,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ## Hierarchy
 
-- `Collection`<T\>
+- [Collection](collection.md)<T\>
 
   ↳ **Queue**
 
@@ -54,11 +54,11 @@ The number of elements in the collection.
 
 #### Inherited from
 
-Collection.size
+[Collection](collection.md).[size](collection.md#size)
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/e94627b/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/2fe24da/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -72,7 +72,7 @@ Collection.size
 
 #### Inherited from
 
-Collection.\_\_@iterator
+[Collection](collection.md).[[Symbol.iterator]](collection.md#[symbol.iterator])
 
 #### Defined in
 
@@ -92,7 +92,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L19)
+[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/2fe24da/src/queue/queue.ts#L19)
 
 ___
 
@@ -110,7 +110,7 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L25)
+[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/2fe24da/src/queue/queue.ts#L25)
 
 ___
 
@@ -134,7 +134,7 @@ The new size of the queue
 
 #### Defined in
 
-[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L33)
+[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/2fe24da/src/queue/queue.ts#L33)
 
 ___
 
@@ -152,4 +152,4 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/e94627b/src/queue/queue.ts#L39)
+[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/2fe24da/src/queue/queue.ts#L39)

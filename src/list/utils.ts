@@ -1,85 +1,7 @@
-import { isArray } from '../array/utils';
 import { CompareFn } from '..';
 import { DoublyLinkedNode } from './doublyLinkedNode';
 import { LinkedNode } from './linkedNode';
-import { clamp } from 'src/math';
 
-/**
- * Groups an iterable into batches of a given size.
- *
- * @param size - The maximum batch size
- * @param iterable - The iterable to batch
- *
- * @returns An iterable of batches
- *
- * @internal
- */
-export function batch<T>(
-    size: number,
-    iterable: Iterable<T>,
-): Generator<T[], void, number | undefined> {
-    if (isArray(iterable)) {
-        return batchArray(size, iterable);
-    }
-    return batchIterable(size, iterable);
-}
-/**
- * Groups an iterable into batches of a given size.
- *
- * @param size - The maximum batch size
- * @param iterable - The iterable to batch
- *
- * @returns An iterable of batches
- *
- * @internal
- */
-export function* batchArray<T>(size: number, array: T[]): Generator<T[], void, number | undefined> {
-    let min = 0;
-    while (min < array.length) {
-        const max = min + size;
-        size = (yield array.slice(min, max)) ?? size;
-        min = max;
-    }
-}
-/**
- * Groups an iterable into batches of a given size.
- *
- * @param size - The maximum batch size
- * @param iterable - The iterable to batch
- *
- * @returns An iterable of batches
- *
- * @internal
- */
-export function* batchIterable<T>(
-    size: number,
-    iterable: Iterable<T>,
-): Generator<T[], void, number | undefined> {
-    let array: T[] = [];
-    for (const value of iterable) {
-        if (array.push(value) >= size) {
-            size = (yield array) ?? size;
-            array = [];
-        }
-    }
-    if (array.length > 0) {
-        yield array;
-    }
-}
-/**
- * Wraps and then clamps a number within a given range.
- *
- * @param num - The number to wrap and then clamp
- * @param min - The minimum result value, inclusive
- * @param max - The wrap pivot and maximum result value, inclusive
- *
- * @returns The crwapped number
- *
- * @internal
- */
-export function cwrap(num: number, min: number, max: number): number {
-    return clamp(nwrap(num, max), min, max);
-}
 /**
  * Sorts a list in place.
  *
@@ -177,22 +99,4 @@ export function linkedMergeSorted<T, Node extends LinkedNode<T>>(
         (node.next as DoublyLinkedNode<T>).prev = node;
     }
     return root.next as Node;
-}
-/**
- * Wraps negative numbers around a pivot
- *
- * f(x, min, pivot) = {
- *    x, where x >= 0
- *    pivot + x, where x < 0
- * }
- *
- * @param num - The number to wrap
- * @param pivot - The number to pivot on
- *
- * @returns - The wrapped number
- *
- * @internal
- */
-export function nwrap(num: number, pivot: number): number {
-    return num < 0 ? pivot + num : num;
 }

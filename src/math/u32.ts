@@ -77,20 +77,12 @@ export function lsps(a: number): number {
  *
  * Example: 54 (110110) -> 4 (000100)
  *
- * 111111
- * 000000
- * 000000
- *
- * 000010
- * 111000
- * 001000
- * 000100
- *
  * @param a
- */
+ */ /*
 export function mlsp(a: number): number {
-    return lsp(a + lsp(a)) >>> 1 || u32(0x80000000 & a);
+    return (lsp(a + lsp(a)) >>> 1) || u32(0x80000000 & a);
 }
+*/
 /**
  * Get the Most Significant Bit of a 32-bit unsigned number
  *

@@ -1,4 +1,4 @@
-import { isArray } from 'src/array/utils';
+import { isArray } from 'src/collection/arrayUtils';
 import { BinaryTreeNode } from 'src/tree/binaryTreeNode';
 import { clone, preOrderTraverse, toBinaryTree } from 'src/tree/binaryTreeUtils';
 import { CompareFn } from '..';

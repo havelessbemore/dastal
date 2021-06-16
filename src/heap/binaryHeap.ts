@@ -1,4 +1,4 @@
-import { isArray, MAX_ARRAY_LENGTH } from 'src/array/utils';
+import { isArray, MAX_ARRAY_LENGTH } from 'src/collection/arrayUtils';
 import { CompareFn } from '..';
 import { Heap } from './heap';
 import { bubbleUp, heapify, sinkDown } from './utils';

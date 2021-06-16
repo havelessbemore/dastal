@@ -1,12 +1,15 @@
-dastal - v3.0.0
+dastal - v4.0.0
 
-# dastal - v3.0.0
+# dastal - v4.0.0
 
 ## Table of contents
 
 ### Namespaces
 
-- [math](modules/math.md)
+- [ArrayUtils](modules/arrayutils.md)
+- [IteratorUtils](modules/iteratorutils.md)
+- [NumberUtils](modules/numberutils.md)
+- [u32](modules/u32.md)
 
 ### Classes
 
@@ -29,6 +32,7 @@ dastal - v3.0.0
 - [AATreeNode](interfaces/aatreenode.md)
 - [AVLTreeNode](interfaces/avltreenode.md)
 - [BinaryTreeNode](interfaces/binarytreenode.md)
+- [Collection](interfaces/collection.md)
 - [DoublyLinkedNode](interfaces/doublylinkednode.md)
 - [Heap](interfaces/heap.md)
 - [LinkedNode](interfaces/linkednode.md)
@@ -45,6 +49,10 @@ dastal - v3.0.0
 
 - [CombineFn](README.md#combinefn)
 - [CompareFn](README.md#comparefn)
+
+### Functions
+
+- [isCollection](README.md#iscollection)
 
 ## Type aliases
 
@@ -86,7 +94,7 @@ the inputs, depending on the use case.
 
 #### Defined in
 
-[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L21)
+[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/2fe24da/src/index.ts#L21)
 
 ___
 
@@ -128,4 +136,28 @@ A function used to determine the order of a set of elements.
 
 #### Defined in
 
-[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/e94627b/src/index.ts#L33)
+[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/2fe24da/src/index.ts#L33)
+
+## Functions
+
+### isCollection
+
+▸ **isCollection**(`obj`): obj is Collection<unknown\>
+
+Check if a value is a [Collection](interfaces/collection.md).
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `obj` | `any` | The value to check. |
+
+#### Returns
+
+obj is Collection<unknown\>
+
+- `true` if obj is a Collection, `false` otherwise.
+
+#### Defined in
+
+[src/collection/index.ts:14](https://github.com/havelessbemore/dastal/blob/2fe24da/src/collection/index.ts#L14)

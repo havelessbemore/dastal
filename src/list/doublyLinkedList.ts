@@ -1,8 +1,8 @@
-import { clamp } from 'src/math';
+import { clamp, wrapLeft } from 'src/math/numberUtils';
 import { CompareFn } from '..';
 import { DoublyLinkedNode } from './doublyLinkedNode';
 import { List } from './list';
-import { linkedMergeSort, cwrap } from './utils';
+import { linkedMergeSort } from './utils';
 
 /**
  * A (circular) doubly-linked list implementation of the {@link List} interface.
@@ -63,14 +63,14 @@ export class DoublyLinkedList<T> implements List<T> {
 
     copyWithin(index: number, min?: number, max?: number): this {
         // Check if copying to the same section
-        index = cwrap(index, 0, this.length);
-        min = cwrap(min ?? 0, 0, this.length);
+        index = clamp(wrapLeft(index, 0, this.length), 0, this.length);
+        min = clamp(wrapLeft(min ?? 0, 0, this.length), 0, this.length);
         if (min === index) {
             return this;
         }
 
         // Check if the section to copy has no length
-        max = cwrap(max ?? this.length, 0, this.length);
+        max = clamp(wrapLeft(max ?? this.length, 0, this.length), 0, this.length);
         max = min + Math.min(max - min, this.length - index);
         if (min >= max) {
             return this;
@@ -100,8 +100,8 @@ export class DoublyLinkedList<T> implements List<T> {
     }
 
     fill(element: T, min?: number, max?: number): this {
-        min = cwrap(min ?? 0, 0, this.length);
-        max = cwrap(max ?? this.length, 0, this.length);
+        min = clamp(wrapLeft(min ?? 0, 0, this.length), 0, this.length);
+        max = clamp(wrapLeft(max ?? this.length, 0, this.length), 0, this.length);
         if (min < max) {
             let node = this._get(min);
             do {
@@ -156,8 +156,8 @@ export class DoublyLinkedList<T> implements List<T> {
     }
 
     reverse(min?: number, max?: number): this {
-        min = cwrap(min ?? 0, 0, this.length);
-        max = cwrap(max ?? this.length, 0, this.length);
+        min = clamp(wrapLeft(min ?? 0, 0, this.length), 0, this.length);
+        max = clamp(wrapLeft(max ?? this.length, 0, this.length), 0, this.length);
         if (max - min < 2) {
             return this;
         }
@@ -207,7 +207,7 @@ export class DoublyLinkedList<T> implements List<T> {
     }
 
     splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
-        start = cwrap(start ?? 0, 0, this.size);
+        start = clamp(wrapLeft(start ?? 0, 0, this.length), 0, this.length);
         count = clamp(count ?? this.size, 0, this.size - start);
 
         // If not modifying the list
@@ -281,8 +281,8 @@ export class DoublyLinkedList<T> implements List<T> {
                 max = undefined;
             }
         }
-        min = cwrap((min as number) ?? 0, 0, this.length);
-        max = cwrap((max as number) ?? this.length, 0, this.length);
+        min = clamp(wrapLeft((min as number) ?? 0, 0, this.length), 0, this.length);
+        max = clamp(wrapLeft((max as number) ?? this.length, 0, this.length), 0, this.length);
         if (min < max) {
             let node = this._get(min);
             do {
@@ -294,7 +294,7 @@ export class DoublyLinkedList<T> implements List<T> {
     }
 
     *view(min?: number, max?: number): Iterable<T> {
-        min = cwrap(min ?? 0, 0, this.length);
+        min = clamp(wrapLeft(min ?? 0, 0, this.length), 0, this.length);
 
         let len: () => number;
         if (max == null) {

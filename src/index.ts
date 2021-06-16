@@ -1,11 +1,11 @@
+export * from './collection';
 export * from './heap';
 export * from './list';
-export * as math from './math';
+export * from './math';
 export * from './queue';
 export * from './segmentTree';
 export * from './stack';
 export * from './tree';
-// export * from './trie';
 
 /**
  * A function that combines two elements into another.

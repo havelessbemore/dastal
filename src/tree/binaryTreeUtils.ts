@@ -428,6 +428,8 @@ export function successorStack<Node extends BinaryTreeNode<unknown>>(
     return leftmostStack(stack);
 }
 /**
+ * Turn an array into a binary tree. Assumes elements are in level-order.
+ *
  * @internal
  */
 export function toBinaryTree<T>(

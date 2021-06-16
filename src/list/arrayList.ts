@@ -1,7 +1,7 @@
-import { clamp } from 'src/math';
+import { splice } from 'src/collection/arrayUtils';
+import { clamp, wrapLeft } from 'src/math/numberUtils';
 import { CompareFn } from '..';
 import { List } from './list';
-import { batch, cwrap } from './utils';
 
 /**
  * An implementation of the {@link List} interface using an array
@@ -29,10 +29,7 @@ export class ArrayList<T> implements List<T> {
 
     addAll(index: number, elements: Iterable<T>): number {
         if (index >= 0 && index <= this.size) {
-            for (const items of batch(10000, elements)) {
-                this.array.splice(index, 0, ...items);
-                index += items.length;
-            }
+            splice(this.array, index, 0, elements);
         }
         return this.size;
     }
@@ -50,16 +47,16 @@ export class ArrayList<T> implements List<T> {
     }
 
     copyWithin(index: number, min?: number, max?: number): this {
-        index = cwrap(index ?? 0, 0, this.size);
-        min = cwrap(min ?? 0, 0, this.size);
-        max = cwrap(max ?? this.size, 0, this.size);
+        index = clamp(wrapLeft(index, 0, this.size), 0, this.size);
+        min = clamp(wrapLeft(min ?? 0, 0, this.size), 0, this.size);
+        max = clamp(wrapLeft(max ?? this.size, 0, this.size), 0, this.size);
         this.array.copyWithin(index, min, max);
         return this;
     }
 
     fill(element: T, min?: number, max?: number): this {
-        min = cwrap(min ?? 0, 0, this.size);
-        max = cwrap(max ?? this.size, 0, this.size);
+        min = clamp(wrapLeft(min ?? 0, 0, this.size), 0, this.size);
+        max = clamp(wrapLeft(max ?? this.size, 0, this.size), 0, this.size);
         this.array.fill(element, min, max);
         return this;
     }
@@ -90,8 +87,8 @@ export class ArrayList<T> implements List<T> {
     }
 
     reverse(min?: number, max?: number): this {
-        min = cwrap(min ?? 0, 0, this.size);
-        max = cwrap(max ?? this.size, 0, this.size) - 1;
+        min = clamp(wrapLeft(min ?? 0, 0, this.size), 0, this.size);
+        max = clamp(wrapLeft(max ?? this.size, 0, this.size), 0, this.size) - 1;
         while (min < max) {
             const temp = this.array[min];
             this.array[min++] = this.array[max];
@@ -122,14 +119,7 @@ export class ArrayList<T> implements List<T> {
     }
 
     splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
-        start = cwrap(start ?? 0, 0, this.size);
-        count = clamp(count ?? this.size, 0, this.size - start);
-        const list = new ArrayList(this.array.splice(start, count));
-        for (const items of batch(10000, elements ?? [])) {
-            this.array.splice(start, 0, ...items);
-            start += items.length;
-        }
-        return list;
+        return new ArrayList(splice(this.array, start, count, elements));
     }
 
     sort(compareFn: CompareFn<T>): this {
@@ -172,8 +162,8 @@ export class ArrayList<T> implements List<T> {
                 max = undefined;
             }
         }
-        min = cwrap((min as number) ?? 0, 0, this.size);
-        max = cwrap((max as number) ?? this.size, 0, this.size);
+        min = clamp(wrapLeft((min as number) ?? 0, 0, this.size), 0, this.size);
+        max = clamp(wrapLeft((max as number) ?? this.size, 0, this.size), 0, this.size);
         while (min < max) {
             this.array[min] = callback(this.array[min], min);
             ++min;
@@ -182,7 +172,7 @@ export class ArrayList<T> implements List<T> {
     }
 
     *view(min?: number, max?: number): Iterable<T> {
-        min = cwrap(min ?? 0, 0, this.size);
+        min = clamp(wrapLeft(min ?? 0, 0, this.size), 0, this.size);
 
         let len: () => number;
         if (max == null) {

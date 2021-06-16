@@ -1,7 +1,20 @@
 import { expect } from 'chai';
-import { invert, lsb, lsp, lsps, msb, msp, msps, bitsSet, reverse, u32 } from 'src/math/u32';
+import {
+    invert,
+    lsb,
+    lsp,
+    lsps,
+    msb,
+    msp,
+    msps,
+    bitsSet,
+    reverse,
+    u32,
+    isPow2,
+} from 'src/math/u32';
 
-describe('math/bits unit tests', function () {
+describe('u32 unit tests', function () {
+    const p32 = 4294967296;
     const neg = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11, -12, -13, -14, -15, -16];
     const pos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     describe('#bitsSet()', function () {
@@ -35,6 +48,21 @@ describe('math/bits unit tests', function () {
         it('Should work for positive values', function () {
             for (let i = 0; i < pos.length; ++i) {
                 expect(invert(pos[i])).to.equal(pVals[i]);
+            }
+        });
+    });
+    describe('#isPow2()', function () {
+        it('Should work for all powers of 2', function () {
+            for (let i = 1; i <= p32; i *= 2) {
+                expect(isPow2(i)).to.equal(true);
+            }
+        });
+        it('Should work for zero', function () {
+            expect(isPow2(0)).to.equal(true);
+        });
+        it('Should work for non powers of 2', function () {
+            for (let i = 3; i < 36; ++i) {
+                expect(isPow2(i)).to.equal(Math.log2(i) % 1 === 0);
             }
         });
     });
@@ -73,7 +101,6 @@ describe('math/bits unit tests', function () {
         });
     });
     describe('#lsps()', function () {
-        const p32 = 4294967296;
         const nVals = [
             p32 - 1,
             p32 - 2,
@@ -143,7 +170,6 @@ describe('math/bits unit tests', function () {
         });
     });
     describe('#msps()', function () {
-        const p32 = 4294967296;
         const nVals = [1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16, 16, 16, 16, 16].map((v) => p32 - v);
         const pVals = [1, 2, 3, 4, 4, 6, 7, 8, 8, 8, 8, 12, 12, 14, 15, 16];
         it('Should work for "negative" values', function () {
@@ -190,7 +216,6 @@ describe('math/bits unit tests', function () {
         });
     });
     describe('#u32()', function () {
-        const p32 = 2 ** 32;
         const nVals = [
             p32 - 1,
             p32 - 2,

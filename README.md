@@ -39,6 +39,12 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 - [LinkedStack](docs/classes/linkedstack.md)
 - [SkewHeap](docs/classes/skewheap.md)
 
+### Utilities
+- [ArrayUtils](docs/modules/arrayutils.md)
+- [IteratorUtils](docs/modules/iteratorutils.md)
+- [NumberUtils](docs/modules/numberutils.md)
+- [u32](docs/modules/u32.md)
+
 ## Contribute
 
 There are many ways to contribute:

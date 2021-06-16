@@ -15,7 +15,7 @@ import {
     debug,
 } from './binaryTreeUtils';
 import { SortedTree } from './sortedTree';
-import { isArray } from 'src/array/utils';
+import { isArray } from 'src/collection/arrayUtils';
 import { LinkedNode } from 'src/list';
 
 /**

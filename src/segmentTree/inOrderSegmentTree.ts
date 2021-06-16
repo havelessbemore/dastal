@@ -1,6 +1,6 @@
 import { lsb, lsp, msb, msp } from '../math/u32';
 import { CombineFn } from '..';
-import { MAX_ARRAY_LENGTH } from 'src/array/utils';
+import { MAX_ARRAY_LENGTH } from 'src/collection/arrayUtils';
 import { SegmentTree } from './segmentTree';
 
 /*

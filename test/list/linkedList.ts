@@ -2,8 +2,11 @@ import { expect } from 'chai';
 import { randomFill, randomInt } from 'crypto';
 import { CompareFn } from 'src';
 import { LinkedList } from 'src/list/linkedList';
-import { cwrap } from 'src/list/utils';
-import { clamp } from 'src/math';
+import { clamp, wrapLeft } from 'src/math/numberUtils';
+
+export function cwrap(num: number, min: number, max: number): number {
+    return clamp(wrapLeft(num, 0, max), min, max);
+}
 
 describe('LinkedList unit tests', function () {
     let empty: LinkedList<number>;

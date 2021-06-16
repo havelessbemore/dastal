@@ -1,4 +1,4 @@
-[dastal - v3.0.0](../README.md) / ArrayStack
+[dastal - v4.0.0](../README.md) / ArrayStack
 
 # Class: ArrayStack<T\>
 
@@ -54,7 +54,7 @@ Instantiate the stack.
 
 #### Defined in
 
-[src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L10)
+[src/stack/arrayStack.ts:10](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L10)
 
 ## Accessors
 
@@ -74,7 +74,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/stack/arrayStack.ts:36](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L36)
+[src/stack/arrayStack.ts:36](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L36)
 
 ## Methods
 
@@ -98,7 +98,7 @@ An iterator through the stack
 
 #### Defined in
 
-[src/stack/arrayStack.ts:46](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L46)
+[src/stack/arrayStack.ts:46](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L46)
 
 ___
 
@@ -118,7 +118,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/stack/arrayStack.ts:20](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L20)
+[src/stack/arrayStack.ts:20](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L20)
 
 ___
 
@@ -138,7 +138,7 @@ Retrieves, but does not remove, the top of the stack
 
 #### Defined in
 
-[src/stack/arrayStack.ts:24](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L24)
+[src/stack/arrayStack.ts:24](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L24)
 
 ___
 
@@ -158,7 +158,7 @@ Retrieves and removes the top of the stack
 
 #### Defined in
 
-[src/stack/arrayStack.ts:28](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L28)
+[src/stack/arrayStack.ts:28](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L28)
 
 ___
 
@@ -184,4 +184,4 @@ Inserts an element into the stack
 
 #### Defined in
 
-[src/stack/arrayStack.ts:32](https://github.com/havelessbemore/dastal/blob/e94627b/src/stack/arrayStack.ts#L32)
+[src/stack/arrayStack.ts:32](https://github.com/havelessbemore/dastal/blob/2fe24da/src/stack/arrayStack.ts#L32)
