@@ -1,3 +1,4 @@
+import { pad } from 'src/collection/stringUtils';
 import { LinkedNode } from 'src/list';
 import { CompareFn } from '..';
 import { BinaryTreeNode } from './binaryTreeNode';
@@ -241,17 +242,6 @@ export function* levelOrderTraverse<T, Node extends BinaryTreeNode<T>>(
             }
         }
     }
-}
-/**
- * @internal
- */
-function pad(str: string, maxLen: number, fillString: string): string {
-    const len = str.length;
-    if (len >= maxLen) {
-        return str;
-    }
-    const diff = maxLen - len;
-    return str.padStart(len + diff / 2, fillString).padEnd(len + diff, fillString);
 }
 /**
  * @internal
