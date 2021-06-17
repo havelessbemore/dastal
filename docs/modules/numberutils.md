@@ -1,4 +1,4 @@
-[dastal - v4.0.0](../README.md) / NumberUtils
+[dastal - v4.1.0](../README.md) / NumberUtils
 
 # Namespace: NumberUtils
 
@@ -37,7 +37,7 @@ The clamped number
 
 #### Defined in
 
-[src/math/numberUtils.ts:12](https://github.com/havelessbemore/dastal/blob/2fe24da/src/math/numberUtils.ts#L12)
+[src/math/numberUtils.ts:12](https://github.com/havelessbemore/dastal/blob/d5a812e/src/math/numberUtils.ts#L12)
 
 ___
 
@@ -63,7 +63,7 @@ Wraps a number if outside a given range
 
 #### Defined in
 
-[src/math/numberUtils.ts:58](https://github.com/havelessbemore/dastal/blob/2fe24da/src/math/numberUtils.ts#L58)
+[src/math/numberUtils.ts:58](https://github.com/havelessbemore/dastal/blob/d5a812e/src/math/numberUtils.ts#L58)
 
 ___
 
@@ -94,7 +94,7 @@ f(x, min, max) = {
 
 #### Defined in
 
-[src/math/numberUtils.ts:29](https://github.com/havelessbemore/dastal/blob/2fe24da/src/math/numberUtils.ts#L29)
+[src/math/numberUtils.ts:29](https://github.com/havelessbemore/dastal/blob/d5a812e/src/math/numberUtils.ts#L29)
 
 ___
 
@@ -125,4 +125,4 @@ f(x, min, max) = {
 
 #### Defined in
 
-[src/math/numberUtils.ts:46](https://github.com/havelessbemore/dastal/blob/2fe24da/src/math/numberUtils.ts#L46)
+[src/math/numberUtils.ts:46](https://github.com/havelessbemore/dastal/blob/d5a812e/src/math/numberUtils.ts#L46)

@@ -1,4 +1,4 @@
-[dastal - v4.0.0](../README.md) / Tree
+[dastal - v4.1.0](../README.md) / Tree
 
 # Interface: Tree<T\>
 
@@ -71,7 +71,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/2fe24da/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/d5a812e/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -113,7 +113,7 @@ The tree object.
 
 #### Defined in
 
-[src/tree/tree.ts:38](https://github.com/havelessbemore/dastal/blob/2fe24da/src/tree/tree.ts#L38)
+[src/tree/tree.ts:38](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/tree.ts#L38)
 
 ___
 
@@ -129,7 +129,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/tree/tree.ts:42](https://github.com/havelessbemore/dastal/blob/2fe24da/src/tree/tree.ts#L42)
+[src/tree/tree.ts:42](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/tree.ts#L42)
 
 ___
 
@@ -153,7 +153,7 @@ Delete an element from the tree.
 
 #### Defined in
 
-[src/tree/tree.ts:50](https://github.com/havelessbemore/dastal/blob/2fe24da/src/tree/tree.ts#L50)
+[src/tree/tree.ts:50](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/tree.ts#L50)
 
 ___
 
@@ -177,7 +177,7 @@ Check if an element is in the tree.
 
 #### Defined in
 
-[src/tree/tree.ts:58](https://github.com/havelessbemore/dastal/blob/2fe24da/src/tree/tree.ts#L58)
+[src/tree/tree.ts:58](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/tree.ts#L58)
 
 ___
 
@@ -202,4 +202,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/tree/tree.ts:67](https://github.com/havelessbemore/dastal/blob/2fe24da/src/tree/tree.ts#L67)
+[src/tree/tree.ts:67](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/tree.ts#L67)

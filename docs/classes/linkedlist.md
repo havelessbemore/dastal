@@ -1,4 +1,4 @@
-[dastal - v4.0.0](../README.md) / LinkedList
+[dastal - v4.1.0](../README.md) / LinkedList
 
 # Class: LinkedList<T\>
 
@@ -70,7 +70,7 @@ Instantiate the list.
 
 #### Defined in
 
-[src/list/linkedList.ts:22](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L22)
+[src/list/linkedList.ts:22](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L22)
 
 ## Accessors
 
@@ -90,7 +90,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/list/linkedList.ts:208](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L208)
+[src/list/linkedList.ts:208](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L208)
 
 ## Methods
 
@@ -114,7 +114,7 @@ An iterator through the list
 
 #### Defined in
 
-[src/list/linkedList.ts:258](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L258)
+[src/list/linkedList.ts:258](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L258)
 
 ___
 
@@ -141,7 +141,7 @@ Add the element at the specified index.
 
 #### Defined in
 
-[src/list/linkedList.ts:35](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L35)
+[src/list/linkedList.ts:35](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L35)
 
 ___
 
@@ -168,7 +168,7 @@ Add elements at the specified index.
 
 #### Defined in
 
-[src/list/linkedList.ts:46](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L46)
+[src/list/linkedList.ts:46](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L46)
 
 ___
 
@@ -188,7 +188,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/list/linkedList.ts:55](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L55)
+[src/list/linkedList.ts:55](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L55)
 
 ___
 
@@ -214,7 +214,7 @@ Combines the list with multiple iterables into a new list. Does not modify the e
 
 #### Defined in
 
-[src/list/linkedList.ts:60](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L60)
+[src/list/linkedList.ts:60](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L60)
 
 ___
 
@@ -248,7 +248,7 @@ the copied sequence will be trimmed to fit list.size
 
 #### Defined in
 
-[src/list/linkedList.ts:68](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L68)
+[src/list/linkedList.ts:68](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L68)
 
 ___
 
@@ -279,7 +279,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:111](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L111)
+[src/list/linkedList.ts:111](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L111)
 
 ___
 
@@ -305,7 +305,7 @@ Return the element at the specified index.
 
 #### Defined in
 
-[src/list/linkedList.ts:124](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L124)
+[src/list/linkedList.ts:124](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L124)
 
 ___
 
@@ -332,7 +332,7 @@ Update the element at the specified index.
 
 #### Defined in
 
-[src/list/linkedList.ts:131](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L131)
+[src/list/linkedList.ts:131](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L131)
 
 ___
 
@@ -352,7 +352,7 @@ Retrieves and removes the end of the list.
 
 #### Defined in
 
-[src/list/linkedList.ts:141](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L141)
+[src/list/linkedList.ts:141](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L141)
 
 ___
 
@@ -378,7 +378,7 @@ Inserts the specified value into the end of the list
 
 #### Defined in
 
-[src/list/linkedList.ts:152](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L152)
+[src/list/linkedList.ts:152](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L152)
 
 ___
 
@@ -407,7 +407,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:159](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L159)
+[src/list/linkedList.ts:159](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L159)
 
 ___
 
@@ -437,7 +437,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:172](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L172)
+[src/list/linkedList.ts:172](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L172)
 
 ___
 
@@ -464,7 +464,7 @@ Update the element at the specified index.
 
 #### Defined in
 
-[src/list/linkedList.ts:194](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L194)
+[src/list/linkedList.ts:194](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L194)
 
 ___
 
@@ -484,7 +484,7 @@ Retrieves and removes the first element in the list.
 
 #### Defined in
 
-[src/list/linkedList.ts:204](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L204)
+[src/list/linkedList.ts:204](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L204)
 
 ___
 
@@ -514,7 +514,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:212](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L212)
+[src/list/linkedList.ts:212](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L212)
 
 ___
 
@@ -540,7 +540,7 @@ Sorts the elements in place.
 
 #### Defined in
 
-[src/list/linkedList.ts:243](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L243)
+[src/list/linkedList.ts:243](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L243)
 
 ___
 
@@ -569,7 +569,7 @@ Returns any deleted elements.
 
 #### Defined in
 
-[src/list/linkedList.ts:216](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L216)
+[src/list/linkedList.ts:216](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L216)
 
 ___
 
@@ -595,7 +595,7 @@ Inserts the specified value into the front of the list
 
 #### Defined in
 
-[src/list/linkedList.ts:264](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L264)
+[src/list/linkedList.ts:264](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L264)
 
 ___
 
@@ -621,7 +621,7 @@ Update the elements of the list
 
 #### Defined in
 
-[src/list/linkedList.ts:268](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L268)
+[src/list/linkedList.ts:268](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L268)
 
 ▸ **update**(`min`, `callback`): [LinkedList](linkedlist.md)<T\>
 
@@ -647,7 +647,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:269](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L269)
+[src/list/linkedList.ts:269](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L269)
 
 ▸ **update**(`min`, `max`, `callback`): [LinkedList](linkedlist.md)<T\>
 
@@ -674,7 +674,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:270](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L270)
+[src/list/linkedList.ts:270](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L270)
 
 ___
 
@@ -706,4 +706,4 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/linkedList.ts:301](https://github.com/havelessbemore/dastal/blob/2fe24da/src/list/linkedList.ts#L301)
+[src/list/linkedList.ts:301](https://github.com/havelessbemore/dastal/blob/d5a812e/src/list/linkedList.ts#L301)

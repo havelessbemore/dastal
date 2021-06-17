@@ -4,12 +4,12 @@ import { pad } from 'src/collection/stringUtils';
 describe('StringUtils unit tests', function () {
     describe('#always()', function () {
         it('Should not pad if length already reached', function () {
-            let str = '123456789';
+            const str = '123456789';
             expect(pad(str, 5, '0')).to.equal(str);
             expect(pad(str, str.length, '0')).to.equal(str);
         });
         it('Should pad an even length string until length is reached', function () {
-            let str = 'fo';
+            const str = 'fo';
             expect(pad(str, 3, '-')).to.equal('fo-');
             expect(pad(str, 4, '-')).to.equal('-fo-');
             expect(pad(str, 3, '[]')).to.equal('fo[');
@@ -24,7 +24,7 @@ describe('StringUtils unit tests', function () {
             expect(pad(str, 8, '[-]')).to.equal('[-]fo[-]');
         });
         it('Should pad an odd length string until length is reached', function () {
-            let str = 'foo';
+            const str = 'foo';
             expect(pad(str, 4, '-')).to.equal('foo-');
             expect(pad(str, 5, '-')).to.equal('-foo-');
             expect(pad(str, 4, '[]')).to.equal('foo[');

@@ -43,6 +43,7 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 - [ArrayUtils](docs/modules/arrayutils.md)
 - [IteratorUtils](docs/modules/iteratorutils.md)
 - [NumberUtils](docs/modules/numberutils.md)
+- [StringUtils](docs/modules/stringutils.md)
 - [u32](docs/modules/u32.md)
 
 ## Contribute

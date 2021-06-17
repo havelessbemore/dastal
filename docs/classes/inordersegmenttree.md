@@ -1,4 +1,4 @@
-[dastal - v4.0.0](../README.md) / InOrderSegmentTree
+[dastal - v4.1.0](../README.md) / InOrderSegmentTree
 
 # Class: InOrderSegmentTree<T\>
 
@@ -61,7 +61,7 @@ Construct a new segment tree
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:33](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L33)
+[src/segmentTree/inOrderSegmentTree.ts:33](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L33)
 
 ## Properties
 
@@ -75,7 +75,7 @@ n elements require 2n memory.
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:25](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L25)
+[src/segmentTree/inOrderSegmentTree.ts:25](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L25)
 
 ## Accessors
 
@@ -95,7 +95,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:107](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L107)
+[src/segmentTree/inOrderSegmentTree.ts:107](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L107)
 
 ## Methods
 
@@ -115,7 +115,7 @@ Return an iterator through the tree's elements
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:114](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L114)
+[src/segmentTree/inOrderSegmentTree.ts:114](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L114)
 
 ___
 
@@ -135,7 +135,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:46](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L46)
+[src/segmentTree/inOrderSegmentTree.ts:46](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L46)
 
 ___
 
@@ -155,7 +155,7 @@ Retrieves and removes the last element
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:50](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L50)
+[src/segmentTree/inOrderSegmentTree.ts:50](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L50)
 
 ___
 
@@ -181,7 +181,7 @@ Appends an element to the tree
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:68](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L68)
+[src/segmentTree/inOrderSegmentTree.ts:68](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L68)
 
 ___
 
@@ -208,7 +208,7 @@ Get the aggregated result of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:81](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L81)
+[src/segmentTree/inOrderSegmentTree.ts:81](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L81)
 
 ___
 
@@ -236,4 +236,4 @@ Update the elements of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/inOrderSegmentTree.ts:120](https://github.com/havelessbemore/dastal/blob/2fe24da/src/segmentTree/inOrderSegmentTree.ts#L120)
+[src/segmentTree/inOrderSegmentTree.ts:120](https://github.com/havelessbemore/dastal/blob/d5a812e/src/segmentTree/inOrderSegmentTree.ts#L120)

@@ -1,4 +1,4 @@
-[dastal - v4.0.0](../README.md) / Collection
+[dastal - v4.1.0](../README.md) / Collection
 
 # Interface: Collection<T\>
 
@@ -46,7 +46,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/2fe24da/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/d5a812e/src/collection/collection.ts#L5)
 
 ## Methods
 
