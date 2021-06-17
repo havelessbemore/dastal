@@ -6,7 +6,7 @@ import { isArray, MAX_ARRAY_LENGTH } from 'src/collection/arrayUtils';
 import { isCollection } from 'src/collection';
 import { Collection } from 'src/collection/collection';
 import { CombineFn } from '..';
-import { isPow2, lsp, msp } from '../math/u32';
+import { lsp, msp } from '../math/u32';
 import { SegmentTree } from './segmentTree';
 
 /**
@@ -20,7 +20,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      *
      * n elements require 2^⌈log2(2n)⌉ - 1 memory:
      */
-    static readonly MAX_SIZE: number = (MAX_ARRAY_LENGTH + 1) / 2;
+    static readonly MAX_SIZE: number = 2 ** Math.floor(Math.log2(MAX_ARRAY_LENGTH + 1) - 1);
     /**
      * The internal array used to store elements and aggregation nodes
      */
@@ -67,7 +67,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         const out = this.array[--this.length];
 
         // If level is <= 1/4 full
-        if (this.length <= (this.array.length + 1) >>> 2) {
+        if (this.size <= (this.level + 1) >>> 2) {
             this.shrink();
         }
 
@@ -276,11 +276,11 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         }
 
         // Update the tree
-        this.level = 1;
-        for (let max = min + 1; mask; this.level += this.level + 1) {
+        this.level = 0;
+        for (let max = min + 1; mask; min += min + 1) {
+            this.level += this.level + 1;
             this.array.copyWithin(this.level, min, max);
             mask >>>= 1;
-            min += min + 1;
             max += max + 2 + +((length & mask) > 0);
         }
 

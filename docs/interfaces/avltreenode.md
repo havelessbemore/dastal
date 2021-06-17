@@ -1,4 +1,4 @@
-[dastal - v4.1.0](../README.md) / AVLTreeNode
+[dastal - v4.1.1](../README.md) / AVLTreeNode
 
 # Interface: AVLTreeNode<T\>
 
@@ -38,7 +38,7 @@ The delta rank of the node.
 
 #### Defined in
 
-[src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/avlTreeNode.ts#L13)
+[src/tree/avlTreeNode.ts:13](https://github.com/havelessbemore/dastal/blob/351eddf/src/tree/avlTreeNode.ts#L13)
 
 ___
 
@@ -54,7 +54,7 @@ A link to the node's left child.
 
 #### Defined in
 
-[src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/binaryTreeNode.ts#L10)
+[src/tree/binaryTreeNode.ts:10](https://github.com/havelessbemore/dastal/blob/351eddf/src/tree/binaryTreeNode.ts#L10)
 
 ___
 
@@ -70,7 +70,7 @@ A link to the node's right child.
 
 #### Defined in
 
-[src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/binaryTreeNode.ts#L14)
+[src/tree/binaryTreeNode.ts:14](https://github.com/havelessbemore/dastal/blob/351eddf/src/tree/binaryTreeNode.ts#L14)
 
 ___
 
@@ -86,4 +86,4 @@ The value of the node
 
 #### Defined in
 
-[src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/d5a812e/src/tree/binaryTreeNode.ts#L18)
+[src/tree/binaryTreeNode.ts:18](https://github.com/havelessbemore/dastal/blob/351eddf/src/tree/binaryTreeNode.ts#L18)

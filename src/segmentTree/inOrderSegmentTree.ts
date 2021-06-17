@@ -22,7 +22,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
      *
      * n elements require 2n memory.
      */
-    static readonly MAX_SIZE: number = MAX_ARRAY_LENGTH >>> 1;
+    static readonly MAX_SIZE: number = Math.floor(MAX_ARRAY_LENGTH / 2);
     /**
      * The set of elements and aggregation nodes for the tree
      */
