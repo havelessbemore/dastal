@@ -251,7 +251,7 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         this.level += this.level + 1;
     }
     /**
-     * Shrink the tree to the smallest size
+     * Shift the tree to the highest non-full level
      */
     protected shrink(): void {
         const length = this.length - this.level;
@@ -270,8 +270,13 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         let mask = msp(length);
         min = min / lsp(min | mask) - 1;
 
+        // Check if shrinking is possible
+        if (min < 2) {
+            return;
+        }
+
         // Update the tree
-        this.level = +!isPow2(length);
+        this.level = 1;
         for (let max = min + 1; mask; this.level += this.level + 1) {
             this.array.copyWithin(this.level, min, max);
             mask >>>= 1;
