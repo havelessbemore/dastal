@@ -1,6 +1,6 @@
-dastal - v4.1.1
+dastal - v4.1.2
 
-# dastal - v4.1.1
+# dastal - v4.1.2
 
 ## Table of contents
 
@@ -95,7 +95,7 @@ the inputs, depending on the use case.
 
 #### Defined in
 
-[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/351eddf/src/index.ts#L21)
+[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/index.ts#L21)
 
 ___
 
@@ -137,7 +137,7 @@ A function used to determine the order of a set of elements.
 
 #### Defined in
 
-[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/351eddf/src/index.ts#L33)
+[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/index.ts#L33)
 
 ## Functions
 
@@ -161,4 +161,4 @@ obj is Collection<unknown\>
 
 #### Defined in
 
-[src/collection/index.ts:15](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/index.ts#L15)
+[src/collection/index.ts:15](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/index.ts#L15)

@@ -15,14 +15,11 @@ import { SegmentTree } from './segmentTree';
 /**
  * A {@link SegmentTree} with entries stored in in-order traversal.
  * Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests) ([github](https://github.com/trishume/gigatrace))
+ *
+ * Memory usage: n elements require 2n space.
+ *
  */
 export class InOrderSegmentTree<T> implements SegmentTree<T> {
-    /**
-     * The maximum amount of elements that can be added.
-     *
-     * n elements require 2n memory.
-     */
-    static readonly MAX_SIZE: number = Math.floor(MAX_ARRAY_LENGTH / 2);
     /**
      * The set of elements and aggregation nodes for the tree
      */
@@ -40,7 +37,9 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     constructor(combine: CombineFn<T>, elements: Iterable<T> = []) {
         this.array = [];
         this.combine = combine;
-        this.build(elements);
+        for (const element of elements) {
+            this.push(element);
+        }
     }
 
     clear(): void {
@@ -49,7 +48,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
 
     pop(): T | undefined {
         // Sanitize range
-        if (this.size < 1) {
+        if (this.array.length < 1) {
             return undefined;
         }
 
@@ -66,8 +65,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     push(element: T): number {
-        // Sanitize range
-        if (this.size >= InOrderSegmentTree.MAX_SIZE) {
+        if (this.array.length + 2 > MAX_ARRAY_LENGTH) {
             throw new RangeError(`Invalid length`);
         }
 
@@ -153,17 +151,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         this.array[min] = value;
     }
     /**
-     * A helper method used to build the tree
-     *
-     * @param elements The initial set of elements to add into the tree
-     */
-    protected build(elements: Iterable<T>) {
-        for (const element of elements) {
-            this.push(element);
-        }
-    }
-    /**
-     * A helper method to update complete aggregation nodes for an index
+     * A helper method to update complete aggregation nodes for an index.
      */
     protected set(index: number, element: T): T {
         // Set the index

@@ -1,4 +1,4 @@
-[dastal - v4.1.1](../README.md) / List
+[dastal - v4.1.2](../README.md) / List
 
 # Interface: List<T\>
 
@@ -101,7 +101,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -144,7 +144,7 @@ The new size of the list
 
 #### Defined in
 
-[src/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L49)
+[src/list/list.ts:49](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L49)
 
 ___
 
@@ -169,7 +169,7 @@ The new size of the list
 
 #### Defined in
 
-[src/list/list.ts:58](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L58)
+[src/list/list.ts:58](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L58)
 
 ___
 
@@ -185,7 +185,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/list/list.ts:62](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L62)
+[src/list/list.ts:62](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L62)
 
 ___
 
@@ -211,7 +211,7 @@ or the argument itself. It does not recurse into nested iterable arguments
 
 #### Defined in
 
-[src/list/list.ts:72](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L72)
+[src/list/list.ts:72](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L72)
 
 ___
 
@@ -243,7 +243,7 @@ The list
 
 #### Defined in
 
-[src/list/list.ts:88](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L88)
+[src/list/list.ts:88](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L88)
 
 ___
 
@@ -272,7 +272,7 @@ The list on which this method was called
 
 #### Defined in
 
-[src/list/list.ts:101](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L101)
+[src/list/list.ts:101](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L101)
 
 ___
 
@@ -296,7 +296,7 @@ The element at the index, or `undefined` if index is invalid
 
 #### Defined in
 
-[src/list/list.ts:109](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L109)
+[src/list/list.ts:109](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L109)
 
 ___
 
@@ -321,7 +321,7 @@ The previous element at the index, or `undefined` if index is invalid
 
 #### Defined in
 
-[src/list/list.ts:119](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L119)
+[src/list/list.ts:119](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L119)
 
 ___
 
@@ -339,7 +339,7 @@ The value at the end of the list, or `undefined` if empty.
 
 #### Defined in
 
-[src/list/list.ts:125](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L125)
+[src/list/list.ts:125](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L125)
 
 ___
 
@@ -363,7 +363,7 @@ The new size of the list
 
 #### Defined in
 
-[src/list/list.ts:133](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L133)
+[src/list/list.ts:133](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L133)
 
 ___
 
@@ -390,7 +390,7 @@ The value at the index, or `undefined` if the index is invalid
 
 #### Defined in
 
-[src/list/list.ts:144](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L144)
+[src/list/list.ts:144](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L144)
 
 ___
 
@@ -418,7 +418,7 @@ a reference to the same list
 
 #### Defined in
 
-[src/list/list.ts:156](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L156)
+[src/list/list.ts:156](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L156)
 
 ___
 
@@ -443,7 +443,7 @@ The previous element in the index, or undefined if the index is invalid
 
 #### Defined in
 
-[src/list/list.ts:165](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L165)
+[src/list/list.ts:165](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L165)
 
 ___
 
@@ -461,7 +461,7 @@ The value at the front of the list or `undefined` if this list is empty.
 
 #### Defined in
 
-[src/list/list.ts:171](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L171)
+[src/list/list.ts:171](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L171)
 
 ___
 
@@ -489,7 +489,7 @@ A new list with a copy of the indicated section of the original list
 
 #### Defined in
 
-[src/list/list.ts:183](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L183)
+[src/list/list.ts:183](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L183)
 
 ___
 
@@ -517,7 +517,7 @@ The object this method was called on
 
 #### Defined in
 
-[src/index.ts:50](https://github.com/havelessbemore/dastal/blob/351eddf/src/index.ts#L50)
+[src/index.ts:50](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/index.ts#L50)
 
 ___
 
@@ -544,7 +544,7 @@ A new list of deleted elements
 
 #### Defined in
 
-[src/list/list.ts:208](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L208)
+[src/list/list.ts:208](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L208)
 
 ___
 
@@ -568,7 +568,7 @@ The new size of the list
 
 #### Defined in
 
-[src/list/list.ts:216](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L216)
+[src/list/list.ts:216](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L216)
 
 ___
 
@@ -592,7 +592,7 @@ The list on which this method was called
 
 #### Defined in
 
-[src/list/list.ts:224](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L224)
+[src/list/list.ts:224](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L224)
 
 ▸ **update**(`min`, `callback`): [List](list.md)<T\>
 
@@ -616,7 +616,7 @@ The list on which this method was called
 
 #### Defined in
 
-[src/list/list.ts:236](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L236)
+[src/list/list.ts:236](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L236)
 
 ▸ **update**(`min`, `max`, `callback`): [List](list.md)<T\>
 
@@ -641,7 +641,7 @@ The list on which this method was called
 
 #### Defined in
 
-[src/list/list.ts:249](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L249)
+[src/list/list.ts:249](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L249)
 
 ___
 
@@ -671,4 +671,4 @@ An iterator through the indicated section of the list
 
 #### Defined in
 
-[src/list/list.ts:267](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/list.ts#L267)
+[src/list/list.ts:267](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/list.ts#L267)

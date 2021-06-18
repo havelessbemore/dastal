@@ -1,4 +1,4 @@
-[dastal - v4.1.1](../README.md) / Sortable
+[dastal - v4.1.2](../README.md) / Sortable
 
 # Interface: Sortable<T\>
 
@@ -44,4 +44,4 @@ The object this method was called on
 
 #### Defined in
 
-[src/index.ts:50](https://github.com/havelessbemore/dastal/blob/351eddf/src/index.ts#L50)
+[src/index.ts:50](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/index.ts#L50)

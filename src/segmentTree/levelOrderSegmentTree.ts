@@ -11,16 +11,11 @@ import { SegmentTree } from './segmentTree';
 
 /**
  * A {@link SegmentTree} with entries stored in level-order traversal.
- * Memory usage: n elements require between 2n-1 to 4(n-1)-1 entries
+ *
+ * Memory usage: n elements require n - 1 + 2**(⌊log<sub>2</sub>(n-1)⌋ + 1) space.
  *
  */
 export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
-    /**
-     * The maximum number of elements that can be added.
-     *
-     * n elements require 2^⌈log2(2n)⌉ - 1 memory:
-     */
-    static readonly MAX_SIZE: number = 2 ** Math.floor(Math.log2(MAX_ARRAY_LENGTH + 1) - 1);
     /**
      * The internal array used to store elements and aggregation nodes
      */
@@ -196,22 +191,24 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
         const n: number = (elements as any)[key];
 
         // Check for base case
-        if (n < 1) {
-            this.array.length = 0;
-            this.length = 0;
+        if (n < 2) {
             this.level = 0;
+            this.length = n;
+            this.array.length = 0;
+            this.array.push(...elements);
             return;
         }
 
         // Check if max capacity reached
-        if (n >= LevelOrderSegmentTree.MAX_SIZE) {
+        const level = 2 * msp(n - 1) - 1;
+        if (level + n > MAX_ARRAY_LENGTH) {
             throw new RangeError('Invalid length');
         }
 
         // Allocate the array
-        this.level = 2 * msp(n - 1) - 1;
-        this.length = this.level;
-        this.array.length = 2 * this.level + 1;
+        this.level = level;
+        this.length = level;
+        this.array.length = Math.min(2 * level + 1, MAX_ARRAY_LENGTH);
 
         // Add the elements
         for (const element of elements) {
@@ -225,19 +222,20 @@ export class LevelOrderSegmentTree<T> implements SegmentTree<T> {
      * Shift the tree down a level
      */
     protected grow(): void {
+        // Check if max capacity reached
+        const level = 2 * this.level + 1;
+        if (level + this.size + 1 > MAX_ARRAY_LENGTH) {
+            throw new RangeError('Invalid length');
+        }
+
         // Check base case
-        if (this.size < 1) {
+        if (this.length < 1) {
             this.array.length = 1;
             return;
         }
 
-        // Check if max capacity reached
-        if (this.size >= LevelOrderSegmentTree.MAX_SIZE) {
-            throw new RangeError('Invalid length');
-        }
-
         // Extend capacity
-        this.array.length += this.array.length + 1;
+        this.array.length = Math.min(2 * level + 1, MAX_ARRAY_LENGTH);
 
         // Shift the tree down a level
         let min = this.level + 1;

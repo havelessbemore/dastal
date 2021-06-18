@@ -1,4 +1,4 @@
-[dastal - v4.1.1](../README.md) / SegmentTree
+[dastal - v4.1.2](../README.md) / SegmentTree
 
 # Interface: SegmentTree<T\>
 
@@ -48,7 +48,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -82,7 +82,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/351eddf/src/segmentTree/segmentTree.ts#L7)
+[src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/segmentTree/segmentTree.ts#L7)
 
 ___
 
@@ -100,7 +100,7 @@ The last element or `undefined` if empty.
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:13](https://github.com/havelessbemore/dastal/blob/351eddf/src/segmentTree/segmentTree.ts#L13)
+[src/segmentTree/segmentTree.ts:13](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/segmentTree/segmentTree.ts#L13)
 
 ___
 
@@ -124,7 +124,7 @@ The new size of the tree
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:21](https://github.com/havelessbemore/dastal/blob/351eddf/src/segmentTree/segmentTree.ts#L21)
+[src/segmentTree/segmentTree.ts:21](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/segmentTree/segmentTree.ts#L21)
 
 ___
 
@@ -149,7 +149,7 @@ The aggregated result for range [min, max)
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:30](https://github.com/havelessbemore/dastal/blob/351eddf/src/segmentTree/segmentTree.ts#L30)
+[src/segmentTree/segmentTree.ts:30](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/segmentTree/segmentTree.ts#L30)
 
 ___
 
@@ -173,4 +173,4 @@ Update the elements of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:38](https://github.com/havelessbemore/dastal/blob/351eddf/src/segmentTree/segmentTree.ts#L38)
+[src/segmentTree/segmentTree.ts:38](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/segmentTree/segmentTree.ts#L38)

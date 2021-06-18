@@ -1,8 +1,10 @@
 import { expect } from 'chai';
 import { randomFill } from 'crypto';
+import { CombineFn } from 'src';
 import { LevelOrderSegmentTree } from 'src/segmentTree/levelOrderSegmentTree';
 
 describe('LevelOrderSegmentTree unit tests', function () {
+    const combineFn: CombineFn<number> = (a, b) => a + b;
     let empty: LevelOrderSegmentTree<number>;
     let filled: LevelOrderSegmentTree<number>;
 
@@ -39,8 +41,39 @@ describe('LevelOrderSegmentTree unit tests', function () {
     }
 
     beforeEach(function () {
-        empty = new LevelOrderSegmentTree((a, b) => a + b);
-        filled = new LevelOrderSegmentTree((a, b) => a + b, values);
+        empty = new LevelOrderSegmentTree(combineFn);
+        filled = new LevelOrderSegmentTree(combineFn, values);
+    });
+    describe('#constructor()', function () {
+        it('Should work with no elements', function () {
+            const tree = new LevelOrderSegmentTree(combineFn);
+            expect(tree.size).to.equal(0);
+            expect(Array.from(tree)).to.eql([]);
+        });
+        it('Should work with 0 elements', function () {
+            const expected: number[] = [];
+            const tree = new LevelOrderSegmentTree(combineFn, Array.from(expected));
+            const actual = Array.from(tree);
+            expect(tree.size).to.equal(0);
+            expect(Array.from(tree)).to.eql(expected);
+        });
+        it('Should work with 1 element', function () {
+            const expected: number[] = [10];
+            const tree = new LevelOrderSegmentTree(combineFn, Array.from(expected));
+            const actual = Array.from(tree);
+            expect(tree.size).to.equal(1);
+            expect(Array.from(tree)).to.eql(expected);
+        });
+        it('Should work with any elements', function () {
+            const expected: number[] = [];
+            for (let i = 0; i < values.length; ++i) {
+                expected.push(values[i]);
+                const tree = new LevelOrderSegmentTree(combineFn, Array.from(expected));
+                const actual = Array.from(tree);
+                expect(tree.size).to.equal(expected.length);
+                expect(Array.from(tree)).to.eql(expected);
+            }
+        });
     });
     describe('#clear()', function () {
         it('Should clear when empty', function () {

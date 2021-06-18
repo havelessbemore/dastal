@@ -1,4 +1,4 @@
-[dastal - v4.1.1](../README.md) / ArrayList
+[dastal - v4.1.2](../README.md) / ArrayList
 
 # Class: ArrayList<T\>
 
@@ -70,7 +70,7 @@ Instantiate the list.
 
 #### Defined in
 
-[src/list/arrayList.ts:13](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L13)
+[src/list/arrayList.ts:13](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L13)
 
 ## Accessors
 
@@ -90,7 +90,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/list/arrayList.ts:113](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L113)
+[src/list/arrayList.ts:113](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L113)
 
 ## Methods
 
@@ -114,7 +114,7 @@ An iterator through the list
 
 #### Defined in
 
-[src/list/arrayList.ts:136](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L136)
+[src/list/arrayList.ts:136](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L136)
 
 ___
 
@@ -141,7 +141,7 @@ Add the element at the specified index.
 
 #### Defined in
 
-[src/list/arrayList.ts:23](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L23)
+[src/list/arrayList.ts:23](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L23)
 
 ___
 
@@ -168,7 +168,7 @@ Add elements at the specified index.
 
 #### Defined in
 
-[src/list/arrayList.ts:30](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L30)
+[src/list/arrayList.ts:30](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L30)
 
 ___
 
@@ -188,7 +188,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/list/arrayList.ts:37](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L37)
+[src/list/arrayList.ts:37](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L37)
 
 ___
 
@@ -214,7 +214,7 @@ Combines the list with multiple iterables into a new list. Does not modify the e
 
 #### Defined in
 
-[src/list/arrayList.ts:41](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L41)
+[src/list/arrayList.ts:41](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L41)
 
 ___
 
@@ -248,7 +248,7 @@ the copied sequence will be trimmed to fit list.size
 
 #### Defined in
 
-[src/list/arrayList.ts:49](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L49)
+[src/list/arrayList.ts:49](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L49)
 
 ___
 
@@ -279,7 +279,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:57](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L57)
+[src/list/arrayList.ts:57](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L57)
 
 ___
 
@@ -305,7 +305,7 @@ Return the element at the specified index.
 
 #### Defined in
 
-[src/list/arrayList.ts:64](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L64)
+[src/list/arrayList.ts:64](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L64)
 
 ___
 
@@ -332,7 +332,7 @@ Update the element at the specified index.
 
 #### Defined in
 
-[src/list/arrayList.ts:68](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L68)
+[src/list/arrayList.ts:68](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L68)
 
 ___
 
@@ -352,7 +352,7 @@ Retrieves and removes the end of the list.
 
 #### Defined in
 
-[src/list/arrayList.ts:77](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L77)
+[src/list/arrayList.ts:77](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L77)
 
 ___
 
@@ -378,7 +378,7 @@ Inserts the specified value into the end of the list
 
 #### Defined in
 
-[src/list/arrayList.ts:81](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L81)
+[src/list/arrayList.ts:81](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L81)
 
 ___
 
@@ -407,7 +407,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:85](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L85)
+[src/list/arrayList.ts:85](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L85)
 
 ___
 
@@ -437,7 +437,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:89](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L89)
+[src/list/arrayList.ts:89](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L89)
 
 ___
 
@@ -464,7 +464,7 @@ Update the element at the specified index.
 
 #### Defined in
 
-[src/list/arrayList.ts:100](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L100)
+[src/list/arrayList.ts:100](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L100)
 
 ___
 
@@ -484,7 +484,7 @@ Retrieves and removes the first element in the list.
 
 #### Defined in
 
-[src/list/arrayList.ts:109](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L109)
+[src/list/arrayList.ts:109](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L109)
 
 ___
 
@@ -514,7 +514,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:117](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L117)
+[src/list/arrayList.ts:117](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L117)
 
 ___
 
@@ -540,7 +540,7 @@ Sorts the elements in place.
 
 #### Defined in
 
-[src/list/arrayList.ts:125](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L125)
+[src/list/arrayList.ts:125](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L125)
 
 ___
 
@@ -569,7 +569,7 @@ Returns any deleted elements.
 
 #### Defined in
 
-[src/list/arrayList.ts:121](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L121)
+[src/list/arrayList.ts:121](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L121)
 
 ___
 
@@ -595,7 +595,7 @@ Inserts the specified value into the front of the list
 
 #### Defined in
 
-[src/list/arrayList.ts:140](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L140)
+[src/list/arrayList.ts:140](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L140)
 
 ___
 
@@ -621,7 +621,7 @@ Update the elements of the list
 
 #### Defined in
 
-[src/list/arrayList.ts:144](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L144)
+[src/list/arrayList.ts:144](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L144)
 
 ▸ **update**(`min`, `callback`): [ArrayList](arraylist.md)<T\>
 
@@ -647,7 +647,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:145](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L145)
+[src/list/arrayList.ts:145](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L145)
 
 ▸ **update**(`min`, `max`, `callback`): [ArrayList](arraylist.md)<T\>
 
@@ -674,7 +674,7 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:146](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L146)
+[src/list/arrayList.ts:146](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L146)
 
 ___
 
@@ -706,4 +706,4 @@ end of the list. For example, -2 refers to the second to last element of the lis
 
 #### Defined in
 
-[src/list/arrayList.ts:174](https://github.com/havelessbemore/dastal/blob/351eddf/src/list/arrayList.ts#L174)
+[src/list/arrayList.ts:174](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/list/arrayList.ts#L174)

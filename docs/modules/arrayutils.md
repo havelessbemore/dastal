@@ -1,4 +1,4 @@
-[dastal - v4.1.1](../README.md) / ArrayUtils
+[dastal - v4.1.2](../README.md) / ArrayUtils
 
 # Namespace: ArrayUtils
 
@@ -31,7 +31,7 @@ submit a pull request with details supporting a new max length.
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:13](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/arrayUtils.ts#L13)
+[src/collection/arrayUtils.ts:13](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/arrayUtils.ts#L13)
 
 ___
 
@@ -50,7 +50,7 @@ please submit a bug with your environment details and a new max length.
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/arrayUtils.ts#L24)
+[src/collection/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/arrayUtils.ts#L24)
 
 ## Functions
 
@@ -80,7 +80,7 @@ obj is T[]
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:32](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/arrayUtils.ts#L32)
+[src/collection/arrayUtils.ts:32](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/arrayUtils.ts#L32)
 
 ___
 
@@ -113,7 +113,7 @@ obj is T[]
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:45](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/arrayUtils.ts#L45)
+[src/collection/arrayUtils.ts:45](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/arrayUtils.ts#L45)
 
 ___
 
@@ -148,4 +148,4 @@ Contrary to Array.splice, this will not throw an error if too many new elements 
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:63](https://github.com/havelessbemore/dastal/blob/351eddf/src/collection/arrayUtils.ts#L63)
+[src/collection/arrayUtils.ts:63](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/arrayUtils.ts#L63)
