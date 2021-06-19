@@ -16,7 +16,7 @@ import { SegmentTree } from './segmentTree';
  * A {@link SegmentTree} with entries stored in in-order traversal.
  * Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests) ([github](https://github.com/trishume/gigatrace))
  *
- * Memory usage: n elements require 2n space.
+ * Memory usage: n elements require 2n - 1 space.
  *
  */
 export class InOrderSegmentTree<T> implements SegmentTree<T> {
@@ -48,31 +48,30 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
 
     pop(): T | undefined {
         // Sanitize range
-        if (this.array.length < 1) {
-            return undefined;
-        }
-
-        // Un-complete aggregation nodes
-        const i = this.array.length - 1;
-        for (let mask = 2; i & mask; mask *= 2) {
-            this.array[i - mask] = this.array[i - mask - (mask >>> 1)];
+        if (this.array.length < 2) {
+            return this.array.pop();
         }
 
         // Return element
-        const out = this.array[i - 1];
+        const out = this.array[this.array.length - 1];
         this.array.length -= 2;
         return out;
     }
 
     push(element: T): number {
+        // Sanitize range
+        if (this.array.length < 1) {
+            this.array[0] = element;
+            return 1;
+        }
+
         if (this.array.length + 2 > MAX_ARRAY_LENGTH) {
             throw new RangeError(`Invalid length`);
         }
 
         // Add element
-        const i = this.array.length;
-        this.array[i + 1] = this.set(i, element);
-
+        this.array.length += 2;
+        this.set(this.array.length - 1, element);
         return this.size;
     }
 
@@ -103,7 +102,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     }
 
     get size(): number {
-        return this.array.length >>> 1;
+        return (this.array.length + 1) >>> 1;
     }
 
     /**
@@ -138,7 +137,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         // Update remaining aggregation nodes
         let dc = 0;
         let dp = lsp(min);
-        max = msb(min ^ this.array.length) - lsb(min);
+        max = msb(min ^ (this.array.length + 1)) - lsb(min);
         for (--min; max > 0; --max) {
             value = this.combine(value, this.array[min + (dp >>> 1) - dc]);
             this.array[min] = value;
@@ -146,15 +145,11 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
             min += dp - dc;
             dp *= 2;
         }
-
-        // Update the incomplete aggregation node
-        this.array[min] = value;
     }
     /**
      * A helper method to update complete aggregation nodes for an index.
      */
     protected set(index: number, element: T): T {
-        // Set the index
         this.array[index++] = element;
 
         // Update complete aggregation nodes, from lowest to highest
