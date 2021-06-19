@@ -70,8 +70,8 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         }
 
         // Add element
-        this.array.length += 2;
-        this.set(this.array.length - 1, element);
+        this.array.push(element, element);
+        this.aggregate(this.array.length - 1);
         return this.size;
     }
 
@@ -92,7 +92,7 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         let offset = lsp(min | msp(max - min));
         let value = this.array[min - 1 + (offset >>> 1)];
 
-        // Continue jumping aggregation nodes until max is reached
+        // Continue jumping top aggregation nodes until max is reached
         for (min += offset; min < max; min += offset) {
             offset = lsp(min | msp(max - min));
             value = this.combine(value, this.array[min - 1 + (offset >>> 1)]);
@@ -130,7 +130,8 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
         // Update the values
         let value: T;
         do {
-            value = this.set(min, operation(this.array[min], min >>> 1));
+            this.array[min] = operation(this.array[min], min >>> 1);
+            value = this.aggregate(min);
             min += 2;
         } while (min < max);
 
@@ -148,16 +149,17 @@ export class InOrderSegmentTree<T> implements SegmentTree<T> {
     }
     /**
      * A helper method to update complete aggregation nodes for an index.
+     *
+     * @params index - The index whose aggregation nodes will be updated.
+     *
+     * @returns - The top aggregation node's new value.
      */
-    protected set(index: number, element: T): T {
-        this.array[index++] = element;
-
-        // Update complete aggregation nodes, from lowest to highest
+    protected aggregate(index: number): T {
+        let element = this.array[index++];
         for (let mask = 2; index & mask; mask *= 2) {
             element = this.combine(this.array[index - mask - (mask >>> 1)], element);
             this.array[index - mask] = element;
         }
-
         return element;
     }
 }
