@@ -46,11 +46,7 @@ export function isPow2(a: number): boolean {
  * @returns The lowest bit set
  */
 export function lsb(a: number): number {
-    let b = -1;
-    for (a = lsp(a); a; a >>>= 1) {
-        ++b;
-    }
-    return b;
+    return a === 0 ? -1 : 0 | Math.log2(lsp(a));
 }
 /**
  * Get the Least Significant Power of a 32-bit unsigned number
@@ -101,12 +97,7 @@ export function mlsp(a: number): number {
  * @returns ⌊log2(a)⌋ : the highest bit set
  */
 export function msb(a: number): number {
-    let b = -1;
-    while (a !== 0) {
-        ++b;
-        a >>>= 1;
-    }
-    return b;
+    return a === 0 ? -1 : 0 | Math.log2(u32(a));
 }
 /**
  * Get the Most Significant Power of a 32-bit unsigned number
@@ -116,7 +107,12 @@ export function msb(a: number): number {
  * @returns 2**msb(a)
  */
 export function msp(a: number): number {
-    return a === 0 ? 0 : u32(1 << Math.log2(u32(a)));
+    a |= a >>> 1;
+    a |= a >>> 2;
+    a |= a >>> 4;
+    a |= a >>> 8;
+    a |= a >>> 16;
+    return u32((a >>> 1) + (a & 1));
 }
 /**
  * Get the Most Significant Power Set of a 32-bit unsigned number.
