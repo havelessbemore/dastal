@@ -3,17 +3,14 @@
  */
 
 /**
- * Get the number of bits set of a 32-bit unsigned number ([source](https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetKernighan))
+ * Get the number of bits set of a 32-bit unsigned number ([source](https://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel))
  *
  * @param a
  */
 export function bitsSet(a: number): number {
-    let b = 0;
-    while (a) {
-        ++b;
-        a &= a - 1;
-    }
-    return b;
+    a = a - ((a >>> 1) & 0x55555555);
+    a = (a & 0x33333333) + ((a >>> 2) & 0x33333333);
+    return (((a + (a >>> 4)) & 0xf0f0f0f) * 0x1010101) >>> 24;
 }
 /**
  * Invert the bits of a 32-bit unsigned number.
@@ -69,11 +66,19 @@ export function lsps(a: number): number {
     return u32(a & (lsp(a + lsp(a)) - 1));
 }
 /**
+ * Get the Least Zeroed Bit of a 32-bit unsigned number
+ *
+ * @param a
+ */
+export function lzb(a: number): number {
+    return lsb(lzp(a));
+}
+/**
  * Get the Least Zeroed Power of a 32-bit unsigned number
  *
  * @param a
  *
- * @returns 2**lsb(a)
+ * @returns 2**lzb(a)
  */
 export function lzp(a: number): number {
     return u32((a + 1) & ~a);
