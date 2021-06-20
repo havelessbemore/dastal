@@ -73,6 +73,16 @@ export function lsps(a: number): number {
     return u32(a & (lsp(a + lsp(a)) - 1));
 }
 /**
+ * Get the Least Zeroed Power of a 32-bit unsigned number
+ *
+ * @param a
+ *
+ * @returns 2**lsb(a)
+ */
+export function lzp(a: number): number {
+    return u32((a + 1) & ~a);
+}
+/**
  * Get the Most Significant Power of the Least Significant Power Set of a 32-bit unsigned number.
  *
  * Example: 54 (110110) -> 4 (000100)
@@ -106,12 +116,7 @@ export function msb(a: number): number {
  * @returns 2**msb(a)
  */
 export function msp(a: number): number {
-    let b = a & -a;
-    while (a != b) {
-        a ^= b;
-        b = a & -a;
-    }
-    return u32(b);
+    return a === 0 ? 0 : u32(1 << Math.log2(u32(a)));
 }
 /**
  * Get the Most Significant Power Set of a 32-bit unsigned number.

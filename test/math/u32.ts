@@ -11,6 +11,7 @@ import {
     reverse,
     u32,
     isPow2,
+    lzp,
 } from 'src/math/u32';
 
 describe('u32 unit tests', function () {
@@ -131,6 +132,24 @@ describe('u32 unit tests', function () {
         it('Should work for positive values', function () {
             for (let i = 0; i < pos.length; ++i) {
                 expect(lsps(pos[i])).to.equal(pVals[i]);
+            }
+        });
+    });
+    describe('#lzp()', function () {
+        const nVals = [0, 1, 2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1];
+        const pVals = [2, 1, 4, 1, 2, 1, 8, 1, 2, 1, 4, 1, 2, 1, 16, 1];
+        it('Should work for "negative" values', function () {
+            for (let i = 0; i < neg.length; ++i) {
+                expect(lzp(neg[i])).to.equal(nVals[i]);
+            }
+        });
+        it('Should work for zero', function () {
+            expect(lzp(0)).to.equal(1);
+        });
+        it('Should work for positive values', function () {
+            for (let i = 0; i < pos.length; ++i) {
+                console.log(pos[i], lzp(pos[i]), pVals[i]);
+                expect(lzp(pos[i])).to.equal(pVals[i]);
             }
         });
     });
