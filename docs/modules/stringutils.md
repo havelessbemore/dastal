@@ -1,4 +1,4 @@
-[dastal - v4.1.2](../README.md) / StringUtils
+[dastal - v4.1.3](../README.md) / StringUtils
 
 # Namespace: StringUtils
 
@@ -30,4 +30,4 @@ Pad a string from both sides.
 
 #### Defined in
 
-[src/collection/stringUtils.ts:4](https://github.com/havelessbemore/dastal/blob/20d3f8b/src/collection/stringUtils.ts#L4)
+[src/collection/stringUtils.ts:4](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/stringUtils.ts#L4)
