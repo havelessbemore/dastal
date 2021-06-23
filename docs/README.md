@@ -92,7 +92,7 @@ The combination of the given elements
 
 #### Defined in
 
-[src/index.ts:23](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/index.ts#L23)
+[src/index.ts:23](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/index.ts#L23)
 
 ___
 
@@ -129,7 +129,7 @@ A function used to determine the order of a set of elements.
 
 #### Defined in
 
-[src/index.ts:35](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/index.ts#L35)
+[src/index.ts:35](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/index.ts#L35)
 
 ## Functions
 
@@ -153,4 +153,4 @@ obj is Collection<unknown\>
 
 #### Defined in
 
-[src/collection/index.ts:12](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/index.ts#L12)
+[src/collection/index.ts:12](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/collection/index.ts#L12)

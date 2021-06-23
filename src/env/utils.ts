@@ -30,11 +30,6 @@ export function search(min: number, max: number, compareFn: (index: number) => n
  * there is no maximum. In practice, different environments impose their own
  * limit. The limit closely depends on available stack memory.
  *
- * @param accuracy - A number from  0 - 1 to determine
- * if calculation prioritizes speed vs accuracy, with 1
- * being most accurate and 0 being speediest. Be default,
- * speed is preferred.
- *
  * **Note 1**: The output depends on the available
  * stack memory at the time this function is called.
  * For that reason, any output should be used as soon
@@ -65,6 +60,11 @@ export function search(min: number, max: number, compareFn: (index: number) => n
  *
  *    - For more accuracy, the intended function can be
  * profiled to come up with a more exact estimate.
+ *
+ * @param accuracy - A number from  0 - 1 to determine
+ * if calculation prioritizes speed vs accuracy, with 1
+ * being most accurate and 0 being speediest. Be default,
+ * speed is preferred.
  */
 export function getMaxArgumentsLength(accuracy = 0): number {
     /**

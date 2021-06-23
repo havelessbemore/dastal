@@ -41,7 +41,7 @@ Get an iterator that always returns a given value.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:4](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L4)
+[src/utils/iteratorUtils.ts:4](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L4)
 
 ___
 
@@ -70,7 +70,7 @@ Get an iterator that returns a value a given amount of times.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:10](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L10)
+[src/utils/iteratorUtils.ts:10](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L10)
 
 ___
 
@@ -101,7 +101,7 @@ Iterate through the first num elements of an iterator.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:29](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L29)
+[src/utils/iteratorUtils.ts:29](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L29)
 
 ___
 
@@ -129,7 +129,7 @@ Join multiple iterators into one.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:46](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L46)
+[src/utils/iteratorUtils.ts:46](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L46)
 
 ___
 
@@ -151,7 +151,7 @@ Get an empty iterator.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:70](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L70)
+[src/utils/iteratorUtils.ts:70](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L70)
 
 ___
 
@@ -179,7 +179,7 @@ Wrap a value in an iterator.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:76](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L76)
+[src/utils/iteratorUtils.ts:76](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L76)
 
 ___
 
@@ -210,7 +210,7 @@ Skip the next num elements of an iterator.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:95](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L95)
+[src/utils/iteratorUtils.ts:95](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L95)
 
 ___
 
@@ -241,4 +241,4 @@ Split an iterator into multiple iterators of a given length.
 
 #### Defined in
 
-[src/utils/iteratorUtils.ts:114](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/utils/iteratorUtils.ts#L114)
+[src/utils/iteratorUtils.ts:114](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/iteratorUtils.ts#L114)
