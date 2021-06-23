@@ -1,4 +1,4 @@
-[dastal - v4.1.3](../README.md) / Sorted
+[dastal - v5.0.0](../README.md) / Sorted
 
 # Interface: Sorted<T\>
 
@@ -38,4 +38,4 @@ The function with which elements are sorted
 
 #### Defined in
 
-[src/index.ts:59](https://github.com/havelessbemore/dastal/blob/5081892/src/index.ts#L59)
+[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L61)

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { isArray, isTypedArray, splice } from 'src/collection/arrayUtils';
+import { isArray, isTypedArray, splice } from 'src/utils/arrayUtils';
 
 describe('ArrayUtils unit tests', function () {
     const types = [

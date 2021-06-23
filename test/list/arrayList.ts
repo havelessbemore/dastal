@@ -819,7 +819,8 @@ describe('ArrayList unit tests', function () {
                 expect(Array.from(deleted)).to.eql(Array.from(values.slice(0, count)));
             }
         });
-        it('Should delete intended range', function () {
+        it('Should delete intended range', async function () {
+            this.timeout(60000);
             for (let start = -filled.size; start < filled.size; ++start) {
                 for (let count = 0; count < filled.size; ++count) {
                     const min = cwrap(start, 0, filled.size);

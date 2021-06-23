@@ -1,56 +1,14 @@
-[dastal - v4.1.3](../README.md) / ArrayUtils
+[dastal - v5.0.0](../README.md) / ArrayUtils
 
 # Namespace: ArrayUtils
 
 ## Table of contents
-
-### Variables
-
-- [MAX\_ARRAY\_LENGTH](arrayutils.md#max_array_length)
-- [MAX\_SAFE\_ARGUMENT\_LENGTH](arrayutils.md#max_safe_argument_length)
 
 ### Functions
 
 - [isArray](arrayutils.md#isarray)
 - [isTypedArray](arrayutils.md#istypedarray)
 - [splice](arrayutils.md#splice)
-
-## Variables
-
-### MAX\_ARRAY\_LENGTH
-
-• `Const` **MAX\_ARRAY\_LENGTH**: ``4294967295``
-
-The maximum length of an array.
-
-According to the [ECMA-262](https://tc39.es/ecma262/#array-index):
-    0 <= array.length <= 2^32 - 1
-
-If this value should be updated, please
-submit a pull request with details supporting a new max length.
-
-#### Defined in
-
-[src/collection/arrayUtils.ts:13](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/arrayUtils.ts#L13)
-
-___
-
-### MAX\_SAFE\_ARGUMENT\_LENGTH
-
-• `Const` **MAX\_SAFE\_ARGUMENT\_LENGTH**: ``32767``
-
-The maximum number of arguments that can be safely accepted by a function.
-
-According to the [ECMA-262](https://tc39.es/ecma262/#sec-list-and-record-specification-type), there is no maximum. In practice, different
-environments impose their own limit ([source](https://stackoverflow.com/questions/22747068/is-there-a-max-number-of-arguments-javascript-functions-can-accept)).
-
-This value was chosen through research, local testing and iteration. The actual number of arguments
-accepted in an environment may be larger but hopefully not smaller. If errors are raised,
-please submit a bug with your environment details and a new max length.
-
-#### Defined in
-
-[src/collection/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/arrayUtils.ts#L24)
 
 ## Functions
 
@@ -80,7 +38,7 @@ obj is T[]
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:32](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/arrayUtils.ts#L32)
+[src/utils/arrayUtils.ts:11](https://github.com/havelessbemore/dastal/blob/93b846d/src/utils/arrayUtils.ts#L11)
 
 ___
 
@@ -113,7 +71,7 @@ obj is T[]
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:45](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/arrayUtils.ts#L45)
+[src/utils/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/93b846d/src/utils/arrayUtils.ts#L24)
 
 ___
 
@@ -138,14 +96,14 @@ Contrary to Array.splice, this will not throw an error if too many new elements 
 | `array` | `T`[] | The array to splice. |
 | `start?` | `number` | The zero-based location in the array from which to start removing elements. |
 | `count?` | `number` | The number of elements to remove. |
-| `elements?` | `Iterable`<T\> | The new elements to splice in. |
+| `elements?` | `T`[] | The new elements to splice in. |
 
 #### Returns
 
 `T`[]
 
-- An array containing the elements that were deleted.
+- An array containing the deleted elements.
 
 #### Defined in
 
-[src/collection/arrayUtils.ts:63](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/arrayUtils.ts#L63)
+[src/utils/arrayUtils.ts:42](https://github.com/havelessbemore/dastal/blob/93b846d/src/utils/arrayUtils.ts#L42)

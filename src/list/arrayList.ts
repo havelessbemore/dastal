@@ -1,4 +1,4 @@
-import { splice } from 'src/collection/arrayUtils';
+import { splice } from 'src/utils/arrayUtils';
 import { clamp, wrapLeft } from 'src/math/numberUtils';
 import { CompareFn } from '..';
 import { List } from './list';
@@ -29,7 +29,7 @@ export class ArrayList<T> implements List<T> {
 
     addAll(index: number, elements: Iterable<T>): number {
         if (index >= 0 && index <= this.size) {
-            splice(this.array, index, 0, elements);
+            splice(this.array, index, 0, Array.from(elements));
         }
         return this.size;
     }
@@ -119,7 +119,7 @@ export class ArrayList<T> implements List<T> {
     }
 
     splice(start?: number, count?: number, elements?: Iterable<T>): List<T> {
-        return new ArrayList(splice(this.array, start, count, elements));
+        return new ArrayList(splice(this.array, start, count, Array.from(elements || [])));
     }
 
     sort(compareFn: CompareFn<T>): this {

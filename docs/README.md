@@ -1,6 +1,6 @@
-dastal - v4.1.3
+dastal - v5.0.0
 
-# dastal - v4.1.3
+# dastal - v5.0.0
 
 ## Table of contents
 
@@ -10,6 +10,7 @@ dastal - v4.1.3
 - [IteratorUtils](modules/iteratorutils.md)
 - [NumberUtils](modules/numberutils.md)
 - [StringUtils](modules/stringutils.md)
+- [env](modules/env.md)
 - [u32](modules/u32.md)
 
 ### Classes
@@ -95,7 +96,7 @@ the inputs, depending on the use case.
 
 #### Defined in
 
-[src/index.ts:21](https://github.com/havelessbemore/dastal/blob/5081892/src/index.ts#L21)
+[src/index.ts:23](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L23)
 
 ___
 
@@ -137,7 +138,7 @@ A function used to determine the order of a set of elements.
 
 #### Defined in
 
-[src/index.ts:33](https://github.com/havelessbemore/dastal/blob/5081892/src/index.ts#L33)
+[src/index.ts:35](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L35)
 
 ## Functions
 
@@ -161,4 +162,4 @@ obj is Collection<unknown\>
 
 #### Defined in
 
-[src/collection/index.ts:15](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/index.ts#L15)
+[src/collection/index.ts:12](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/index.ts#L12)

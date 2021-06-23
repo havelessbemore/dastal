@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { pad } from 'src/collection/stringUtils';
+import { pad } from 'src/utils/stringUtils';
 
 describe('StringUtils unit tests', function () {
     describe('#always()', function () {

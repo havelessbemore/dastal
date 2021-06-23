@@ -1,9 +1,6 @@
 import { Collection } from './collection';
 
-export * as ArrayUtils from './arrayUtils';
 export * from './collection';
-export * as IteratorUtils from './iteratorUtils';
-export * as StringUtils from './stringUtils';
 
 /**
  * Check if a value is a {@link Collection}.

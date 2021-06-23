@@ -1,4 +1,4 @@
-import { pad } from 'src/collection/stringUtils';
+import { pad } from 'src/utils/stringUtils';
 import { LinkedNode } from 'src/list';
 import { CompareFn } from '..';
 import { BinaryTreeNode } from './binaryTreeNode';

@@ -1,4 +1,4 @@
-[dastal - v4.1.3](../README.md) / BinaryHeap
+[dastal - v5.0.0](../README.md) / BinaryHeap
 
 # Class: BinaryHeap<T\>
 
@@ -79,7 +79,7 @@ Instantiate a heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:32](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L32)
+[src/heap/binaryHeap.ts:33](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L33)
 
 ## Accessors
 
@@ -99,7 +99,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:186](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L186)
+[src/heap/binaryHeap.ts:187](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L187)
 
 ## Methods
 
@@ -123,7 +123,7 @@ An iterator through the list
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:213](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L213)
+[src/heap/binaryHeap.ts:214](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L214)
 
 ___
 
@@ -149,7 +149,7 @@ Insert a set of elements into the heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:45](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L45)
+[src/heap/binaryHeap.ts:46](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L46)
 
 ___
 
@@ -169,7 +169,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:73](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L73)
+[src/heap/binaryHeap.ts:74](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L74)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:77](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L77)
+[src/heap/binaryHeap.ts:78](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L78)
 
 ___
 
@@ -213,7 +213,7 @@ Check if an element is in the heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:81](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L81)
+[src/heap/binaryHeap.ts:82](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L82)
 
 ___
 
@@ -239,7 +239,7 @@ Delete an element from the heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:85](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L85)
+[src/heap/binaryHeap.ts:86](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L86)
 
 ___
 
@@ -266,7 +266,7 @@ contain elements of both. Does not modify the input.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:105](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L105)
+[src/heap/binaryHeap.ts:106](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L106)
 
 ___
 
@@ -286,7 +286,7 @@ Retrieves, but does not remove, the top of the heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:124](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L124)
+[src/heap/binaryHeap.ts:125](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L125)
 
 ___
 
@@ -306,7 +306,7 @@ Remove the top of the heap (AKA extract).
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:128](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L128)
+[src/heap/binaryHeap.ts:129](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L129)
 
 ___
 
@@ -332,7 +332,7 @@ Inserts an element into the heap (AKA insert, add).
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:147](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L147)
+[src/heap/binaryHeap.ts:148](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L148)
 
 ___
 
@@ -358,7 +358,7 @@ Insert an element and then remove the top of the heap.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:156](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L156)
+[src/heap/binaryHeap.ts:157](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L157)
 
 ___
 
@@ -384,7 +384,7 @@ Remove the top of the heap and then insert a new element (AKA popPush).
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:169](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L169)
+[src/heap/binaryHeap.ts:170](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L170)
 
 ___
 
@@ -406,7 +406,7 @@ Iterate through the heap in sorted order.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:190](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L190)
+[src/heap/binaryHeap.ts:191](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L191)
 
 ___
 
@@ -433,4 +433,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/heap/binaryHeap.ts:217](https://github.com/havelessbemore/dastal/blob/5081892/src/heap/binaryHeap.ts#L217)
+[src/heap/binaryHeap.ts:218](https://github.com/havelessbemore/dastal/blob/93b846d/src/heap/binaryHeap.ts#L218)

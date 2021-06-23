@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { always, fill, first, join, never, once, skip, split } from 'src/collection/iteratorUtils';
+import { always, fill, first, join, never, once, skip, split } from 'src/utils/iteratorUtils';
 
 describe('IteratorUtils unit tests', function () {
     describe('#always()', function () {

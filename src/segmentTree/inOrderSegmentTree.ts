@@ -1,20 +1,27 @@
+/**
+ * Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests) ([github](https://github.com/trishume/gigatrace))
+ *
+ *                                                                                                                               +
+ *                                /''''''''''''''''''''''''''''''+''''''''''''''''''''''''''''''\                                |
+ *                /''''''''''''''+''''''''''''''\                |               /'''''''''''''''+''''''''''''''\                |
+ *        /''''''+''''''\        |        /''''''+'''''\         |        /''''''+'''''\         |        /''''''+'''''\         |
+ *    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\    |
+ *   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32
+ * --------------------------------------------------------------------------------------------------------------------------------------
+ *   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0
+ *   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1   1   0
+ *   0   0   0   0   1   1   1   1   0   0   0   0   1   1   1   1   0   0   0   0   1   1   1   1   0   0   0   0   1   1   1   1   0
+ *   0   0   0   0   0   0   0   0   1   1   1   1   1   1   1   1   0   0   0   0   0   0   0   0   1   1   1   1   1   1   1   1   0
+ *   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   0
+ *   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   1
+ */
 import { lsb, lsp, msb, msp } from '../math/u32';
 import { CombineFn } from '..';
-import { MAX_ARRAY_LENGTH } from 'src/collection/arrayUtils';
+import { MAX_ARRAY_LENGTH } from 'src/env';
 import { SegmentTree } from './segmentTree';
 
-/*
-    mca(a, b) = lsp(a | msp(b - a)) ; // where a <= b
-    left(i) = i - (lsp(i + 1) >>> 1)
-    right(i) = i + (lsp(i + 1) >>> 1)
-    parent(i) =
-        offset = lsp(i + 1)
-        i + offset - ((i & 2*offset) >>> 0)
-*/
-
 /**
- * A {@link SegmentTree} with entries stored in in-order traversal.
- * Inspired by [Tristan Hume's IForestIndex](https://thume.ca/2021/03/14/iforests) ([github](https://github.com/trishume/gigatrace))
+ * A {@link SegmentTree} internally represented by a binary tree array, with nodes stored in in-order traversal.
  *
  * Memory usage: n elements require 2n - 1 space.
  *

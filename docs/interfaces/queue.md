@@ -1,4 +1,4 @@
-[dastal - v4.1.3](../README.md) / Queue
+[dastal - v5.0.0](../README.md) / Queue
 
 # Interface: Queue<T\>
 
@@ -58,7 +58,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/5081892/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -92,7 +92,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/5081892/src/queue/queue.ts#L19)
+[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L19)
 
 ___
 
@@ -110,7 +110,7 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/5081892/src/queue/queue.ts#L25)
+[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L25)
 
 ___
 
@@ -134,7 +134,7 @@ The new size of the queue
 
 #### Defined in
 
-[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/5081892/src/queue/queue.ts#L33)
+[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L33)
 
 ___
 
@@ -152,4 +152,4 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/5081892/src/queue/queue.ts#L39)
+[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L39)

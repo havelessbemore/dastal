@@ -2,12 +2,13 @@
  *  Thanks to [Douglas Wilhelm Harder](https://ece.uwaterloo.ca/~dwharder/aads/Algorithms/Array_resizing/)
  *  for their analysis on array resizing
  */
-import { isArray, MAX_ARRAY_LENGTH } from 'src/collection/arrayUtils';
+import { isArray } from 'src/utils/arrayUtils';
 import { isCollection } from 'src/collection';
 import { Collection } from 'src/collection/collection';
 import { CombineFn } from '..';
 import { lsp, msp } from '../math/u32';
 import { SegmentTree } from './segmentTree';
+import { MAX_ARRAY_LENGTH } from 'src/env';
 
 /**
  * A {@link SegmentTree} with entries stored in level-order traversal.

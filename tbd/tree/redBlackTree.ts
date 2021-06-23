@@ -1,5 +1,5 @@
 import { CompareFn } from "src";
-import { isArray } from "src/collection/arrayUtils";
+import { isArray } from "src/utils/arrayUtils";
 import { SortedTree } from "src/tree";
 import { clone, Edge, inOrderTraverse, leftmost, leftmostStack, preOrderTraverse, rightmost, rightmostStack, search, searchStack } from "src/tree/binaryTreeUtils";
 import { RedBlackTreeNode } from "./redBlackTreeNode";
