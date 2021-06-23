@@ -1,5 +1,6 @@
 /**
  * Bit hacks for 32-bit unsigned numbers.
+ * @module
  */
 
 /**

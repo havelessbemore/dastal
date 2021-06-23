@@ -27,7 +27,7 @@
 
 ### Methods
 
-- [[Symbol.iterator]](segmenttree.md#[symbol.iterator])
+- [[iterator]](segmenttree.md#[iterator])
 - [clear](segmenttree.md#clear)
 - [pop](segmenttree.md#pop)
 - [push](segmenttree.md#push)
@@ -48,13 +48,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/collection.ts#L5)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 #### Returns
 
@@ -62,7 +62,7 @@ The number of elements in the collection.
 
 #### Inherited from
 
-[Collection](collection.md).[[Symbol.iterator]](collection.md#[symbol.iterator])
+[Collection](collection.md).[[iterator]](collection.md#[iterator])
 
 #### Defined in
 
@@ -82,7 +82,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/segmentTree.ts#L7)
+[src/segmentTree/segmentTree.ts:7](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/segmentTree.ts#L7)
 
 ___
 
@@ -100,7 +100,7 @@ The last element or `undefined` if empty.
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:13](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/segmentTree.ts#L13)
+[src/segmentTree/segmentTree.ts:13](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/segmentTree.ts#L13)
 
 ___
 
@@ -124,7 +124,7 @@ The new size of the tree
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:21](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/segmentTree.ts#L21)
+[src/segmentTree/segmentTree.ts:21](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/segmentTree.ts#L21)
 
 ___
 
@@ -149,7 +149,7 @@ The aggregated result for range [min, max)
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:30](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/segmentTree.ts#L30)
+[src/segmentTree/segmentTree.ts:30](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/segmentTree.ts#L30)
 
 ___
 
@@ -173,4 +173,4 @@ Update the elements of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/segmentTree.ts:38](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/segmentTree.ts#L38)
+[src/segmentTree/segmentTree.ts:38](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/segmentTree.ts#L38)

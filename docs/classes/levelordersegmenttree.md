@@ -28,7 +28,7 @@ Memory usage: n elements require n - 1 + 2**(⌊log<sub>2</sub>(n-1)⌋ + 1) spa
 
 ### Methods
 
-- [[Symbol.iterator]](levelordersegmenttree.md#[symbol.iterator])
+- [[iterator]](levelordersegmenttree.md#[iterator])
 - [clear](levelordersegmenttree.md#clear)
 - [pop](levelordersegmenttree.md#pop)
 - [push](levelordersegmenttree.md#push)
@@ -58,7 +58,7 @@ Construct a new [SegmentTree](../interfaces/segmenttree.md)
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:35](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L35)
+[src/segmentTree/levelOrderSegmentTree.ts:35](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L35)
 
 ## Accessors
 
@@ -78,13 +78,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:119](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L119)
+[src/segmentTree/levelOrderSegmentTree.ts:119](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L119)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 Return an iterator through the elements
 
@@ -94,11 +94,11 @@ Return an iterator through the elements
 
 #### Implementation of
 
-[SegmentTree](../interfaces/segmenttree.md).[[Symbol.iterator]](../interfaces/segmenttree.md#[symbol.iterator])
+[SegmentTree](../interfaces/segmenttree.md).[[iterator]](../interfaces/segmenttree.md#[iterator])
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:126](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L126)
+[src/segmentTree/levelOrderSegmentTree.ts:126](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L126)
 
 ___
 
@@ -118,7 +118,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:50](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L50)
+[src/segmentTree/levelOrderSegmentTree.ts:50](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L50)
 
 ___
 
@@ -138,7 +138,7 @@ Retrieves and removes the last element
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:56](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L56)
+[src/segmentTree/levelOrderSegmentTree.ts:56](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L56)
 
 ___
 
@@ -164,7 +164,7 @@ Appends an element to the tree
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:73](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L73)
+[src/segmentTree/levelOrderSegmentTree.ts:73](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L73)
 
 ___
 
@@ -191,7 +191,7 @@ Get the aggregated result of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:91](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L91)
+[src/segmentTree/levelOrderSegmentTree.ts:91](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L91)
 
 ___
 
@@ -219,4 +219,4 @@ Update the elements of a given range in the tree
 
 #### Defined in
 
-[src/segmentTree/levelOrderSegmentTree.ts:132](https://github.com/havelessbemore/dastal/blob/93b846d/src/segmentTree/levelOrderSegmentTree.ts#L132)
+[src/segmentTree/levelOrderSegmentTree.ts:132](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/segmentTree/levelOrderSegmentTree.ts#L132)

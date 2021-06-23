@@ -62,16 +62,6 @@ dastal - v5.0.0
 
 Ƭ **CombineFn**<T, K\>: (`a`: `T`, `b`: `T`) => `K`
 
-A function that combines two elements into another.
-The output may or may not be of the same type as
-the inputs, depending on the use case.
-
-**`param`** The first element
-
-**`param`** The second element
-
-**`returns`** The combination of the given elements
-
 #### Type parameters
 
 | Name | Type |
@@ -83,37 +73,32 @@ the inputs, depending on the use case.
 
 ▸ (`a`, `b`): `K`
 
+A function that combines two elements into another.
+The output may or may not be of the same type as
+the inputs, depending on the use case.
+
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `T` |
-| `b` | `T` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `T` | The first element |
+| `b` | `T` | The second element |
 
 ##### Returns
 
 `K`
 
+The combination of the given elements
+
 #### Defined in
 
-[src/index.ts:23](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L23)
+[src/index.ts:23](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/index.ts#L23)
 
 ___
 
 ### CompareFn
 
 Ƭ **CompareFn**<T\>: (`a`: `T`, `b`: `T`) => `number`
-
-A function used to determine the order of a set of elements.
-
-**`param`** The first element
-
-**`param`** The second element
-
-**`returns`**
-- A negative value if a < b
-- Zero if a == b
-- A positive value if a > b
 
 #### Type parameters
 
@@ -125,20 +110,26 @@ A function used to determine the order of a set of elements.
 
 ▸ (`a`, `b`): `number`
 
+A function used to determine the order of a set of elements.
+
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `T` |
-| `b` | `T` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `T` | The first element |
+| `b` | `T` | The second element |
 
 ##### Returns
 
 `number`
 
+- A negative value if a < b
+- Zero if a == b
+- A positive value if a > b
+
 #### Defined in
 
-[src/index.ts:35](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L35)
+[src/index.ts:35](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/index.ts#L35)
 
 ## Functions
 
@@ -162,4 +153,4 @@ obj is Collection<unknown\>
 
 #### Defined in
 
-[src/collection/index.ts:12](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/index.ts#L12)
+[src/collection/index.ts:12](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/index.ts#L12)

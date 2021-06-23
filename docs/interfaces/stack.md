@@ -36,7 +36,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ### Methods
 
-- [[Symbol.iterator]](stack.md#[symbol.iterator])
+- [[iterator]](stack.md#[iterator])
 - [clear](stack.md#clear)
 - [peek](stack.md#peek)
 - [pop](stack.md#pop)
@@ -56,13 +56,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/collection.ts#L5)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 #### Returns
 
@@ -70,7 +70,7 @@ The number of elements in the collection.
 
 #### Inherited from
 
-[Collection](collection.md).[[Symbol.iterator]](collection.md#[symbol.iterator])
+[Collection](collection.md).[[iterator]](collection.md#[iterator])
 
 #### Defined in
 
@@ -90,7 +90,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/stack/stack.ts:17](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/stack.ts#L17)
+[src/stack/stack.ts:17](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/stack.ts#L17)
 
 ___
 
@@ -108,7 +108,7 @@ The element at the top of the stack or `undefined` if empty.
 
 #### Defined in
 
-[src/stack/stack.ts:23](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/stack.ts#L23)
+[src/stack/stack.ts:23](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/stack.ts#L23)
 
 ___
 
@@ -126,7 +126,7 @@ The element at the top of the stack or `undefined` if empty.
 
 #### Defined in
 
-[src/stack/stack.ts:29](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/stack.ts#L29)
+[src/stack/stack.ts:29](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/stack.ts#L29)
 
 ___
 
@@ -150,4 +150,4 @@ The new size of the stack
 
 #### Defined in
 
-[src/stack/stack.ts:37](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/stack.ts#L37)
+[src/stack/stack.ts:37](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/stack.ts#L37)

@@ -40,7 +40,7 @@ Similar to red–black trees, AVL trees are height-balanced.
 
 ### Methods
 
-- [[Symbol.iterator]](avltree.md#[symbol.iterator])
+- [[iterator]](avltree.md#[iterator])
 - [add](avltree.md#add)
 - [clear](avltree.md#clear)
 - [comparator](avltree.md#comparator)
@@ -76,7 +76,7 @@ Instantiate a tree.
 
 #### Defined in
 
-[src/tree/avlTree.ts:56](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L56)
+[src/tree/avlTree.ts:56](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L56)
 
 • **new AVLTree**<T\>(`compareFn`, `allowDuplicates`, `elements?`)
 
@@ -98,7 +98,7 @@ Instantiate a tree.
 
 #### Defined in
 
-[src/tree/avlTree.ts:63](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L63)
+[src/tree/avlTree.ts:63](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L63)
 
 ## Accessors
 
@@ -118,13 +118,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/tree/avlTree.ts:180](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L180)
+[src/tree/avlTree.ts:180](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L180)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 Receive an iterator through the list.
 
@@ -138,11 +138,11 @@ An iterator through the list
 
 #### Implementation of
 
-[SortedTree](../interfaces/sortedtree.md).[[Symbol.iterator]](../interfaces/sortedtree.md#[symbol.iterator])
+[SortedTree](../interfaces/sortedtree.md).[[iterator]](../interfaces/sortedtree.md#[iterator])
 
 #### Defined in
 
-[src/tree/avlTree.ts:196](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L196)
+[src/tree/avlTree.ts:196](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L196)
 
 ___
 
@@ -168,7 +168,7 @@ Inserts an element into the tree.
 
 #### Defined in
 
-[src/tree/avlTree.ts:88](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L88)
+[src/tree/avlTree.ts:88](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L88)
 
 ___
 
@@ -188,7 +188,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/tree/avlTree.ts:120](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L120)
+[src/tree/avlTree.ts:120](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L120)
 
 ___
 
@@ -206,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/tree/avlTree.ts:125](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L125)
+[src/tree/avlTree.ts:125](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L125)
 
 ___
 
@@ -232,7 +232,7 @@ Delete an element from the tree.
 
 #### Defined in
 
-[src/tree/avlTree.ts:129](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L129)
+[src/tree/avlTree.ts:129](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L129)
 
 ___
 
@@ -258,7 +258,7 @@ Check if an element is in the tree.
 
 #### Defined in
 
-[src/tree/avlTree.ts:140](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L140)
+[src/tree/avlTree.ts:140](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L140)
 
 ___
 
@@ -278,7 +278,7 @@ Get the maximum element.
 
 #### Defined in
 
-[src/tree/avlTree.ts:144](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L144)
+[src/tree/avlTree.ts:144](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L144)
 
 ___
 
@@ -298,7 +298,7 @@ Get the minimum element.
 
 #### Defined in
 
-[src/tree/avlTree.ts:148](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L148)
+[src/tree/avlTree.ts:148](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L148)
 
 ___
 
@@ -318,7 +318,7 @@ Remove the maximum element.
 
 #### Defined in
 
-[src/tree/avlTree.ts:152](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L152)
+[src/tree/avlTree.ts:152](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L152)
 
 ___
 
@@ -338,7 +338,7 @@ Remove the minimum element.
 
 #### Defined in
 
-[src/tree/avlTree.ts:166](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L166)
+[src/tree/avlTree.ts:166](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L166)
 
 ___
 
@@ -360,7 +360,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 #### Defined in
 
-[src/tree/avlTree.ts:184](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L184)
+[src/tree/avlTree.ts:184](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L184)
 
 ___
 
@@ -387,4 +387,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/tree/avlTree.ts:202](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/avlTree.ts#L202)
+[src/tree/avlTree.ts:202](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/avlTree.ts#L202)

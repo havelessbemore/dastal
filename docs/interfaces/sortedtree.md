@@ -31,7 +31,7 @@ Represents a sorted tree data structure.
 
 ### Methods
 
-- [[Symbol.iterator]](sortedtree.md#[symbol.iterator])
+- [[iterator]](sortedtree.md#[iterator])
 - [add](sortedtree.md#add)
 - [clear](sortedtree.md#clear)
 - [comparator](sortedtree.md#comparator)
@@ -58,13 +58,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/collection.ts#L5)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 #### Returns
 
@@ -72,7 +72,7 @@ The number of elements in the collection.
 
 #### Inherited from
 
-[Tree](tree.md).[[Symbol.iterator]](tree.md#[symbol.iterator])
+[Tree](tree.md).[[iterator]](tree.md#[iterator])
 
 #### Defined in
 
@@ -104,7 +104,7 @@ The tree object.
 
 #### Defined in
 
-[src/tree/tree.ts:38](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/tree.ts#L38)
+[src/tree/tree.ts:38](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/tree.ts#L38)
 
 ___
 
@@ -124,7 +124,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/tree/tree.ts:42](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/tree.ts#L42)
+[src/tree/tree.ts:42](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/tree.ts#L42)
 
 ___
 
@@ -144,7 +144,7 @@ The function with which elements are sorted
 
 #### Defined in
 
-[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/93b846d/src/index.ts#L61)
+[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/index.ts#L61)
 
 ___
 
@@ -172,7 +172,7 @@ Delete an element from the tree.
 
 #### Defined in
 
-[src/tree/tree.ts:50](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/tree.ts#L50)
+[src/tree/tree.ts:50](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/tree.ts#L50)
 
 ___
 
@@ -200,7 +200,7 @@ Check if an element is in the tree.
 
 #### Defined in
 
-[src/tree/tree.ts:58](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/tree.ts#L58)
+[src/tree/tree.ts:58](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/tree.ts#L58)
 
 ___
 
@@ -216,7 +216,7 @@ Get the maximum element.
 
 #### Defined in
 
-[src/tree/sortedTree.ts:11](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/sortedTree.ts#L11)
+[src/tree/sortedTree.ts:11](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/sortedTree.ts#L11)
 
 ___
 
@@ -232,7 +232,7 @@ Get the minimum element.
 
 #### Defined in
 
-[src/tree/sortedTree.ts:15](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/sortedTree.ts#L15)
+[src/tree/sortedTree.ts:15](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/sortedTree.ts#L15)
 
 ___
 
@@ -248,7 +248,7 @@ Remove the maximum element.
 
 #### Defined in
 
-[src/tree/sortedTree.ts:19](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/sortedTree.ts#L19)
+[src/tree/sortedTree.ts:19](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/sortedTree.ts#L19)
 
 ___
 
@@ -264,7 +264,7 @@ Remove the minimum element.
 
 #### Defined in
 
-[src/tree/sortedTree.ts:23](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/sortedTree.ts#L23)
+[src/tree/sortedTree.ts:23](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/sortedTree.ts#L23)
 
 ___
 
@@ -282,7 +282,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 #### Defined in
 
-[src/tree/sortedTree.ts:29](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/sortedTree.ts#L29)
+[src/tree/sortedTree.ts:29](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/sortedTree.ts#L29)
 
 ___
 
@@ -311,4 +311,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/tree/tree.ts:67](https://github.com/havelessbemore/dastal/blob/93b846d/src/tree/tree.ts#L67)
+[src/tree/tree.ts:67](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/tree/tree.ts#L67)

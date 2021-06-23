@@ -34,7 +34,7 @@
 
 ### Methods
 
-- [[Symbol.iterator]](collection.md#[symbol.iterator])
+- [[iterator]](collection.md#[iterator])
 
 ## Properties
 
@@ -46,13 +46,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/collection.ts#L5)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 #### Returns
 
@@ -60,7 +60,7 @@ The number of elements in the collection.
 
 #### Inherited from
 
-Iterable.\_\_@iterator
+Iterable.\_\_@iterator@11
 
 #### Defined in
 

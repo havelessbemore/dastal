@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/env/index.ts:4](https://github.com/havelessbemore/dastal/blob/93b846d/src/env/index.ts#L4)
+[src/env/index.ts:4](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/env/index.ts#L4)
 
 ## Functions
 
@@ -47,4 +47,4 @@ limit. The limit closely depends on available stack memory.
 
 #### Defined in
 
-[src/env/utils.ts:69](https://github.com/havelessbemore/dastal/blob/93b846d/src/env/utils.ts#L69)
+[src/env/utils.ts:69](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/env/utils.ts#L69)

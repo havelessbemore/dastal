@@ -26,7 +26,7 @@ A linked list implementation of the [Stack](../interfaces/stack.md) interface
 
 ### Methods
 
-- [[Symbol.iterator]](linkedstack.md#[symbol.iterator])
+- [[iterator]](linkedstack.md#[iterator])
 - [clear](linkedstack.md#clear)
 - [peek](linkedstack.md#peek)
 - [pop](linkedstack.md#pop)
@@ -54,7 +54,7 @@ Instantiate the stack.
 
 #### Defined in
 
-[src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L11)
+[src/stack/linkedStack.ts:11](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L11)
 
 ## Accessors
 
@@ -74,13 +74,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/stack/linkedStack.ts:40](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L40)
+[src/stack/linkedStack.ts:40](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L40)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 Receive an iterator through the stack.
 
@@ -94,11 +94,11 @@ An iterator through the stack
 
 #### Implementation of
 
-[Stack](../interfaces/stack.md).[[Symbol.iterator]](../interfaces/stack.md#[symbol.iterator])
+[Stack](../interfaces/stack.md).[[iterator]](../interfaces/stack.md#[iterator])
 
 #### Defined in
 
-[src/stack/linkedStack.ts:50](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L50)
+[src/stack/linkedStack.ts:50](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L50)
 
 ___
 
@@ -118,7 +118,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/stack/linkedStack.ts:24](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L24)
+[src/stack/linkedStack.ts:24](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L24)
 
 ___
 
@@ -138,7 +138,7 @@ Retrieves, but does not remove, the top of the stack
 
 #### Defined in
 
-[src/stack/linkedStack.ts:28](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L28)
+[src/stack/linkedStack.ts:28](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L28)
 
 ___
 
@@ -158,7 +158,7 @@ Retrieves and removes the top of the stack
 
 #### Defined in
 
-[src/stack/linkedStack.ts:32](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L32)
+[src/stack/linkedStack.ts:32](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L32)
 
 ___
 
@@ -184,4 +184,4 @@ Inserts an element into the stack
 
 #### Defined in
 
-[src/stack/linkedStack.ts:36](https://github.com/havelessbemore/dastal/blob/93b846d/src/stack/linkedStack.ts#L36)
+[src/stack/linkedStack.ts:36](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/stack/linkedStack.ts#L36)

@@ -26,7 +26,7 @@ A linked list implementation of the [Queue](../interfaces/queue.md) interface
 
 ### Methods
 
-- [[Symbol.iterator]](linkedqueue.md#[symbol.iterator])
+- [[iterator]](linkedqueue.md#[iterator])
 - [clear](linkedqueue.md#clear)
 - [dequeue](linkedqueue.md#dequeue)
 - [enqueue](linkedqueue.md#enqueue)
@@ -54,7 +54,7 @@ Instantiate the queue.
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L11)
+[src/queue/linkedQueue.ts:11](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L11)
 
 ## Accessors
 
@@ -74,13 +74,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L37)
+[src/queue/linkedQueue.ts:37](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L37)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 Receive an iterator through the queue.
 
@@ -94,11 +94,11 @@ An iterator through the queue
 
 #### Implementation of
 
-[Queue](../interfaces/queue.md).[[Symbol.iterator]](../interfaces/queue.md#[symbol.iterator])
+[Queue](../interfaces/queue.md).[[iterator]](../interfaces/queue.md#[iterator])
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L47)
+[src/queue/linkedQueue.ts:47](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L47)
 
 ___
 
@@ -118,7 +118,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L21)
+[src/queue/linkedQueue.ts:21](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L21)
 
 ___
 
@@ -138,7 +138,7 @@ Retrieves and removes the head of this queue
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L25)
+[src/queue/linkedQueue.ts:25](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L25)
 
 ___
 
@@ -164,7 +164,7 @@ Inserts the specified value into this queue
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L29)
+[src/queue/linkedQueue.ts:29](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L29)
 
 ___
 
@@ -184,4 +184,4 @@ Retrieves, but does not remove, the head of this queue
 
 #### Defined in
 
-[src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/linkedQueue.ts#L33)
+[src/queue/linkedQueue.ts:33](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/linkedQueue.ts#L33)

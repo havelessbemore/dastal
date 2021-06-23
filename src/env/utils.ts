@@ -126,7 +126,7 @@ export function getMaxArgumentsLength(accuracy = 0): number {
         a2 = test(b2);
     } while (a1 === a2 && --accuracy >= 0);
     if (a1 === a2) {
-        return 0;
+        return 8;
     }
     return Math.floor(((a1 + 2) * (a2 * b2 - a1 * b1)) / (a1 - a2) + a1 * b1 + 10);
 }

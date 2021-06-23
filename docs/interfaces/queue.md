@@ -38,7 +38,7 @@ Every implementation should specify its ordering properties. Otherwise, insertio
 
 ### Methods
 
-- [[Symbol.iterator]](queue.md#[symbol.iterator])
+- [[iterator]](queue.md#[iterator])
 - [clear](queue.md#clear)
 - [dequeue](queue.md#dequeue)
 - [enqueue](queue.md#enqueue)
@@ -58,13 +58,13 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/93b846d/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/collection/collection.ts#L5)
 
 ## Methods
 
-### [Symbol.iterator]
+### [iterator]
 
-▸ **[Symbol.iterator]**(): `Iterator`<T, any, undefined\>
+▸ **[iterator]**(): `Iterator`<T, any, undefined\>
 
 #### Returns
 
@@ -72,7 +72,7 @@ The number of elements in the collection.
 
 #### Inherited from
 
-[Collection](collection.md).[[Symbol.iterator]](collection.md#[symbol.iterator])
+[Collection](collection.md).[[iterator]](collection.md#[iterator])
 
 #### Defined in
 
@@ -92,7 +92,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L19)
+[src/queue/queue.ts:19](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/queue.ts#L19)
 
 ___
 
@@ -110,7 +110,7 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L25)
+[src/queue/queue.ts:25](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/queue.ts#L25)
 
 ___
 
@@ -134,7 +134,7 @@ The new size of the queue
 
 #### Defined in
 
-[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L33)
+[src/queue/queue.ts:33](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/queue.ts#L33)
 
 ___
 
@@ -152,4 +152,4 @@ The value at the head of the queue or `undefined` if this queue is empty.
 
 #### Defined in
 
-[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/93b846d/src/queue/queue.ts#L39)
+[src/queue/queue.ts:39](https://github.com/havelessbemore/dastal/blob/c3e4f71/src/queue/queue.ts#L39)
