@@ -29,7 +29,7 @@ A link to the node's neighbor.
 
 #### Defined in
 
-[src/list/linkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/list/linkedNode.ts#L10)
+[src/list/linkedNode.ts:10](https://github.com/havelessbemore/dastal/blob/389210e/src/list/linkedNode.ts#L10)
 
 ___
 
@@ -41,4 +41,4 @@ The value of the node.
 
 #### Defined in
 
-[src/list/linkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/list/linkedNode.ts#L14)
+[src/list/linkedNode.ts:14](https://github.com/havelessbemore/dastal/blob/389210e/src/list/linkedNode.ts#L14)

@@ -38,7 +38,7 @@ obj is T[]
 
 #### Defined in
 
-[src/utils/arrayUtils.ts:11](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/arrayUtils.ts#L11)
+[src/utils/arrayUtils.ts:11](https://github.com/havelessbemore/dastal/blob/389210e/src/utils/arrayUtils.ts#L11)
 
 ___
 
@@ -71,7 +71,7 @@ obj is T[]
 
 #### Defined in
 
-[src/utils/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/arrayUtils.ts#L24)
+[src/utils/arrayUtils.ts:24](https://github.com/havelessbemore/dastal/blob/389210e/src/utils/arrayUtils.ts#L24)
 
 ___
 
@@ -106,4 +106,4 @@ Contrary to Array.splice, this will not throw an error if too many new elements 
 
 #### Defined in
 
-[src/utils/arrayUtils.ts:42](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/utils/arrayUtils.ts#L42)
+[src/utils/arrayUtils.ts:42](https://github.com/havelessbemore/dastal/blob/389210e/src/utils/arrayUtils.ts#L42)

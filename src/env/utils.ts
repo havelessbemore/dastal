@@ -132,11 +132,6 @@ export function getMaxArgumentsLength(accuracy = 0): number {
 }
 /**
  * Get the maximum length of an array.
- *
- * At the time of implementation, the [ECMA-262](https://tc39.es/ecma262/#array-index)
- * defines the maximum as: `0 <= array.length <= 2**32 - 1`
- *
- * That said, the actual maximum may change over time and/or unique environments.
  */
 export function getMaxArrayLength(): number {
     return search(0, Number.MAX_SAFE_INTEGER, (i) => {

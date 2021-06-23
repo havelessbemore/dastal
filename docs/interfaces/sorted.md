@@ -38,4 +38,4 @@ The function with which elements are sorted
 
 #### Defined in
 
-[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/index.ts#L61)
+[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/389210e/src/index.ts#L61)

@@ -87,7 +87,7 @@ Instantiate a heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:47](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L47)
+[src/heap/skewHeap.ts:47](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L47)
 
 ## Accessors
 
@@ -107,7 +107,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:168](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L168)
+[src/heap/skewHeap.ts:168](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L168)
 
 ## Methods
 
@@ -131,7 +131,7 @@ An iterator through the list
 
 #### Defined in
 
-[src/heap/skewHeap.ts:194](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L194)
+[src/heap/skewHeap.ts:194](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L194)
 
 ___
 
@@ -159,7 +159,7 @@ The new size of the list.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:60](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L60)
+[src/heap/skewHeap.ts:60](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L60)
 
 ___
 
@@ -179,7 +179,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:75](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L75)
+[src/heap/skewHeap.ts:75](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L75)
 
 ___
 
@@ -199,7 +199,7 @@ The function with which elements are sorted
 
 #### Defined in
 
-[src/heap/skewHeap.ts:80](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L80)
+[src/heap/skewHeap.ts:80](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L80)
 
 ___
 
@@ -227,7 +227,7 @@ Check if an element is in the heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:84](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L84)
+[src/heap/skewHeap.ts:84](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L84)
 
 ___
 
@@ -255,7 +255,7 @@ Delete an element from the heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:93](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L93)
+[src/heap/skewHeap.ts:93](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L93)
 
 ___
 
@@ -284,7 +284,7 @@ The heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:118](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L118)
+[src/heap/skewHeap.ts:118](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L118)
 
 ___
 
@@ -306,7 +306,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:133](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L133)
+[src/heap/skewHeap.ts:133](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L133)
 
 ___
 
@@ -328,7 +328,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:137](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L137)
+[src/heap/skewHeap.ts:137](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L137)
 
 ___
 
@@ -356,7 +356,7 @@ The new size of the heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:147](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L147)
+[src/heap/skewHeap.ts:147](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L147)
 
 ___
 
@@ -384,7 +384,7 @@ The element at the top of the heap.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:152](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L152)
+[src/heap/skewHeap.ts:152](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L152)
 
 ___
 
@@ -412,7 +412,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:157](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L157)
+[src/heap/skewHeap.ts:157](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L157)
 
 ___
 
@@ -434,7 +434,7 @@ Iterate through the heap in sorted order.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:172](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L172)
+[src/heap/skewHeap.ts:172](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L172)
 
 ___
 
@@ -463,4 +463,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/heap/skewHeap.ts:200](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/heap/skewHeap.ts#L200)
+[src/heap/skewHeap.ts:200](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/skewHeap.ts#L200)

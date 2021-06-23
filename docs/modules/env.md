@@ -18,9 +18,17 @@
 
 • `Const` **MAX\_ARRAY\_LENGTH**: `number`
 
+The maximum length of an array.
+
+At the time of implementation, the [ECMA-262](https://tc39.es/ecma262/#array-index)
+defines the maximum as: `0 <= array.length <= 2**32 - 1`
+
+The actual maximum may change over time and/or unique environments.
+For that reason, the value is calculated on first import.
+
 #### Defined in
 
-[src/env/index.ts:4](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/env/index.ts#L4)
+[src/env/index.ts:13](https://github.com/havelessbemore/dastal/blob/389210e/src/env/index.ts#L13)
 
 ## Functions
 
@@ -78,4 +86,4 @@ profiled to come up with a more exact estimate.
 
 #### Defined in
 
-[src/env/utils.ts:69](https://github.com/havelessbemore/dastal/blob/eccb3d4/src/env/utils.ts#L69)
+[src/env/utils.ts:69](https://github.com/havelessbemore/dastal/blob/389210e/src/env/utils.ts#L69)
