@@ -17,10 +17,14 @@ npm install dastal
 See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/dastal/wiki)  for details. At a glance:
 
 ### Interfaces
+- [Collection](docs/interfaces/collection.md)
 - [Heap](docs/interfaces/heap.md)
 - [List](docs/interfaces/list.md)
 - [Queue](docs/interfaces/queue.md)
 - [SegmentTree](docs/interfaces/segmenttree.md)
+- [Sortable](docs/interfacts/sortable.md)
+- [Sorted](docs/interfacts/sorted.md)
+- [SortedTree](docs/interfacts/sortedtree.md)
 - [Stack](docs/interfaces/stack.md)
 - [Tree](docs/interfaces/tree.md)
 
@@ -40,11 +44,12 @@ See [docs/](./docs/README.md) or the [wiki](https://github.com/havelessbemore/da
 - [SkewHeap](docs/classes/skewheap.md)
 
 ### Utilities
+- [env](docs/modules/env.md)
+- [u32](docs/modules/u32.md)
 - [ArrayUtils](docs/modules/arrayutils.md)
 - [IteratorUtils](docs/modules/iteratorutils.md)
 - [NumberUtils](docs/modules/numberutils.md)
 - [StringUtils](docs/modules/stringutils.md)
-- [u32](docs/modules/u32.md)
 
 ## Contribute
 
