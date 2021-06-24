@@ -12,8 +12,8 @@ describe('ArrayList unit tests', function () {
     let empty: ArrayList<number>;
     let filled: ArrayList<number>;
     const compareFn: CompareFn<number> = (a, b) => a - b;
-    const values = new Uint32Array(36);
-    const updatedValues = new Uint32Array(36);
+    const values = new Uint32Array(25);
+    const updatedValues = new Uint32Array(25);
 
     // eslint-disable-next-line
     randomFill(values, (_) => {});

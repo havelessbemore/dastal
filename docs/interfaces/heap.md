@@ -102,7 +102,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/389210e/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -144,7 +144,7 @@ The new size of the list.
 
 #### Defined in
 
-[src/heap/heap.ts:57](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L57)
+[src/heap/heap.ts:57](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L57)
 
 ___
 
@@ -160,7 +160,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/heap/heap.ts:61](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L61)
+[src/heap/heap.ts:61](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L61)
 
 ___
 
@@ -180,7 +180,7 @@ The function with which elements are sorted
 
 #### Defined in
 
-[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/389210e/src/index.ts#L61)
+[src/index.ts:61](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/index.ts#L61)
 
 ___
 
@@ -204,7 +204,7 @@ Check if an element is in the heap.
 
 #### Defined in
 
-[src/heap/heap.ts:69](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L69)
+[src/heap/heap.ts:69](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L69)
 
 ___
 
@@ -228,7 +228,7 @@ Delete an element from the heap.
 
 #### Defined in
 
-[src/heap/heap.ts:77](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L77)
+[src/heap/heap.ts:77](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L77)
 
 ___
 
@@ -253,7 +253,7 @@ The heap.
 
 #### Defined in
 
-[src/heap/heap.ts:86](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L86)
+[src/heap/heap.ts:86](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L86)
 
 ___
 
@@ -271,7 +271,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/heap.ts:92](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L92)
+[src/heap/heap.ts:92](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L92)
 
 ___
 
@@ -289,7 +289,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/heap.ts:98](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L98)
+[src/heap/heap.ts:98](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L98)
 
 ___
 
@@ -313,7 +313,7 @@ The new size of the heap.
 
 #### Defined in
 
-[src/heap/heap.ts:106](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L106)
+[src/heap/heap.ts:106](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L106)
 
 ___
 
@@ -337,7 +337,7 @@ The element at the top of the heap.
 
 #### Defined in
 
-[src/heap/heap.ts:114](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L114)
+[src/heap/heap.ts:114](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L114)
 
 ___
 
@@ -361,7 +361,7 @@ The element at the top of the heap or `undefined` if empty.
 
 #### Defined in
 
-[src/heap/heap.ts:122](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L122)
+[src/heap/heap.ts:122](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L122)
 
 ___
 
@@ -379,7 +379,7 @@ Iterate through the heap in sorted order.
 
 #### Defined in
 
-[src/heap/heap.ts:128](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L128)
+[src/heap/heap.ts:128](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L128)
 
 ___
 
@@ -404,4 +404,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/heap/heap.ts:137](https://github.com/havelessbemore/dastal/blob/389210e/src/heap/heap.ts#L137)
+[src/heap/heap.ts:137](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/heap/heap.ts#L137)

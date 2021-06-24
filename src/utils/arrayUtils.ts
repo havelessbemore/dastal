@@ -1,4 +1,4 @@
-import { getMaxArgumentsLength } from 'src/env';
+import { maxArgumentsLength } from 'src/env';
 import { clamp, wrapLeft } from 'src/math/numberUtils';
 
 /**
@@ -49,7 +49,8 @@ export function splice<T>(array: T[], start?: number, count?: number, elements?:
     }
 
     // Perform the initial splice.
-    const numArgs = Math.floor(0.8 * getMaxArgumentsLength(0) - 2);
+    const numArgs = Math.floor(0.625 * maxArgumentsLength() - 2);
+
     let args = elements.slice(0, numArgs);
     const out = array.splice.bind(array, start, count).apply(array, args);
 

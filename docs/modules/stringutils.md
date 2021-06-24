@@ -30,4 +30,4 @@ Pad a string from both sides.
 
 #### Defined in
 
-[src/utils/stringUtils.ts:4](https://github.com/havelessbemore/dastal/blob/389210e/src/utils/stringUtils.ts#L4)
+[src/utils/stringUtils.ts:4](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/utils/stringUtils.ts#L4)
