@@ -22,39 +22,84 @@
  * 1. All leaf nodes have even indices
  * 2. All interior nodes have odd indices
  *
- * # Push()
- *
  * Getting more specific, the internal array does not hold one
  * binary tree, but rather a set of perfect binary trees. Until
  * stated otherwise, all mentions of "tree" or "subtree" henceforth
- * is shorthand for "perfect binary tree". A perfect binary tree is
- * a binary tree in which all interior nodes have two children and
+ * is shorthand for "perfect binary tree" (since the subtree
+ * of a perfect binary tree is also a perfect binary tree). A perfect binary
+ * tree is a binary tree in which all interior nodes have two children and
  * all leaves have the same depth ([source](https://en.wikipedia.org/wiki/Binary_tree)).
  *
- * As elements are inserted, an internal node is inserted before it and
+ * # Push()
+ *
+ * As elements are inserted, an internal node is inserted with it and
  * trees are joined when doing so can create a larger tree.
+ *
  * For example, let's say our data structure has 3 elements. Internally,
  * this would be two trees: The first with root at index 1 and the
- * second with root at index 4. The node at index 3 is considered not
- * associated with any tree.
+ * second with root at index 4. The node at index 3 is not associated
+ * with any tree for now.
  *
  *               +
  *    /''+''\    |
  *   0   1   2   3   4
  *
- * If another element is added, we can join the trees into one with
- * its root at index 3:
+ * Let's say a new element is inserted. We now have 3 trees
+ * with root indices 1, 4 and 6.
+ *
+ *               +
+ *    /''+''\    |       +
+ *   0   1   2   3   4   5   6
+ *
+ * The trees with root indices 4 and 6 can be combined to form a
+ * larger tree with root index 5. The value of the new root
+ * becomes the aggregated value of its left and right children (
+ * e.g. the two previous roots).
+ *
+ *               +
+ *    /''+''\    |    /''+''\
+ *   0   1   2   3   4   5   6
+ *
+ * Now both trees (root indices 1 and 5) can be combined to form a
+ * larger tree with root index 3.
  *
  *        /''''''+''''''\
  *    /''+''\    |    /''+''\
  *   0   1   2   3   4   5   6
  *
+ * We can see that the process of joining trees occurs iteratively
+ * from right to left, starting at the newly inserted element,
+ * until trees cannot be combined with its left-hand neighbor.
+ * For example, when the element at index 12 (below) was inserted,
+ * it could be combined with its left-hand neighbor, so we are left
+ * with 3 trees (root indices 3, 9 and 12).
+ *
+ *                               +
+ *        /''''''+''''''\        |               +
+ *    /''+''\    |    /''+''\    |    /''+''\    |
+ *   0   1   2   3   4   5   6   7   8   9  10  11  12
+ *
+ * If another element is added, there would briefly be 4 trees, which
+ * would be combined from right to left until there is only one tree
+ * with root index 7.
+ *
+ *                /''''''''''''''+''''''''''''''\
+ *        /''''''+''''''\        |        /''''''+''''''\
+ *    /''+''\    |    /''+''\    |    /''+''\    |    /''+''\
+ *   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14
+ *
+ * So we can observe that trees on the left are larger than trees on
+ * the right in strictly descending order. There is only
+ * one tree with a given size / height at a time, and trees are joined
+ * if they are the same size / height.
+ *
  * # Pop()
  *
  * If an element is removed, the internal node inserted with it is also
- * removed. In our example, the data structure returns to having two trees.
- * The node at index 3 is once again considered not associated with
- * any tree.
+ * removed. In our example with 4 elements, the data structure
+ * returns to having two trees. The node at index 3 is once again
+ * considered not associated with any tree. Since relationships
+ * between nodes are implied by their index,no further work is needed.
  *
  *               +
  *    /''+''\    |
@@ -131,6 +176,9 @@
  *    - From 11, its root is N_i = min - 1 + ((N_s + 1) / 2)
  *        = min - 1 + (lsp(min | msp(max - min)) - 1 + 1) / 2
  *        = min - 1 + lsp(min | msp(max - min))/2
+ *
+ * # Update()
+ * TBD
  *
  * @module
  */
