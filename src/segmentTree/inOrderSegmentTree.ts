@@ -56,6 +56,7 @@
  * The node at index 3 is once again considered not associated with
  * any tree.
  *
+ *               +
  *    /''+''\    |
  *   0   1   2   3   4
  *
@@ -75,7 +76,7 @@
  * 10. The leftmost leaf of the tree's next neighbor is: R_i + 2 = L_i + N_s + 1
  *
  * From a leaf's perspective, we can observe that for any leaf node L at index L_i:
- * 11. The largest tree with root N of which it is the leftmost leaf is: L_i - 1 + (lsp(L_i) >>> 1)
+ * 11. The largest tree with root N of which it is the leftmost leaf is: L_i - 1 + lsp(L_i)/2
  * 12. The rightmost leaf R of N is: L_i + lsp(L_i) - 2
  * 13. The size of N's subtree N_s is: R_i - L_i + 1 = L_i + lsp(L_i) - 2 - L_i + 1 = lsp(L_i) - 1
  * 14. The leftmost leaf of the tree's next neighbor is: R_i + 2 = L_i + lsp(L_i) + 1

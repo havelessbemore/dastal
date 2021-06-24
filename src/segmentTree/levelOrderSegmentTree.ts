@@ -1,6 +1,29 @@
 /**
- *  Thanks to [Douglas Wilhelm Harder](https://ece.uwaterloo.ca/~dwharder/aads/Algorithms/Array_resizing/)
- *  for their analysis on array resizing
+ * A LevelOrderSegmentTree is a SegmentTree that's internally represented as a binary
+ * tree within an array, with nodes stored in level-order traversal:
+ *
+ *                                                   3
+ *                         2                 2``````````````2
+ *           1         1```````1         1```````1       1```````1                    /\
+ *          / \       / \     / \       / \     / \     / \     / \           /\              /\              /\
+ * [ 3,    2,  2,    1,  1,  1,  1,    0,  0,  0,  0,  0,  0,  0,  0 ]    /\      /\      /\      /\      /\      /\      /\      /
+ *   1     2   3     4   5   6   7     8   9  10  11  12  13  14  15    16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31    32  33
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *   0     0   1     0   1   2   3     0   1   2   3   4   5   6   7     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15     0   1
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *   0     1   2     3   4   5   6     7   8   9  10  11  12  13  14    15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30    31  32
+ * ---------------------------------------------------------------------------------------------------------------------------------------------
+ *   0     1   0     1   0   1   0     1   0   1   0   1   0   1   0     1   0   1   0   1   0   1   0   1   0   1   0   1   0   1   0     1   0
+ *   0     0   1     1   0   0   1     1   0   0   1   1   0   0   1     1   0   0   1   1   0   0   1   1   0   0   1   1   0   0   1     1   0
+ *   0     0   0     0   1   1   1     1   0   0   0   0   1   1   1     1   0   0   0   0   1   1   1   1   0   0   0   0   1   1   1     1   0
+ *   0     0   0     0   0   0   0     0   1   1   1   1   1   1   1     1   0   0   0   0   0   0   0   0   1   1   1   1   1   1   1     1   0
+ *   0     0   0     0   0   0   0     0   0   0   0   0   0   0   0     0   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1     1   0
+ *   0     0   0     0   0   0   0     0   0   0   0   0   0   0   0     0   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0     0   1
+ *
+ *  Special thanks to [Douglas Wilhelm Harder](https://ece.uwaterloo.ca/~dwharder/aads/Algorithms/Array_resizing/)
+ *  for their analysis on array resizing.
+ *
+ * @module
  */
 import { isArray } from 'src/utils/arrayUtils';
 import { isCollection } from 'src/collection';
@@ -11,7 +34,8 @@ import { SegmentTree } from './segmentTree';
 import { MAX_ARRAY_LENGTH } from 'src/env';
 
 /**
- * A {@link SegmentTree} with entries stored in level-order traversal.
+ * A {@link SegmentTree} internally represented as a binary
+ * tree within an array, with nodes stored in level-order traversal.
  *
  * Memory usage: n elements require n - 1 + 2**(⌊log<sub>2</sub>(n-1)⌋ + 1) space.
  *
