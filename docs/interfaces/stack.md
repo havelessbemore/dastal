@@ -56,7 +56,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/collection/collection.ts#L5)
+[src/collection/collection.ts:5](https://github.com/havelessbemore/dastal/blob/7d85137/src/collection/collection.ts#L5)
 
 ## Methods
 
@@ -90,7 +90,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/stack/stack.ts:17](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/stack/stack.ts#L17)
+[src/stack/stack.ts:17](https://github.com/havelessbemore/dastal/blob/7d85137/src/stack/stack.ts#L17)
 
 ___
 
@@ -108,7 +108,7 @@ The element at the top of the stack or `undefined` if empty.
 
 #### Defined in
 
-[src/stack/stack.ts:23](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/stack/stack.ts#L23)
+[src/stack/stack.ts:23](https://github.com/havelessbemore/dastal/blob/7d85137/src/stack/stack.ts#L23)
 
 ___
 
@@ -126,7 +126,7 @@ The element at the top of the stack or `undefined` if empty.
 
 #### Defined in
 
-[src/stack/stack.ts:29](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/stack/stack.ts#L29)
+[src/stack/stack.ts:29](https://github.com/havelessbemore/dastal/blob/7d85137/src/stack/stack.ts#L29)
 
 ___
 
@@ -150,4 +150,4 @@ The new size of the stack
 
 #### Defined in
 
-[src/stack/stack.ts:37](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/stack/stack.ts#L37)
+[src/stack/stack.ts:37](https://github.com/havelessbemore/dastal/blob/7d85137/src/stack/stack.ts#L37)

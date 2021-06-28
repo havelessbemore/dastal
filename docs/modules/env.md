@@ -28,7 +28,7 @@ For that reason, the value is calculated on first import.
 
 #### Defined in
 
-[src/env/index.ts:41](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/env/index.ts#L41)
+[src/env/index.ts:41](https://github.com/havelessbemore/dastal/blob/7d85137/src/env/index.ts#L41)
 
 ## Functions
 
@@ -61,4 +61,4 @@ For example: `0.625*output`.
 
 #### Defined in
 
-[src/env/index.ts:30](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/env/index.ts#L30)
+[src/env/index.ts:30](https://github.com/havelessbemore/dastal/blob/7d85137/src/env/index.ts#L30)

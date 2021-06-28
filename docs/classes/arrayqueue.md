@@ -54,7 +54,7 @@ Instantiate the queue.
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L10)
+[src/queue/arrayQueue.ts:10](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L10)
 
 ## Accessors
 
@@ -74,7 +74,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:36](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L36)
+[src/queue/arrayQueue.ts:36](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L36)
 
 ## Methods
 
@@ -98,7 +98,7 @@ An iterator through the queue
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:46](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L46)
+[src/queue/arrayQueue.ts:46](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L46)
 
 ___
 
@@ -118,7 +118,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:20](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L20)
+[src/queue/arrayQueue.ts:20](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L20)
 
 ___
 
@@ -138,7 +138,7 @@ Retrieves and removes the head of this queue
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:24](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L24)
+[src/queue/arrayQueue.ts:24](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L24)
 
 ___
 
@@ -164,7 +164,7 @@ Inserts the specified value into this queue
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:28](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L28)
+[src/queue/arrayQueue.ts:28](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L28)
 
 ___
 
@@ -184,4 +184,4 @@ Retrieves, but does not remove, the head of this queue
 
 #### Defined in
 
-[src/queue/arrayQueue.ts:32](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/queue/arrayQueue.ts#L32)
+[src/queue/arrayQueue.ts:32](https://github.com/havelessbemore/dastal/blob/7d85137/src/queue/arrayQueue.ts#L32)

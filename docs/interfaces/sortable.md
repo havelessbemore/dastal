@@ -44,4 +44,4 @@ The object this method was called on
 
 #### Defined in
 
-[src/index.ts:52](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/index.ts#L52)
+[src/index.ts:52](https://github.com/havelessbemore/dastal/blob/7d85137/src/index.ts#L52)
