@@ -12,13 +12,13 @@ represent the elements of the segment tree.
 
 ### Time
 
-| Operation | | Best | Worst | Amortized |
+| Operation | |  Best | Worst | Amortized |
 |---|---|---|---|---|
 | build | 2n | | | |
 | Pop() | 2 |
-| Push() | lsb(n + 1) + 1 | 1 | log<sub>2</sub>(n) | 2 |
+| Push() | lsb(n + 1) | 1 | log<sub>2</sub>(n) | 2 |
 | Query() | log<sub>2</sub>(n) | 1 | log<sub>2</sub>(n) + 1 | log<sub>2</sub>(n) - 1 |
-| Update() | TBD | 2k - 1 | log<sub>2</sub>(n) + 2k - 2 | |
+| Update() | log<sub>2</sub>(n/k) + 2k - 2 | 2k - 1 | log<sub>2</sub>(n) + 2k - 2 | |
 
 ## Illustration
 
