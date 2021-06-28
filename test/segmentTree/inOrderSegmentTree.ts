@@ -19,21 +19,15 @@ describe('InOrderSegmentTree unit tests', function () {
             let max = 0;
             let min = 0;
             let sum = 0;
+            do {
+                sum += vals[max++];
+            } while (max < size);
+            expect(tree.query(min, max)).to.equal(sum);
 
-            try {
-                do {
-                    sum += vals[max++];
-                } while (max < size);
+            while (max < tree.size) {
+                sum -= vals[min++];
+                sum += vals[max++];
                 expect(tree.query(min, max)).to.equal(sum);
-
-                while (max < tree.size) {
-                    sum -= vals[min++];
-                    sum += vals[max++];
-                    expect(tree.query(min, max)).to.equal(sum);
-                }
-            } catch (error) {
-                // console.error(`...`);
-                throw error;
             }
         }
     }

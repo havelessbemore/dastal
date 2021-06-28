@@ -75,7 +75,7 @@ Instantiate a tree.
 
 #### Defined in
 
-[src/tree/aaTree.ts:56](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L56)
+[src/tree/aaTree.ts:56](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L56)
 
 • **new AATree**<T\>(`compareFn`, `allowDuplicates`, `elements?`)
 
@@ -97,7 +97,7 @@ Instantiate a tree.
 
 #### Defined in
 
-[src/tree/aaTree.ts:63](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L63)
+[src/tree/aaTree.ts:63](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L63)
 
 ## Accessors
 
@@ -117,7 +117,7 @@ The number of elements in the collection.
 
 #### Defined in
 
-[src/tree/aaTree.ts:183](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L183)
+[src/tree/aaTree.ts:183](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L183)
 
 ## Methods
 
@@ -141,7 +141,7 @@ An iterator through the list
 
 #### Defined in
 
-[src/tree/aaTree.ts:199](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L199)
+[src/tree/aaTree.ts:199](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L199)
 
 ___
 
@@ -167,7 +167,7 @@ Inserts an element into the tree.
 
 #### Defined in
 
-[src/tree/aaTree.ts:87](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L87)
+[src/tree/aaTree.ts:87](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L87)
 
 ___
 
@@ -187,7 +187,7 @@ Removes all elements.
 
 #### Defined in
 
-[src/tree/aaTree.ts:117](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L117)
+[src/tree/aaTree.ts:117](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L117)
 
 ___
 
@@ -205,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/tree/aaTree.ts:122](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L122)
+[src/tree/aaTree.ts:122](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L122)
 
 ___
 
@@ -231,7 +231,7 @@ Delete an element from the tree.
 
 #### Defined in
 
-[src/tree/aaTree.ts:126](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L126)
+[src/tree/aaTree.ts:126](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L126)
 
 ___
 
@@ -257,7 +257,7 @@ Check if an element is in the tree.
 
 #### Defined in
 
-[src/tree/aaTree.ts:139](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L139)
+[src/tree/aaTree.ts:139](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L139)
 
 ___
 
@@ -277,7 +277,7 @@ Get the maximum element.
 
 #### Defined in
 
-[src/tree/aaTree.ts:143](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L143)
+[src/tree/aaTree.ts:143](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L143)
 
 ___
 
@@ -297,7 +297,7 @@ Get the minimum element.
 
 #### Defined in
 
-[src/tree/aaTree.ts:147](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L147)
+[src/tree/aaTree.ts:147](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L147)
 
 ___
 
@@ -317,7 +317,7 @@ Remove the maximum element.
 
 #### Defined in
 
-[src/tree/aaTree.ts:151](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L151)
+[src/tree/aaTree.ts:151](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L151)
 
 ___
 
@@ -337,7 +337,7 @@ Remove the minimum element.
 
 #### Defined in
 
-[src/tree/aaTree.ts:167](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L167)
+[src/tree/aaTree.ts:167](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L167)
 
 ___
 
@@ -359,7 +359,7 @@ Iterate through the tree in sorted order (i.e in-order traversal).
 
 #### Defined in
 
-[src/tree/aaTree.ts:187](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L187)
+[src/tree/aaTree.ts:187](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L187)
 
 ___
 
@@ -386,4 +386,4 @@ Update a specific element.
 
 #### Defined in
 
-[src/tree/aaTree.ts:205](https://github.com/havelessbemore/dastal/blob/02d2e5c/src/tree/aaTree.ts#L205)
+[src/tree/aaTree.ts:205](https://github.com/havelessbemore/dastal/blob/cd6a1d0/src/tree/aaTree.ts#L205)
