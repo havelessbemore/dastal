@@ -17,8 +17,8 @@ represent the elements of the segment tree.
 | build | 2n | | | |
 | Pop() | 2 |
 | Push() | lsb(n + 1) | 1 | log<sub>2</sub>(n) | 2 |
-| Query() | log<sub>2</sub>(n) | 1 | log<sub>2</sub>(n) + 1 | log<sub>2</sub>(n) - 1 |
-| Update() | log<sub>2</sub>(n/k) + 2k - 2 | 2k - 1 | log<sub>2</sub>(n) + 2k - 2 | |
+| Query() | log<sub>2</sub>(k) | 1 | log<sub>2</sub>(k) | log<sub>2</sub>(k) |
+| Update() | log<sub>2</sub>(n/k) + 2k | 2k | log<sub>2</sub>(n) + 2k | |
 
 ## Illustration
 
